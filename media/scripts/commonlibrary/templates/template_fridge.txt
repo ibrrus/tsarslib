@@ -1,0 +1,166 @@
+module Base
+{
+	item TransportFridge
+    {
+        Weight	=	20.0,
+        Type	=	Normal,
+        DisplayName	= Compact Fridge,
+		Tooltip = Tooltip_Compact_Fridge,
+        Icon	=	media/ui/Container_Fridge,
+        MaxCapacity = 10,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+    }
+	
+	item MovWhiteFridge
+	{
+		Type			= Moveable,
+		Icon			= default,
+		Weight          	= 40,
+		DisplayName		= Moveable,
+		WorldObjectSprite	= appliances_refrigeration_01_0,
+	}
+	
+	item MovBlueFridge
+	{
+		Type			= Moveable,
+		Icon			= default,
+		Weight          	= 40,
+		DisplayName		= Moveable,
+		WorldObjectSprite	= appliances_refrigeration_01_4,
+	}
+	
+	item MovSteelFridge
+	{
+		Type			= Moveable,
+		Icon			= default,
+		Weight          	= 40,
+		DisplayName		= Moveable,
+		WorldObjectSprite	= appliances_refrigeration_01_8,
+	}
+	
+	item MovGreenFridge
+	{
+		Type			= Moveable,
+		Icon			= default,
+		Weight          	= 40,
+		DisplayName		= Moveable,
+		WorldObjectSprite	= appliances_refrigeration_01_12,
+	}
+	
+	item MovPlainFridge
+	{
+		Type			= Moveable,
+		Icon			= default,
+		Weight          	= 40,
+		DisplayName		= Moveable,
+		WorldObjectSprite	= appliances_refrigeration_01_28,
+	}
+	
+	item MovRedFridge
+	{
+		Type			= Moveable,
+		Icon			= default,
+		Weight          	= 40,
+		DisplayName		= Moveable,
+		WorldObjectSprite	= appliances_refrigeration_01_32,
+	}
+	
+	recipe Make a compact fridge
+    {
+        MovWhiteFridge/MovBlueFridge/MovSteelFridge/MovGreenFridge/MovPlainFridge/MovRedFridge,
+		BlowTorch=5,
+		WeldingRods=5,
+        keep WeldingMask,
+		keep Hammer,
+		keep Saw,
+		
+		Result:TransportFridge,
+		Time:1000.0,
+		Sound:BlowTorch,
+		Category:Welding,
+		SkillRequired:MetalWelding=3;Electricity=2,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+		OnGiveXP:Recipe.OnGiveXP.DismantleElectronics,
+    }
+	
+	template vehicle Fridges
+	{
+		part FridgeFrontLeft
+		{
+			area = Common,
+		}
+		part FridgeFrontRight
+		{
+			area = Common,
+		}
+		part FridgeMiddleLeft
+		{
+			area = Common,
+		}
+		part FridgeMiddleRight
+		{
+			area = Common,
+		}
+		part FridgeRearLeft
+		{
+			area = Common,
+		}
+		part FridgeRearRight
+		{
+			area = Common,
+		}
+		part Fridge*
+		{
+			specificItem = false,
+			itemType = Base.TransportFridge,
+			container
+			{
+				capacity = 20,
+				test = CommonTemplates.ContainerAccess.ContainerByName,
+			}
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 300,
+				skills = Mechanics:1,
+				recipes = Basic Mechanics,
+				test = Vehicles.InstallTest.Default,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 300,
+				skills = Mechanics:1,
+				recipes = Basic Mechanics,
+				requireEmpty = true,
+				test = Vehicles.UninstallTest.Default,
+			}
+			lua
+			{
+				create = CommonTemplates.Create.Fridge,
+				init = CommonTemplates.Init.Fridge,
+				update = CommonTemplates.Update.Fridge,
+			}
+		}
+	}
+}
+

@@ -1,0 +1,22 @@
+module Base
+{
+	template vehicle GunRack
+	{
+		part GunRack
+		{
+			area = SeatFrontRight,
+			itemType = GunRack,
+		    specificItem = false,
+			container
+			{
+				capacity = 20,
+				test = Vehicles.ContainerAccess.GloveBox,
+			}
+			lua
+			{
+				create = Vehicles.Create.Default,
+			}
+		}
+	}
+}
+

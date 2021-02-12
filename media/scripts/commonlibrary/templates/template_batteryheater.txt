@@ -1,0 +1,15 @@
+module Base
+{
+	template vehicle BatteryHeater
+	{
+		part Heater
+		{
+			category = engine,
+			lua
+			{
+				create = CommonTemplates.Create.BatteryHeater,
+				update = CommonTemplates.Update.BatteryHeater,
+			}
+		}
+	}
+}

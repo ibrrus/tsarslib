@@ -1,0 +1,4 @@
+ContextMenu_EN = {
+	ContextMenu_AirCondOn = "Heater control",
+	ContextMenu_AirCondOff = "Heater control",
+}

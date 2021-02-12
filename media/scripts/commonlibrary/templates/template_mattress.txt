@@ -1,0 +1,51 @@
+module Base
+{
+    template vehicle Mattress
+    {
+		part Mattress
+		{
+		    area = TruckBed,
+		    itemType = Base.Mattress,
+		    specificItem = false,
+		    table install
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+                }
+                time = 100,
+                professions = ,
+                skills = ,
+                traits = ,
+                recipes = ,
+                test = Vehicles.InstallTest.Default,
+            }
+            table uninstall
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+                }
+                time = 100,
+                test = Vehicles.UninstallTest.Default,
+            }
+			lua
+			{
+				create = Vehicles.Create.Default,
+			}
+		}
+	}
+}
+

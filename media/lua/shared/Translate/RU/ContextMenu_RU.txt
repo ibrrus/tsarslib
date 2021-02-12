@@ -1,0 +1,4 @@
+ContextMenu_RU = {
+	ContextMenu_AirCondOff = "Выключить кондиционер",
+	ContextMenu_AirCondOn = "Включить кондиционер",
+}

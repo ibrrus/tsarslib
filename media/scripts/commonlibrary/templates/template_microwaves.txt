@@ -1,0 +1,129 @@
+module Base
+{
+	item TransportMicrowave
+    {
+        Weight	=	5.0,
+        Type	=	Normal,
+        DisplayName	= Compact Microwave,
+		Tooltip = Tooltip_Compact_Microwave,
+        Icon	=	media/ui/Container_Microwave,
+        MaxCapacity = 10,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+    }
+	
+	item MovWhiteMicrowave
+	{
+		Type			= Moveable,
+		Icon			= default,
+		DisplayName		= Moveable,
+		WorldObjectSprite	= appliances_cooking_01_25,
+		MaxCapacity = 10,
+		ConditionMax = 100,
+		MechanicsItem = TRUE,
+	}
+	
+	item MovChromeMicrowave
+	{
+		Type			= Moveable,
+		Icon			= default,
+		DisplayName		= Moveable,
+		WorldObjectSprite	= appliances_cooking_01_28,
+		MaxCapacity = 10,
+		ConditionMax = 100,
+		MechanicsItem = TRUE,
+	}
+	
+	recipe Make a compact microwave
+    {
+        MovWhiteMicrowave/MovChromeMicrowave,
+        keep Screwdriver,
+		Result:TransportMicrowave,
+		Time:500.0,
+		Category:Electrical,
+		SkillRequired:Electricity=2,
+		OnGiveXP:Recipe.OnGiveXP.DismantleElectronics,
+    }
+	
+	template vehicle Microwaves
+	{
+		part MicrowaveFrontLeft
+		{
+			area = Common,
+		}
+		part MicrowaveFrontRight
+		{
+			area = Common,
+		}
+		part MicrowaveMiddleLeft
+		{
+			area = Common,
+		}
+		part MicrowaveMiddleRight
+		{
+			area = Common,
+		}
+		part MicrowaveRearLeft
+		{
+			area = Common,
+		}
+		part MicrowaveRearRight
+		{
+			area = Common,
+		}
+		
+		part Microwave*
+		{
+			specificItem = false,
+			itemType = Base.TransportMicrowave,
+			category = nodisplay,
+			container
+			{
+				capacity = 10,
+				test = CommonTemplates.ContainerAccess.ContainerByName,
+			}
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 300,
+				skills = Mechanics:1,
+				recipes =,
+				test = Vehicles.InstallTest.Default,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+					type = Base.Screwdriver,
+					count = 1,
+					keep = true,
+					equip = primary,
+					}
+				}
+				time = 300,
+				skills = Mechanics:1,
+				recipes =,
+				test = Vehicles.UninstallTest.Default,
+				requireEmpty = true,
+			}
+			lua
+			{
+				create = CommonTemplates.Create.Microwave,
+				init = CommonTemplates.Init.Oven,
+				update = CommonTemplates.Update.Microwave,
+			}
+		}
+	}
+}
+

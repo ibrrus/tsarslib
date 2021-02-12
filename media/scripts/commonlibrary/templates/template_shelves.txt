@@ -1,0 +1,92 @@
+module Base
+{
+	item TransportShelve
+    {
+        Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	Counter,
+        Icon	=	media/ui/Container_Cabinet,
+        MaxCapacity = 15,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+    }
+
+	template vehicle Shelves
+	{
+		part ShelveFrontLeft
+		{
+			area = SeatFrontLeft,
+		}
+		part ShelveFrontRight
+		{
+			area = SeatFrontRight,
+		}
+		part ShelveMiddleLeft
+		{
+			area = SeatMiddleLeft,
+		}
+		part ShelveMiddleRight
+		{
+			area = SeatMiddleRight,
+		}
+		part ShelveRearLeft
+		{
+			area = SeatRearLeft,
+		}
+		part ShelveRearRight
+		{
+			area = SeatRearRight,
+		}
+		
+		part Shelve*
+		{
+			category = nodisplay,
+			specificItem = false,
+			itemType = Base.TransportShelve,
+			container
+			{
+				capacity = 20,
+				test = CommonTemplates.ContainerAccess.ContainerByName,
+			}
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 300,
+				skills = Mechanics:1,
+				recipes = Basic Mechanics,
+				test = Vehicles.InstallTest.Default,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+					type = Base.Screwdriver,
+					count = 1,
+					keep = true,
+					equip = primary,
+					}
+				}
+				time = 300,
+				skills = Mechanics:1,
+				recipes = Basic Mechanics,
+				test = Vehicles.UninstallTest.Default,
+			}
+			lua
+			{
+				create = CommonTemplates.Create.Shelve,
+			}
+		}
+	}
+}
+
