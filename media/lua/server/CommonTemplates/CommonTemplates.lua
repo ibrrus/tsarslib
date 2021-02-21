@@ -31,7 +31,7 @@ seatNameTable = {"FrontLeft", "FrontRight", "MiddleLeft", "MiddleRight", "RearLe
 --***********************************************************
 function CommonTemplates.createActivePart(part)
 	if not part:getLight() then
-		part:createSpotLight(0.1, 0.1, 0.1, 0.01, 100, 0)
+		part:createSpotLight(1000, 1000, 0.001, 0, 100, 0)
 	end
 end
 
