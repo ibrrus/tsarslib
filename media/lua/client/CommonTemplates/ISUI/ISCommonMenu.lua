@@ -1,5 +1,5 @@
 ISCommonMenu = {}
-require 'Boats/ISUI/ISBoatMenu'
+-- require 'Boats/ISUI/ISBoatMenu'
 
 function ISCommonMenu.onKeyStartPressed(key)
 	local playerObj = getPlayer()
@@ -89,15 +89,15 @@ end
 
 function ISCommonMenu.onToggleHeater(playerObj)
 	local playerNum = playerObj:getPlayerNum()
-	if not ISBoatMenu.acui then
-		ISBoatMenu.acui = {}
+	if not ISCommonMenu.acui then
+		ISCommonMenu.acui = {}
 	end
-	local ui = ISBoatMenu.acui[playerNum]
+	local ui = ISCommonMenu.acui[playerNum]
 	if not ui or ui.character ~= playerObj then
 		ui = ISBatteryACUI:new(0,0,playerObj)
 		ui:initialise()
 		ui:instantiate()
-		ISBoatMenu.acui[playerNum] = ui
+		ISCommonMenu.acui[playerNum] = ui
 	end
 	if ui:isReallyVisible() then
 		ui:removeFromUIManager()

@@ -1,4 +1,4 @@
-require "ISUI/ISPanelJoypad"
+-- require "ISUI/ISPanelJoypad"
 
 ISBatteryACUI = ISPanelJoypad:derive("ISBatteryACUI");
 
