@@ -1,0 +1,15 @@
+ContextMenu_IT = {
+	ContextMenu_AirCondOn = "Controllo aria<br>condizionata",
+	ContextMenu_AirCondOff = "Controllo aria<br>condizionata",
+	ContextMenu_Sleep_Mattress = "Dormire nella cuccetta.",
+	ContextMenu_PainNoSleep_Mattress = "Sei troppo dolorante per dormire nella cuccetta. "
+	ContextMenu_PanicNoSleep_Mattress = "Sei troppo spaventato per dormire nella cuccetta."
+	ContextMenu_NoSleepTooEarly_Mattress = "Non e possibile ricominciare di nuovo a dormire nella cuccetta.<br>Riprovare piu tardi.",
+
+	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Versare benzina nel serbatoio",
+	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Estrarre benzina dal serbatoio",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Riempire il serbatoio con il carburante della pompa",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Riempire il serbatoio con il carburante dell'autocisterna",
+	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Rifornirsi dall'autocisterna",
+	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Serve una tanica per la benzina",
+}

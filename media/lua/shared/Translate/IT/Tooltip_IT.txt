@@ -1,0 +1,5 @@
+Tooltip_IT = {
+	Tooltip_Compact_Fridge = "Puo essere installato su alcune automobili e rimorchi",
+	Tooltip_Compact_Oven = "Puo essere installato su alcune automobili e rimorchi",
+	Tooltip_Compact_Microwave = "Puo essere installato su alcune automobili e rimorchi",
+}

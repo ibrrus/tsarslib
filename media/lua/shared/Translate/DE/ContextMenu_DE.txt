@@ -1,0 +1,16 @@
+ContextMenu_DE = {
+	ContextMenu_AirCondOn = "Klimaanlagensteuerung",
+	ContextMenu_AirCondOff = "Klimaanlagensteuerung",
+	
+	ContextMenu_Sleep_Mattress = "Auf der Matratze schlafen",
+	ContextMenu_PainNoSleep_Mattress = "Zu viel Schmerz um auf der zu schlafen"
+	ContextMenu_PanicNoSleep_Mattress = "Zu panisch um auf der zu schlafen"
+	ContextMenu_NoSleepTooEarly_Mattress = "Kann nicht wieder einschlafen. Versuche es spater nochmal",
+
+	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Benzin in den Tank fullen",
+	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Benzin aus dem Tank ablassen",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Fulle den Benzinvorratsbehalter mit der Zapfsaule",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Fulle den Benzinvorratsbehalter aus dem Tankwagen",
+	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Tanke aus dem Tankwagen",
+	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Benotige einen Kanister",
+}

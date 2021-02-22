@@ -22,8 +22,40 @@ function ISCommonMenu.showRadialMenu(playerObj, vehicle)
 	local freezer = vehicle:getPartById("Freezer" .. seatNameTable[seatNum+1])
 	local microwave = vehicle:getPartById("Microwave" .. seatNameTable[seatNum+1])
 	local inCabin = vehicle:getPartById("InCabin" .. seatNameTable[seatNum+1])
+	local mattress = vehicle:getPartById("Mattress" .. seatNameTable[seatNum+1])
 	local lightIsOn = true
 	local timeHours = getGameTime():getHour()
+
+	if mattress and (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
+		local doSleep = true;
+		if playerObj:getStats():getFatigue() <= 0.3 then
+			menu:addSlice(getText("IGUI_Sleep_NotTiredEnough_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+			doSleep = false;
+		elseif vehicle:getCurrentSpeedKmHour() > 1 or vehicle:getCurrentSpeedKmHour() < -1 then
+			menu:addSlice(getText("IGUI_PlayerText_CanNotSleepInMovingCar_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+			doSleep = false;
+		else
+			-- Sleeping pills counter those sleeping problems
+			if playerObj:getSleepingTabletEffect() < 2000 then
+				-- In pain, can still sleep if really tired
+				if playerObj:getMoodles():getMoodleLevel(MoodleType.Pain) >= 2 and playerObj:getStats():getFatigue() <= 0.85 then
+					menu:addSlice(getText("ContextMenu_PainNoSleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+					doSleep = false;
+					-- In panic
+				elseif playerObj:getMoodles():getMoodleLevel(MoodleType.Panic) >= 1 then
+					menu:addSlice(getText("ContextMenu_PanicNoSleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+					doSleep = false;
+					-- tried to sleep not so long ago
+				elseif (playerObj:getHoursSurvived() - playerObj:getLastHourSleeped()) <= 1 then
+					menu:addSlice(getText("ContextMenu_NoSleepTooEarly_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+					doSleep = false;
+				end
+			end
+		end
+		if doSleep then
+			menu:addSlice(getText("ContextMenu_Sleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), ISVehicleMenu.onSleep, playerObj, vehicle);
+		end
+	end
 	
 	if vehicle:getPartById("Heater") and lightIsOn and inCabin then
 		local tex = getTexture("media/ui/commonlibrary/UI_temperatureHC.png")

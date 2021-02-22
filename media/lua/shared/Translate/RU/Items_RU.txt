@@ -1,0 +1,17 @@
+Items_RU = {
+	DisplayName_Blue_Fridge = "Холодильник: синий",
+	DisplayName_Green_Fridge = "Холодильник: зелёный",
+	DisplayName_Green_Oven = "Электроплита: зелёная",
+	DisplayName_Grey_Oven = "Электроплита: серая",
+	DisplayName_Industrial_Oven = "Электроплита: промышленная",
+	DisplayName_Modern_Oven = "Электродуховой шкаф: большой современный",
+	DisplayName_Plain_Fridge = "Холодильник: простой",
+	DisplayName_Red_Fridge = "Холодильник: красный",
+	DisplayName_Red_Oven = "Электроплита: красная",
+	DisplayName_Steel_Fridge = "Холодильник: стальной",
+	DisplayName_White_Fridge = "Холодильник: белый",
+	DisplayName_Compact_Fridge = "Компактный холодильник".
+	DisplayName_Compact_Oven = "Компактная плита",
+	DisplayName_Compact_Stove = "Компактная плита",
+	DisplayName_Compact_Microwave = "Компактная икроволновка",
+}

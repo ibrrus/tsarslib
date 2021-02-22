@@ -1,0 +1,17 @@
+ContextMenu_PL = {
+	ContextMenu_AirCondOn = "Sterowanie klimatyzacja",
+	ContextMenu_AirCondOff = "Sterowanie klimatyzacja",
+	
+	ContextMenu_Sleep_Mattress = "Њpij na materacu.",
+	ContextMenu_PainNoSleep_Mattress = "Bуl uniemoїliwia sen."
+	ContextMenu_PanicNoSleep_Mattress = "Panika uniemoїliwia sen."
+	ContextMenu_NoSleepTooEarly_Mattress = "Nie moїna teraz pуjњж spaж.<br>Sprуbuj pуџniej.",
+	
+	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Dolej benzyny do zbiornika przyczepy",
+	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Nalej benzyny ze zbiornika przyczepy",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Zatankuj zbiornik przyczepy z pompy",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Zatankuj zbiornik przyczepy z cysterny",
+	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Zatankuj ze zbiornika przyczepy",
+	
+	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Wymaga kanistra na benzynк",
+}

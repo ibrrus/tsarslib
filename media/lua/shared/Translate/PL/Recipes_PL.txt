@@ -1,0 +1,5 @@
+Recipe_PL = {
+	Recipe_Make_a_compact_fridge = "Zrob kompaktowa lodowke",
+	Recipe_Make_a_compact_stove = "Zrob kompaktowy piec",
+	Recipe_Make_a_compact_microwave = "Zrob kompaktowa kuchenke mikrofalowa",
+}

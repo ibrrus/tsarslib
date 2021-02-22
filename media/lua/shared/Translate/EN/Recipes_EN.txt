@@ -1,0 +1,5 @@
+Recipe_EN = {
+	Recipe_Make_a_compact_fridge = "Make a compact fridge",
+	Recipe_Make_a_compact_stove = "Make a compact stove",
+	Recipe_Make_a_compact_microwave = "Make a compact microwave",
+}

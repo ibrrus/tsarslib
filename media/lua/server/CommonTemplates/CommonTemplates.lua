@@ -474,6 +474,34 @@ function CommonTemplates.Create.TV(vehicle, part)
 	deviceData:setRandomChannel()
 end
 
+--***********************************************************
+--**                                                       **
+--**                     BatteryCharger                    **
+--**                                                       **
+--***********************************************************
+
+function CommonTemplates.Create.BatteryCharger(trailer, part)
+	local item = VehicleUtils.createPartInventoryItem(part);
+	part:setInventoryItem(nil)
+end
+
+function CommonTemplates.Update.BatteryCharger(trailer, part, elapsedMinutes)
+	if part:getInventoryItem() then
+		local chargeOld = part:getInventoryItem():getUsedDelta()
+		local charge = chargeOld
+		-- Running the engine charges the battery
+		if elapsedMinutes > 0 and trailer:isEngineRunning() then
+			charge = math.min(charge + elapsedMinutes * 0.0001, 1.0)
+		end
+		if charge ~= chargeOld then
+			part:getInventoryItem():setUsedDelta(charge)
+			if VehicleUtils.compareFloats(chargeOld, charge, 2) then
+				trailer:transmitPartUsedDelta(part)
+			end
+		end
+	end
+end
+
 
 
 --***********************************************************
@@ -535,5 +563,7 @@ function CommonTemplates.Create.SeatBoxWooden(vehicle, part)
 		part:getItemContainer():setType("seatboxwooden")
 	end
 end
+
+
 
 
