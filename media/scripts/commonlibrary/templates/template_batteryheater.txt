@@ -2,7 +2,7 @@ module Base
 {
 	template vehicle BatteryHeater
 	{
-		part Heater
+		part BatteryHeater
 		{
 			category = engine,
 			lua

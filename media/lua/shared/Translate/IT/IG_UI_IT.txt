@@ -35,6 +35,7 @@ IG_UI_IT = {
 	IGUI_VehiclePartMicrowaveRearLeft = "Microonde",
 	IGUI_VehiclePartMicrowaveRearRight = "Microonde",
 	
+	IGUI_VehiclePartBatteryHeater = "Riscaldatrice",
 	IGUI_VehiclePart500FuelTank = "Autocisterna",
 	IGUI_VehiclePart1000FuelTank = "Autocisterna",
 	IGUI_VehiclePartCounter = "Bancone",

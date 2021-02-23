@@ -35,6 +35,7 @@ IG_UI_PL = {
 	IGUI_VehiclePartMicrowaveRearLeft = "Kuchenka mikrofalowa",
 	IGUI_VehiclePartMicrowaveRearRight = "Kuchenka mikrofalowa",
 	
+	IGUI_VehiclePartBatteryHeater = "Ogrzewanie",
 	IGUI_VehiclePart500FuelTank = "Zbiornik przyczepy",
 	IGUI_VehiclePart1000FuelTank = "Zbiornik przyczepy",
 	IGUI_VehiclePartCounter = "Lada",

@@ -36,6 +36,7 @@ IGUI_RU = {
 	IGUI_VehiclePartMicrowaveRearLeft = "Микроволновка",
 	IGUI_VehiclePartMicrowaveRearRight = "Микроволновка",
 	
+	IGUI_VehiclePartBatteryHeater = "Печь",
 	IGUI_VehiclePartCatBatteryCharger = "Зарядное устройство",
 	IGUI_VehiclePartBatteryChargerA = "Место для аккумулятора",
 	IGUI_VehiclePartBatteryChargerB = "Место для аккумулятора",

@@ -1,120 +1,135 @@
 ISCommonMenu = {}
 -- require 'Boats/ISUI/ISBoatMenu'
 
-function ISCommonMenu.onKeyStartPressed(key)
-	local playerObj = getPlayer()
-	if not playerObj then return end
-	if playerObj:isDead() then return end
-	local vehicle = playerObj:getVehicle()
-	if vehicle and key == getCore():getKey("VehicleRadialMenu") then
-		ISCommonMenu.showRadialMenu(playerObj, vehicle)
-	end
+if not ISCommonMenu.oldShowRadialMenu then
+	ISCommonMenu.oldShowRadialMenu = ISVehicleMenu.showRadialMenu
 end
 
-function ISCommonMenu.showRadialMenu(playerObj, vehicle)
+-- function ISCommonMenu.onKeyStartPressed(key)
+	-- local playerObj = getPlayer()
+	-- if not playerObj then return end
+	-- if playerObj:isDead() then return end
+	-- local vehicle = playerObj:getVehicle()
+	-- if vehicle and key == getCore():getKey("VehicleRadialMenu") then
+		-- ISCommonMenu.showRadialMenu(playerObj, vehicle)
+	-- end
+-- end
+
+function ISVehicleMenu.showRadialMenu(playerObj)
+	ISCommonMenu.oldShowRadialMenu(playerObj)
+	ISCommonMenu.showRadialMenu(playerObj)
+end
+
+
+function ISCommonMenu.showRadialMenu(playerObj)
 	local isPaused = UIManager.getSpeedControls() and UIManager.getSpeedControls():getCurrentGameSpeed() == 0
 	if isPaused then return end
-	local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
-	local seatNum = vehicle:getSeat(playerObj)
-	local seat = seatNameTable[seatNum+1]
-	local oven = vehicle:getPartById("Oven" .. seatNameTable[seatNum+1])
-	local fridge = vehicle:getPartById("Fridge" .. seatNameTable[seatNum+1])
-	local freezer = vehicle:getPartById("Freezer" .. seatNameTable[seatNum+1])
-	local microwave = vehicle:getPartById("Microwave" .. seatNameTable[seatNum+1])
-	local inCabin = vehicle:getPartById("InCabin" .. seatNameTable[seatNum+1])
-	local mattress = vehicle:getPartById("Mattress" .. seatNameTable[seatNum+1])
-	local lightIsOn = true
-	local timeHours = getGameTime():getHour()
+	local vehicle = playerObj:getVehicle()
+	if vehicle then
+		local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
+		local seat = seatNameTable[vehicle:getSeat(playerObj)+1]
+		local oven = vehicle:getPartById("Oven" .. seat)
+		local fridge = vehicle:getPartById("Fridge" .. seat)
+		local freezer = vehicle:getPartById("Freezer" .. seat)
+		local microwave = vehicle:getPartById("Microwave" .. seat)
+		local inCabin = vehicle:getPartById("InCabin" .. seat)
+		local mattress = vehicle:getPartById("Mattress" .. seat)
+		local lightIsOn = true
+		local timeHours = getGameTime():getHour()
 
-	if mattress and (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
-		local doSleep = true;
-		if playerObj:getStats():getFatigue() <= 0.3 then
-			menu:addSlice(getText("IGUI_Sleep_NotTiredEnough_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-			doSleep = false;
-		elseif vehicle:getCurrentSpeedKmHour() > 1 or vehicle:getCurrentSpeedKmHour() < -1 then
-			menu:addSlice(getText("IGUI_PlayerText_CanNotSleepInMovingCar_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-			doSleep = false;
-		else
-			-- Sleeping pills counter those sleeping problems
-			if playerObj:getSleepingTabletEffect() < 2000 then
-				-- In pain, can still sleep if really tired
-				if playerObj:getMoodles():getMoodleLevel(MoodleType.Pain) >= 2 and playerObj:getStats():getFatigue() <= 0.85 then
-					menu:addSlice(getText("ContextMenu_PainNoSleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-					doSleep = false;
-					-- In panic
-				elseif playerObj:getMoodles():getMoodleLevel(MoodleType.Panic) >= 1 then
-					menu:addSlice(getText("ContextMenu_PanicNoSleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-					doSleep = false;
-					-- tried to sleep not so long ago
-				elseif (playerObj:getHoursSurvived() - playerObj:getLastHourSleeped()) <= 1 then
-					menu:addSlice(getText("ContextMenu_NoSleepTooEarly_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-					doSleep = false;
+		if inCabin then
+			if vehicle:getPartById("HeadlightRearRight") and vehicle:getPartById("HeadlightRearRight"):getInventoryItem() then
+				menu:addSlice(getText("ContextMenu_BoatCabinelightsOff"), getTexture("media/ui/boats/boat_switch_off.png"), ISCommonMenu.offToggleCabinlights, playerObj)
+			else
+				if (timeHours > 22 or timeHours < 7) then
+					menu:addSlice(getText("ContextMenu_BoatCabinelightsOn"), getTexture("media/ui/boats/boat_switch_on.png"), ISCommonMenu.onToggleCabinlights, playerObj)
+					lightIsOn = false
+				else
+					menu:addSlice(getText("ContextMenu_BoatCabinelightsOn"), getTexture("media/ui/boats/boat_switch_on_day.png"), ISCommonMenu.onToggleCabinlights, playerObj)
 				end
 			end
 		end
-		if doSleep then
-			menu:addSlice(getText("ContextMenu_Sleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), ISVehicleMenu.onSleep, playerObj, vehicle);
-		end
-	end
-	
-	if vehicle:getPartById("Heater") and lightIsOn and inCabin then
-		local tex = getTexture("media/ui/commonlibrary/UI_temperatureHC.png")
-		if (vehicle:getPartById("Heater"):getModData().temperature or 0) < 0 then
-			tex = getTexture("media/ui/vehicles/vehicle_temperatureCOLD.png")
-		elseif (vehicle:getPartById("Heater"):getModData().temperature or 0) > 0 then
-			tex = getTexture("media/ui/vehicles/vehicle_temperatureHOT.png")
-		end		
-		if vehicle:getPartById("Heater"):getModData().active then
-			menu:addSlice(getText("ContextMenu_AirCondOff"), tex, ISCommonMenu.onToggleHeater, playerObj )
-		else
-			menu:addSlice(getText("ContextMenu_AirCondOn"), tex, ISCommonMenu.onToggleHeater, playerObj )
-		end
-	end
-	
-	if inCabin then
-		if vehicle:getPartById("HeadlightRearRight") and vehicle:getPartById("HeadlightRearRight"):getInventoryItem() then
-			menu:addSlice(getText("ContextMenu_BoatCabinelightsOff"), getTexture("media/ui/boats/boat_switch_off.png"), ISCommonMenu.offToggleCabinlights, playerObj)
-		else
-			if (timeHours > 22 or timeHours < 7) then
-				menu:addSlice(getText("ContextMenu_BoatCabinelightsOn"), getTexture("media/ui/boats/boat_switch_on.png"), ISCommonMenu.onToggleCabinlights, playerObj)
-				lightIsOn = false
+
+		if mattress and (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
+			local doSleep = true;
+			if playerObj:getStats():getFatigue() <= 0.3 then
+				menu:addSlice(getText("IGUI_Sleep_NotTiredEnough_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+				doSleep = false;
+			elseif vehicle:getCurrentSpeedKmHour() > 1 or vehicle:getCurrentSpeedKmHour() < -1 then
+				menu:addSlice(getText("IGUI_PlayerText_CanNotSleepInMovingCar_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+				doSleep = false;
 			else
-				menu:addSlice(getText("ContextMenu_BoatCabinelightsOn"), getTexture("media/ui/boats/boat_switch_on_day.png"), ISCommonMenu.onToggleCabinlights, playerObj)
+				-- Sleeping pills counter those sleeping problems
+				if playerObj:getSleepingTabletEffect() < 2000 then
+					-- In pain, can still sleep if really tired
+					if playerObj:getMoodles():getMoodleLevel(MoodleType.Pain) >= 2 and playerObj:getStats():getFatigue() <= 0.85 then
+						menu:addSlice(getText("ContextMenu_PainNoSleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+						doSleep = false;
+						-- In panic
+					elseif playerObj:getMoodles():getMoodleLevel(MoodleType.Panic) >= 1 then
+						menu:addSlice(getText("ContextMenu_PanicNoSleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+						doSleep = false;
+						-- tried to sleep not so long ago
+					elseif (playerObj:getHoursSurvived() - playerObj:getLastHourSleeped()) <= 1 then
+						menu:addSlice(getText("ContextMenu_NoSleepTooEarly_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
+						doSleep = false;
+					end
+				end
+			end
+			if doSleep then
+				menu:addSlice(getText("ContextMenu_Sleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), ISVehicleMenu.onSleep, playerObj, vehicle);
 			end
 		end
-	end
-	
-	if oven and lightIsOn then
-		menu:addSlice(getText("IGUI_UseStove"), getTexture("media/ui/Container_Oven"), ISCommonMenu.onStoveSetting, playerObj, vehicle, oven)
-		-- if oven:getItemContainer():isActive() then
-			-- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
-		-- else
-			-- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
-		-- end
-	end
-	
-	if microwave and lightIsOn then
-		menu:addSlice(getText("IGUI_UseMicrowave"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.onMicrowaveSetting, playerObj, vehicle, microwave)
-		-- if microwave:getItemContainer():isActive() then
-			-- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, false)
-		-- else
-			-- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, true)
-		-- end
-	end
 		
-	if fridge and lightIsOn then
-		if fridge:getItemContainer():isActive() then
-			menu:addSlice(getText("IGUI_Turn_Fridge_Off"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDevice, playerObj, vehicle, fridge)
-		else
-			menu:addSlice(getText("IGUI_Turn_Fridge_On"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDevice, playerObj, vehicle, fridge)
+		if vehicle:getPartById("BatteryHeater") and lightIsOn and inCabin then
+			-- print("BatteryHeater")
+			local tex = getTexture("media/ui/commonlibrary/UI_temperatureHC.png")
+			if (vehicle:getPartById("BatteryHeater"):getModData().temperature or 0) < 0 then
+				tex = getTexture("media/ui/vehicles/vehicle_temperatureCOLD.png")
+			elseif (vehicle:getPartById("BatteryHeater"):getModData().temperature or 0) > 0 then
+				tex = getTexture("media/ui/vehicles/vehicle_temperatureHOT.png")
+			end		
+			if vehicle:getPartById("BatteryHeater"):getModData().active then
+				menu:addSlice(getText("ContextMenu_AirCondOff"), tex, ISCommonMenu.onToggleHeater, playerObj )
+			else
+				menu:addSlice(getText("ContextMenu_AirCondOn"), tex, ISCommonMenu.onToggleHeater, playerObj )
+			end
 		end
-	end
-	
-	if freezer and lightIsOn then
-		if freezer:getItemContainer():isActive() then
-			menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDevice, playerObj, vehicle, freezer)
-		else
-			menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDevice, playerObj, vehicle, freezer)
+		
+		
+		
+		if oven and lightIsOn then
+			menu:addSlice(getText("IGUI_UseStove"), getTexture("media/ui/Container_Oven"), ISCommonMenu.onStoveSetting, playerObj, vehicle, oven)
+			-- if oven:getItemContainer():isActive() then
+				-- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
+			-- else
+				-- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
+			-- end
+		end
+		
+		if microwave and lightIsOn then
+			menu:addSlice(getText("IGUI_UseMicrowave"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.onMicrowaveSetting, playerObj, vehicle, microwave)
+			-- if microwave:getItemContainer():isActive() then
+				-- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, false)
+			-- else
+				-- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, true)
+			-- end
+		end
+			
+		if fridge and lightIsOn then
+			if fridge:getItemContainer():isActive() then
+				menu:addSlice(getText("IGUI_Turn_Fridge_Off"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDevice, playerObj, vehicle, fridge)
+			else
+				menu:addSlice(getText("IGUI_Turn_Fridge_On"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDevice, playerObj, vehicle, fridge)
+			end
+		end
+		
+		if freezer and lightIsOn then
+			if freezer:getItemContainer():isActive() then
+				menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDevice, playerObj, vehicle, freezer)
+			else
+				menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDevice, playerObj, vehicle, freezer)
+			end
 		end
 	end
 end
@@ -232,4 +247,4 @@ function ISCommonMenu.offToggleCabinlights(playerObj)
 	--sendClientCommand(playerObj, 'vehicle', 'setStoplightsOn', { on = not boat:getHeadlightsOn() })
 end
 
-Events.OnKeyStartPressed.Add(ISCommonMenu.onKeyStartPressed)
+-- Events.OnKeyStartPressed.Add(ISCommonMenu.onKeyStartPressed)

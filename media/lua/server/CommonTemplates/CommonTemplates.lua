@@ -377,7 +377,7 @@ function CommonTemplates.Create.BatteryHeater(vehicle, part)
 end
 
 function CommonTemplates.Use.BatteryHeater(vehicle, on, temp)
-	local part = vehicle:getHeater()
+	local part = vehicle:getPartById("BatteryHeater")
 	if on then
 		vehicle:getEmitter():playSound("ToggleStove")
 		part:setLightActive(true)
@@ -386,27 +386,21 @@ function CommonTemplates.Use.BatteryHeater(vehicle, on, temp)
 		vehicle:transmitPartModData(part)
 	else
 		vehicle:getEmitter():playSound("ToggleStove")
-		part:setLightActive(false)
+		-- part:setLightActive(false)
 		part:getModData().active = on;
-		part:getModData().temperature = temp;
+		part:getModData().temperature = 0;
 		vehicle:transmitPartModData(part)
 	end
 end
 
 function CommonTemplates.Update.BatteryHeater(vehicle, part, elapsedMinutes)
-	-- print("CommonTemplates.Update.BatteryHeater")
+	print("CommonTemplates.Update.BatteryHeater")
 	if not Vehicles.elaspedMinutesForHeater[vehicle:getId()] then
 		Vehicles.elaspedMinutesForHeater[vehicle:getId()] = 0;
 	end
 	local pc = vehicle:getPartById("PassengerCompartment")
 	local battery = vehicle:getPartById("Battery")
 	if not pc or not battery then return end
-	if not battery:getInventoryItem() or battery:getInventoryItem():getUsedDelta() < 0.01 then
-		part:getModData().active = false;
-		vehicle:transmitPartModData(part);
-		part:setLightActive(false)
-		return
-	end
 	local pcData = pc:getModData()
 	if not tonumber(pcData.temperature) then
 		pcData.temperature = 0.0
@@ -415,11 +409,28 @@ function CommonTemplates.Update.BatteryHeater(vehicle, part, elapsedMinutes)
 	if not tonumber(partData.temperature) then
 		partData.temperature = 0
 	end
-
-	local tempInc = 0.5
+	
+	if not battery:getInventoryItem() or 
+			battery:getInventoryItem():getUsedDelta() < 0.01 then
+		part:getModData().active = false;
+		vehicle:transmitPartModData(part);
+		-- part:setLightActive(false)
+		return
+	end
+	print(pcData.temperature)
+	local tempInc = 2
 	local previousTemp = pcData.temperature;
-
-	if partData.active and ((partData.temperature > 0 and pcData.temperature <= partData.temperature) or (partData.temperature < 0 and pcData.temperature >= partData.temperature)) then
+	
+	if partData.active then
+		VehicleUtils.chargeBattery(vehicle, -0.000035 * elapsedMinutes)
+	else
+		tempInc = 4
+		if pcData.temperature == 0 then
+			part:setLightActive(false)
+		end
+	end
+	
+	if ((partData.temperature > 0 and pcData.temperature <= partData.temperature) or (partData.temperature < 0 and pcData.temperature >= partData.temperature)) then
 		if partData.temperature > 0 then
 			pcData.temperature = math.min(pcData.temperature + tempInc * elapsedMinutes, partData.temperature)
 		else
@@ -433,14 +444,14 @@ function CommonTemplates.Update.BatteryHeater(vehicle, part, elapsedMinutes)
 		end
 	else
 		if pcData.temperature > 0 then
-			pcData.temperature = math.max(pcData.temperature - 0.1 * elapsedMinutes, 0)
+			pcData.temperature = math.max(pcData.temperature - tempInc * elapsedMinutes, 0)
 		else
-			pcData.temperature = math.min(pcData.temperature + 0.1 * elapsedMinutes, 0)
+			pcData.temperature = math.min(pcData.temperature + tempInc * elapsedMinutes, 0)
 		end
 	end
-	if partData.active then
-		VehicleUtils.chargeBattery(vehicle, -0.000035 * elapsedMinutes)
-	end
+	
+
+	
 	Vehicles.elaspedMinutesForHeater[vehicle:getId()] = Vehicles.elaspedMinutesForHeater[vehicle:getId()] + elapsedMinutes;
 	if isServer() and VehicleUtils.compareFloats(previousTemp, pcData.temperature, 2) and Vehicles.elaspedMinutesForHeater[vehicle:getId()] > 2 then
 		Vehicles.elaspedMinutesForHeater[vehicle:getId()] = 0;

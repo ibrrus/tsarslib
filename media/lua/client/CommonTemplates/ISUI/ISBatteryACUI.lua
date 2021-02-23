@@ -49,7 +49,7 @@ function ISBatteryACUI:createChildren()
 end
 
 function ISBatteryACUI:changeKnob()
-	sendClientCommand(self.character, 'vehicle', 'toggleHeater', { on = self.heater:getModData().active, temp = self.tempKnob:getValue() })
+	sendClientCommand(self.character, 'commonlib', 'toggleBatteryHeater', { on = self.heater:getModData().active, temp = self.tempKnob:getValue() })
 end
 
 function ISBatteryACUI:update()
@@ -147,7 +147,7 @@ end
 
 function ISBatteryACUI:setVehicle(vehicle)
 	self.vehicle = vehicle
-	self.heater = vehicle:getHeater()
+	self.heater = vehicle:getPartById("BatteryHeater")
 	self.seat = vehicle:getSeat(self.character)
 	if not self.heater:getModData().temperature then
 		self.heater:getModData().temperature = 0
@@ -180,7 +180,7 @@ function ISBatteryACUI:new(x, y, character)
 	o.height = height;
 	o.character = character;
 	o.vehicle = character:getVehicle();
-	o.heater = o.vehicle:getHeater();
+	o.heater = o.vehicle:getPartById("BatteryHeater");
 	
 	if not o.heater:getModData().temperature then o.heater:getModData().temperature = 0 end
 	o.moveWithMouse = true;
