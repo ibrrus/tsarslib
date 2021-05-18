@@ -394,7 +394,7 @@ function CommonTemplates.Use.BatteryHeater(vehicle, on, temp)
 end
 
 function CommonTemplates.Update.BatteryHeater(vehicle, part, elapsedMinutes)
-	print("CommonTemplates.Update.BatteryHeater")
+	-- print("CommonTemplates.Update.BatteryHeater")
 	if not Vehicles.elaspedMinutesForHeater[vehicle:getId()] then
 		Vehicles.elaspedMinutesForHeater[vehicle:getId()] = 0;
 	end
@@ -417,7 +417,7 @@ function CommonTemplates.Update.BatteryHeater(vehicle, part, elapsedMinutes)
 		-- part:setLightActive(false)
 		return
 	end
-	print(pcData.temperature)
+	-- print(pcData.temperature)
 	local tempInc = 2
 	local previousTemp = pcData.temperature;
 	

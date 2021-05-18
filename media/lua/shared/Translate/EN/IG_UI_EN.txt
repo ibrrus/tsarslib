@@ -35,7 +35,12 @@ IG_UI_EN = {
 	IGUI_VehiclePartMicrowaveMiddleRight = "Microwave",
 	IGUI_VehiclePartMicrowaveRearLeft = "Microwave",
 	IGUI_VehiclePartMicrowaveRearRight = "Microwave",
-	
+	IGUI_VehiclePartMattressFrontLeft = "Mattress",
+	IGUI_VehiclePartMattressFrontLeft = "Mattress",
+	IGUI_VehiclePartMattressMiddleLeft = "Mattress",
+	IGUI_VehiclePartMattressMiddleRight = "Mattress",
+	IGUI_VehiclePartMattressRearLeft = "Mattress",
+	IGUI_VehiclePartMattressRearRight = "Mattress",
 	IGUI_VehiclePartBatteryHeater = "Heater",
 	IGUI_VehiclePart500FuelTank = "Fuel Tank",
 	IGUI_VehiclePart1000FuelTank = "Fuel Tank",
