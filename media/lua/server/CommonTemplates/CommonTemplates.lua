@@ -1,3 +1,6 @@
+-- require 'CommonTemplates/CommonTemplates.lua'
+
+
 --***********************************************************
 --**             			iBrRus        				   **
 --***********************************************************
@@ -307,7 +310,7 @@ end
 --**                                                       **
 --***********************************************************
 function CommonTemplates.Create.LightApi(boat, part)
-	local item = BoatUtils.createPartInventoryItem(part)
+	local item = VehicleUtils.createPartInventoryItem(part)
 	if part:getId() == "HeadlightLeft" then
 		part:createSpotLight(0.5, 2.0, 8.0+ZombRand(16.0), 0.75, 0.96, ZombRand(200))
 	elseif part:getId() == "HeadlightRight" then
@@ -336,7 +339,7 @@ function CommonTemplates.Update.LightApi(boat, part, elapsedMinutes)
 end
 
 function CommonTemplates.Create.Light(boat, part)
-	local item = BoatUtils.createPartInventoryItem(part)
+	local item = VehicleUtils.createPartInventoryItem(part)
 	-- if part:getId() == "LightFloodlightLeft" then
 		-- part:createSpotLight(0.5, 2.0, 8.0+ZombRand(16.0), 0.75, 0.96, ZombRand(200))
 	-- elseif part:getId() == "LightFloodlightRight" then
