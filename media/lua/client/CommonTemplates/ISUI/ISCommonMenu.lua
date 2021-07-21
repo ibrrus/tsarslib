@@ -1,4 +1,4 @@
-ISCommonMenu = {}
+if ISCommonMenu == nil then ISCommonMenu = {} end
 -- require 'Boats/ISUI/ISBoatMenu'
 
 if not ISCommonMenu.oldShowRadialMenu then

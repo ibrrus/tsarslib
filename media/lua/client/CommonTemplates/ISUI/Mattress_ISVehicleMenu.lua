@@ -1,8 +1,10 @@
 local old_ISVehicleMenu_onConfirmSleep = ISVehicleMenu.onConfirmSleep
 
+if ISCommonMenu == nil then ISCommonMenu = {} end
+
 function ISVehicleMenu.onConfirmSleep(this, button, player, bed)
-	local chr = getPlayer()
-	local vehicle = chr:getVehicle()
+	local playerObj = getSpecificPlayer(player)
+	local vehicle = playerObj:getVehicle()
 	if button.internal == "YES" and vehicle:getPartById("Mattress") then
 		-- print("Mattress!!!")
 		ISWorldObjectContextMenu.onSleepWalkToComplete(player, "RV")
@@ -11,38 +13,11 @@ function ISVehicleMenu.onConfirmSleep(this, button, player, bed)
 	old_ISVehicleMenu_onConfirmSleep(this, button, player, bed)
 end
 
-function ISWorldObjectContextMenu.onConfirmSleep(this, button, player, bed)
-	if button.internal == "YES" then
-		local playerObj = getSpecificPlayer(player)
-		ISTimedActionQueue.clear(playerObj)
-		if bed then
-			if AdjacentFreeTileFinder.isTileOrAdjacent(playerObj:getCurrentSquare(), bed:getSquare()) then
-				ISWorldObjectContextMenu.onSleepWalkToComplete(player, bed)
-			else
-				local adjacent = AdjacentFreeTileFinder.Find(bed:getSquare(), playerObj)
-				if adjacent ~= nil then
-					local action = ISWalkToTimedAction:new(playerObj, adjacent)
-					action:setOnComplete(ISWorldObjectContextMenu.onSleepWalkToComplete, player, bed)
-					ISTimedActionQueue.add(action)
-				end
-			end
-		else
-			ISWorldObjectContextMenu.onSleepWalkToComplete(player, bed)
-		end
-    end
-end
-
-function ISWorldObjectContextMenu.onSleepWalkToComplete(player, bed)
+function ISCommonMenu.onSleepWalkToComplete(player, bed)
 	local playerObj = getSpecificPlayer(player)
 	ISTimedActionQueue.clear(playerObj)
-	local bedType = "badBed";
-	if bed == "RV" then
-		bedType =  "averageBed";
-	elseif bed then
-		bedType = bed:getProperties():Val("BedType") or "averageBed";
-	else
-		bedType = "floor";
-	end
+	bedType =  "averageBed";
+	
 	if isClient() and getServerOptions():getBoolean("SleepAllowed") then
 		playerObj:setAsleepTime(0.0)
 		playerObj:setAsleep(true)
@@ -55,18 +30,16 @@ function ISWorldObjectContextMenu.onSleepWalkToComplete(player, bed)
     --playerObj:setBedType(bedType);
 	local modal = nil;
     local sleepFor = ZombRand(playerObj:getStats():getFatigue() * 10, playerObj:getStats():getFatigue() * 13) + 1;
-    if bedType == "goodBed" then
-        sleepFor = sleepFor -1;
-    end
-    if bedType == "badBed" then
-        sleepFor = sleepFor +1;
-    end
-	if bedType == "floor" then
-		sleepFor = sleepFor * 0.7;
-	end
     if playerObj:HasTrait("Insomniac") then
         sleepFor = sleepFor * 0.5;
     end
+    if playerObj:HasTrait("NeedsLessSleep") then
+        sleepFor = sleepFor * 0.75;
+    end
+    if playerObj:HasTrait("NeedsMoreSleep") then
+        sleepFor = sleepFor * 1.18;
+    end
+	
     if sleepFor > 16 then sleepFor = 16; end
     if sleepFor < 3 then sleepFor = 3; end
     --    print("GONNA SLEEP " .. sleepHours .. " HOURS" .. " AND ITS " .. GameTime.getInstance():getTimeOfDay())

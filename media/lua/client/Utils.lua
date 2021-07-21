@@ -40,6 +40,6 @@ end
 	-- end
 -- end
 
-Events.OnGameBoot.Add(unsupported_mods_off)
-Events.OnGameStart.Add(unsupported_mods_sleep)
+-- Events.OnGameBoot.Add(unsupported_mods_off)
+-- Events.OnGameStart.Add(unsupported_mods_sleep)
 -- Events.OnGameStart.Add(require_mods_on)
