@@ -37,23 +37,22 @@ function ISVehicleMenu.FillPartMenu(playerIndex, context, slice, vehicle)
 					end
 				end
 			end
-			local square = ISVehiclePartMenu.getNearbyFuelPumpForTank(vehicle)
-			if square and ((SandboxVars.AllowExteriorGenerator and square:haveElectricity()) or (SandboxVars.ElecShutModifier > -1 and GameTime:getInstance():getNightsSurvived() < SandboxVars.ElecShutModifier)) then
-				-- print("1 +")
-				if square and part:getContainerContentAmount() < part:getContainerCapacity() then
-					-- print("2 +")
-					if slice then
-						-- print("3 +")
-						slice:addSlice(getText("ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump"), getTexture("media/ui/vehicles/vehicle_refuel_from_pump.png"), ISVehiclePartMenu.onPumpGasolineForTank, playerObj, part)
-					else
-						-- print("4 +")
-						context:addOption(getText("ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump"), playerObj, ISVehiclePartMenu.onPumpGasolineForTank, part)
+			local fuelStation = LiqudTanker.getNearbyFuelPumpForTank(vehicle)
+			if fuelStation then
+				local square = fuelStation:getSquare();
+				if square and ((SandboxVars.AllowExteriorGenerator and square:haveElectricity()) or (SandboxVars.ElecShutModifier > -1 and GameTime:getInstance():getNightsSurvived() < SandboxVars.ElecShutModifier)) then
+					if square and part:getContainerContentAmount() < part:getContainerCapacity() then
+						-- print("2 +")
+						if slice then
+							-- print("3 +")
+							slice:addSlice(getText("ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump"), getTexture("media/ui/vehicles/vehicle_refuel_from_pump.png"), LiqudTanker.onPumpGasolineForTank, playerObj, part)
+						else
+							-- print("4 +")
+							context:addOption(getText("ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump"), playerObj, LiqudTanker.onPumpGasolineForTank, part)
+						end
 					end
 				end
-			-- else 
-				-- print("Gas station error")
 			end
-			
 			--local square = ISVehiclePartMenu.getNearbyFuelPump(vehicle)
 			if fuel_truck_source and fuel_truck_source:getContainerContentAmount() > 0 and part:getContainerContentAmount() < part:getContainerCapacity() then
 				--if square and part:getContainerContentAmount() < part:getContainerCapacity() then
@@ -94,21 +93,26 @@ function ISVehicleMenu.FillPartMenu(playerIndex, context, slice, vehicle)
 	LiqudTanker.old_ISVehicleMenu_FillPartMenu(playerIndex, context, slice, vehicle)
 end
 
-function ISVehiclePartMenu.onPumpGasolineForTank(playerObj, part)
+function LiqudTanker.onPumpGasolineForTank(playerObj, part)
 	if playerObj:getVehicle() then
 		ISVehicleMenu.onExit(playerObj)
 	end
-	local square = ISVehiclePartMenu.getNearbyFuelPumpForTank(part:getVehicle())
-	if square then
-		local action = ISPathFindAction:pathToVehicleArea(playerObj, part:getVehicle(), part:getArea())
-		action:setOnFail(ISVehiclePartMenu.onPumpGasolinePathFail, playerObj)
-		ISTimedActionQueue.add(action)
-		ISTimedActionQueue.add(ISRefuelFromGasPump:new(playerObj, part, square, 100))
+	local fuelStation = LiqudTanker.getNearbyFuelPumpForTank(part:getVehicle())
+	if fuelStation then
+		local square = fuelStation:getSquare();
+		if square then
+			local action = ISPathFindAction:pathToVehicleArea(playerObj, part:getVehicle(), part:getArea())
+			action:setOnFail(ISVehiclePartMenu.onPumpGasolinePathFail, playerObj)
+			ISTimedActionQueue.add(action)
+			ISTimedActionQueue.add(ISRefuelFromGasPump:new(playerObj, part, fuelStation, 100))
+		end
 	end
 end
 
-function ISVehiclePartMenu.getNearbyFuelPumpForTank(vehicle)
-	local areaCenter = vehicle:getAreaCenter("GasTank") --print(getPlayer():getVehicle():getPartById("GasTank"):getArea())
+function LiqudTanker.getNearbyFuelPumpForTank(vehicle)
+	local part = vehicle:getPartById("GasTank") or vehicle:getPartById("500FuelTank") or vehicle:getPartById("1000FuelTank")
+	if not part then return nil end
+	local areaCenter = vehicle:getAreaCenter(part:getArea())--print(getPlayer():getVehicle():getPartById("GasTank"):getArea())
 	if not areaCenter then return nil end
 	local square = getCell():getGridSquare(areaCenter:getX(), areaCenter:getY(), vehicle:getZ())
 	if not square then return nil end
@@ -116,8 +120,11 @@ function ISVehiclePartMenu.getNearbyFuelPumpForTank(vehicle)
 		for dx=-2.5,2.5 do
 			-- TODO: check line-of-sight between 2 squares
 			local square2 = getCell():getGridSquare(square:getX() + dx, square:getY() + dy, square:getZ())
-			if square2 and square2:getProperties():Is("fuelAmount") and tonumber(square2:getProperties():Val("fuelAmount")) > 0 then
-				return square2
+			for i=0, square2:getObjects():size()-1 do
+				local obj = square2:getObjects():get(i);
+				if obj:getPipedFuelAmount() > 0 then
+					return obj
+				end
 			end
 		end
 	end
@@ -167,16 +174,3 @@ function ISVehiclePartMenu.onPumpGasolineFromTruck(playerObj, part, source_Tank)
 		ISTimedActionQueue.add(ISRefuelFromFuelTruck:new(playerObj, part, square, 100, source_Tank))
 	end
 end
-
--- function ISVehiclePartMenu.onPumpGasoline(playerObj, part)
-	-- if playerObj:getVehicle() then
-		-- ISVehicleMenu.onExit(playerObj)
-	-- end
-	-- local square = ISVehiclePartMenu.getNearbyFuelPump(part:getVehicle())
-	-- if square then
-		-- local action = ISPathFindAction:pathToVehicleArea(playerObj, part:getVehicle(), part:getArea())
-		-- action:setOnFail(ISVehiclePartMenu.onPumpGasolinePathFail, playerObj)
-		-- ISTimedActionQueue.add(action)
-		-- ISTimedActionQueue.add(ISRefuelFromGasPump:new(playerObj, part, square, 100))
-	-- end
--- end

@@ -1,0 +1,394 @@
+EventsTester = {}
+
+
+local function EventsTesterCommon(object, a, b, c, d)
+	print("tb ", object, " ", a, " ", b, " ", c, " ", d )
+end
+local function tb2()
+	-- print("tb2")
+end
+local function tb3()
+	print("tb3")
+end
+local function make()
+	print("make")
+end
+local function OnAddBuilding()
+	print("OnAddBuilding")
+end
+local function OnPostFloorSquareDraw(object, a, b, c, d)
+	print("EventsTester.OnPostFloorSquareDraw: BIP ", object, " ", a, " ", b, " ", c, " ", d )
+end
+local function OnPostFloorLayerDraw()
+	-- print("OnPostFloorLayerDraw")
+end
+local function OnPostTilesSquareDraw()
+	print("OnPostTilesSquareDraw")
+end
+local function OnPostTileDraw()
+	print("OnPostTileDraw")
+end
+local function OnPostWallSquareDraw()
+	print("OnPostWallSquareDraw")
+end
+local function OnPostCharactersSquareDraw()
+	print("OnPostCharactersSquareDraw")
+end
+local function OnMapLoadCreateIsoObject(object, a, b, c, d)
+	print("EventsTester.OnMapLoadCreateIsoObject: BIP ", object, " ", a, " ", b, " ", c, " ", d )
+end
+local function OnObjectAdded(object)
+	print("EventsTester.OnObjectAdded:: BIP ", object, " ", a, " ", b, " ", c, " ", d )
+end
+
+-- Events.OnMakeItem.Add(make)
+-- print("EventsTester: OnMakeItem")
+-- Events.OnObjectAdded.Add(OnObjectAdded)
+-- print("EventsTester.OnObjectAdded: BIP ")
+-- Events.OnMapLoadCreateIsoObject.Add(OnMapLoadCreateIsoObject)
+-- print("EventsTester.OnMapLoadCreateIsoObject: BIP ")
+-- Events.OnPostFloorSquareDraw.Add(OnPostFloorSquareDraw)
+
+-- Events.OnPostFloorLayerDraw.Add(OnPostFloorLayerDraw) -- каждый тик
+-- print("EventsTester: OnPostFloorLayerDraw")
+-- Events.OnPostTilesSquareDraw.Add(OnPostTilesSquareDraw)
+-- print("EventsTester: OnPostTilesSquareDraw")
+-- Events.OnPostTileDraw.Add(OnPostTileDraw)
+-- print("EventsTester: OnPostTileDraw")
+-- Events.OnPostWallSquareDraw.Add(OnPostWallSquareDraw)
+-- print("EventsTester: OnPostWallSquareDraw")
+-- Events.OnPostCharactersSquareDraw.Add(OnPostCharactersSquareDraw)
+-- print("EventsTester: OnPostCharactersSquareDraw")
+-- Events.OnAddBuilding.Add(OnAddBuilding)
+-- print("EventsTester: OnAddBuilding")
+-- Events.OnDoTileBuilding.Add(tb)
+-- print("EventsTester: OnDoTileBuilding")
+-- Events.OnDoTileBuilding2.Add(tb2)
+-- print("EventsTester: OnDoTileBuilding2")
+-- Events.OnDoTileBuilding3.Add(tb3)
+-- print("EventsTester: OnDoTileBuilding3")
+
+local function OnGameBoot(object)
+	print("EventsTester.OnGameBoot: BIP", object)
+	-- Срабатывает:
+	-- 		после запуска клиента игры в главном меню;
+	-- 		после обновления списка активных модов в главном меню;
+	--		после выхода в гравное меню.
+	-- object == NIL
+end
+local function OnPreGameStart(object)
+	print("EventsTester.OnPreGameStart: BIP", object)
+	-- Не срабатывает:
+	--		после запуска новой игры (продолжения игры), до того, как игрок нажмет "НАЧАТЬ ИГРУ"
+end
+local function OnTick(object)
+	print("OnTick: ", object)
+end
+local function OnTickEvenPaused(object)
+	print("OnTickEvenPaused: ", object)
+end
+local function OnRenderUpdate(object)
+	print("OnRenderUpdate: ", object)
+end
+
+local function OnKeyStartPressed(object, a, b, c, d)
+	print("OnKeyStartPressed: ", object, " ", a, " ", b, " ", c, " ", d )
+end
+
+local function OnKeyPressed(object, a, b, c, d)
+	print("OnKeyPressed: ", object, " ", a, " ", b, " ", c, " ", d )
+end
+
+local function OnJoypadActivate(id, a, b, c, d)
+	print("OnJoypadActivate: ", object, " ", a, " ", b, " ", c, " ", d )
+	
+end
+
+local function OnJoypadActivateUI(object, a, b, c, d)
+	print("OnJoypadActivateUI: ", object, " ", a, " ", b, " ", c, " ", d )
+end
+
+local function OnInitWorld(object, a, b, c, d)
+	print("EventsTester.OnInitWorld: BIP", object, " ", a, " ", b, " ", c, " ", d )
+	-- Срабатывает:
+	-- 		после запуска игры до нажатия "НАЧАТЬ ИГРУ";
+end
+
+local function LoadGridsquare(object)
+	print("EventsTester.OnInitWorld: BIP", object, " ", a, " ", b, " ", c, " ", d )
+	-- Срабатывает:
+	-- 		при появлении новой ячейки (square);
+	-- object == IsoGridSquare
+end
+
+-- Events.LoadGridsquare.Add(LoadGridsquare)
+-- Events.OnGameBoot.Add(OnGameBoot)
+-- Events.OnPreGameStart.Add(OnPreGameStart)
+-- Events.OnInitWorld.Add(OnInitWorld)
+
+
+-- Events.OnTick.Add(OnTick)
+-- Events.OnTickEvenPaused.Add(OnTickEvenPaused)
+-- Events.OnRenderUpdate.Add(OnRenderUpdate)
+-- Events.OnFETick.Add(tb)
+-- Events.OnGameStart.Add(tb)
+-- Events.OnPreUIDraw.Add(tb)
+-- Events.OnPostUIDraw.Add(tb)
+-- Events.OnCharacterCollide.Add(tb)
+-- Events.OnKeyStartPressed.Add(OnKeyStartPressed)
+-- Events.OnKeyPressed.Add(OnKeyPressed)
+-- Events.OnObjectCollide.Add(tb)
+-- Events.OnNPCSurvivorUpdate.Add(tb)
+-- Events.OnPlayerUpdate.Add(tb)
+-- Events.OnZombieUpdate.Add(tb)
+-- Events.OnTriggerNPCEvent.Add(tb)
+-- Events.OnMultiTriggerNPCEvent.Add(tb)
+-- Events.OnLoadMapZones.Add(tb)
+-- Events.OnAddBuilding.Add(tb)
+-- Events.OnCreateLivingCharacter.Add(tb)
+-- Events.OnChallengeQuery.Add(tb)
+
+
+-- Events.OnRefreshInventoryWindowContainers.Add(tb)
+-- Events.OnMakeItem.Add(tb)
+Events.OnJoypadActivate.Add(OnJoypadActivate)
+
+
+-- CONTEXT MENU
+
+-- Events.OnFillInventoryObjectContextMenu.Add(tb)
+-- Events.OnPreFillInventoryObjectContextMenu.Add(tb)
+-- Events.OnFillWorldObjectContextMenu.Add(tb)
+-- Events.OnPreFillWorldObjectContextMenu.Add(tb)
+
+
+-- Weapon
+
+-- Events.OnWeaponHitCharacter.Add(tb)
+-- Events.OnWeaponSwing.Add(tb)
+-- Events.OnWeaponHitTree.Add(tb)
+-- Events.OnWeaponHitXp.Add(tb)
+-- Events.OnWeaponSwingHitPoint.Add(tb)
+
+
+-- CONNECT
+
+function EventsTester.OnConnected(object, a, b, c, d)
+	print("EventsTester.OnConnected ", object, " ", a, " ", b, " ", c, " ", d )
+	-- В офлайне не работает
+end
+
+function EventsTester.OnDisconnect(object, a, b, c, d)
+	print("EventsTester.OnDisconnect ", object, " ", a, " ", b, " ", c, " ", d )
+	-- В офлайне не работает
+end
+
+function EventsTester.OnMainMenuEnter(object, a, b, c, d)
+	print("EventsTester.OnMainMenuEnter ", object, " ", a, " ", b, " ", c, " ", d )
+	-- Срабатывает:
+	-- 		выхода в главное меню из игры
+	-- object == NIL
+end
+function EventsTester.OnCreatePlayer(playerNum, playerObj, b, c, d)
+	print("EventsTester.OnCreatePlayer ", playerNum, " ", playerObj, " ", b, " ", c, " ", d )
+	-- Срабатывает:
+		-- Вход в игру игрока. Даже в офлайне 
+		-- Подключение нового игрока на джойстике
+	-- playerNum - id игрока
+	-- playerObj - объект-игрок
+end
+function EventsTester.OnPlayerDeath(playerObj, a, b, c, d)
+	print("EventsTester.OnCreatePlayer ", playerObj, " ", a, " ", b, " ", c, " ", d )
+	-- Срабатывает:
+		-- 
+	-- playerObj - объект-игрок
+end
+
+Events.OnCreatePlayer.Add(EventsTester.OnCreatePlayer)
+-- Events.OnPlayerDeath.Add(EventsTester.OnPlayerDeath)
+-- Events.OnConnectFailed.Add(EventsTesterCommon)
+-- Events.OnConnected.Add(EventsTester.OnConnected)
+-- Events.OnDisconnect.Add(EventsTester.OnDisconnect)
+-- Events.OnConnectionStateChanged.Add(EventsTesterCommon)
+-- Events.OnMainMenuEnter.Add(EventsTester.OnMainMenuEnter)
+--------------------------
+
+
+-- Events.OnPlayerAttackFinished.Add(tb)
+-- Events.OnLoginState.Add(tb)
+-- Events.OnLoginStateSuccess.Add(tb)
+-- Events.OnCharacterCreateStats.Add(tb)
+-- Events.OnLoadSoundBanks.Add(tb)
+-- Events.OnObjectLeftMouseButtonDown.Add(tb)
+-- Events.OnObjectLeftMouseButtonUp.Add(tb)
+-- Events.OnObjectRightMouseButtonDown.Add(tb)
+-- Events.OnObjectRightMouseButtonUp.Add(tb)
+-- Events.OnDoTileBuilding.Add(tb)
+-- Events.OnDoTileBuilding2.Add(tb)
+-- Events.OnDoTileBuilding3.Add(tb)
+
+-- Events.OnScoreboardUpdate.Add(tb)
+-- Events.OnMouseMove.Add(tb)
+-- Events.OnMouseDown.Add(tb)
+-- Events.OnMouseUp.Add(tb)
+-- Events.OnRightMouseDown.Add(tb)
+-- Events.OnRightMouseUp.Add(tb)
+-- Events.OnNewSurvivorGroup.Add(tb)
+-- Events.OnPlayerSetSafehouse.Add(tb)
+-- Events.OnLoad.Add(tb)
+-- Events.AddXP.Add(tb)
+-- Events.LevelPerk.Add(tb)
+-- Events.OnSave.Add(tb)
+
+-- Events.OnPreMapLoad.Add(tb)
+
+local function OnPost(object, a, b, c, d)
+	print("OnPost: ", object, " ", a, " ", b, " ", c, " ", d )
+end
+
+-- Events.OnPostFloorSquareDraw.Add(OnPost)
+-- Events.OnPostFloorLayerDraw.Add(OnPost)
+-- Events.OnPostTilesSquareDraw.Add(OnPost)
+-- Events.OnPostTileDraw.Add(OnPost)
+-- Events.OnPostWallSquareDraw.Add(OnPost)
+-- Events.OnPostCharactersSquareDraw.Add(OnPost)
+-- Events.OnPostMapLoad.Add(OnPost)
+-- Events.OnPostSave.Add(OnPost)
+-- Events.OnPostRender.Add(tb)
+
+-- Events.OnCreateUI.Add(tb)
+-- Events.OnMapLoadCreateIsoObject.Add(tb)
+-- Events.OnCreateSurvivor.Add(tb)
+
+
+-- Events.OnZombieDead.Add(tb)
+-- Events.OnCharacterDeath.Add(tb)
+-- Events.OnCharacterMeet.Add(tb)
+-- Events.OnSpawnRegionsLoaded.Add(tb)
+
+-- Events.OnAIStateExecute.Add(tb)
+-- Events.OnAIStateEnter.Add(tb)
+-- Events.OnAIStateExit.Add(tb)
+-- Events.OnAIStateChange.Add(tb)
+-- Events.OnPlayerMove.Add(tb)
+-- Events.OnInitWorld.Add(tb)
+-- Events.OnNewGame.Add(tb)
+-- Events.OnIsoThumpableLoad.Add(tb)
+-- Events.OnIsoThumpableSave.Add(tb)
+-- Events.ReuseGridsquare.Add(tb)
+
+
+-- TIME
+
+-- Events.EveryOneMinute.Add(tb)
+-- Events.EveryTenMinutes.Add(tb)
+-- Events.EveryDays.Add(tb)
+-- Events.EveryHours.Add(tb)
+
+
+
+-- Events.OnDusk.Add(tb)
+-- Events.OnDawn.Add(tb)
+-- Events.OnEquipPrimary.Add(tb)
+-- Events.OnEquipSecondary.Add(tb)
+-- Events.OnClothingUpdated.Add(tb)
+-- Events.OnRainStart.Add(tb)
+-- Events.OnRainStop.Add(tb)
+-- Events.OnAmbientSound.Add(tb)
+-- Events.OnResetLua.Add(tb)
+-- Events.OnModsModified.Add(tb)
+-- Events.OnSeeNewRoom.Add(tb)
+-- Events.OnNewFire.Add(tb)
+-- Events.OnFillContainer.Add(tb)
+-- Events.OnChangeWeather.Add(tb)
+-- Events.OnRenderTick.Add(tb)
+-- Events.OnJoypadActivateUI.Add(OnJoypadActivateUI)
+-- Events.OnDestroyIsoThumpable.Add(tb)
+
+-- Events.OnResolutionChange.Add(tb)
+-- Events.OnWaterAmountChange.Add(tb)
+-- Events.OnClientCommand.Add(tb)
+-- Events.OnServerCommand.Add(tb)
+-- Events.OnContainerUpdate.Add(tb)
+-- Events.OnObjectAdded.Add(tb)
+-- Events.OnObjectAboutToBeRemoved.Add(tb)
+-- Events.onLoadModDataFromServer.Add(tb)
+-- Events.OnGameTimeLoaded.Add(tb)
+-- Events.OnCGlobalObjectSystemInit.Add(tb)
+-- Events.OnSGlobalObjectSystemInit.Add(tb)
+-- Events.OnWorldMessage.Add(tb)
+-- Events.OnKeyKeepPressed.Add(OnKeyKeepPressed)
+-- Events.SendCustomModData.Add(tb)
+-- Events.ServerPinged.Add(tb)
+-- Events.OnServerStarted.Add(tb)
+-- Events.OnLoadedTileDefinitions.Add(tb)
+
+-- Events.DoSpecialTooltip.Add(tb)
+-- Events.OnCoopJoinFailed.Add(tb)
+-- Events.OnServerWorkshopItems.Add(tb)
+-- Events.OnVehicleDamageTexture.Add(tb)
+-- Events.OnCustomUIKey.Add(tb)
+-- Events.OnCustomUIKeyPressed.Add(tb)
+-- Events.OnCustomUIKeyReleased.Add(tb)
+-- Events.OnDeviceText.Add(tb)
+-- Events.OnRadioInteraction.Add(tb)
+-- Events.OnLoadRadioScripts.Add(tb)
+-- Events.OnAcceptInvite.Add(tb)
+-- Events.OnCoopServerMessage.Add(tb)
+-- Events.OnReceiveUserlog.Add(tb)
+-- Events.OnAdminMessage.Add(tb)
+-- Events.OnGetDBSchema.Add(tb)
+-- Events.OnGetTableResult.Add(tb)
+-- Events.ReceiveFactionInvite.Add(tb)
+-- Events.AcceptedFactionInvite.Add(tb)
+-- Events.ViewTickets.Add(tb)
+-- Events.SyncFaction.Add(tb)
+-- Events.OnReceiveItemListNet.Add(tb)
+-- Events.OnMiniScoreboardUpdate.Add(tb)
+-- Events.OnSafehousesChanged.Add(tb)
+-- Events.RequestTrade.Add(tb)
+-- Events.AcceptedTrade.Add(tb)
+-- Events.TradingUIAddItem.Add(tb)
+-- Events.TradingUIRemoveItem.Add(tb)
+-- Events.TradingUIUpdateState.Add(tb)
+-- Events.OnGridBurnt.Add(tb)
+
+
+-- Events.OnPreDistributionMerge.Add(tb)
+-- Events.OnDistributionMerge.Add(tb)
+-- Events.OnPostDistributionMerge.Add(tb)
+
+-- Events.MngInvReceiveItems.Add(tb)
+-- Events.OnTileRemoved.Add(tb)
+-- Events.OnServerStartSaving.Add(tb)
+-- Events.OnServerFinishSaving.Add(tb)
+-- Events.OnMechanicActionDone.Add(tb)
+-- Events.OnClimateTick.Add(tb)
+-- Events.OnThunderEvent.Add(tb)
+-- Events.OnEnterVehicle.Add(tb)
+-- Events.OnSteamGameJoin.Add(tb)
+-- Events.OnTabAdded.Add(tb)
+-- Events.OnSetDefaultTab.Add(tb)
+-- Events.OnTabRemoved.Add(tb)
+-- Events.OnAddMessage.Add(tb)
+-- Events.SwitchChatStream.Add(tb)
+-- Events.OnChatWindowInit.Add(tb)
+-- Events.OnInitSeasons.Add(tb)
+-- Events.OnClimateTickDebug.Add(tb)
+-- Events.OnInitModdedWeatherStage.Add(tb)
+-- Events.OnUpdateModdedWeatherStage.Add(tb)
+-- Events.OnClimateManagerInit.Add(tb)
+-- Events.OnPressReloadButton.Add(tb)
+-- Events.OnPressRackButton.Add(tb)
+-- Events.OnHitZombie.Add(tb)
+-- Events.OnBeingHitByZombie.Add(tb)
+
+
+
+
+
+
+
+
+
+

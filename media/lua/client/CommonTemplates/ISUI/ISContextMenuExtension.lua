@@ -1,18 +1,18 @@
--- require "ISUI/CommonISContextMenu" 
+-- require "CommonTemplates/ISUI/ISContextMenuExtension" 
 
-function ISContextMenu:updateOption(id, name, target, onSelect, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10)
+function ISContextMenu:updateOptionTsar(id, name, target, onSelect, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10)
 	local option = self:allocOption(name, target, onSelect, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10);
 	self.options[id] = option;
 	return option;
 end
 
-function ISContextMenu:updateSubOption(subMenu, id, name, target, onSelect, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10)
+function ISContextMenu:updateSubOptionTsar(subMenu, id, name, target, onSelect, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10)
 	local option = self:allocOption(name, target, onSelect, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10);
 	subMenu.options[id] = option;
 	return option;
 end
 
-function ISContextMenu:updateSubOption2(parentMenuName, subMenuName, newFunc, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10)
+function ISContextMenu:updateSubOption2Tsar(parentMenuName, subMenuName, newFunc, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10)
 	local numSubOption = self:getOptionFromName(parentMenuName).subOption
 	local subContext = self.instanceMap[numSubOption] -- context
 	local subMenu = subContext:getOptionFromName(subMenuName)
@@ -21,7 +21,8 @@ function ISContextMenu:updateSubOption2(parentMenuName, subMenuName, newFunc, pa
 	return option;
 end
 
-function ISContextMenu:removeOption(option)
+function ISContextMenu:removeOptionTsar(option)
+	-- print("ISContextMenu:removeOption")
 	if option then
 		table.insert(self.optionPool, self.options[option.id])
 		self.options[option.id] =  nil;
@@ -36,7 +37,7 @@ function ISContextMenu:removeOption(option)
 	end
 end
 
-function ISContextMenu:getOptionFromItemName(name)
+function ISContextMenu:getOptionFromItemNameTsar(name)
 	for i,v in ipairs(self.options) do
 		print(v.param1)
 		for m,n in pairs(v) do
@@ -49,9 +50,9 @@ function ISContextMenu:getOptionFromItemName(name)
 end
 
 -- Examples
--- context:removeOption(context:getOptionFromName(getText("ContextMenu_GeneratorFix")))
+-- context:removeOptionTsar(context:getOptionFromName(getText("ContextMenu_GeneratorFix")))
 
 -- local old_option_update = context:getOptionFromName(getText("ContextMenu_GeneratorUnplug"))
 -- if old_option_update then
-	-- context:updateOption(old_option_update.id, old_option_update.name, old_option_update.target, ISWorldObjectContextMenuForTrailerGenerator.generatorUnplug, playerObj, trailer)
+	-- context:updateOptionTsar(old_option_update.id, old_option_update.name, old_option_update.target, ISWorldObjectContextMenuForTrailerGenerator.generatorUnplug, playerObj, trailer)
 -- end	
