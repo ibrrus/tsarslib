@@ -1,8 +1,8 @@
 module Base
 {
-	template vehicle ATACommonBamper
+	template vehicle ATACommonBumper
 	{
-		part ATABamper
+		part ATABumper
 		{
 			area = Engine,
 			category = tuning,

@@ -121,8 +121,14 @@ end
 --***********************************************************
 
 function Tuning.UninstallComplete.Door(vehicle, part, item)
-print(item)
 	Vehicles.UninstallComplete.Door(vehicle, part, item)
+	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
+	item:setCondition(part:getModData().atatuning.health)
+	part:getModData().atatuning.health = nil
+end
+
+function Tuning.UninstallComplete.Window(vehicle, part, item)
+	Vehicles.UninstallComplete.Default(vehicle, part, item)
 	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
 	item:setCondition(part:getModData().atatuning.health)
 	part:getModData().atatuning.health = nil
@@ -136,7 +142,17 @@ function Tuning.InstallComplete.CommonProtection(vehicle, part)
 	if not vehicle:getModData().atatuning then
 		vehicle:getModData().atatuning = {}
 	end
-	if item:getModData()["ataProtection"] then
+	if part:getParent() then
+		print("HAVE PARENT")
+		local savePart = part:getParent()
+		if savePart and savePart:getInventoryItem() then
+			if not savePart:getModData().atatuning then
+				savePart:getModData().atatuning = {}
+			end
+			savePart:getModData().atatuning.health = savePart:getCondition()
+			savePart:setCondition(100)
+		end
+	elseif item:getModData()["ataProtection"] then
 		local partNames = lua_split(item:getModData()["ataProtection"], ";");
 		for k, partName in ipairs(partNames) do 
 			local savePart = vehicle:getPartById(partName)
@@ -156,7 +172,14 @@ function Tuning.UninstallComplete.CommonProtection(vehicle, part, item)
 	if not item then return end
 	Tuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	if not vehicle:getModData().atatuning then return end
-	if item:getModData()["ataProtection"] then
+	if part:getParent() then
+		local savePart = part:getParent()
+		if savePart then
+			if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
+			savePart:setCondition(savePart:getModData().atatuning.health)
+			savePart:getModData().atatuning.health = nil
+		end
+	elseif item:getModData()["ataProtection"] then
 		local partNames = lua_split(item:getModData()["ataProtection"], ";");
 		for k, partName in ipairs(partNames) do 
 			-- print(vehicle:getModData().atatuning[partName].health)
@@ -184,7 +207,24 @@ function Tuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 		Tuning.UninstallComplete.Protection(vehicle, part, item)
 	else
 		local redoCond = false
-		if item:getModData()["ataProtection"] then
+		if part:getParent() then
+			local savePart = part:getParent()
+			if savePart:getInventoryItem() then
+				if not savePart:getModData().atatuning then
+					savePart:getModData().atatuning = {}
+				end
+				if not savePart:getModData().atatuning.health then
+					savePart:getModData().atatuning.health = savePart:getCondition()
+				end
+				if (savePart:getCondition() < 80) then
+					redoCond = true
+					savePart:setCondition(100)
+				end
+				if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
+					savePart:setContainerContentAmount(20, false, true);
+				end
+			end
+		elseif item:getModData()["ataProtection"] then
 			local partNames = lua_split(item:getModData()["ataProtection"], ";");
 			for k, partName in ipairs(partNames) do 
 				local savePart = vehicle:getPartById(partName)
@@ -204,9 +244,9 @@ function Tuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 					end
 				end
 			end
-			if redoCond then
-				part:setCondition(part:getCondition()-1)
-			end
+		end
+		if redoCond then
+			part:setCondition(part:getCondition()-1)
 		end
 	end
 end

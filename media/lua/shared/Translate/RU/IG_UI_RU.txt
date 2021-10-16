@@ -10,8 +10,20 @@ IGUI_RU = {
 	IGUI_VehiclePartWindowsLeftLiteProtection = "Защита левого бокового стекла",
 	IGUI_VehiclePartWindowsLeftFullProtection = "Защита левых боковых стекол",
 	IGUI_VehiclePartWindowsRightProtection = "Защита правых боковых стекол",
+	IGUI_VehiclePartATAProtectionWindowFront = "Защита лобового стекла",
+	IGUI_VehiclePartATAProtectionWindowRear = "Защита заднего стекла",
+	IGUI_VehiclePartATAProtectionWindowFrontLeft = "Защита передних левых боковых стекол",
+	IGUI_VehiclePartATAProtectionWindowFrontRight = "Защита передних правых боковых стекол",
+	IGUI_VehiclePartATAProtectionWindowMiddleLeft = "Защита средних левых боковых стекол",
+	IGUI_VehiclePartATAProtectionWindowMiddleRight = "Защита средних правых боковых стекол",
+	IGUI_VehiclePartATAProtectionWindowRearLeft = "Защита задних левых боковых стекол",
+	IGUI_VehiclePartATAProtectionWindowRearRight = "Защита задних правых боковых стекол",
+	IGUI_VehiclePartATASpareWheel = "Запасное колесо",
+	IGUI_VehiclePartATABumper = "Бампер",
 	IGUI_CraftCategory_Tuning = "Тюнинг",
 	IGUI_VehiclePartCattuning = "Тюнинг",
+	
+	
 	IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник"
 	/* Common Library */
 	IGUI_VehiclePartshelves = "Полки",

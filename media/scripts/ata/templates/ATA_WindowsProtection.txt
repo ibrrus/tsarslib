@@ -1,0 +1,208 @@
+module Base
+{
+
+	item ATAProtectionWindowItem
+	{
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	Protection windows,
+        Icon	=	ATAWindowProtection,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+	}
+	recipe Make ATAProtectionWindowItem
+    {
+       MetalPipe=15,
+       BlowTorch=30,
+       keep WeldingMask,
+       Result:ATAProtectionWindowItem,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=3,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+       NeedToBeLearn:true,
+    }
+	
+	item ATAProtectionWindowFrontItem
+	{
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	Protection windshield,
+        Icon	=	ATAWindowProtection,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+	}
+	
+	recipe Make ATAProtectionWindowFrontItem
+    {
+       MetalPipe=6,
+	   SheetMetal=8,
+       BlowTorch=30,
+       keep WeldingMask,
+       Result:ATAProtectionWindowFrontItem,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=3,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+       NeedToBeLearn:true,
+    }
+
+	template vehicle ATAProtection
+	{
+		part ATAProtectionWindowFront
+		{
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			parent = Windshield,
+			area = Engine,
+			table install
+			{
+				requireInstalled = Windshield,
+			}
+		}
+		part ATAProtectionWindowRear
+		{
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			parent = WindshieldRear,
+			area = TruckBed,
+			table install
+			{
+				requireInstalled = WindshieldRear,
+			}
+		}
+		
+		part ATAProtectionWindowFrontLeft
+		{
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			parent = WindowFrontLeft,
+			area = SeatFrontLeft,
+			table install
+			{
+				requireInstalled = WindowFrontLeft,
+			}
+		}
+		part ATAProtectionWindowFrontRight
+		{
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			parent = WindowFrontRight,
+			area = SeatFrontRight,
+			table install
+			{
+				requireInstalled = WindowFrontRight,
+			}
+		}
+		part ATAProtectionWindowMiddleLeft
+		{
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			parent = WindowMiddleLeft,
+			area = SeatMiddleLeft,
+			table install
+			{
+				requireInstalled = WindowMiddleLeft,
+			}
+		}
+		part ATAProtectionWindowMiddleRight
+		{
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			parent = WindowMiddleRight,
+			area = SeatMiddleRight,
+			table install
+			{
+				requireInstalled = WindowMiddleRight,
+			}
+		}
+		part ATAProtectionWindowRearLeft
+		{
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			parent = WindowRearLeft,
+			area = SeatRearLeft,
+			table install
+			{
+				requireInstalled = WindowRearLeft,
+			}
+		}
+		part ATAProtectionWindowRearRight
+		{
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			parent = WindowRearRight,
+			area = SeatRearRight,
+			table install
+			{
+				requireInstalled = WindowRearRight,
+			}
+		}
+
+		part ATAProtectionWindow*
+		{
+			category = tuning,
+			specificItem = false,
+			mechanicRequireKey = false,
+			itemType = Base.ATAProtectionWindowItem,
+			table install
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+                }
+				time = 2000,
+				recipes = Advanced Mechanics;Basic Tuning,
+				test = Vehicles.InstallTest.Default,
+				complete = Tuning.InstallComplete.CommonProtection,
+            }
+            table uninstall
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+ 						equip = primary,
+                   }
+                }
+				time = 2000,
+				recipes = Advanced Mechanics;Basic Tuning,
+				test = Vehicles.UninstallTest.Default,
+				complete = Tuning.UninstallComplete.CommonProtection,
+            }
+			lua
+			{
+				create = Tuning.Create.NotInstallDefault,
+				init = Tuning.Init.DefaultModel,
+				update = Tuning.Update.CommonProtection,
+			}
+		}
+	}
+}
