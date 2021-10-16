@@ -1,0 +1,75 @@
+module Base
+{
+	item ATARoofRackSecondItem
+	{
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	= Roof Rack,
+        Icon	=	ATARoofRack,
+        MaxCapacity = 50,
+        ConditionAffectsCapacity = false,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+	}
+	
+	template vehicle ATAInteractiveTrunk
+	{
+		part ATARoofRackSecond
+		{
+			area = TruckBed,
+			category = tuning,
+			specificItem = false,
+			itemType = Base.ATARoofRackSecondItem,
+			mechanicRequireKey = false,
+			repairMechanic = true,
+			container
+			{
+				conditionAffectsCapacity = false,
+				test = Tuning.ContainerAccess.ATAInteractiveTrunk,
+			}
+			table install
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Wrench,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+                }
+				time = 2000,
+				recipes = Intermediate Mechanics;Basic Tuning,
+				test = Vehicles.InstallTest.Default,
+				complete = Tuning.InstallComplete.ATAInteractiveTrunk,
+            }
+            table uninstall
+            {
+                requireUninstalled =,
+				requireEmpty = true,
+				items
+                {
+                    1
+                    {
+                        type = Base.Wrench,
+                        count = 1,
+                        keep = true,
+ 						equip = primary,
+                   }
+                }
+				time = 2000,
+				recipes = Intermediate Mechanics;Basic Tuning,
+				test = Vehicles.UninstallTest.Default,
+				complete = Tuning.UninstallComplete.ATAInteractiveTrunk,
+            }
+			lua
+			{
+				create = Tuning.Create.ATAInteractiveTrunk,
+				init = Tuning.Init.ATAInteractiveTrunk,
+			}
+		}
+	}
+}

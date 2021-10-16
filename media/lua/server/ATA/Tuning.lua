@@ -143,7 +143,6 @@ function Tuning.InstallComplete.CommonProtection(vehicle, part)
 		vehicle:getModData().atatuning = {}
 	end
 	if part:getParent() then
-		print("HAVE PARENT")
 		local savePart = part:getParent()
 		if savePart and savePart:getInventoryItem() then
 			if not savePart:getModData().atatuning then
@@ -316,118 +315,91 @@ end
 
 --***********************************************************
 --**                                                       **
---**                		BusRoofRack  	               **
+--**                	ATAInteractiveTrunk	               **
 --**                                                       **
 --***********************************************************
 
-function Tuning.BusRoofRack(part)
+function Tuning.ATAInteractiveTrunk(part)
+	local interactiveItemsTable = part:getTable("interactiveItems")
 	if part:getInventoryItem() then
-		part:setModelVisible("Fench", true)
+		part:setModelVisible(interactiveItemsTable.Base, true)
 		if part:getItemContainer():getItems():isEmpty() then
-			part:setModelVisible("Barrel1", false)
-			part:setModelVisible("Barrel2", false)
-			part:setModelVisible("GasCan1", false)
-			part:setModelVisible("GasCan2", false)
-			part:setModelVisible("Pipes", false)
-			part:setModelVisible("Pipes1", false)
-			part:setModelVisible("Pipes2", false)
-			part:setModelVisible("Tent", false)
-			part:setModelVisible("TentBox", false)
-		else
-			part:setModelVisible("TentBox", true)
-			if part:getItemContainer():containsType("Base.Tarp") then
-				part:setModelVisible("Tent", true)
-			else
-				part:setModelVisible("Tent", false)
-			end
-			if (part:getItemContainer():getCountType("Base.Pipe") + 
-					part:getItemContainer():getCountType("Base.MetalPipe")  + 
-					part:getItemContainer():getCountType("Base.LeadPipe")) > 0 then
-				if (part:getItemContainer():getCountType("Base.Pipe") + 
-						part:getItemContainer():getCountType("Base.MetalPipe")  + 
-						part:getItemContainer():getCountType("Base.LeadPipe")) > 2 then
-					part:setModelVisible("Pipes", true)
-					part:setModelVisible("Pipes1", true)
-					part:setModelVisible("Pipes2", true)
-				elseif (part:getItemContainer():getCountType("Base.Pipe") + 
-						part:getItemContainer():getCountType("Base.MetalPipe")  + 
-						part:getItemContainer():getCountType("Base.LeadPipe")) == 2 then	
-					part:setModelVisible("Pipes", true)
-					part:setModelVisible("Pipes1", true)
-					part:setModelVisible("Pipes2", false)
-				else
-					part:setModelVisible("Pipes", true)
-					part:setModelVisible("Pipes1", false)
-					part:setModelVisible("Pipes2", false)
+			for itemName, k in pairs(interactiveItemsTable) do
+				if type(k) == "table" then
+					for i, modelName in ipairs(k) do
+						part:setModelVisible(modelName, false)
+					end
 				end
-			else
-				part:setModelVisible("Pipes", false)
-				part:setModelVisible("Pipes1", false)
-				part:setModelVisible("Pipes2", false)
 			end
-			if part:getItemContainer():getCountType("Base.MetalDrum") == 1 then
-				part:setModelVisible("Barrel1", true)
-				part:setModelVisible("Barrel2", false)
-			elseif part:getItemContainer():getCountType("Base.MetalDrum") > 1 then
-				part:setModelVisible("Barrel1", true)
-				part:setModelVisible("Barrel2", true)
-			else
-				part:setModelVisible("Barrel1", false)
-				part:setModelVisible("Barrel2", false)
-			end
-			if (part:getItemContainer():getCountType("Base.PetrolCan") +  
-					part:getItemContainer():getCountType("Base.EmptyPetrolCan")) == 1 then
-				part:setModelVisible("GasCan1", true)
-				part:setModelVisible("GasCan2", false)
-			elseif (part:getItemContainer():getCountType("Base.PetrolCan") +  
-					part:getItemContainer():getCountType("Base.EmptyPetrolCan")) > 1 then
-				part:setModelVisible("GasCan1", true)
-				part:setModelVisible("GasCan2", true)
-			else
-				part:setModelVisible("GasCan1", false)
-				part:setModelVisible("GasCan2", false)
+		else
+			part:setModelVisible(interactiveItemsTable.fullness[1], true)
+			for itemName, k in pairs(interactiveItemsTable) do
+				if not (itemName == "fullness") and type(k) == "table" then
+					local itemcount = 0
+					if string.match(itemName, "#") then
+						for i, itemNameNew in ipairs(lua_split(itemName, "#")) do
+							itemcount = itemcount + part:getItemContainer():getCountType(itemNameNew)
+						end
+					else
+						itemcount = part:getItemContainer():getCountType(itemName)
+					end
+					if itemcount > 0 then
+						if itemcount > #k then
+							itemcount = #k
+						end
+						for _id, modelName in ipairs(k) do
+							if _id <= itemcount then
+								part:setModelVisible(modelName, true)
+							else
+								part:setModelVisible(modelName, false)
+							end
+						end
+					else
+						for _id, modelName in ipairs(k) do
+							part:setModelVisible(modelName, false)
+						end
+					end
+				end
 			end
 		end
 	else
-		part:setModelVisible("Barrel1", false)
-		part:setModelVisible("Barrel2", false)
-		part:setModelVisible("Fench", false)
-		part:setModelVisible("GasCan1", false)
-		part:setModelVisible("GasCan2", false)
-		part:setModelVisible("Pipes", false)
-		part:setModelVisible("Pipes1", false)
-		part:setModelVisible("Pipes2", false)
-		part:setModelVisible("Tent", false)
-		part:setModelVisible("TentBox", false)
+		part:setModelVisible(interactiveItemsTable.fullness[1], true)
+		for itemName, k in pairs(interactiveItemsTable) do
+			if type(k) == "table" then
+				for i, modelName in ipairs(k) do
+					part:setModelVisible(modelName, false)
+				end
+			end
+		end
 	end
 end
 
 
-function Tuning.ContainerAccess.BusRoofRack(vehicle, part, chr)
-	Tuning.BusRoofRack(part)
+function Tuning.ContainerAccess.ATAInteractiveTrunk(vehicle, part, chr)
+	Tuning.ATAInteractiveTrunk(part)
 	if chr:getVehicle() then return false end
 	if not vehicle:isInArea(part:getArea(), chr) then return false end
 	return true
 end
 
-function Tuning.Create.BusRoofRack(vehicle, part)
+function Tuning.Create.ATAInteractiveTrunk(vehicle, part)
 	part:setInventoryItem(nil)
-	Tuning.BusRoofRack(part)
+	Tuning.ATAInteractiveTrunk(part)
 end
 
-function Tuning.Init.BusRoofRack(vehicle, part)
-	Tuning.BusRoofRack(part)
+function Tuning.Init.ATAInteractiveTrunk(vehicle, part)
+	Tuning.ATAInteractiveTrunk(part)
 end
 
-function Tuning.InstallComplete.BusRoofRack(vehicle, part)
+function Tuning.InstallComplete.ATAInteractiveTrunk(vehicle, part)
 	local item = part:getInventoryItem()
 	if not item then return end
-	Tuning.BusRoofRack(part)
+	Tuning.ATAInteractiveTrunk(part)
 end
 
-function Tuning.UninstallComplete.BusRoofRack(vehicle, part, item)
+function Tuning.UninstallComplete.ATAInteractiveTrunk(vehicle, part, item)
 	if not item then return end
-	Tuning.BusRoofRack(part)
+	Tuning.ATAInteractiveTrunk(part)
 	vehicle:doDamageOverlay()
 end
 
