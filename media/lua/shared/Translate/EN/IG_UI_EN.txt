@@ -1,5 +1,19 @@
 IG_UI_EN = {
-		/* Common Library */
+	/* ATA */
+	IGUI_VehiclePartATABullbar = "Bullbar",
+	IGUI_VehiclePartATARoofRack = "Roof rack",
+	IGUI_VehiclePartATARoofRackToolbox = "Roof toolbox",
+	IGUI_VehiclePartDoorProtection = "Protection for door",
+	IGUI_VehiclePartDoorRearProtection = "Protection for rear door",
+	IGUI_VehiclePartWheelsProtection = "Protection for wheel",
+	IGUI_VehiclePartWindowsFrontProtection = "Protection for windshield",
+	IGUI_VehiclePartWindowsLeftLiteProtection = "Protection for left window",
+	IGUI_VehiclePartWindowsLeftFullProtection = "Protection for left windows",
+	IGUI_VehiclePartWindowsRightProtection = "Protection for right windows",
+	IGUI_CraftCategory_Tuning = "Tuning",
+	IGUI_VehiclePartCattuning = "Tuning",
+	IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first"
+	/* Common Library */
 	IGUI_VehiclePartshelves = "Shelves",
 	IGUI_VehiclePartstove = "Stove",
 	IGUI_VehiclePartfridge = "Fridge",

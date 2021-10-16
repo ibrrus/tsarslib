@@ -1,5 +1,5 @@
 EventsTester = {}
-
+print("EventTester LOAD")
 
 local function EventsTesterCommon(object, a, b, c, d)
 	print("tb ", object, " ", a, " ", b, " ", c, " ", d )
@@ -81,9 +81,8 @@ local function OnPreGameStart(object)
 	-- Не срабатывает:
 	--		после запуска новой игры (продолжения игры), до того, как игрок нажмет "НАЧАТЬ ИГРУ"
 end
-local function OnTick(object)
-	print("OnTick: ", object)
-end
+
+
 local function OnTickEvenPaused(object)
 	print("OnTickEvenPaused: ", object)
 end
@@ -127,7 +126,7 @@ end
 -- Events.OnInitWorld.Add(OnInitWorld)
 
 
--- Events.OnTick.Add(OnTick)
+
 -- Events.OnTickEvenPaused.Add(OnTickEvenPaused)
 -- Events.OnRenderUpdate.Add(OnRenderUpdate)
 -- Events.OnFETick.Add(tb)
@@ -139,7 +138,7 @@ end
 -- Events.OnKeyPressed.Add(OnKeyPressed)
 -- Events.OnObjectCollide.Add(tb)
 -- Events.OnNPCSurvivorUpdate.Add(tb)
--- Events.OnPlayerUpdate.Add(tb)
+
 -- Events.OnZombieUpdate.Add(tb)
 -- Events.OnTriggerNPCEvent.Add(tb)
 -- Events.OnMultiTriggerNPCEvent.Add(tb)
@@ -151,7 +150,26 @@ end
 
 -- Events.OnRefreshInventoryWindowContainers.Add(tb)
 -- Events.OnMakeItem.Add(tb)
-Events.OnJoypadActivate.Add(OnJoypadActivate)
+-- Events.OnJoypadActivate.Add(OnJoypadActivate)
+
+
+function EventsTester.OnTick(object)
+	print("EventsTester.OnTick: ", object)
+end
+
+-- Events.OnTick.Add(EventsTester.OnTick)
+
+
+-- PLAYER
+
+function EventsTester.OnPlayerUpdate(playerObj, nil, nil, nil, nil)
+	print("EventsTester.OnPlayerUpdate ", object, " ", a, " ", b, " ", c, " ", d )
+	-- Происходит с той же частотой, как Events.OnTick, только в качестве переменной получаем игрока, как объект. 
+	-- Для каждого локального игрока своё событие. 
+	-- playerObj = IsoPlayer
+end
+
+-- Events.OnPlayerUpdate.Add(EventsTester.OnPlayerUpdate)
 
 
 -- CONTEXT MENU
@@ -204,7 +222,45 @@ function EventsTester.OnPlayerDeath(playerObj, a, b, c, d)
 	-- playerObj - объект-игрок
 end
 
-Events.OnCreatePlayer.Add(EventsTester.OnCreatePlayer)
+-- Events.OnCreatePlayer.Add(EventsTester.OnCreatePlayer)
+
+
+
+function EventsTester.OnFillContainer(object, a, b, c, d)
+	print("EventsTester.OnFillContainer ", object, " ", a, " ", b, " ", c, " ", d )
+	-- Срабатывает при приближении игрока к неисследованному контейнеру.
+	-- Переменные 
+	-- kitchen		freezer	 	zombie.inventory.ItemContainer@7e118138	 	nil	 	nil
+	-- bathroom	 	medicine	 	zombie.inventory.ItemContainer@5b90e0f7	 	nil	 	nil
+	
+end
+
+function EventsTester.OnContainerUpdate(object, a, b, c, d)
+	print("EventsTester.OnContainerUpdate ", object, " ", a, " ", b, " ", c, " ", d )
+
+end
+function EventsTester.OnObjectAdded(object, a, b, c, d)
+	print("EventsTester.OnObjectAdded ", object, " ", a, " ", b, " ", c, " ", d )
+
+end
+function EventsTester.OnObjectAboutToBeRemoved(object, a, b, c, d)
+	print("EventsTester.OnObjectAboutToBeRemoved ", object, " ", a, " ", b, " ", c, " ", d )
+	-- Срабатывает при поднятии предмета с пола
+	-- Не срабатывает при взятии предметов из контейнеров
+	-- zombie.iso.objects.IsoWorldInventoryObject@603a7de	 	nil	 	nil	 	nil	 	nil
+	-- 
+end
+
+-- Events.OnFillContainer.Add(EventsTester.OnFillContainer)
+Events.OnContainerUpdate.Add(EventsTester.OnContainerUpdate)
+Events.OnObjectAdded.Add(EventsTester.OnObjectAdded)
+-- Events.OnObjectAboutToBeRemoved.Add(EventsTester.OnObjectAboutToBeRemoved)
+
+
+
+
+
+
 -- Events.OnPlayerDeath.Add(EventsTester.OnPlayerDeath)
 -- Events.OnConnectFailed.Add(EventsTesterCommon)
 -- Events.OnConnected.Add(EventsTester.OnConnected)
@@ -299,7 +355,7 @@ end
 -- Events.OnModsModified.Add(tb)
 -- Events.OnSeeNewRoom.Add(tb)
 -- Events.OnNewFire.Add(tb)
--- Events.OnFillContainer.Add(tb)
+
 -- Events.OnChangeWeather.Add(tb)
 -- Events.OnRenderTick.Add(tb)
 -- Events.OnJoypadActivateUI.Add(OnJoypadActivateUI)

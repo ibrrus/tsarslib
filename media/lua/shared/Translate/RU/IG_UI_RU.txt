@@ -1,5 +1,19 @@
 IGUI_RU = {
-		/* Common Library */
+	/* ATA */
+	IGUI_VehiclePartATABullbar = "Кенгурятник",
+	IGUI_VehiclePartATARoofRack = "Багажник на крыше",
+	IGUI_VehiclePartATARoofRackToolbox = "Ящик для инструментов",
+	IGUI_VehiclePartDoorProtection = "Защита двери",
+	IGUI_VehiclePartDoorRearProtection = "Защита задних дверей",
+	IGUI_VehiclePartWheelsProtection = "Защита колес",
+	IGUI_VehiclePartWindowsFrontProtection = "Защита лобового стекла",
+	IGUI_VehiclePartWindowsLeftLiteProtection = "Защита левого бокового стекла",
+	IGUI_VehiclePartWindowsLeftFullProtection = "Защита левых боковых стекол",
+	IGUI_VehiclePartWindowsRightProtection = "Защита правых боковых стекол",
+	IGUI_CraftCategory_Tuning = "Тюнинг",
+	IGUI_VehiclePartCattuning = "Тюнинг",
+	IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник"
+	/* Common Library */
 	IGUI_VehiclePartshelves = "Полки",
 	IGUI_VehiclePartstove = "Плита",
 	IGUI_VehiclePartfridge = "Холодильник",

@@ -1,0 +1,53 @@
+module Base
+{
+	template vehicle ATASpareWheel
+	{
+		part ATASpareWheel
+		{
+			category = tire,
+			itemType = Base.OldTire;Base.NormalTire;Base.ModernTire,
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.LugWrench,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 400,
+				test = Vehicles.InstallTest.Default,
+				complete = Tuning.InstallComplete.DefaultModel,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+						type = Base.LugWrench,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 400,
+				test = Vehicles.UninstallTest.Default,
+				complete = Tuning.UninstallComplete.DefaultModel,
+			}
+			lua
+			{
+				create = Tuning.Create.DefaultModel,
+				init = Tuning.Init.DefaultModel,
+			}
+			
+		}
+	}
+}
