@@ -1,0 +1,15 @@
+for i, j in ipairs(wo) do print(j) end
+
+for i, j in pairs(s.optionPool) do print(j) end
+
+for i, j in pairs(getmetatable(g)) do print(j) end
+
+for i, j in pairs(getmetatable(g)) do for m, k in pairs(j) do print(m) end end
+
+getPlayer():getVehicle():setTireRemoved(0, true)
+
+print(getPlayer():getVehicle():getPartById("TireRearRight"):getWheelIndex())
+getPlayer():getVehicle():setTireRemoved(1, true)
+getPlayer():getVehicle():setTireRemoved(2, true)
+getPlayer():getVehicle():setTireRemoved(3, true)
+

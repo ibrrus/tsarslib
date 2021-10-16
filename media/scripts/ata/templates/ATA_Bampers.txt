@@ -1,0 +1,68 @@
+module Base
+{
+	template vehicle ATACommonBamper
+	{
+		part ATABamper
+		{
+			area = Engine,
+			category = tuning,
+			specificItem = false,
+			mechanicRequireKey = false,
+			repairMechanic = true,
+			table install
+            {
+				items
+                {
+                    1
+                    {
+                        type = Base.Wrench,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+					2
+                    {
+                        type = Base.PipeWrench,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+                }
+				time = 2000,
+				recipes = Advanced Mechanics;Basic Tuning,
+				test = Vehicles.InstallTest.Default,
+				complete = Tuning.InstallComplete.CommonBamper,
+            }
+            table uninstall
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Wrench,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+					2
+                    {
+                        type = Base.PipeWrench,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+                }
+				time = 2000,
+				recipes = Advanced Mechanics;Basic Tuning,
+				test = Vehicles.UninstallTest.Default,
+				complete = Tuning.UninstallComplete.CommonBamper,
+            }
+			lua
+			{
+				create = Tuning.Create.CommonBamper,
+				init = Tuning.Init.CommonBamper,
+				update = Tuning.Update.CommonProtection,
+			}
+		}
+	}
+}

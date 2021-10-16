@@ -1,5 +1,16 @@
 -- print("Autotsar tunning load start")
 
+local function lua_split (inputstr, sep)
+	if sep == nil then
+			sep = "%s"
+	end
+	local t={}
+	for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+			table.insert(t, str)
+	end
+	return t
+end
+
 Tuning = {}
 Tuning.CheckEngine = {}
 Tuning.CheckOperate = {}
@@ -49,6 +60,155 @@ function Tuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	if not item then return end
 	part:setModelVisible("Default", false)
 	vehicle:doDamageOverlay()
+end
+
+--***********************************************************
+--**                                                       **
+--**                	 Common bamper  	  	           **
+--**                                                       **
+--***********************************************************
+
+function Tuning.CommonBamper(vehicle, part, item)
+	-- print("Tuning.CommonBamper")
+	if item then
+		if item:getModData()["ataModel"] then
+			for i, anotherModel in ipairs(lua_split(item:getModData()["ataAnotherModel"], ";")) do
+				part:setModelVisible(anotherModel, false)
+			end
+			part:setModelVisible(item:getModData()["ataModel"], true)
+		end
+	end
+end
+
+function Tuning.Create.CommonBamper(vehicle, part)
+	-- print("Tuning.Create.BusBullbar")
+	-- part:setInventoryItem(nil)
+	local item = VehicleUtils.createPartInventoryItem(part)
+	Tuning.CommonBamper(vehicle, part, item)
+	vehicle:doDamageOverlay()
+end
+
+function Tuning.Create.CommonBamperNull(vehicle, part)
+	part:setInventoryItem(nil)
+	Tuning.CommonBamper(vehicle, part, nil)
+	vehicle:doDamageOverlay()
+end
+
+function Tuning.Init.CommonBamper(vehicle, part)
+	-- print(" Tuning.Init.BusBullbar")
+	Tuning.CommonBamper(vehicle, part, part:getInventoryItem())
+	vehicle:doDamageOverlay()
+end
+
+function Tuning.InstallComplete.CommonBamper(vehicle, part)
+-- print(" Tuning.InstallComplete.BusBullbar")
+	Tuning.CommonBamper(vehicle, part, part:getInventoryItem())
+	vehicle:doDamageOverlay()
+	Tuning.InstallComplete.CommonProtection(vehicle, part)
+end
+
+function Tuning.UninstallComplete.CommonBamper(vehicle, part, item)
+-- print(" Tuning.UninstallComplete.BusBullbar")
+	Tuning.CommonBamper(vehicle, part)
+	vehicle:doDamageOverlay()
+	Tuning.UninstallComplete.CommonProtection(vehicle, part, item)
+end
+
+--***********************************************************
+--**                                                       **
+--**                 	Common Protection  	               **
+--**                                                       **
+--***********************************************************
+
+function Tuning.UninstallComplete.Door(vehicle, part, item)
+print(item)
+	Vehicles.UninstallComplete.Door(vehicle, part, item)
+	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
+	item:setCondition(part:getModData().atatuning.health)
+	part:getModData().atatuning.health = nil
+end
+
+function Tuning.InstallComplete.CommonProtection(vehicle, part)
+-- print("Tuning.InstallComplete.Protection")
+	local item = part:getInventoryItem();
+	if not item then return; end
+	Tuning.InstallComplete.DefaultModel(vehicle, part)
+	if not vehicle:getModData().atatuning then
+		vehicle:getModData().atatuning = {}
+	end
+	if item:getModData()["ataProtection"] then
+		local partNames = lua_split(item:getModData()["ataProtection"], ";");
+		for k, partName in ipairs(partNames) do 
+			local savePart = vehicle:getPartById(partName)
+			if savePart and savePart:getInventoryItem() then
+				if not savePart:getModData().atatuning then
+					savePart:getModData().atatuning = {}
+				end
+				savePart:getModData().atatuning.health = savePart:getCondition()
+				savePart:setCondition(100)
+			end
+		end
+	end
+end
+
+function Tuning.UninstallComplete.CommonProtection(vehicle, part, item)
+-- print("Tuning.UninstallComplete.Protection")
+	if not item then return end
+	Tuning.UninstallComplete.DefaultModel(vehicle, part, item)
+	if not vehicle:getModData().atatuning then return end
+	if item:getModData()["ataProtection"] then
+		local partNames = lua_split(item:getModData()["ataProtection"], ";");
+		for k, partName in ipairs(partNames) do 
+			-- print(vehicle:getModData().atatuning[partName].health)
+			local savePart = vehicle:getPartById(partName)
+			if savePart then
+				if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
+				savePart:setCondition(savePart:getModData().atatuning.health)
+				savePart:getModData().atatuning.health = nil
+			end
+		end
+	end
+end
+
+function Tuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
+	-- print("Tuning.Update.Protection")
+	local item = part:getInventoryItem();
+	if not item then return; end
+
+	local areaCenter = vehicle:getAreaCenter(part:getArea())
+	if not areaCenter then return nil end
+	local square = getCell():getGridSquare(areaCenter:getX(), areaCenter:getY(), vehicle:getZ())
+	if part:getCondition() == 0 then
+		part:setInventoryItem(nil);
+		square:AddWorldInventoryItem(item, 0.5, 0.5, 0)
+		Tuning.UninstallComplete.Protection(vehicle, part, item)
+	else
+		local redoCond = false
+		if item:getModData()["ataProtection"] then
+			local partNames = lua_split(item:getModData()["ataProtection"], ";");
+			for k, partName in ipairs(partNames) do 
+				local savePart = vehicle:getPartById(partName)
+				if savePart:getInventoryItem() then
+					if not savePart:getModData().atatuning then
+						savePart:getModData().atatuning = {}
+					end
+					if not savePart:getModData().atatuning.health then
+						savePart:getModData().atatuning.health = savePart:getCondition()
+					end
+					if (savePart:getCondition() < 80) then
+						redoCond = true
+						savePart:setCondition(100)
+					end
+					if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
+						savePart:setContainerContentAmount(20, false, true);
+					end
+				end
+			end
+			if redoCond then
+				part:setCondition(part:getCondition()-1)
+			end
+		end
+	end
 end
 
 
@@ -237,17 +397,6 @@ end
 --**                                                       **
 --***********************************************************
 
-
-local ProtectionTable = {
-	DoorProtection = {"WindowFrontRight",},
-	WindowsFrontProtection = {"Windshield",},
-	WindowsRightProtection = {"WindowRearRight","WindowMiddleRight"},
-	WindowsLeftFullProtection = {"WindowRearLeft","WindowMiddleLeft","WindowFrontLeft",},
-	WindowsLeftLiteProtection = {"WindowFrontLeft",},
-	ATABullbar = {"EngineDoor","Engine","GasTank","TireFrontLeft","TireFrontRight"},
-	WheelsProtection = {"TireRearLeft","TireRearRight"}
-}
-
 function Tuning.InstallComplete.Protection(vehicle, part)
 -- print("Tuning.InstallComplete.Protection")
 	local invItem = part:getInventoryItem();
@@ -256,7 +405,8 @@ function Tuning.InstallComplete.Protection(vehicle, part)
 	if not vehicle:getModData().tuning then
 		vehicle:getModData().tuning = {}
 	end
-	for k, partName in pairs(ProtectionTable[part:getId()]) do 
+	local partNames = part:getTable("install");
+	for k, partName in ipairs(partNames) do 
 		local savePart = vehicle:getPartById(partName)
 		if not vehicle:getModData().tuning[partName] then
 			vehicle:getModData().tuning[partName] = {}
@@ -272,7 +422,8 @@ function Tuning.UninstallComplete.Protection(vehicle, part, item)
 	if not item then return end
 	Tuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	if not vehicle:getModData().tuning then return end
-	for k, partName in pairs(ProtectionTable[part:getId()]) do 
+	local partNames = part:getTable("install");
+	for k, partName in ipairs(partNames) do 
 		-- print(vehicle:getModData().tuning[partName].health)
 		local savePart = vehicle:getPartById(partName)
 		if not vehicle:getModData().tuning[partName] then return end
@@ -294,10 +445,10 @@ end
 	-- end
 -- end
 function Tuning.Update.Protection(vehicle, part, elapsedMinutes)
+	-- print("Tuning.Update.Protection")
 	local invItem = part:getInventoryItem();
 	if not invItem then return; end
-	-- print("Tuning.Update.Protection")
-	-- print(part:getId())
+	
 	local areaCenter = vehicle:getAreaCenter(part:getArea())
 	if not areaCenter then return nil end
 	local square = getCell():getGridSquare(areaCenter:getX(), areaCenter:getY(), vehicle:getZ())
@@ -307,7 +458,8 @@ function Tuning.Update.Protection(vehicle, part, elapsedMinutes)
 		Tuning.UninstallComplete.Protection(vehicle, part, invItem)
 	else
 		local redoCond = false
-		for k, partName in pairs(ProtectionTable[part:getId()]) do 
+		local partNames = part:getTable("install");
+		for k, partName in ipairs(partNames) do 
 			local savePart = vehicle:getPartById(partName)
 			if not vehicle:getModData().tuning then
 				vehicle:getModData().tuning = {}
@@ -320,14 +472,9 @@ function Tuning.Update.Protection(vehicle, part, elapsedMinutes)
 				redoCond = true
 				VehicleUtils.createPartInventoryItem(savePart)
 				savePart:setCondition(100)
-				-- print(savePart:getContainerContentAmount())
-				-- part:setInventoryItem(nil);
-				-- part:setInventoryItem(nil);
-				-- square:AddWorldInventoryItem(invItem, 0.5, 0.5, 0)
 			elseif (savePart:getCondition() < 80) then
 				redoCond = true
 				savePart:setCondition(100)
-				-- print(savePart:getContainerContentAmount())
 			end
 			if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
 				savePart:setContainerContentAmount(20, false, true);
