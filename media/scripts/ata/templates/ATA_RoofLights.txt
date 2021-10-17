@@ -1,0 +1,69 @@
+module Base
+{
+	template vehicle ATARoofLights
+	{
+		part ATARoofLightFront
+		{
+			area = SeatFrontLeft,
+		}
+		
+		part ATARoofLightLeft
+		{
+			area = SeatFrontLeft,
+		}
+
+		part ATARoofLightRight
+		{
+			area = SeatFrontRight,
+		}
+
+		part ATARoofLightRear
+		{
+			area = Engine,
+		}
+
+		part ATARoofLight*
+		{
+			category = lights,
+			specificItem = false,
+			itemType = Base.LightBulb,
+			mechanicRequireKey = false,
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 100,
+				test = Vehicles.InstallTest.Default,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 100,
+				test = Vehicles.UninstallTest.Default,
+			}
+			lua
+			{
+				create = Tuning.Create.ATALight,
+				init = Vehicles.Init.Headlight,
+				update = Vehicles.Update.Headlight,
+			}
+		}
+	}
+}

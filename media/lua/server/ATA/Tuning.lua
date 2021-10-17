@@ -523,4 +523,28 @@ end
 	-- end
 -- end
 
+
+--***********************************************************
+--**                                                       **
+--**                		Lights 		 	               **
+--**                                                       **
+--***********************************************************
+
+function Tuning.Create.ATALight(vehicle, part)
+	local item = VehicleUtils.createPartInventoryItem(part)
+	-- xOffset,yOffset,distance,intensity,dot,focusing
+	-- NOTE: distance,intensity,focusing values are ignored, instead they are
+	-- set based on part condition.
+	if part:getId() == "ATALightLeft" then
+		part:createSpotLight(4.5, -1, 0.1, 0.1, 1.4, 200) -- (2, -0.8, 0.1, 0.1, 2, 200)
+	elseif part:getId() == "ATALightRight" then
+		part:createSpotLight(-4.5, -1, 0.1, 0.1, 1.4, 200)
+	elseif part:getId() == "ATALightRear" then
+		part:createSpotLight(0, -4.5, 0.1, 0.1, 1.35, 100)	
+	elseif part:getId() == "ATALightFront" then
+		part:createSpotLight(0, 2.0, 8.0+ZombRand(16.0), 0.75, 0.96, ZombRand(200))
+	end
+end
+
+
 -- print("Autotsar tunning loaded")

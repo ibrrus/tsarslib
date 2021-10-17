@@ -20,8 +20,15 @@ IGUI_RU = {
 	IGUI_VehiclePartATAProtectionWindowRearRight = "Защита задних правых боковых стекол",
 	IGUI_VehiclePartATASpareWheel = "Запасное колесо",
 	IGUI_VehiclePartATABumper = "Бампер",
-	IGUI_VehiclePartATARoofBase = "Рама для багажника на крыше",
+	IGUI_VehiclePartATARoofBase = "Рейлинги",
 	IGUI_VehiclePartATARoofRackFirst = "Багажник на крыше",
+	
+	IGUI_VehiclePartATARoofLightFront = "Передние фонари на крыше",
+	IGUI_VehiclePartATARoofLightLeft = "Левые фонари на крыше",
+	IGUI_VehiclePartATARoofLightRight = "Правые фонари на крыше",
+	IGUI_VehiclePartATARoofLightRear = "Задние фонари на крыше",
+	
+	IGUI_VehiclePartATASnorkel = "Шноркель",
 	
 	IGUI_CraftCategory_Tuning = "Тюнинг",
 	IGUI_VehiclePartCattuning = "Тюнинг",

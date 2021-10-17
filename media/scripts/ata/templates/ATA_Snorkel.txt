@@ -1,0 +1,68 @@
+module Base
+{
+	item ATASnorkelItem
+	{
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	= ATASnorkel,
+        Icon	=	ATASnorkel,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+	}
+	
+	template vehicle ATASnorkel
+	{
+		part ATASnorkel
+		{
+			area = TruckBed,
+			category = tuning,
+			itemType = Base.ATASnorkelItem,
+			specificItem = false,
+			mechanicRequireKey = false,
+			repairMechanic = false,
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.LugWrench,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 400,
+				test = Vehicles.InstallTest.Default,
+				complete = Tuning.InstallComplete.DefaultModel,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+						type = Base.LugWrench,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 400,
+				test = Vehicles.UninstallTest.Default,
+				complete = Tuning.UninstallComplete.DefaultModel,
+			}
+			lua
+			{
+				create = Tuning.Create.DefaultModel,
+				init = Tuning.Init.DefaultModel,
+			}
+		}
+	}
+}

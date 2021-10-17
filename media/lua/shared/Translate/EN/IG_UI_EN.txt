@@ -20,8 +20,15 @@ IG_UI_EN = {
 	IGUI_VehiclePartATAProtectionWindowRearRight = "Protection for rear right window",
 	IGUI_VehiclePartATASpareWheel = "Spare Wheel",
 	IGUI_VehiclePartATABumper = "Bumper",
-	IGUI_VehiclePartATARoofBase = "Roof rack frame",
+	IGUI_VehiclePartATARoofBase = "Congo Cage",
 	IGUI_VehiclePartATARoofRackFirst = "Roof rack",
+	
+	IGUI_VehiclePartATARoofLightFront = "Front roof lights",
+	IGUI_VehiclePartATARoofLightLeft = "Left roof lights",
+	IGUI_VehiclePartATARoofLightRight = "Right roof lights",
+	IGUI_VehiclePartATARoofLightRear = "Rear roof lights",
+	
+	IGUI_VehiclePartATASnorkel = "Snorkel",
 	
 	IGUI_CraftCategory_Tuning = "Tuning",
 	IGUI_VehiclePartCattuning = "Tuning",
