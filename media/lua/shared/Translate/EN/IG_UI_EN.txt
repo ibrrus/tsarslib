@@ -20,6 +20,9 @@ IG_UI_EN = {
 	IGUI_VehiclePartATAProtectionWindowRearRight = "Protection for rear right window",
 	IGUI_VehiclePartATASpareWheel = "Spare Wheel",
 	IGUI_VehiclePartATABumper = "Bumper",
+	IGUI_VehiclePartATARoofBase = "Roof rack frame",
+	IGUI_VehiclePartATARoofRackFirst = "Roof rack",
+	
 	IGUI_CraftCategory_Tuning = "Tuning",
 	IGUI_VehiclePartCattuning = "Tuning",
 	IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first"

@@ -332,7 +332,13 @@ function Tuning.ATAInteractiveTrunk(part)
 				end
 			end
 		else
-			part:setModelVisible(interactiveItemsTable.fullness[1], true)
+			for i, modelName in pairs(interactiveItemsTable.fullness) do
+				if i <= (math.floor((part:getItemContainer():getContentsWeight() / part:getItemContainer():getCapacity()) / (1/#interactiveItemsTable.fullness)) + 1) then
+					part:setModelVisible(modelName, true)
+				else
+					part:setModelVisible(modelName, false)
+				end
+			end
 			for itemName, k in pairs(interactiveItemsTable) do
 				if not (itemName == "fullness") and type(k) == "table" then
 					local itemcount = 0

@@ -20,6 +20,9 @@ IGUI_RU = {
 	IGUI_VehiclePartATAProtectionWindowRearRight = "Защита задних правых боковых стекол",
 	IGUI_VehiclePartATASpareWheel = "Запасное колесо",
 	IGUI_VehiclePartATABumper = "Бампер",
+	IGUI_VehiclePartATARoofBase = "Рама для багажника на крыше",
+	IGUI_VehiclePartATARoofRackFirst = "Багажник на крыше",
+	
 	IGUI_CraftCategory_Tuning = "Тюнинг",
 	IGUI_VehiclePartCattuning = "Тюнинг",
 	

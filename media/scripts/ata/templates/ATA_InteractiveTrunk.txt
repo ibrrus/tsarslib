@@ -1,11 +1,26 @@
 module Base
 {
+	
+	item ATARoofRackFirstItem
+	{
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	= ATARoofRack,
+        Icon	=	ATARoofRack,
+        MaxCapacity = 95,
+        ConditionAffectsCapacity = false,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+	}
+	
 	item ATARoofRackSecondItem
 	{
 		Weight	=	10.0,
         Type	=	Normal,
         DisplayName	= Roof Rack,
-        Icon	=	ATARoofRack,
+        Icon	=	ATARoofRackSecondItem,
         MaxCapacity = 50,
         ConditionAffectsCapacity = false,
         ConditionMax = 100,
@@ -14,14 +29,88 @@ module Base
 		Tooltip = Tooltip_item_tuning,
 	}
 	
+	item ATARoofBaseItem
+	{
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	= ATARoofRack,
+        Icon	=	ATARoofRack,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+	}
+	
 	template vehicle ATAInteractiveTrunk
 	{
+		
+		part ATARoofBase
+		{
+			area = TruckBed,
+			category = tuning,
+			itemType = Base.ATARoofBaseItem,
+			specificItem = false,
+			mechanicRequireKey = false,
+			repairMechanic = true,
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.LugWrench,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 400,
+				test = Vehicles.InstallTest.Default,
+				complete = Tuning.InstallComplete.DefaultModel,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+						type = Base.LugWrench,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 400,
+				test = Vehicles.UninstallTest.Default,
+				complete = Tuning.UninstallComplete.DefaultModel,
+			}
+			lua
+			{
+				create = Tuning.Create.DefaultModel,
+				init = Tuning.Init.DefaultModel,
+			}
+		}
+		
+		part ATARoofRackFirst
+		{
+			itemType = Base.ATARoofRackFirstItem,
+		}
+		
 		part ATARoofRackSecond
+		{
+			itemType = Base.ATARoofRackSecondItem,
+		}
+		
+		part ATARoofRack*
 		{
 			area = TruckBed,
 			category = tuning,
 			specificItem = false,
-			itemType = Base.ATARoofRackSecondItem,
+			
 			mechanicRequireKey = false,
 			repairMechanic = true,
 			container
@@ -31,7 +120,8 @@ module Base
 			}
 			table install
             {
-                items
+                requireInstalled =,
+				items
                 {
                     1
                     {

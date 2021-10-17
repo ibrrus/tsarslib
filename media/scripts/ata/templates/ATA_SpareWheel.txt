@@ -47,7 +47,6 @@ module Base
 				create = Tuning.Create.DefaultModel,
 				init = Tuning.Init.DefaultModel,
 			}
-			
 		}
 	}
 }
