@@ -22,6 +22,7 @@ IG_UI_EN = {
 	IGUI_VehiclePartATABumper = "Bumper",
 	IGUI_VehiclePartATARoofBase = "Congo Cage",
 	IGUI_VehiclePartATARoofRackFirst = "Roof rack",
+	IGUI_VehiclePartATARoofTent = "Roof top tent",
 	
 	IGUI_VehiclePartATARoofLightFront = "Front roof lights",
 	IGUI_VehiclePartATARoofLightLeft = "Left roof lights",

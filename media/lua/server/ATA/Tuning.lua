@@ -62,6 +62,134 @@ function Tuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	vehicle:doDamageOverlay()
 end
 
+function Tuning.InstallTest.multiRequire(vehicle, part, chr)
+	if ISVehicleMechanics.cheat then return true; end
+	local keyvalues = part:getTable("install")
+	if not keyvalues then return false end
+	if part:getInventoryItem() then return false end
+	if not part:getItemType() or part:getItemType():isEmpty() then return false end
+	local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
+	if keyvalues.requireInstalled then
+		local split = keyvalues.requireInstalled:split(";");
+		for i,v in ipairs(split) do
+			if not vehicle:getPartById(v) or not vehicle:getPartById(v):getInventoryItem() then return false; end
+		end
+	end
+	if keyvalues.requireUninstalled then
+		local split = keyvalues.requireUninstalled:split(";");
+		for i,v in ipairs(split) do
+			if vehicle:getPartById(v) and vehicle:getPartById(v):getInventoryItem() then return false; end
+		end
+	end
+	if not VehicleUtils.testProfession(chr, keyvalues.professions) then return false end
+	-- allow all perk, but calculate success/failure risk
+--	if not VehicleUtils.testPerks(chr, keyvalues.skills) then return false end
+	if not VehicleUtils.testRecipes(chr, keyvalues.recipes) then return false end
+	if not VehicleUtils.testTraits(chr, keyvalues.traits) then return false end
+	if not VehicleUtils.testItems(chr, keyvalues.items, typeToItem) then return false end
+	-- if doing mechanics on this part require key but player doesn't have it, we'll check that door or windows aren't unlocked also
+	if VehicleUtils.RequiredKeyNotFound(part, chr) then
+		return false;
+	end
+	return true
+end
+
+function Tuning.UninstallTest.multiRequire(vehicle, part, chr)
+	if ISVehicleMechanics.cheat then return true; end
+	local keyvalues = part:getTable("uninstall")
+	if not keyvalues then return false end
+	if not part:getInventoryItem() then return false end
+	if not part:getItemType() or part:getItemType():isEmpty() then return false end
+	local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
+	if keyvalues.requireInstalled then
+		local split = keyvalues.requireInstalled:split(";");
+		for i,v in ipairs(split) do
+			if not vehicle:getPartById(v) or not vehicle:getPartById(v):getInventoryItem() then return false; end
+		end
+	end
+	if keyvalues.requireUninstalled then
+		local split = keyvalues.requireUninstalled:split(";");
+		for i,v in ipairs(split) do
+			if vehicle:getPartById(v) and vehicle:getPartById(v):getInventoryItem() then return false; end
+		end
+	end
+	if not VehicleUtils.testProfession(chr, keyvalues.professions) then return false end
+	-- allow all perk, but calculate success/failure risk
+--	if not VehicleUtils.testPerks(chr, keyvalues.skills) then return false end
+	if not VehicleUtils.testRecipes(chr, keyvalues.recipes) then return false end
+	if not VehicleUtils.testTraits(chr, keyvalues.traits) then return false end
+	if not VehicleUtils.testItems(chr, keyvalues.items, typeToItem) then return false end
+	if keyvalues.requireEmpty and round(part:getContainerContentAmount(), 3) > 0 then return false end
+	local seatNumber = part:getContainerSeatNumber()
+	local seatOccupied = (seatNumber ~= -1) and vehicle:isSeatOccupied(seatNumber)
+	if keyvalues.requireEmpty and seatOccupied then return false end
+	-- if doing mechanics on this part require key but player doesn't have it, we'll check that door or windows aren't unlocked also
+	if VehicleUtils.RequiredKeyNotFound(part, chr) then
+		return false
+	end
+	return true
+end
+
+--***********************************************************
+--**                                                       **
+--**                		Roof Tent  		  	           **
+--**                                                       **
+--***********************************************************
+
+function Tuning.Create.RoofTent(vehicle, part)
+	Tuning.Create.NotInstallDefault(vehicle, part)
+	part:setModelVisible("Close", false)
+	part:setModelVisible("Open", false)
+	part:getModData()["atatuning"] = {}
+	part:getModData()["atatuning"].status = "close"
+end
+
+function Tuning.Init.RoofTent(vehicle, part)
+	-- print("Tuning.Init.DefaultModel")
+	if part:getInventoryItem() then
+		-- print("Tuning.Init.DefaultModel: VISIBLE")
+		part:setModelVisible("Default", true)
+		if part:getModData()["atatuning"].status == "open" then
+			part:setModelVisible("Close", false)
+			part:setModelVisible("Open", true)
+		else
+			part:setModelVisible("Close", true)
+			part:setModelVisible("Open", false)
+		end
+	end
+end
+
+function Tuning.InstallComplete.RoofTent(vehicle, part)
+	local item = part:getInventoryItem()
+	if not item then return end
+	part:setModelVisible("Default", true)
+	part:setModelVisible("Close", true)
+	part:setModelVisible("Open", false)
+	part:getModData()["atatuning"].status = "close"
+	vehicle:doDamageOverlay()
+end
+
+function Tuning.UninstallComplete.RoofTent(vehicle, part, item)
+	if not item then return end
+	part:setModelVisible("Default", false)
+	part:setModelVisible("Close", false)
+	part:setModelVisible("Open", false)
+	part:getModData()["atatuning"] = {}
+	vehicle:doDamageOverlay()
+end
+
+function Tuning.Use.RoofTent(vehicle, part, open)
+	if open then
+		part:setModelVisible("Close", false)
+		part:setModelVisible("Open", true)
+		part:getModData()["atatuning"].status = "open"
+	else
+		part:setModelVisible("Close", true)
+		part:setModelVisible("Open", false)
+		part:getModData()["atatuning"].status = "close"
+	end
+end
+
 --***********************************************************
 --**                                                       **
 --**                	 Common bamper  	  	           **
@@ -72,7 +200,7 @@ function Tuning.CommonBamper(vehicle, part, item)
 	-- print("Tuning.CommonBamper")
 	if item then
 		if item:getModData()["ataModel"] then
-			for i, anotherModel in ipairs(lua_split(item:getModData()["ataAnotherModel"], ";")) do
+			for i, anotherModel in ipairs(item:getModData()["ataAnotherModel"]:split(";")) do
 				part:setModelVisible(anotherModel, false)
 			end
 			part:setModelVisible(item:getModData()["ataModel"], true)
@@ -152,7 +280,7 @@ function Tuning.InstallComplete.CommonProtection(vehicle, part)
 			savePart:setCondition(100)
 		end
 	elseif item:getModData()["ataProtection"] then
-		local partNames = lua_split(item:getModData()["ataProtection"], ";");
+		local partNames = item:getModData()["ataProtection"]:split(";");
 		for k, partName in ipairs(partNames) do 
 			local savePart = vehicle:getPartById(partName)
 			if savePart and savePart:getInventoryItem() then
@@ -179,7 +307,7 @@ function Tuning.UninstallComplete.CommonProtection(vehicle, part, item)
 			savePart:getModData().atatuning.health = nil
 		end
 	elseif item:getModData()["ataProtection"] then
-		local partNames = lua_split(item:getModData()["ataProtection"], ";");
+		local partNames = item:getModData()["ataProtection"]:split(";");
 		for k, partName in ipairs(partNames) do 
 			-- print(vehicle:getModData().atatuning[partName].health)
 			local savePart = vehicle:getPartById(partName)
@@ -224,7 +352,7 @@ function Tuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 				end
 			end
 		elseif item:getModData()["ataProtection"] then
-			local partNames = lua_split(item:getModData()["ataProtection"], ";");
+			local partNames = item:getModData()["ataProtection"]:split(";");
 			for k, partName in ipairs(partNames) do 
 				local savePart = vehicle:getPartById(partName)
 				if savePart:getInventoryItem() then
@@ -343,7 +471,7 @@ function Tuning.ATAInteractiveTrunk(part)
 				if not (itemName == "fullness") and type(k) == "table" then
 					local itemcount = 0
 					if string.match(itemName, "#") then
-						for i, itemNameNew in ipairs(lua_split(itemName, "#")) do
+						for i, itemNameNew in ipairs(itemName:split("#")) do
 							itemcount = itemcount + part:getItemContainer():getCountType(itemNameNew)
 						end
 					else

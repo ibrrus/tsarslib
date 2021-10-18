@@ -31,7 +31,7 @@ module Base
 	
 				}
                 time = 10,
-				test = Vehicles.InstallTest.Default,
+				test = Tuning.InstallTest.multiRequire,
             }
             table uninstall
             {
@@ -40,7 +40,7 @@ module Base
 					
 				}
                 time = 10,
-                test = Vehicles.UninstallTest.Default,
+                test = Tuning.UninstallTest.multiRequire,
             }
 			lua
 			{

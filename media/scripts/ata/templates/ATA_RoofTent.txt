@@ -1,24 +1,25 @@
 module Base
 {
-	item ATASnorkelItem
+	item ATARoofTentItem
 	{
 		Weight	=	10.0,
         Type	=	Normal,
-        DisplayName	= ATASnorkel,
-        Icon	=	ATASnorkel,
+        DisplayName	= ATARoofTentItem,
+        Icon	=	ATARoofTentItem,
         ChanceToSpawnDamaged = 25,
+		MaxCapacity = 30,
         ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
 	}
 	
-	template vehicle ATASnorkel
+	template vehicle ATARoofTent
 	{
-		part ATASnorkel
+		part ATARoofTent
 		{
 			area = TruckBed,
 			category = tuning,
-			itemType = Base.ATASnorkelItem,
+			itemType = Base.ATARoofTentItem,
 			specificItem = false,
 			mechanicRequireKey = false,
 			repairMechanic = false,
@@ -40,7 +41,7 @@ module Base
 				}
 				time = 400,
 				test = Tuning.InstallTest.multiRequire,
-				complete = Tuning.InstallComplete.DefaultModel,
+				complete = Tuning.InstallComplete.RoofTent,
 			}
 			table uninstall
 			{
@@ -56,12 +57,12 @@ module Base
 				}
 				time = 400,
 				test = Tuning.UninstallTest.multiRequire,
-				complete = Tuning.UninstallComplete.DefaultModel,
+				complete = Tuning.UninstallComplete.RoofTent,
 			}
 			lua
 			{
-				create = Tuning.Create.DefaultModel,
-				init = Tuning.Init.DefaultModel,
+				create = Tuning.Create.RoofTent,
+				init = Tuning.Init.RoofTent,
 			}
 		}
 	}

@@ -22,6 +22,8 @@ IGUI_RU = {
 	IGUI_VehiclePartATABumper = "Бампер",
 	IGUI_VehiclePartATARoofBase = "Рейлинги",
 	IGUI_VehiclePartATARoofRackFirst = "Багажник на крыше",
+	IGUI_VehiclePartATARoofTent = "Палатка на крышу",
+	
 	
 	IGUI_VehiclePartATARoofLightFront = "Передние фонари на крыше",
 	IGUI_VehiclePartATARoofLightLeft = "Левые фонари на крыше",
