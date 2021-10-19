@@ -1,3 +1,35 @@
+/* Это шаблон палатки для крыши автомобиля. Фактически, роль палатки выполняют изолированные сиденья. По-умолчанию, предалагается изолировать средние сиденья. Для установке в автомобиль палатки, в скрипт необходимо вписать строку:
+	template = ATARoofTent/part/ATARoofTent,
+Спавн палатки (предмет ATARoofTentItem) уже настроен в моде. Однако, вы можете создать свой предмет и переопределить его в шаблоне, тогда спавн необходимо будет настраивать самостоятельно.
+Для отключения части функций в радиальном меню автомобиля, при нахождении игрока в палатке, служат шаблоны "InRoofTent + *название сиденья*".
+Для импортирования готового шаблона палатки, в котором изолированы средние сиденья и отключены лишние функции радиального меню, необходимо использовать строку:
+	template! = ATARoofMiddleTent,
+Внимание! Строка должна быть добавлена после стандартного "ванильного" шаблона с пассажирами и шаблонов с сиденьями.
+
+Палатка предполагает три типа 3д-моделей: "Default" - общая рама, "Open" - открытая палатка, "Close" - закрытая палатка. Модель "Default" - не обязательна.
+Зд-модели должны быть переопределены в скрипте вашего автомобиля. Так же в ходе этого процесса, вам следуем самостоятельно указать части автомобиля, обязательные для установки/снятия палатки. Пример переопределения:
+	part ATARoofTent
+	{
+		model Default
+		{
+			file = ATA_Jeep_palatka_base,
+		}
+		model Open
+		{
+			file = ATA_Jeep_palatka_open,
+		}
+		model Close
+		{
+			file = ATA_Jeep_palatka_closed,
+		}
+		table install
+		{
+			requireInstalled = ATARoofBase,
+			requireUninstalled = ATARoofRackFirst,
+		}
+	}
+*/
+
 module Base
 {
 	item ATARoofTentItem
@@ -63,6 +95,134 @@ module Base
 			{
 				create = Tuning.Create.RoofTent,
 				init = Tuning.Init.RoofTent,
+			}
+		}
+		
+		part InRoofTentFrontLeft
+		{
+			area = SeatFrontLeft,
+		}
+		part InRoofTentFrontRight
+		{
+			area = SeatFrontRight,
+		}
+		part InRoofTentMiddleLeft
+		{
+			area = SeatMiddleLeft,
+		}
+		part InRoofTentMiddleRight
+		{
+			area = SeatMiddleRight,
+		}
+		part InRoofTentRearLeft
+		{
+			area = SeatRearLeft,
+		}
+		part InRoofTentRearRight
+		{
+			area = SeatRearRight,
+		}
+		part InRoofTent*
+		{
+			category = nodisplay,
+		}
+	}
+	
+	template vehicle ATARoofMiddleTentSetting
+	{
+		template = ATARoofTent/part/InRoofTentMiddleLeft,
+		template = ATARoofTent/part/InRoofTentMiddleRight,
+		template = Mattresses/part/MattressMiddleLeft,
+		template = Mattresses/part/MattressMiddleRight,
+		passenger FrontLeft
+		{
+			switchSeat MiddleLeft
+			{
+			}
+
+			switchSeat MiddleRight
+			{
+			}
+		}
+
+		passenger FrontRight
+		{
+			switchSeat MiddleLeft
+			{
+			}
+
+			switchSeat MiddleRight
+			{
+			}
+		}
+
+		passenger MiddleLeft
+		{
+			switchSeat FrontLeft
+			{
+			}
+
+			switchSeat FrontRight
+			{
+			}
+
+			switchSeat RearLeft
+			{
+			}
+
+			switchSeat RearRight
+			{
+			}
+		}
+
+		passenger MiddleRight
+		{
+			switchSeat FrontLeft
+			{
+			}
+
+			switchSeat FrontRight
+			{
+			}
+
+			switchSeat RearLeft
+			{
+			}
+
+			switchSeat RearRight
+			{
+			}
+		}
+	
+		passenger RearLeft
+		{
+			switchSeat MiddleLeft
+			{
+			}
+
+			switchSeat MiddleRight
+			{
+			}
+		}
+
+		passenger RearRight
+		{
+			switchSeat MiddleLeft
+			{
+			}
+
+			switchSeat MiddleRight
+			{
+			}
+		}
+		template = Seat/part/SeatMiddleLeft,
+		template = Seat/part/SeatMiddleRight,
+		part SeatMiddle*
+		{
+			category = nodisplay,
+			lua
+			{
+				create = Tuning.Create.NotInstallDefault,
 			}
 		}
 	}

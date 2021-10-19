@@ -26,7 +26,6 @@ module Base
 		{
 			area = SeatRearRight,
 		}
-		
 		part InCabin*
 		{
 			category = nodisplay,

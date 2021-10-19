@@ -183,9 +183,13 @@ function Tuning.Use.RoofTent(vehicle, part, open)
 		part:setModelVisible("Close", false)
 		part:setModelVisible("Open", true)
 		part:getModData()["atatuning"].status = "open"
+		VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleLeft"))
+		VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleRight"))
 	else
 		part:setModelVisible("Close", true)
 		part:setModelVisible("Open", false)
+		vehicle:getPartById("SeatMiddleLeft"):setInventoryItem(nil)
+		vehicle:getPartById("SeatMiddleRight"):setInventoryItem(nil)
 		part:getModData()["atatuning"].status = "close"
 	end
 end

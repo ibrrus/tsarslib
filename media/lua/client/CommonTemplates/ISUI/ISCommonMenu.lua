@@ -33,10 +33,11 @@ function ISCommonMenu.showRadialMenu(playerObj)
 		local freezer = vehicle:getPartById("Freezer" .. seat)
 		local microwave = vehicle:getPartById("Microwave" .. seat)
 		local inCabin = vehicle:getPartById("InCabin" .. seat)
+		local inRoofTent = vehicle:getPartById("InRoofTent" .. seat)
 		local mattress = vehicle:getPartById("Mattress" .. seat)
 		local lightIsOn = true
 		local timeHours = getGameTime():getHour()
-
+		
 		if inCabin then
 			if vehicle:getPartById("HeadlightRearRight") and vehicle:getPartById("HeadlightRearRight"):getInventoryItem() then
 				menu:addSlice(getText("ContextMenu_BoatCabinelightsOff"), getTexture("media/ui/boats/boat_switch_off.png"), ISCommonMenu.offToggleCabinlights, playerObj)
@@ -49,36 +50,23 @@ function ISCommonMenu.showRadialMenu(playerObj)
 				end
 			end
 		end
-
+		
+		if inRoofTent then
+			menu:blockSliceTsar(getText("ContextMenu_Unlock_Doors"))
+			menu:blockSliceTsar(getText("ContextMenu_Lock_Doors"))
+			menu:blockSliceTsar(getText("ContextMenu_VehicleHeaterOn"))
+			menu:blockSliceTsar(getText("ContextMenu_VehicleHeaterOff"))
+			menu:blockSliceTsar(getText("ContextMenu_VehicleMechanics"))
+			menu:updateSliceTsar(getText("IGUI_ExitVehicle"), getText("IGUI_ExitVehicleTent"), getTexture("media/ui/commonlibrary/tent_exit.png"))
+		end
+		
 		if mattress and (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
-			local doSleep = true;
-			if playerObj:getStats():getFatigue() <= 0.3 then
-				menu:addSlice(getText("IGUI_Sleep_NotTiredEnough_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-				doSleep = false;
-			elseif vehicle:getCurrentSpeedKmHour() > 1 or vehicle:getCurrentSpeedKmHour() < -1 then
-				menu:addSlice(getText("IGUI_PlayerText_CanNotSleepInMovingCar_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-				doSleep = false;
-			else
-				-- Sleeping pills counter those sleeping problems
-				if playerObj:getSleepingTabletEffect() < 2000 then
-					-- In pain, can still sleep if really tired
-					if playerObj:getMoodles():getMoodleLevel(MoodleType.Pain) >= 2 and playerObj:getStats():getFatigue() <= 0.85 then
-						menu:addSlice(getText("ContextMenu_PainNoSleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-						doSleep = false;
-						-- In panic
-					elseif playerObj:getMoodles():getMoodleLevel(MoodleType.Panic) >= 1 then
-						menu:addSlice(getText("ContextMenu_PanicNoSleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-						doSleep = false;
-						-- tried to sleep not so long ago
-					elseif (playerObj:getHoursSurvived() - playerObj:getLastHourSleeped()) <= 1 then
-						menu:addSlice(getText("ContextMenu_NoSleepTooEarly_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)
-						doSleep = false;
-					end
-				end
-			end
-			if doSleep then
-				menu:addSlice(getText("ContextMenu_Sleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), ISVehicleMenu.onSleep, playerObj, vehicle);
-			end
+			if menu:updateSliceTsar(getText("IGUI_Sleep_NotTiredEnough"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle) or
+			menu:updateSliceTsar(getText("IGUI_PlayerText_CanNotSleepInMovingCar"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle) or
+			menu:updateSliceTsar(getText("ContextMenu_PainNoSleep"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle) or
+			menu:updateSliceTsar(getText("ContextMenu_PanicNoSleep"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle) or
+			menu:updateSliceTsar(getText("ContextMenu_NoSleepTooEarly"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)  or
+			menu:updateSliceTsar(getText("ContextMenu_Sleep"), getText("ContextMenu_Sleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), ISVehicleMenu.onSleep, playerObj, vehicle) then end
 		end
 		
 		if vehicle:getPartById("BatteryHeater") and lightIsOn and inCabin then

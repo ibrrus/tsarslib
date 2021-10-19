@@ -32,6 +32,8 @@ IGUI_RU = {
 	
 	IGUI_VehiclePartATASnorkel = "Шноркель",
 	
+	IGUI_ExitVehicleTent = "Выйти из палатки",
+	
 	IGUI_CraftCategory_Tuning = "Тюнинг",
 	IGUI_VehiclePartCattuning = "Тюнинг",
 	
