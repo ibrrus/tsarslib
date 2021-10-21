@@ -12,6 +12,7 @@ local function lua_split (inputstr, sep)
 end
 
 Tuning = {}
+TuningUtils = {}
 Tuning.CheckEngine = {}
 Tuning.CheckOperate = {}
 Tuning.ContainerAccess = {}
@@ -24,20 +25,78 @@ Tuning.UninstallTest = {}
 Tuning.Update = {}
 Tuning.Use = {}
 
+function TuningUtils.createPartInventoryItemById(part, id)
+	if not part:getItemType() or part:getItemType():isEmpty() then return nil end
+	local item;
+	if not part:getInventoryItem() then
+		local v = part:getVehicle();
+		local itemType = nil
+		-- print("id : ", id)
+		-- print("part:getItemType():size() : ", part:getItemType():size())
+		if id <= part:getItemType():size() then
+			itemType = part:getItemType():get(id-1)
+		end
+		if not itemType then
+			local chosenKey = nil
+			for i=0, part:getItemType():size() - 1 do
+				if ZombRand(100) > (100 - (100/part:getItemType():size())) or i == part:getItemType():size() - 1 then
+					itemType = part:getItemType():get(i);
+					v:getChoosenParts():put(chosenKey, itemType);
+					break;
+				end
+			end
+		end
+		item = InventoryItemFactory.CreateItem(itemType);
+		local conditionMultiply = 100/item:getConditionMax();
+		if part:getContainerCapacity() and part:getContainerCapacity() > 0 then
+			item:setMaxCapacity(part:getContainerCapacity());
+		end
+		item:setConditionMax(item:getConditionMax()*conditionMultiply);
+		item:setCondition(item:getCondition()*conditionMultiply);
+		part:setRandomCondition(item);
+		part:setInventoryItem(item)
+	end
+	return part:getInventoryItem()
+end
+
+
 function Tuning.Create.NotInstallDefault(vehicle, part)
 	-- print("Tuning.Create.NotInstallDefault")
-	-- local invItem = VehicleUtils.createPartInventoryItem(part)
 	part:setInventoryItem(nil)
 	part:setModelVisible("Default", false)
-	-- vehicle:transmitPartItem(part);
 end
 
 function Tuning.Create.DefaultModel(vehicle, part)
 	-- print("Tuning.Create.DefaultModel")
-	local invItem = VehicleUtils.createPartInventoryItem(part)
+	local item = VehicleUtils.createPartInventoryItem(part)
 	if part:getInventoryItem() then
 		-- print("Tuning.Create.DefaultModel: VISIBLE")
 		part:setModelVisible("Default", true)
+	end
+end
+
+function Tuning.Create.InstallChance15(vehicle, part)
+	if ZombRand(100) < 15 then
+		print("WIN!")
+		Tuning.Create.DefaultModel(vehicle, part)
+	else
+		Tuning.Create.NotInstallDefault(vehicle, part)
+	end
+end
+
+function Tuning.Create.InstallChance30(vehicle, part)
+	if ZombRand(100) < 30 then
+		Tuning.Create.DefaultModel(vehicle, part)
+	else
+		Tuning.Create.NotInstallDefault(vehicle, part)
+	end
+end
+
+function Tuning.Create.InstallChance45(vehicle, part)
+	if ZombRand(100) < 45 then
+		Tuning.Create.DefaultModel(vehicle, part)
+	else
+		Tuning.Create.NotInstallDefault(vehicle, part)
 	end
 end
 
@@ -201,20 +260,28 @@ end
 --***********************************************************
 
 function Tuning.CommonBamper(vehicle, part, item)
-	-- print("Tuning.CommonBamper")
+	print("Tuning.CommonBamper")
 	if item then
+		print("item +")
+		print(item:getModData()["ataModel"])
+		print(item:getModData()["ataAnotherModel"])
 		if item:getModData()["ataModel"] then
 			for i, anotherModel in ipairs(item:getModData()["ataAnotherModel"]:split(";")) do
 				part:setModelVisible(anotherModel, false)
 			end
 			part:setModelVisible(item:getModData()["ataModel"], true)
 		end
+	else
+		if item:getModData()["ataModel"] then
+			for i, anotherModel in ipairs(item:getModData()["ataAnotherModel"]:split(";")) do
+				part:setModelVisible(anotherModel, false)
+			end
+			part:setModelVisible(item:getModData()["ataModel"], false)
+		end
 	end
 end
 
 function Tuning.Create.CommonBamper(vehicle, part)
-	-- print("Tuning.Create.BusBullbar")
-	-- part:setInventoryItem(nil)
 	local item = VehicleUtils.createPartInventoryItem(part)
 	Tuning.CommonBamper(vehicle, part, item)
 	vehicle:doDamageOverlay()
@@ -226,8 +293,19 @@ function Tuning.Create.CommonBamperNull(vehicle, part)
 	vehicle:doDamageOverlay()
 end
 
+function Tuning.Create.CommonBamperFirstTwo(vehicle, part)
+	local item = nil
+	if ZombRand(100) < 30 then
+		item = TuningUtils.createPartInventoryItemById(part, 2)
+	else
+		item = TuningUtils.createPartInventoryItemById(part, 1)
+	end
+	Tuning.CommonBamper(vehicle, part, item)
+	vehicle:doDamageOverlay()
+end
+
 function Tuning.Init.CommonBamper(vehicle, part)
-	-- print(" Tuning.Init.BusBullbar")
+	print(" Tuning.Init.BusBullbar")
 	Tuning.CommonBamper(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
 end
@@ -663,17 +741,18 @@ end
 --***********************************************************
 
 function Tuning.Create.ATALight(vehicle, part)
-	local item = VehicleUtils.createPartInventoryItem(part)
+	-- local item = VehicleUtils.createPartInventoryItem(part)
 	-- xOffset,yOffset,distance,intensity,dot,focusing
 	-- NOTE: distance,intensity,focusing values are ignored, instead they are
 	-- set based on part condition.
-	if part:getId() == "ATALightLeft" then
+	Tuning.Create.NotInstallDefault(vehicle, part)
+	if part:getId() == "ATARoofLampLeft" then
 		part:createSpotLight(4.5, -1, 0.1, 0.1, 1.4, 200) -- (2, -0.8, 0.1, 0.1, 2, 200)
-	elseif part:getId() == "ATALightRight" then
+	elseif part:getId() == "ATARoofLampRight" then
 		part:createSpotLight(-4.5, -1, 0.1, 0.1, 1.4, 200)
-	elseif part:getId() == "ATALightRear" then
+	elseif part:getId() == "ATARoofLampRear" then
 		part:createSpotLight(0, -4.5, 0.1, 0.1, 1.35, 100)	
-	elseif part:getId() == "ATALightFront" then
+	elseif part:getId() == "ATARoofLampFront" then
 		part:createSpotLight(0, 2.0, 8.0+ZombRand(16.0), 0.75, 0.96, ZombRand(200))
 	end
 end

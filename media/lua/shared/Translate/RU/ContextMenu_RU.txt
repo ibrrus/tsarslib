@@ -11,4 +11,7 @@ ContextMenu_RU = {
 	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Заправить цистерну",
 	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Заправиться из цистерны",
 	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Нужна пустая канистра",
+	
+	ContextMenu_CloseTent = "Закрыть палатку",
+	ContextMenu_OpenTent = "Открыть палатку",
 }

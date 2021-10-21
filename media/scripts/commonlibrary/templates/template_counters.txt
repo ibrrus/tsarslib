@@ -4,7 +4,7 @@ module Base
     {
         Weight	=	10.0,
         Type	=	Normal,
-        DisplayName	=	Counter,
+        DisplayName	=	TransportCounter,
         Icon	=	media/ui/Container_Counter,
         MaxCapacity = 20,
 		ConditionMax = 100,

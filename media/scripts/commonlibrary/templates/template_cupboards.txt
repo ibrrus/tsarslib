@@ -4,7 +4,7 @@ module Base
     {
         Weight	=	10.0,
         Type	=	Normal,
-        DisplayName	=	Counter,
+        DisplayName	=	TransportCupboard,
         Icon	=	media/ui/Container_Cabinet,
         MaxCapacity = 15,
 		ConditionMax = 100,

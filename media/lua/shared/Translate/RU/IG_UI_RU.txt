@@ -21,7 +21,8 @@ IGUI_RU = {
 	IGUI_VehiclePartATASpareWheel = "Запасное колесо",
 	IGUI_VehiclePartATABumper = "Бампер",
 	IGUI_VehiclePartATARoofBase = "Рейлинги",
-	IGUI_VehiclePartATARoofRackFirst = "Багажник на крыше",
+	IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Багажник на крыше",
+	IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Багажник над запасным колесом",
 	IGUI_VehiclePartATARoofTent = "Палатка на крышу",
 	
 	
@@ -30,12 +31,18 @@ IGUI_RU = {
 	IGUI_VehiclePartATARoofLightRight = "Правые фонари на крыше",
 	IGUI_VehiclePartATARoofLightRear = "Задние фонари на крыше",
 	
+	IGUI_VehiclePartATARoofLampFront = "Лампочка для передних фонарей на крыше",
+	IGUI_VehiclePartATARoofLampLeft = "Лампочка для левых фонарей на крыше",
+	IGUI_VehiclePartATARoofLampRight = "Лампочка для правых фонарей на крыше",
+	IGUI_VehiclePartATARoofLampRear = "Лампочка для задних фонарей на крыше",
+	
 	IGUI_VehiclePartATASnorkel = "Шноркель",
 	
 	IGUI_ExitVehicleTent = "Выйти из палатки",
 	
 	IGUI_CraftCategory_Tuning = "Тюнинг",
-	IGUI_VehiclePartCattuning = "Тюнинг",
+	IGUI_VehiclePartCatatatuning = "Тюнинг",
+	IGUI_VehiclePartCatataprotection = "Защита",
 	
 	
 	IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник"

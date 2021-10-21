@@ -29,12 +29,19 @@ IG_UI_EN = {
 	IGUI_VehiclePartATARoofLightRight = "Right roof lights",
 	IGUI_VehiclePartATARoofLightRear = "Rear roof lights",
 	
+	IGUI_VehiclePartATARoofLampFront = "Bulb for Front roof lights",
+	IGUI_VehiclePartATARoofLampLeft = "Bulb for Left roof lights",
+	IGUI_VehiclePartATARoofLampRight = "Bulb for Right roof lights",
+	IGUI_VehiclePartATARoofLampRear = "Bulb for Rear roof lights",
+	
 	IGUI_VehiclePartATASnorkel = "Snorkel",
 	
 	IGUI_ExitVehicleTent = "Exit Tent",
 	
 	IGUI_CraftCategory_Tuning = "Tuning",
-	IGUI_VehiclePartCattuning = "Tuning",
+	IGUI_VehiclePartCatatatuning = "Tuning",
+	IGUI_VehiclePartCatataprotection = "Protection",
+	
 	IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first"
 	/* Common Library */
 	IGUI_VehiclePartshelves = "Shelves",

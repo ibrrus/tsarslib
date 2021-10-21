@@ -5,10 +5,10 @@ module Base
 		part ATABumper
 		{
 			area = Engine,
-			category = tuning,
+			category = atatuning,
 			specificItem = false,
 			mechanicRequireKey = false,
-			repairMechanic = true,
+			repairMechanic = false,
 			table install
             {
 				items

@@ -1,28 +1,136 @@
 module Base
 {
+	
+	item ATARoofLightItem /* Спавн */ 
+	{
+		Weight	=	1.0,
+        Type	=	Normal,
+        DisplayName	= ATARoofLightItem,
+        Icon	=	ATARoofLightItem,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+	}
+	
 	template vehicle ATARoofLights
 	{
 		part ATARoofLightFront
 		{
-			area = SeatFrontLeft,
+			area = Engine,
+			table uninstall
+			{
+				requireUninstalled = ATARoofLampFront,
+			}
 		}
 		
 		part ATARoofLightLeft
 		{
 			area = SeatFrontLeft,
+			table uninstall
+			{
+				requireUninstalled = ATARoofLampLeft,
+			}
 		}
 
 		part ATARoofLightRight
 		{
 			area = SeatFrontRight,
+			table uninstall
+			{
+				requireUninstalled = ATARoofLampRight,
+			}
 		}
 
 		part ATARoofLightRear
 		{
-			area = Engine,
+			area = TruckBed,
+			table uninstall
+			{
+				requireUninstalled = ATARoofLampRear,
+			}
 		}
 
 		part ATARoofLight*
+		{
+			category = lights,
+			specificItem = false,
+			itemType = Base.ATARoofLightItem,
+			mechanicRequireKey = false,
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 100,
+				test = Tuning.InstallTest.multiRequire,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 100,
+				test = Tuning.UninstallTest.multiRequire,
+			}
+			lua
+			{
+				create = Tuning.Create.NotInstallDefault,
+				init = Vehicles.Init.Headlight,
+			}
+		}
+		
+		part ATARoofLampFront
+		{
+			area = Engine,
+			table install
+			{
+				requireUninstalled = ATARoofLightFront,
+			}
+		}
+		
+		part ATARoofLampLeft
+		{
+			area = SeatFrontLeft,
+			table install
+			{
+				requireUninstalled = ATARoofLightLeft,
+			}
+		}
+
+		part ATARoofLampRight
+		{
+			area = SeatFrontRight,
+			table install
+			{
+				requireUninstalled = ATARoofLightRight,
+			}
+		}
+
+		part ATARoofLampRear
+		{
+			area = TruckBed,
+			table install
+			{
+				requireUninstalled = ATARoofLightRear,
+			}
+		}
+
+		part ATARoofLamp*
 		{
 			category = lights,
 			specificItem = false,

@@ -2,7 +2,7 @@ module Base
 {
 	item ATASnorkelItem
 	{
-		Weight	=	10.0,
+		Weight	=	2.0,
         Type	=	Normal,
         DisplayName	= ATASnorkel,
         Icon	=	ATASnorkel,
@@ -12,12 +12,12 @@ module Base
 		Tooltip = Tooltip_item_tuning,
 	}
 	
-	template vehicle ATASnorkel
+	template vehicle ATASnorkel /* Спавн */ 
 	{
 		part ATASnorkel
 		{
-			area = TruckBed,
-			category = tuning,
+			area = Engine,
+			category = atatuning,
 			itemType = Base.ATASnorkelItem,
 			specificItem = false,
 			mechanicRequireKey = false,
@@ -60,7 +60,7 @@ module Base
 			}
 			lua
 			{
-				create = Tuning.Create.DefaultModel,
+				create = Tuning.Create.InstallChance15,
 				init = Tuning.Init.DefaultModel,
 			}
 		}

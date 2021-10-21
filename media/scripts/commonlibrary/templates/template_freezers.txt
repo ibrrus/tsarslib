@@ -4,7 +4,7 @@ module Base
     {
         Weight	=	20.0,
         Type	=	Normal,
-        DisplayName	= Compact Freezer,
+        DisplayName	= TransportFreezer,
 		Tooltip = Tooltip_Compact_Freezer,
         Icon	=	media/ui/Container_Freezer,
         MaxCapacity = 10,

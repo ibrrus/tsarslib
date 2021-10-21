@@ -1,0 +1,31 @@
+ItemName_RU = {
+	ItemName_Base.ATAInteractiveTrunkRoofRackItem = "Багажник для крыши",
+	ItemName_Base.ATAInteractiveTrunkWheelRackItem = "Багажник над запасным колесом",
+	ItemName_Base.ATARoofBaseItem = "Рейлинги",
+	
+	ItemName_Base.ATAProtectionWindowItem = "Защита для автостекол",
+	ItemName_Base.ATAProtectionWindowFrontItem = "Защита на лобовое стекла",
+	
+	ItemName_Base.ATARoofLightItem = "Фонари для крыши",
+	ItemName_Base.ATARoofTentItem = "Палатка для крыши",
+	ItemName_Base.ATASnorkelItem = "Шноркель",
+	
+	ItemName_Base.TransportCounter = "Портативная полка",
+	ItemName_Base.TransportCupboard = "Портативный шкаф",
+	ItemName_Base.TransportDrawer = "Портативный шкаф",
+	ItemName_Base.TransportFreezer = "Портативный морозильник",
+	ItemName_Base.TransportMedicine = "Настенная аптечка",
+	ItemName_Base.TransportMicrowave = "Портативная микроволновка",
+	ItemName_Base.TransportOven = "Портативная плита",
+	ItemName_Base.TransportSeatBoxWooden = "Деревянное сиденье",
+	ItemName_Base.TransportShelve = "Портативная полка",
+	
+	ItemName_Base.500Tank1 = "Цистерна 500",
+	ItemName_Base.500Tank2 = "Цистерна 500",
+	ItemName_Base.500Tank3 = "Цистерна 500",
+	ItemName_Base.1000Tank1 = "Цистерна 1000",
+	ItemName_Base.1000Tank2 = "Цистерна 1000",
+	ItemName_Base.1000Tank3 = "Цистерна 1000",
+	
+	ItemName_Autotsar.ATATuningMagUniverse = "Autotsar Tuning Atelier - Общие правила тюнинга",
+}

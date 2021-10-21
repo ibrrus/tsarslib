@@ -85,10 +85,16 @@ debugScenarios.IBrRusScenario_ATA = {
 
 		-- Items
 		-- playerObj:getInventory():AddItem("TowingCar.TowBar");
-		-- playerObj:getInventory():AddItem("Base.Wrench");
-		-- playerObj:getInventory():AddItem("Base.LugWrench");
-		-- playerObj:getInventory():AddItem("Base.Screwdriver");
-		-- playerObj:getInventory():AddItem("Base.Jack");
+		playerObj:getInventory():AddItem("Base.Wrench");
+		playerObj:getInventory():AddItem("Base.LugWrench");
+		playerObj:getInventory():AddItem("Base.Screwdriver");
+		playerObj:getInventory():AddItem("Base.Jack");
+		
+		playerObj:getInventory():AddItem("Base.556Clip");
+		for i=1,20 do
+			playerObj:getInventory():AddItem("Base.556Bullets");
+		end
+		playerObj:getInventory():AddItem("Base.AssaultRifle");
 		-- playerObj:getInventory():AddItem("Base.Generator");
 		-- playerObj:getInventory():AddItem("Base.EmptyPetrolCan");
 		-- playerObj:getInventory():AddItem("Base.PetrolCan");

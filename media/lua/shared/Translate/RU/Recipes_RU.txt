@@ -1,5 +1,13 @@
 Recipe_RU = {
-	Recipe_Make_a_compact_fridge = "Создать компактный холодильник",
-	Recipe_Make_a_compact_stove = "Создать компактную плиту",
-	Recipe_Make_a_compact_microwave = "Создать компактную микроволновку",
+	Recipe_Make_ATABusKengur1Item = "Cделать кенгурятник для автобуса",
+	Recipe_Make_ATABusKengur2Item = "Cделать улучшенный кенгурятник для автобуса",
+	Recipe_Make_ATABusKengur3Item = "Cделать плуг с шипами для автобуса",
+	Recipe_Make_ATABusRoofRack = "Cделать багажник для крыши автобуса",
+	Recipe_Make_ATABusProtectionDoorItem = "Cделать защиту для двери автобуса",
+	Recipe_Make_ATABusProtectionDoorRearItem = "Cделать защиту для задних дверей автобуса",
+	Recipe_Make_ATABusProtectionWheelsItem = "Cделать защиту для колес автобуса",
+	Recipe_Make_ATABusProtectionWindowsFrontItem = "Cделать защиту для лобового стекла",
+	Recipe_Make_ATABusProtectionWindowsRightItem = "Cделать защиту для правых боковых стекол",
+	Recipe_Make_ATABusProtectionWindowsLeftItem = "Cделать защиту для левых боковых стекол",
+	Recipe_Make_ATABusRoofBoxItem = "Cделать ящик для инструментов",
 }

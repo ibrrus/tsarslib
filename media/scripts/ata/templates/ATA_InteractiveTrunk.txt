@@ -1,12 +1,12 @@
 module Base
 {
 	
-	item ATARoofRackFirstItem
+	item ATAInteractiveTrunkRoofRackItem /* Спавн + Крафт */ 
 	{
 		Weight	=	10.0,
         Type	=	Normal,
-        DisplayName	= ATARoofRack,
-        Icon	=	ATARoofRack,
+        DisplayName	= Roof Rack,
+        Icon	=	ATAInteractiveTrunkRoofRackItem,
         MaxCapacity = 95,
         ConditionAffectsCapacity = false,
         ConditionMax = 100,
@@ -15,12 +15,40 @@ module Base
 		Tooltip = Tooltip_item_tuning,
 	}
 	
-	item ATARoofRackSecondItem
+	recipe Make ATAInteractiveTrunkRoofRackItem
+	{
+	   MetalPipe=12,
+	   MetalBar=4,
+	   BlowTorch=32,
+	   keep WeldingMask,
+	   Result:ATAInteractiveTrunkRoofRackItem,
+	   Time:350.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=5,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding20,
+	   NeedToBeLearn:true,
+	}
+	
+	recipe Cut ATAInteractiveTrunkRoofRackItem
+	{
+	   ATAInteractiveTrunkRoofRackItem=1,
+	   BlowTorch=32,
+	   keep WeldingMask,
+	   Result:MetalPipe=8,
+	   Time:350.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	   NeedToBeLearn:false,
+	}
+	
+	item ATAInteractiveTrunkWheelRackItem /* Спавн + Крафт */ 
 	{
 		Weight	=	10.0,
         Type	=	Normal,
-        DisplayName	= Roof Rack,
-        Icon	=	ATARoofRackSecondItem,
+        DisplayName	= Wheel Rack,
+        Icon	=	ATAInteractiveTrunkWheelRackItem,
         MaxCapacity = 50,
         ConditionAffectsCapacity = false,
         ConditionMax = 100,
@@ -29,16 +57,69 @@ module Base
 		Tooltip = Tooltip_item_tuning,
 	}
 	
-	item ATARoofBaseItem
+	recipe Make ATAInteractiveTrunkWheelRackItem
+	{
+	   MetalPipe=4,
+	   MetalBar=4,
+	   BlowTorch=16,
+	   keep WeldingMask,
+	   Result:ATAInteractiveTrunkWheelRackItem,
+	   Time:350.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=3,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding15,
+	   NeedToBeLearn:true,
+	}
+	
+	recipe Cut ATAInteractiveTrunkWheelRackItem
+	{
+	   ATAInteractiveTrunkWheelRackItem=1,
+	   BlowTorch=16,
+	   keep WeldingMask,
+	   Result:MetalPipe=4,
+	   Time:350.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=2,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	   NeedToBeLearn:false,
+	}
+	
+	item ATARoofBaseItem /* Спавн + Крафт */
 	{
 		Weight	=	10.0,
         Type	=	Normal,
-        DisplayName	= ATARoofRack,
+        DisplayName	= ATARoofBaseItem,
         Icon	=	ATARoofRack,
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+	}
+	
+	recipe Make ATARoofBaseItem
+	{
+	   MetalPipe=8,
+	   BlowTorch=16,
+	   keep WeldingMask,
+	   Result:ATARoofBaseItem,
+	   Time:350.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=4,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding15,
+	   NeedToBeLearn:true,
+	}
+	
+	recipe Cut ATARoofBaseItem
+	{
+	   ATARoofBaseItem=1,
+	   BlowTorch=16,
+	   keep WeldingMask,
+	   Result:MetalPipe=4,
+	   Time:350.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=2,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	   NeedToBeLearn:false,
 	}
 	
 	template vehicle ATAInteractiveTrunk
@@ -47,7 +128,7 @@ module Base
 		part ATARoofBase
 		{
 			area = TruckBed,
-			category = tuning,
+			category = atatuning,
 			itemType = Base.ATARoofBaseItem,
 			specificItem = false,
 			mechanicRequireKey = false,
@@ -62,7 +143,7 @@ module Base
 				{
 					1
 					{
-						type = Base.LugWrench,
+						type = Base.Wrench,
 						count = 1,
 						keep = true,
 						equip = primary,
@@ -79,7 +160,7 @@ module Base
 				{
 					1
 					{
-						type = Base.LugWrench,
+						type = Base.Wrench,
 						count = 1,
 						keep = true,
 						equip = primary,
@@ -91,32 +172,32 @@ module Base
 			}
 			lua
 			{
-				create = Tuning.Create.DefaultModel,
+				create = Tuning.Create.InstallChance15,
 				init = Tuning.Init.DefaultModel,
 			}
 		}
 		
-		part ATARoofRackFirst
+		part ATAInteractiveTrunkRoofRack
 		{
-			itemType = Base.ATARoofRackFirstItem,
+			itemType = Base.ATAInteractiveTrunkRoofRackItem,
 		}
 		
-		part ATARoofRackSecond
+		part ATAInteractiveTrunkWheelRack
 		{
-			itemType = Base.ATARoofRackSecondItem,
+			itemType = Base.ATAInteractiveTrunkWheelRackItem,
 		}
 		
-		part ATARoofRack*
+		part ATAInteractiveTrunk*
 		{
 			area = TruckBed,
-			category = tuning,
+			category = atatuning,
 			specificItem = false,
 			
 			mechanicRequireKey = false,
 			repairMechanic = true,
 			container
 			{
-				conditionAffectsCapacity = false,
+				conditionAffectsCapacity = true,
 				test = Tuning.ContainerAccess.ATAInteractiveTrunk,
 			}
 			table install

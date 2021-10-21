@@ -1,54 +1,88 @@
 module Base
 {
 
-	item ATAProtectionWindowItem
+	item ATAProtectionWindowItem /* Крафт */ 
 	{
 		Weight	=	10.0,
         Type	=	Normal,
-        DisplayName	=	Protection windows,
-        Icon	=	ATAWindowProtection,
+        DisplayName	=	ATAProtectionWindowItem,
+        Icon	=	ATAProtectionWindowItem,
 		ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
 	}
+	
 	recipe Make ATAProtectionWindowItem
     {
-       MetalPipe=15,
-       BlowTorch=30,
+       MetalBar=10,
+       BlowTorch=20,
        keep WeldingMask,
        Result:ATAProtectionWindowItem,
        Time:350.0,
        Category:Tuning,
        SkillRequired:MetalWelding=3,
-       OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
        NeedToBeLearn:true,
     }
 	
-	item ATAProtectionWindowFrontItem
+	recipe Cut ATAProtectionWindowItem
+    {
+       ATAProtectionWindowItem=1,
+       BlowTorch=20,
+       keep WeldingMask,
+       Result:MetalPipe=5,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
+	
+	item ATAProtectionWindowFrontItem /* Крафт */ 
 	{
 		Weight	=	10.0,
         Type	=	Normal,
-        DisplayName	=	Protection windshield,
-        Icon	=	ATAWindowProtection,
+        DisplayName	=	ATAProtectionWindowFrontItem,
+        Icon	=	ATAProtectionWindowFrontItem,
 		ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
 	}
 	
 	recipe Make ATAProtectionWindowFrontItem
-    {
-       MetalPipe=6,
-	   SheetMetal=8,
-       BlowTorch=30,
-       keep WeldingMask,
-       Result:ATAProtectionWindowFrontItem,
-       Time:350.0,
-       Category:Tuning,
-       SkillRequired:MetalWelding=3,
-       OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
-       NeedToBeLearn:true,
-    }
-
+	{
+	   MetalPipe=2,
+	   SheetMetal=3,
+	   SmallSheetMetal=4,
+	   MetalBar=4,
+	   Screws=8,
+	   BlowTorch=26,
+	   keep WeldingMask,
+	   keep Screwdriver,
+	   Result:ATAProtectionWindowFrontItem,
+	   Time:650.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=4,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+	   NeedToBeLearn:true,
+	}
+	
+	recipe Cut ATAProtectionWindowFrontItem
+	{
+	   ATAProtectionWindowFrontItem=1,
+	   BlowTorch=26,
+	   keep WeldingMask,
+	   keep Screwdriver,
+	   Result:SmallSheetMetal=4,
+	   Time:650.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAProtectionWindowFrontItem,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	   NeedToBeLearn:false,
+	}
+	
 	template vehicle ATAProtection
 	{
 		part ATAProtectionWindowFront
@@ -159,7 +193,7 @@ module Base
 
 		part ATAProtectionWindow*
 		{
-			category = tuning,
+			category = ataprotection,
 			specificItem = false,
 			mechanicRequireKey = false,
 			itemType = Base.ATAProtectionWindowItem,

@@ -12,4 +12,7 @@ ContextMenu_EN = {
 	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Fill Gasoline Storage Tank From Fuel Truck",
 	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Refuel from the tank",
 	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Need a gas can",
+	
+	ContextMenu_CloseTent = "Close tent",
+	ContextMenu_OpenTent = "Open tent",
 }

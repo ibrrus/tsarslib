@@ -4,7 +4,7 @@ module Base
     {
         Weight	=	20.0,
         Type	=	Normal,
-        DisplayName	= Compact Fridge,
+        DisplayName	= TransportFridge,
 		Tooltip = Tooltip_Compact_Fridge,
         Icon	=	media/ui/Container_Fridge,
         MaxCapacity = 10,
