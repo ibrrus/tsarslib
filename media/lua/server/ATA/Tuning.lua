@@ -59,6 +59,9 @@ function TuningUtils.createPartInventoryItemById(part, id)
 	return part:getInventoryItem()
 end
 
+function Tuning.ContainerAccess.BlockSeat(vehicle, part, playerObj)
+	return false
+end
 
 function Tuning.Create.NotInstallDefault(vehicle, part)
 	-- print("Tuning.Create.NotInstallDefault")
@@ -203,6 +206,15 @@ function Tuning.Create.RoofTent(vehicle, part)
 	part:getModData()["atatuning"].status = "close"
 end
 
+function Tuning.ContainerAccess.RoofTent(vehicle, part, chr)
+	if chr:getVehicle() == vehicle then
+		local seat = vehicle:getSeat(chr)
+		return seat == 2 or seat == 3;
+	else
+		return false
+	end
+end
+
 function Tuning.Init.RoofTent(vehicle, part)
 	-- print("Tuning.Init.DefaultModel")
 	if part:getInventoryItem() then
@@ -235,6 +247,15 @@ function Tuning.UninstallComplete.RoofTent(vehicle, part, item)
 	part:setModelVisible("Open", false)
 	part:getModData()["atatuning"] = {}
 	vehicle:doDamageOverlay()
+end
+
+function Tuning.UninstallTest.RoofTent(vehicle, part, chr)
+	if Tuning.UninstallTest.multiRequire(vehicle, part, chr) then
+		return Tuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleLeft"), chr) and
+		Tuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleRight"), chr)
+	else
+		return false
+	end
 end
 
 function Tuning.Use.RoofTent(vehicle, part, open)
@@ -711,20 +732,20 @@ function Tuning.Update.Protection(vehicle, part, elapsedMinutes)
 				vehicle:getModData().tuning[partName].health = savePart:getCondition()
 			end
 			if (not savePart:getInventoryItem() and not (partName == "Engine")) or savePart:getCondition() == 0 then
-				redoCond = true
+				part:setCondition(part:getCondition()-1)
 				VehicleUtils.createPartInventoryItem(savePart)
 				savePart:setCondition(100)
 			elseif (savePart:getCondition() < 80) then
-				redoCond = true
+				part:setCondition(part:getCondition()-1)
 				savePart:setCondition(100)
 			end
 			if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
 				savePart:setContainerContentAmount(20, false, true);
 			end
 		end
-		if redoCond then
-			part:setCondition(part:getCondition()-1)
-		end
+		-- if redoCond then
+			-- part:setCondition(part:getCondition()-1)
+		-- end
 	end
 end
 
@@ -769,6 +790,72 @@ function Tuning.Create.ATALight(vehicle, part)
 	elseif part:getId() == "ATARoofLampFront" then
 		part:createSpotLight(0, 2.0, 8.0+ZombRand(16.0), 0.75, 0.96, ZombRand(200))
 	end
+end
+
+--***********************************************************
+--**                                                       **
+--**                	Wheels Protection  	               **
+--**                                                       **
+--***********************************************************
+
+function Tuning.WheelsProtection(vehicle, part)
+	-- print(getPlayer():getVehicle():getPartById("ATABullbar"):setModelVisible("Bullbar2", false))
+	-- print(part:getId())
+	
+	-- part = vehicle:getPartById("ATABullbar")
+	-- local item = part:getInventoryItem()
+	-- if item then
+		-- print(item:getType())
+		-- if item:getType() == "ATA_Bus_Kengur_1_Item" then
+			-- part:setModelVisible("Bullbar1", true)
+			-- part:setModelVisible("Bullbar2", false)
+			-- part:setModelVisible("Bullbar3", false)
+		-- elseif item:getType() == "ATA_Bus_Kengur_2_Item" then
+			-- part:setModelVisible("Bullbar1", false)
+			-- part:setModelVisible("Bullbar2", true)
+			-- part:setModelVisible("Bullbar3", false)
+		-- else
+			-- part:setModelVisible("Bullbar1", false)
+			-- part:setModelVisible("Bullbar2", false)
+			-- part:setModelVisible("Bullbar3", true)
+		-- end
+	-- else
+		-- print("not visible")
+		-- part:setModelVisible("Bullbar1", false)
+		-- part:setModelVisible("Bullbar2", false)
+		-- part:setModelVisible("Bullbar3", false)
+	-- end
+end
+
+function Tuning.Init.WheelsProtection(vehicle, part)
+	-- print(" Tuning.Init.BusBullbar")
+	if part:getInventoryItem() then
+		vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", true);
+		vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", true);
+		vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", true);
+		vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", true);
+	else
+		vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", false);
+		vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", false);
+		vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", false);
+		vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", false);
+	end
+end
+
+function Tuning.InstallComplete.WheelsProtection(vehicle, part)
+-- print(" Tuning.InstallComplete.BusBullbar")
+	vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", true);
+	vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", true);
+	vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", true);
+	vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", true);
+end
+
+function Tuning.UninstallComplete.WheelsProtection(vehicle, part, item)
+-- print(" Tuning.UninstallComplete.BusBullbar")
+	vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", false);
+	vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", false);
+	vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", false);
+	vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", false);
 end
 
 

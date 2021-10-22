@@ -49,7 +49,7 @@ end
 
 
 function ATATuning.openTent(playerObj, vehicle, part, open)
-	if part and (open or (Tuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleLeft"), playerObj) and Tuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleRight"), playerObj))) then
+	if part and (open or (Tuning.UninstallTest.RoofClose(vehicle, part, playerObj) and Tuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleLeft"), playerObj) and Tuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleRight"), playerObj))) then
 		ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, part:getArea()))
 		ISTimedActionQueue.add(ATAISOpenTent:new(playerObj, vehicle, part, open, 500))
 	else

@@ -4,8 +4,8 @@ module Base
 	{
 		Weight	=	2.0,
         Type	=	Normal,
-        DisplayName	= ATASnorkel,
-        Icon	=	ATASnorkel,
+        DisplayName	= ATASnorkelItem,
+        Icon	=	ATASnorkelItem,
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,

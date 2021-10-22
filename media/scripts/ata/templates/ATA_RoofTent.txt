@@ -31,10 +31,10 @@
 */
 
 module Base
-{
+{	
 	item ATARoofTentItem /* Спавн */ 
 	{
-		Weight	=	10.0,
+		Weight	=	15.0,
         Type	=	Normal,
         DisplayName	= ATARoofTentItem,
         Icon	=	ATARoofTentItem,
@@ -45,16 +45,33 @@ module Base
 		Tooltip = Tooltip_item_tuning,
 	}
 	
+	item ATASleepingBag
+	{
+		Weight	=	1.0,
+		Type	=	Normal,
+		DisplayName	=	ATASleepingBag,
+		Icon	=	ATASleepingBag,
+		ChanceToSpawnDamaged = 0,
+		ConditionMax = 100,
+		MechanicsItem = TRUE,
+	}
+	
 	template vehicle ATARoofTent
 	{
 		part ATARoofTent
 		{
+			container
+			{
+				capacity = 30,
+				test = Tuning.ContainerAccess.RoofTent,
+			}
 			area = TruckBed,
 			category = atatuning,
 			itemType = Base.ATARoofTentItem,
 			specificItem = false,
 			mechanicRequireKey = false,
 			repairMechanic = false,
+
 			model Default
 			{
 				file = Vehicles_Wheel,
@@ -88,8 +105,9 @@ module Base
 					}
 				}
 				time = 400,
-				test = Tuning.UninstallTest.multiRequire,
+				test = Tuning.UninstallTest.RoofTent,
 				complete = Tuning.UninstallComplete.RoofTent,
+				requireEmpty = true,
 			}
 			lua
 			{
@@ -262,6 +280,12 @@ module Base
 		part SeatMiddle*
 		{
 			category = nodisplay,
+			itemType = Base.ATASleepingBag,
+			specificItem = false,
+			container
+			{
+				test = Tuning.ContainerAccess.BlockSeat,
+			}
 			lua
 			{
 				create = Tuning.Create.NotInstallDefault,

@@ -83,8 +83,75 @@ module Base
 	   NeedToBeLearn:false,
 	}
 	
+	item ATAProtectionWheelsItem /* Крафт */ 
+	{
+		Weight	=	3.0,
+        Type	=	Normal,
+        DisplayName	=	ATAProtectionFrontWheelsItem,
+        Icon	=	ATAProtectionFrontWheelsItem,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		ataProtection = TireFrontLeft;TireFrontRight;TireRearLeft;TireRearRight,
+	}
+	
 	template vehicle ATAProtection
 	{
+		part ATAProtectionWheels
+		{
+			
+			model ATAProtection
+			{
+				file = Vehicles_Wheel,
+			}
+			area = Engine,
+			category = ataprotection,
+			specificItem = false,
+			mechanicRequireKey = false,
+			itemType = Base.ATAProtectionWheelsItem,
+			table install
+            {
+				requireInstalled = TireFrontLeft;TireFrontRight;TireRearLeft;TireRearRight,
+				items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+						equip = primary,
+                    }
+                }
+				time = 2000,
+				recipes = Advanced Mechanics;Basic Tuning,
+				test = Tuning.InstallTest.multiRequire,
+				complete = Tuning.InstallComplete.WheelsProtection,
+            }
+            table uninstall
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+ 						equip = primary,
+                   }
+                }
+				time = 2000,
+				recipes = Advanced Mechanics;Basic Tuning,
+				test = Tuning.UninstallTest.multiRequire,
+				complete = Tuning.UninstallComplete.WheelsProtection,
+            }
+			lua
+			{
+				create = Tuning.Create.NotInstallDefault,
+				init = Tuning.Init.WheelsProtection,
+				update = Tuning.Update.CommonProtection,
+			}
+		}
+		
 		part ATAProtectionWindowFront
 		{
 			model Default
