@@ -243,7 +243,9 @@ function Tuning.Use.RoofTent(vehicle, part, open)
 		part:setModelVisible("Open", true)
 		part:getModData()["atatuning"].status = "open"
 		VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleLeft"))
+		vehicle:getPartById("SeatMiddleLeft"):setContainerContentAmount(0)
 		VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleRight"))
+		vehicle:getPartById("SeatMiddleRight"):setContainerContentAmount(0)
 	else
 		part:setModelVisible("Close", true)
 		part:setModelVisible("Open", false)
@@ -252,6 +254,18 @@ function Tuning.Use.RoofTent(vehicle, part, open)
 		part:getModData()["atatuning"].status = "close"
 	end
 end
+
+function Tuning.UninstallTest.RoofClose(vehicle, part, chr)
+	-- if not part:getInventoryItem() then return false end
+	-- if not part:getItemType() or part:getItemType():isEmpty() then return false end
+	-- local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
+	if round(part:getContainerContentAmount(), 3) > 0 then return false end
+	local seatNumber = part:getContainerSeatNumber()
+	local seatOccupied = (seatNumber ~= -1) and vehicle:isSeatOccupied(seatNumber)
+	if seatOccupied then return false end
+	return true
+end
+
 
 --***********************************************************
 --**                                                       **

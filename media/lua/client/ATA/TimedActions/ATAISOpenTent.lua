@@ -7,20 +7,29 @@ require "TimedActions/ISBaseTimedAction"
 ATAISOpenTent = ISBaseTimedAction:derive("ATAISOpenTent")
 
 function ATAISOpenTent:isValid()
-	return self.part:getInventoryItem() and self.vehicle:canUninstallPart(self.character, self.part)
+-- print("ATAISOpenTent:isValid()")
+	if self.part:getInventoryItem() and (self.open or (Tuning.UninstallTest.RoofClose(self.vehicle, self.vehicle:getPartById("SeatMiddleLeft"), self.character) and Tuning.UninstallTest.RoofClose(self.vehicle, self.vehicle:getPartById("SeatMiddleRight"), self.character))) then
+		return true
+	else
+		return false
+	end	
+
 end
 
 function ATAISOpenTent:waitToStart()
+-- print("ATAISOpenTent:waitToStart()")
 	self.character:faceThisObject(self.vehicle)
 	return self.character:shouldBeTurning()
 end
 
 function ATAISOpenTent:update()
+-- print("ATAISOpenTent:update()")
 	self.character:faceThisObject(self.vehicle)
     self.character:setMetabolicTarget(Metabolics.MediumWork);
 end
 
 function ATAISOpenTent:start()
+-- print("ATAISOpenTent:start()")
 	self:setActionAnim("VehicleWorkOnMid")
 --	self:setOverrideHandModels(nil, nil)
 end
@@ -30,6 +39,7 @@ function ATAISOpenTent:stop()
 end
 
 function ATAISOpenTent:perform()
+-- print("ATAISOpenTent:perform()")
 	Tuning.Use.RoofTent(self.vehicle, self.part, self.open)
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)

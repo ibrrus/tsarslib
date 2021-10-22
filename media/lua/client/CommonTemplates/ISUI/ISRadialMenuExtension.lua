@@ -1,3 +1,9 @@
+local function Set (list)
+  local set = {}
+  for _, l in ipairs(list) do set[l] = true end
+  return set
+end
+
 function ISRadialMenu:updateSliceTsar(oldtext, newtext, newtexture, newcommand, arg1, arg2, arg3, arg4, arg5, arg6)
 	for sliceIndex, slice in ipairs(self.slices) do
 		if slice.text == oldtext then
@@ -36,4 +42,29 @@ function ISRadialMenu:blockSliceTsar(oldtext)
 		end
 	end
 	return false
+end
+
+
+--menu:deleteMultiSliceTsar({text1, text2, text3})
+function ISRadialMenu:deleteMultiSliceTsar(textTableForDelete)
+	if type(textTableForDelete) == "table" then
+		local textTableForDeleteSet = Set(textTableForDelete)
+		local oldSlices = self.slices
+		self.slices = {}
+		if self.javaObject then
+			self.javaObject:clear()
+		end
+		for sliceIndex, oldSlice in ipairs(oldSlices) do
+			if not textTableForDeleteSet[oldSlice.text] then
+				local slice = {}
+				slice.text = oldSlice.text
+				slice.texture = oldSlice.texture
+				slice.command = oldSlice.command
+				table.insert(self.slices, slice)
+				if self.javaObject then
+					self.javaObject:addSlice(oldSlice.text, oldSlice.texture)
+				end
+			end
+		end
+	end
 end

@@ -50,24 +50,27 @@ function ISCommonMenu.showRadialMenu(playerObj)
 				end
 			end
 		end
-		
 		if inRoofTent then
-			menu:blockSliceTsar(getText("ContextMenu_Unlock_Doors"))
-			menu:blockSliceTsar(getText("ContextMenu_Lock_Doors"))
-			menu:blockSliceTsar(getText("ContextMenu_VehicleHeaterOn"))
-			menu:blockSliceTsar(getText("ContextMenu_VehicleHeaterOff"))
-			menu:blockSliceTsar(getText("ContextMenu_VehicleMechanics"))
+			menu:deleteMultiSliceTsar({getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Lock_Doors"), getText("ContextMenu_VehicleHeaterOn"), getText("ContextMenu_VehicleHeaterOff"), getText("ContextMenu_VehicleMechanics")})
 			menu:updateSliceTsar(getText("IGUI_ExitVehicle"), getText("IGUI_ExitVehicleTent"), getTexture("media/ui/commonlibrary/tent_exit.png"))
+			menu:updateSliceTsar(getText("ContextMenu_Close_window"), getText("ContextMenu_Close_window"), getTexture("media/ui/commonlibrary/UI_commonlib_close_tent_window.png"))
+			menu:updateSliceTsar(getText("ContextMenu_Open_window"), getText("ContextMenu_Open_window"), getTexture("media/ui/commonlibrary/UI_commonlib_open_tent_window.png"))
+			menu:updateSliceTsar(getText("IGUI_SwitchSeat"), getText("IGUI_SwitchSeat"), getTexture("media/ui/commonlibrary/UI_commonlib_sleep_bag_change.png"))
 		end
 		
 		if mattress and (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
-			if menu:updateSliceTsar(getText("IGUI_Sleep_NotTiredEnough"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle) or
-			menu:updateSliceTsar(getText("IGUI_PlayerText_CanNotSleepInMovingCar"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle) or
-			menu:updateSliceTsar(getText("ContextMenu_PainNoSleep"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle) or
-			menu:updateSliceTsar(getText("ContextMenu_PanicNoSleep"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle) or
-			menu:updateSliceTsar(getText("ContextMenu_NoSleepTooEarly"), nil, getTexture("media/ui/commonlibrary/mattress.png"), nil, playerObj, vehicle)  or
-			menu:updateSliceTsar(getText("ContextMenu_Sleep"), getText("ContextMenu_Sleep_Mattress"), getTexture("media/ui/commonlibrary/mattress.png"), ISVehicleMenu.onSleep, playerObj, vehicle) then end
+			local mattressTex = getTexture("media/ui/commonlibrary/mattress.png")
+			if inRoofTent then
+				mattressTex = getTexture("media/ui/commonlibrary/sleeping_bag.png")
+			end
+			if menu:updateSliceTsar(getText("IGUI_Sleep_NotTiredEnough"), nil, mattressTex, nil, playerObj, vehicle) or
+			menu:updateSliceTsar(getText("IGUI_PlayerText_CanNotSleepInMovingCar"), nil, mattressTex, nil, playerObj, vehicle) or
+			menu:updateSliceTsar(getText("ContextMenu_PainNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
+			menu:updateSliceTsar(getText("ContextMenu_PanicNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
+			menu:updateSliceTsar(getText("ContextMenu_NoSleepTooEarly"), nil, mattressTex, nil, playerObj, vehicle)  or
+			menu:updateSliceTsar(getText("ContextMenu_Sleep"), getText("ContextMenu_Sleep"), mattressTex, ISVehicleMenu.onSleep, playerObj, vehicle) then end
 		end
+
 		
 		if vehicle:getPartById("BatteryHeater") and lightIsOn and inCabin then
 			-- print("BatteryHeater")

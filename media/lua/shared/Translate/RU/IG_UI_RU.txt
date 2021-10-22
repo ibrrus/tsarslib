@@ -24,8 +24,7 @@ IGUI_RU = {
 	IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Багажник на крыше",
 	IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Багажник над запасным колесом",
 	IGUI_VehiclePartATARoofTent = "Палатка на крышу",
-	
-	
+
 	IGUI_VehiclePartATARoofLightFront = "Передние фонари на крыше",
 	IGUI_VehiclePartATARoofLightLeft = "Левые фонари на крыше",
 	IGUI_VehiclePartATARoofLightRight = "Правые фонари на крыше",
@@ -39,13 +38,12 @@ IGUI_RU = {
 	IGUI_VehiclePartATASnorkel = "Шноркель",
 	
 	IGUI_ExitVehicleTent = "Выйти из палатки",
-	
 	IGUI_CraftCategory_Tuning = "Тюнинг",
 	IGUI_VehiclePartCatatatuning = "Тюнинг",
 	IGUI_VehiclePartCatataprotection = "Защита",
 	
-	
-	IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник"
+	IGUI_PlayerText_ATA_TentDontOpen = "Палатка должна быть пустая",
+	IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник",
 	/* Common Library */
 	IGUI_VehiclePartshelves = "Полки",
 	IGUI_VehiclePartstove = "Плита",

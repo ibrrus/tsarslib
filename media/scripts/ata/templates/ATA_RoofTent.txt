@@ -158,7 +158,6 @@ module Base
 
 		passenger MiddleLeft
 		{
-			hasRoof = false,
 			switchSeat FrontLeft
 			{
 			}
@@ -178,7 +177,6 @@ module Base
 
 		passenger MiddleRight
 		{	
-			hasRoof = false,
 			switchSeat FrontLeft
 			{
 			}
@@ -221,46 +219,44 @@ module Base
 		template = Seat/part/SeatMiddleRight,
 		part SeatMiddleLeft
 		{
-			category = nodispl,
-			area = tent,
+			category = nodisplay,
 		}
 		part SeatMiddleRight
 		{
-			category = nodispl,
-			area = tent,
+			category = nodisplay,
 		}
 		template = Door/part/DoorMiddleRight,
 		template = Door/part/DoorMiddleLeft,
-		part DoorMiddleRight
+		part DoorMiddle*
 		{
-			category = nodispl,
-			area = tent,
+			category = nodisplay,
+			anim Open
+			{
+				sound = OpenBag,
+			}
+			anim Close
+			{
+				sound = CloseBag,
+			}
+			anim Lock
+			{
+				sound = PutItemInBag,
+			}
+			anim Unlock
+			{
+				sound = PutItemInBag,
+			}
+			anim IsLocked
+			{
+				sound = PutItemInBag,
+			}
 		}
-		part DoorMiddleLeft
-		{
-			category = nodispl,
-			area = tent,
-		}
-		
+	
 		template = Window/part/WindowMiddleRight,
 		template = Window/part/WindowMiddleLeft,
-		part WindowMiddleRight
+		part WindowMiddle*
 		{
-			category = z,
-			area = tent,
-			window
-			{
-				openable = true,
-			}
-		}
-		part WindowMiddleLeft
-		{
-			category = nodispl,
-			area = tent,
-			window
-			{
-				openable = true,
-			}
+			category = nodisplay,
 		}
 		
 		part SeatMiddle*
