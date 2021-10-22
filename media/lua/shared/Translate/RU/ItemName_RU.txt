@@ -4,7 +4,8 @@ ItemName_RU = {
 	ItemName_Base.ATARoofBaseItem = "Рейлинги",
 	
 	ItemName_Base.ATAProtectionWindowItem = "Защита для автостекол",
-	ItemName_Base.ATAProtectionWindowFrontItem = "Защита на лобовое стекла",
+	ItemName_Base.ATAProtectionWindowFrontItem = "Защита для лобового стекла",
+	ItemName_Base.ATAProtectionWheelsChain = "Цепь",
 	
 	ItemName_Base.ATARoofLightItem = "Фонари для крыши",
 	ItemName_Base.ATARoofTentItem = "Палатка для крыши",

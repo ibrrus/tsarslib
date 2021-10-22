@@ -1,6 +1,13 @@
 module Base
 {
 
+	model ATAProtectionWindowWorld
+	{
+		mesh = WorldItems/ATA_WindowsArmor,
+		texture = WorldItems/ATA_Common_items,
+		scale = 0.04,
+	}
+
 	item ATAProtectionWindowItem /* Крафт */ 
 	{
 		Weight	=	10.0,
@@ -10,6 +17,7 @@ module Base
 		ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATAProtectionWindowWorld,
 	}
 	
 	recipe Make ATAProtectionWindowItem
@@ -39,6 +47,13 @@ module Base
        NeedToBeLearn:false,
     }
 	
+	model ATAProtectionWindowFrontItemWorld
+	{
+		mesh = WorldItems/ATA_FrontWindowArmor,
+		texture = WorldItems/ATA_Common_items,
+		scale = 0.04,
+	}
+	
 	item ATAProtectionWindowFrontItem /* Крафт */ 
 	{
 		Weight	=	10.0,
@@ -48,6 +63,7 @@ module Base
 		ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATAProtectionWindowFrontItemWorld,
 	}
 	
 	recipe Make ATAProtectionWindowFrontItem
@@ -83,12 +99,13 @@ module Base
 	   NeedToBeLearn:false,
 	}
 	
-	item ATAProtectionWheelsItem /* Крафт */ 
+		
+	item ATAProtectionWheelsChain /* Спавн */ 
 	{
 		Weight	=	3.0,
         Type	=	Normal,
-        DisplayName	=	ATAProtectionFrontWheelsItem,
-        Icon	=	ATAProtectionFrontWheelsItem,
+        DisplayName	=	ATAProtectionWheelsItem,
+        Icon	=	ATAProtectionWheelsItem,
 		ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
@@ -107,8 +124,8 @@ module Base
 			area = Engine,
 			category = ataprotection,
 			specificItem = false,
+			itemType = Base.ATAProtectionWheelsChain,
 			mechanicRequireKey = false,
-			itemType = Base.ATAProtectionWheelsItem,
 			table install
             {
 				requireInstalled = TireFrontLeft;TireFrontRight;TireRearLeft;TireRearRight,

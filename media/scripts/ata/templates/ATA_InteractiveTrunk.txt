@@ -1,6 +1,13 @@
 module Base
 {
 	
+	model ATAInteractiveTrunkRoofRackWorld
+	{
+		mesh = WorldItems/ATA_RoofTrunk,
+		texture = WorldItems/ATA_Common_items,
+		scale = 0.04,
+	}
+	
 	item ATAInteractiveTrunkRoofRackItem /* Спавн + Крафт */ 
 	{
 		Weight	=	10.0,
@@ -13,6 +20,7 @@ module Base
         ChanceToSpawnDamaged = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATAInteractiveTrunkRoofRackWorld,
 	}
 	
 	recipe Make ATAInteractiveTrunkRoofRackItem
@@ -43,6 +51,14 @@ module Base
 	   NeedToBeLearn:false,
 	}
 	
+	model ATAInteractiveTrunkWheelRackWorld
+	{
+		mesh = WorldItems/ATA_RearTrunk,
+		texture = WorldItems/ATA_Common_items,
+		scale = 0.04,
+	}
+	
+	
 	item ATAInteractiveTrunkWheelRackItem /* Спавн + Крафт */ 
 	{
 		Weight	=	10.0,
@@ -55,6 +71,7 @@ module Base
         ChanceToSpawnDamaged = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATAInteractiveTrunkWheelRackWorld,
 	}
 	
 	recipe Make ATAInteractiveTrunkWheelRackItem
@@ -84,6 +101,13 @@ module Base
 	   NeedToBeLearn:false,
 	}
 	
+	model ATARoofBaseWorld
+	{
+		mesh = WorldItems/ATA_Cage,
+		texture = WorldItems/ATA_Common_items,
+		scale = 0.04,
+	}
+	
 	item ATARoofBaseItem /* Спавн + Крафт */
 	{
 		Weight	=	10.0,
@@ -94,6 +118,7 @@ module Base
         ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATARoofBaseWorld,
 	}
 	
 	recipe Make ATARoofBaseItem

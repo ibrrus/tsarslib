@@ -27,10 +27,10 @@ IGUI_RU = {
 	IGUI_VehiclePartATARoofTent = "Палатка на крышу",
 
 
-	IGUI_VehiclePartATARoofLightFront = "Передние фонари на крыше",
-	IGUI_VehiclePartATARoofLightLeft = "Левые фонари на крыше",
-	IGUI_VehiclePartATARoofLightRight = "Правые фонари на крыше",
-	IGUI_VehiclePartATARoofLightRear = "Задние фонари на крыше",
+	IGUI_VehiclePartATARoofLightFront = "Фонари на крыше (передние)",
+	IGUI_VehiclePartATARoofLightLeft = "Фонари на крыше (левые)",
+	IGUI_VehiclePartATARoofLightRight = "Фонари на крыше (правые)",
+	IGUI_VehiclePartATARoofLightRear = "Фонари на крыше (задние)",
 	
 	IGUI_VehiclePartATARoofLampFront = "Лампочка для передних фонарей на крыше",
 	IGUI_VehiclePartATARoofLampLeft = "Лампочка для левых фонарей на крыше",

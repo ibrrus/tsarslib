@@ -1,6 +1,13 @@
 module Base
 {
-	item ATASnorkelItem
+	model ATASnorkelWorld
+	{
+		mesh = WorldItems/ATA_Airtube,
+		texture = WorldItems/ATA_Common_items,
+		scale = 0.04,
+	}
+	
+	item ATASnorkelItem /* Спавн */ 
 	{
 		Weight	=	2.0,
         Type	=	Normal,
@@ -10,9 +17,10 @@ module Base
         ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATASnorkelWorld,
 	}
 	
-	template vehicle ATASnorkel /* Спавн */ 
+	template vehicle ATASnorkel
 	{
 		part ATASnorkel
 		{

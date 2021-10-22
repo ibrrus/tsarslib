@@ -297,21 +297,18 @@ end
 function Tuning.CommonBamper(vehicle, part, item)
 	print("Tuning.CommonBamper")
 	if item then
-		print("item +")
-		print(item:getModData()["ataModel"])
-		print(item:getModData()["ataAnotherModel"])
-		if item:getModData()["ataModel"] then
-			for i, anotherModel in ipairs(item:getModData()["ataAnotherModel"]:split(";")) do
-				part:setModelVisible(anotherModel, false)
+		if item:getModData()["ataModel"] and part:getTable("allModels") then
+			for i, oneModel in ipairs(part:getTable("allModels")) do
+				if item:getModData()["ataModel"] == oneModel then
+					part:setModelVisible(oneModel, true)
+				else
+					part:setModelVisible(oneModel, false)
+				end
 			end
-			part:setModelVisible(item:getModData()["ataModel"], true)
 		end
-	else
-		if item:getModData()["ataModel"] then
-			for i, anotherModel in ipairs(item:getModData()["ataAnotherModel"]:split(";")) do
-				part:setModelVisible(anotherModel, false)
-			end
-			part:setModelVisible(item:getModData()["ataModel"], false)
+	elseif part:getTable("allModels") then
+		for i, oneModel in ipairs(part:getTable("allModels")) do
+			part:setModelVisible(oneModel, false)
 		end
 	end
 end
@@ -340,7 +337,6 @@ function Tuning.Create.CommonBamperFirstTwo(vehicle, part)
 end
 
 function Tuning.Init.CommonBamper(vehicle, part)
-	print(" Tuning.Init.BusBullbar")
 	Tuning.CommonBamper(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
 end

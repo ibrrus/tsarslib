@@ -52,7 +52,7 @@ module Autotsar
         Type	=	Literature,
         DisplayName	=	Autotsar Tuning Universe,
         Icon	=	MagazineWelding3,
-        TeachedRecipes  =   Basic Tuning;Make ATAInteractiveTrunkRoofRackItem;Make ATAInteractiveTrunkWheelRackItem;Make ATARoofBaseItem;Make ATAProtectionWindowItem;Make ATAProtectionWindowFrontItem,
+        TeachedRecipes  =   Basic Tuning;Make ATAInteractiveTrunkRoofRackItem;Make ATAInteractiveTrunkWheelRackItem;Make ATARoofBaseItem;Make ATAProtectionWindowItem;Make ATAProtectionWindowFrontItem;Make ATAProtectionWheelsItem;Make ATAJeepBumper4Item,
         ReplaceOnUse    =   ATATuningMagUniversal,
 		Tooltip = Tooltip_item_ATATuningMagUniversal,
         StaticModel = Magazine,

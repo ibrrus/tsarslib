@@ -32,6 +32,13 @@
 
 module Base
 {	
+	model ATARoofTentWorld
+	{
+		mesh = WorldItems/ATA_PalatkaClosed,
+		texture = WorldItems/ATA_Common_palatka,
+		scale = 0.04,
+	}
+	
 	item ATARoofTentItem /* Спавн */ 
 	{
 		Weight	=	15.0,
@@ -43,6 +50,7 @@ module Base
         ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATARoofTentWorld,
 	}
 	
 	item ATASleepingBag

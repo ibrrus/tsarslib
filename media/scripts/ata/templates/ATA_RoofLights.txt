@@ -1,5 +1,11 @@
 module Base
 {
+	model ATARoofLightWorld
+	{
+		mesh = WorldItems/ATA_MiddleLigts,
+		texture = WorldItems/ATA_Common_items,
+		scale = 0.04,
+	}
 	
 	item ATARoofLightItem /* Спавн */ 
 	{
@@ -11,6 +17,7 @@ module Base
         ConditionMax = 100,
         MechanicsItem = TRUE,
 		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATARoofLightWorld,
 	}
 	
 	template vehicle ATARoofLights
