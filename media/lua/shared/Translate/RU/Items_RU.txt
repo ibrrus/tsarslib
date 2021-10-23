@@ -1,6 +1,0 @@
-Items_RU = {
-	DisplayName_Compact_Fridge = "Компактный холодильник".
-	DisplayName_Compact_Oven = "Компактная плита",
-	DisplayName_Compact_Stove = "Компактная плита",
-	DisplayName_Compact_Microwave = "Компактная икроволновка",
-}

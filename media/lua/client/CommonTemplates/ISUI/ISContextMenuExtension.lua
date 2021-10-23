@@ -37,17 +37,16 @@ function ISContextMenu:removeOptionTsar(option)
 	end
 end
 
-function ISContextMenu:getOptionFromItemNameTsar(name)
-	for i,v in ipairs(self.options) do
-		print(v.param1)
-		for m,n in pairs(v) do
-			print(m, " ", n)
-		end
-		-- if v.name == name then
-			-- return v;
+-- function ISContextMenu:getOptionFromItemNameTsar(name)
+	-- for i,v in ipairs(self.options) do
+		-- for m,n in pairs(v) do
+			
 		-- end
-	end
-end
+		-- -- if v.name == name then
+			-- -- return v;
+		-- -- end
+	-- end
+-- end
 
 -- Examples
 -- context:removeOptionTsar(context:getOptionFromName(getText("ContextMenu_GeneratorFix")))

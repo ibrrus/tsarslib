@@ -30,7 +30,8 @@ end
 
 function ISPaintBus:perform()
 	self.vehicle:setSkinIndex(self.skinIndex)
-	self.vehicle:scriptReloaded()
+	self.vehicle:getPartById("TireFrontLeft"):setInventoryItem(self.vehicle:getPartById("TireFrontLeft"):getInventoryItem())
+	-- Tuning.Init.WheelsProtection(self.vehicle, self.vehicle:getPartById("TireFrontLeft"))
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end

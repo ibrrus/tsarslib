@@ -1,0 +1,32 @@
+ItemName_EN = {
+	ItemName_Base.ATAInteractiveTrunkRoofRackItem = "Roof rack",
+	ItemName_Base.ATAInteractiveTrunkWheelRackItem = "Trunk over spare wheel",
+	ItemName_Base.ATARoofBaseItem = "Roof rails",
+	
+	ItemName_Base.ATAProtectionWindowItem = "Windows Protection",
+	ItemName_Base.ATAProtectionWindowFrontItem = "Windshield Protection",
+	ItemName_Base.ATAProtectionWheelsChain = "Chain",
+	
+	ItemName_Base.ATARoofLightItem = "Roof lights",
+	ItemName_Base.ATARoofTentItem = "Roof tent",
+	ItemName_Base.ATASnorkelItem = "Schnorkel",
+	
+	ItemName_Base.TransportCounter = "Portable shelf",
+	ItemName_Base.TransportCupboard = "Portable cupboard",
+	ItemName_Base.TransportDrawer = "Portable drawer",
+	ItemName_Base.TransportFreezer = "Portable freezer",
+	ItemName_Base.TransportMedicine = "Wall medicine",
+	ItemName_Base.TransportMicrowave = "Portable microwave",
+	ItemName_Base.TransportOven = "Portable oven",
+	ItemName_Base.TransportSeatBoxWooden = "Wooden seat",
+	ItemName_Base.TransportShelve = "Portable shelve",
+	
+	ItemName_Base.500Tank1 = "Tank 500",
+	ItemName_Base.500Tank2 = "Tank 500",
+	ItemName_Base.500Tank3 = "Tank 500",
+	ItemName_Base.1000Tank1 = "Tank 1000",
+	ItemName_Base.1000Tank2 = "Tank 1000",
+	ItemName_Base.1000Tank3 = "Tank 1000",
+	
+	ItemName_Autotsar.ATATuningMagUniverse = "Autotsar Tuning Atelier - General Tuning Rules",
+}

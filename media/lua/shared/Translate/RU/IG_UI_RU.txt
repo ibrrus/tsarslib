@@ -43,8 +43,8 @@ IGUI_RU = {
 	IGUI_CraftCategory_Tuning = "Тюнинг",
 	IGUI_VehiclePartCatatatuning = "Тюнинг",
 	IGUI_VehiclePartCatataprotection = "Защита",
-	
 	IGUI_PlayerText_ATA_TentDontOpen = "Палатка должна быть пустая",
+	
 	IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник",
 	/* Common Library */
 	IGUI_VehiclePartshelves = "Полки",

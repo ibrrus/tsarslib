@@ -2,4 +2,19 @@ Recipe_EN = {
 	Recipe_Make_a_compact_fridge = "Make a compact fridge",
 	Recipe_Make_a_compact_stove = "Make a compact stove",
 	Recipe_Make_a_compact_microwave = "Make a compact microwave",
+	
+	Recipe_Make_ATAInteractiveTrunkRoofRackItem = "Create Roof rack",
+	Recipe_Cut_ATAInteractiveTrunkRoofRackItem = "Cut Roof rack",
+	Recipe_Make_ATAInteractiveTrunkWheelRackItem = "Create Trunk over spare wheel",
+	Recipe_Cut_ATAInteractiveTrunkWheelRackItem = "Cut Trunk over spare wheel",
+	Recipe_Make_ATARoofBaseItem = "Create Congo cage",
+	Recipe_Cut_ATARoofBaseItem = "Cut Congo cage",
+	Recipe_Make_ATAProtectionWindowItem = "Create Window protection",
+	Recipe_Cut_ATAProtectionWindowItem = "Cut Window protection",
+	Recipe_Make_ATAProtectionWindowFrontItem = "Create Windshield protection",
+	Recipe_Cut_ATAProtectionWindowFrontItem = "Cut Windshield protection,
+	Recipe_Make_ATAProtectionWheelsItem = "Create a Wheel protection",
+	Recipe_Cut_ATAProtectionWheelsItem = "Cut Wheel protection,
+	
+	Recipe_Basic_Tuning = "Basic Tuning",
 }

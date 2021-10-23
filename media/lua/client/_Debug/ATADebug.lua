@@ -89,6 +89,8 @@ debugScenarios.IBrRusScenario_ATA = {
 		playerObj:getInventory():AddItem("Base.LugWrench");
 		playerObj:getInventory():AddItem("Base.Screwdriver");
 		playerObj:getInventory():AddItem("Base.Jack");
+		playerObj:getInventory():AddItem("Base.Paintbrush");
+		playerObj:getInventory():AddItem("Base.PaintRed");
 		
 		playerObj:getInventory():AddItem("Base.556Clip");
 		for i=1,20 do
@@ -114,7 +116,7 @@ debugScenarios.IBrRusScenario_ATA = {
 		
 		-- addVehicleDebug("Base.TrailerGenerator", IsoDirections.E, nil, getCell():getGridSquare(vehX, vehY-yShift*1, 0));
 		-- addVehicleDebug("Base.TrailerFirst", IsoDirections.E, nil, getCell():getGridSquare(vehX, vehY, 0));
-		local car = addVehicleDebug("Base.ATAJeep", IsoDirections.E, nil, getCell():getGridSquare(vehX, vehY + yShift*1, 0));
+		local car = addVehicleDebug("Base.ATAJeepArcher", IsoDirections.E, nil, getCell():getGridSquare(vehX, vehY + yShift*1, 0));
 		inv:AddItem(car:createVehicleKey());
 		-- car = addVehicleDebug("Base.ATAArmyBus", IsoDirections.E, nil, getCell():getGridSquare(vehX, vehY + yShift*2, 0));
 		-- inv:AddItem(car:createVehicleKey());
@@ -124,8 +126,8 @@ debugScenarios.IBrRusScenario_ATA = {
 		-- addVehicleDebug("Base.TrailerAdvert", IsoDirections.E, nil, getCell():getGridSquare(vehX, vehY + yShift*6, 0));
 	
 		-- Cars
-		car = addVehicleDebug("Base.PickUpTruckMccoy", IsoDirections.E, nil, getCell():getGridSquare(3685.5, 5789, 0));
-		car:repair();
+		car = addVehicleDebug("Base.ATAJeepArcher", IsoDirections.E, nil, getCell():getGridSquare(3685.5, 5789, 0));
+		-- car:repair();
 		inv:AddItem(car:createVehicleKey());			
 	end
 }

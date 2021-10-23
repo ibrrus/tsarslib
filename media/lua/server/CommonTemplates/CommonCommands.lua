@@ -3,7 +3,7 @@ local CommonCommands = {}
 local Commands = {}
 
 function Commands.toggleBatteryHeater(playerObj, args)
-	print("Commands.toggleBatteryHeater")
+	-- print("Commands.toggleBatteryHeater")
 	local vehicle = playerObj:getVehicle();
 	if vehicle then
 		local part = vehicle:getPartById("BatteryHeater");

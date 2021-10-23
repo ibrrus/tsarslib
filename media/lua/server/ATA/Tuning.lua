@@ -80,7 +80,6 @@ end
 
 function Tuning.Create.InstallChance15(vehicle, part)
 	if ZombRand(100) < 15 then
-		print("WIN!")
 		Tuning.Create.DefaultModel(vehicle, part)
 	else
 		Tuning.Create.NotInstallDefault(vehicle, part)
@@ -295,7 +294,7 @@ end
 --***********************************************************
 
 function Tuning.CommonBamper(vehicle, part, item)
-	print("Tuning.CommonBamper")
+	-- print("Tuning.CommonBamper")
 	if item then
 		if item:getModData()["ataModel"] and part:getTable("allModels") then
 			for i, oneModel in ipairs(part:getTable("allModels")) do
@@ -795,41 +794,27 @@ end
 --***********************************************************
 
 function Tuning.WheelsProtection(vehicle, part)
-	-- print(getPlayer():getVehicle():getPartById("ATABullbar"):setModelVisible("Bullbar2", false))
-	-- print(part:getId())
-	
-	-- part = vehicle:getPartById("ATABullbar")
-	-- local item = part:getInventoryItem()
-	-- if item then
-		-- print(item:getType())
-		-- if item:getType() == "ATA_Bus_Kengur_1_Item" then
-			-- part:setModelVisible("Bullbar1", true)
-			-- part:setModelVisible("Bullbar2", false)
-			-- part:setModelVisible("Bullbar3", false)
-		-- elseif item:getType() == "ATA_Bus_Kengur_2_Item" then
-			-- part:setModelVisible("Bullbar1", false)
-			-- part:setModelVisible("Bullbar2", true)
-			-- part:setModelVisible("Bullbar3", false)
-		-- else
-			-- part:setModelVisible("Bullbar1", false)
-			-- part:setModelVisible("Bullbar2", false)
-			-- part:setModelVisible("Bullbar3", true)
-		-- end
-	-- else
-		-- print("not visible")
-		-- part:setModelVisible("Bullbar1", false)
-		-- part:setModelVisible("Bullbar2", false)
-		-- part:setModelVisible("Bullbar3", false)
-	-- end
-end
-
-function Tuning.Init.WheelsProtection(vehicle, part)
-	-- print(" Tuning.Init.BusBullbar")
 	if part:getInventoryItem() then
-		vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", true);
-		vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", true);
-		vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", true);
-		vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", true);
+		if vehicle:getPartById("TireFrontLeft"):getInventoryItem() then
+			vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", true);
+		else
+			vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", false);
+		end
+		if vehicle:getPartById("TireFrontRight"):getInventoryItem() then
+			vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", true);
+		else
+			vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", false);
+		end
+		if vehicle:getPartById("TireRearLeft"):getInventoryItem() then
+			vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", true);
+		else
+			vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", false);
+		end
+		if vehicle:getPartById("TireRearRight"):getInventoryItem() then
+			vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", true);
+		else
+			vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", false);
+		end
 	else
 		vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", false);
 		vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", false);
@@ -838,20 +823,18 @@ function Tuning.Init.WheelsProtection(vehicle, part)
 	end
 end
 
+function Tuning.Init.WheelsProtection(vehicle, part)
+	Tuning.WheelsProtection(vehicle, part)
+end
+
 function Tuning.InstallComplete.WheelsProtection(vehicle, part)
 -- print(" Tuning.InstallComplete.BusBullbar")
-	vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", true);
-	vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", true);
-	vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", true);
-	vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", true);
+	Tuning.WheelsProtection(vehicle, part)
 end
 
 function Tuning.UninstallComplete.WheelsProtection(vehicle, part, item)
 -- print(" Tuning.UninstallComplete.BusBullbar")
-	vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", false);
-	vehicle:getPartById("TireFrontRight"):setModelVisible("ATAProtection", false);
-	vehicle:getPartById("TireRearLeft"):setModelVisible("ATAProtection", false);
-	vehicle:getPartById("TireRearRight"):setModelVisible("ATAProtection", false);
+	Tuning.WheelsProtection(vehicle, part)
 end
 
 

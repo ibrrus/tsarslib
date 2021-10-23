@@ -5,7 +5,6 @@ ContextMenu_EN = {
 	ContextMenu_PainNoSleep_Mattress = "Experiencing too much pain to sleep on the mattress."
 	ContextMenu_PanicNoSleep_Mattress = "Too panicked to sleep on the mattress."
 	ContextMenu_NoSleepTooEarly_Mattress = "Can't get back to sleep on the mattress.<br>Try again later.",
-	
 	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Pour gasoline into the tank",
 	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Drain gasoline from tank",
 	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Fill Gasoline Storage Tank From Pump",
