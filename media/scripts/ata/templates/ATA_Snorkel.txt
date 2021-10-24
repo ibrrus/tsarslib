@@ -25,7 +25,7 @@ module Base
 		part ATASnorkel
 		{
 			area = Engine,
-			category = atatuning,
+			category = tuning,
 			itemType = Base.ATASnorkelItem,
 			specificItem = false,
 			mechanicRequireKey = false,

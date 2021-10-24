@@ -11,19 +11,19 @@ local function lua_split (inputstr, sep)
 	return t
 end
 
-Tuning = {}
-TuningUtils = {}
-Tuning.CheckEngine = {}
-Tuning.CheckOperate = {}
-Tuning.ContainerAccess = {}
-Tuning.Create = {}
-Tuning.Init = {}
-Tuning.InstallComplete = {}
-Tuning.InstallTest = {}
-Tuning.UninstallComplete = {}
-Tuning.UninstallTest = {}
-Tuning.Update = {}
-Tuning.Use = {}
+if not Tuning then Tuning = {} end
+if not TuningUtils then TuningUtils = {} end
+if not Tuning.CheckEngine then Tuning.CheckEngine = {} end
+if not Tuning.CheckOperate then Tuning.CheckOperate = {} end
+if not Tuning.ContainerAccess then Tuning.ContainerAccess = {} end
+if not Tuning.Create then Tuning.Create = {} end
+if not Tuning.Init then Tuning.Init = {} end
+if not Tuning.InstallComplete then Tuning.InstallComplete = {} end
+if not Tuning.InstallTest then Tuning.InstallTest = {} end
+if not Tuning.UninstallComplete then Tuning.UninstallComplete = {} end
+if not Tuning.UninstallTest then Tuning.UninstallTest = {} end
+if not Tuning.Update then Tuning.Update = {} end
+if not Tuning.Use then Tuning.Use = {} end
 
 function TuningUtils.createPartInventoryItemById(part, id)
 	if not part:getItemType() or part:getItemType():isEmpty() then return nil end
@@ -490,69 +490,6 @@ function Tuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 	end
 end
 
-
---***********************************************************
---**                                                       **
---**                		BusBullbar  	               **
---**                                                       **
---***********************************************************
-
-function Tuning.BusBullbar(vehicle, part)
-	-- print(getPlayer():getVehicle():getPartById("ATABullbar"):setModelVisible("Bullbar2", false))
-	-- print(part:getId())
-	part = vehicle:getPartById("ATABullbar")
-	local item = part:getInventoryItem()
-	if item then
-		-- print(item:getType())
-		if item:getType() == "ATA_Bus_Kengur_1_Item" then
-			part:setModelVisible("Bullbar1", true)
-			part:setModelVisible("Bullbar2", false)
-			part:setModelVisible("Bullbar3", false)
-		elseif item:getType() == "ATA_Bus_Kengur_2_Item" then
-			part:setModelVisible("Bullbar1", false)
-			part:setModelVisible("Bullbar2", true)
-			part:setModelVisible("Bullbar3", false)
-		else
-			part:setModelVisible("Bullbar1", false)
-			part:setModelVisible("Bullbar2", false)
-			part:setModelVisible("Bullbar3", true)
-		end
-	else
-		-- print("not visible")
-		part:setModelVisible("Bullbar1", false)
-		part:setModelVisible("Bullbar2", false)
-		part:setModelVisible("Bullbar3", false)
-	end
-end
-
-function Tuning.Create.BusBullbar(vehicle, part)
-	-- print("Tuning.Create.BusBullbar")
-	part:setInventoryItem(nil)
-	Tuning.BusBullbar(vehicle, part, nil)
-	vehicle:doDamageOverlay()
-end
-
-function Tuning.Init.BusBullbar(vehicle, part)
-	-- print(" Tuning.Init.BusBullbar")
-	Tuning.BusBullbar(vehicle, part)
-	vehicle:doDamageOverlay()
-end
-
-function Tuning.InstallComplete.BusBullbar(vehicle, part)
--- print(" Tuning.InstallComplete.BusBullbar")
-	Tuning.BusBullbar(vehicle, part)
-	vehicle:doDamageOverlay()
-	Tuning.InstallComplete.Protection(vehicle, part)
-end
-
-function Tuning.UninstallComplete.BusBullbar(vehicle, part, item)
--- print(" Tuning.UninstallComplete.BusBullbar")
-	Tuning.BusBullbar(vehicle, part)
-	vehicle:doDamageOverlay()
-	Tuning.UninstallComplete.Protection(vehicle, part, item)
-end
-
-
 --***********************************************************
 --**                                                       **
 --**                	ATAInteractiveTrunk	               **
@@ -648,121 +585,6 @@ function Tuning.UninstallComplete.ATAInteractiveTrunk(vehicle, part, item)
 	Tuning.ATAInteractiveTrunk(part)
 	vehicle:doDamageOverlay()
 end
-
---***********************************************************
---**                                                       **
---**                		Protection  	               **
---**                                                       **
---***********************************************************
-
-function Tuning.InstallComplete.Protection(vehicle, part)
--- print("Tuning.InstallComplete.Protection")
-	local invItem = part:getInventoryItem();
-	if not invItem then return; end
-	Tuning.InstallComplete.DefaultModel(vehicle, part)
-	if not vehicle:getModData().tuning then
-		vehicle:getModData().tuning = {}
-	end
-	local partNames = part:getTable("install");
-	for k, partName in ipairs(partNames) do 
-		local savePart = vehicle:getPartById(partName)
-		if not vehicle:getModData().tuning[partName] then
-			vehicle:getModData().tuning[partName] = {}
-		end
-		vehicle:getModData().tuning[partName].health = savePart:getCondition()
-		savePart:setCondition(100)
-		-- print("CONDITION SAVED")
-	end
-end
-
-function Tuning.UninstallComplete.Protection(vehicle, part, item)
--- print("Tuning.UninstallComplete.Protection")
-	if not item then return end
-	Tuning.UninstallComplete.DefaultModel(vehicle, part, item)
-	if not vehicle:getModData().tuning then return end
-	local partNames = part:getTable("install");
-	for k, partName in ipairs(partNames) do 
-		-- print(vehicle:getModData().tuning[partName].health)
-		local savePart = vehicle:getPartById(partName)
-		if not vehicle:getModData().tuning[partName] then return end
-		savePart:setCondition(vehicle:getModData().tuning[partName].health)
-		vehicle:getModData().tuning[partName] = nil
-	end
-end
-
--- local function checkProtection (vehicle, part, savePart)
-	-- if savePart:getCondition() == 0 then
-		-- local areaCenter = vehicle:getAreaCenter(part:getArea())
-		-- if not areaCenter then return nil end
-		-- local square = getCell():getGridSquare(areaCenter:getX(), areaCenter:getY(), vehicle:getZ())
-		-- part:setInventoryItem(nil);
-		-- square:AddWorldInventoryItem(invItem, 0.5, 0.5, 0)
-	-- elseif (savePart:getCondition() < 10) then
-		-- savePart:setCondition(10)
-		-- part:setCondition(part:getCondition()-1)
-	-- end
--- end
-function Tuning.Update.Protection(vehicle, part, elapsedMinutes)
-	-- print("Tuning.Update.Protection")
-	local invItem = part:getInventoryItem();
-	if not invItem then return; end
-	
-	local areaCenter = vehicle:getAreaCenter(part:getArea())
-	if not areaCenter then return nil end
-	local square = getCell():getGridSquare(areaCenter:getX(), areaCenter:getY(), vehicle:getZ())
-	if part:getCondition() == 0 then
-		part:setInventoryItem(nil);
-		square:AddWorldInventoryItem(invItem, 0.5, 0.5, 0)
-		Tuning.UninstallComplete.Protection(vehicle, part, invItem)
-	else
-		local redoCond = false
-		local partNames = part:getTable("install");
-		for k, partName in ipairs(partNames) do 
-			local savePart = vehicle:getPartById(partName)
-			if not vehicle:getModData().tuning then
-				vehicle:getModData().tuning = {}
-			end
-			if not vehicle:getModData().tuning[partName] then
-				vehicle:getModData().tuning[partName] = {}
-				vehicle:getModData().tuning[partName].health = savePart:getCondition()
-			end
-			if (not savePart:getInventoryItem() and not (partName == "Engine")) or savePart:getCondition() == 0 then
-				part:setCondition(part:getCondition()-1)
-				VehicleUtils.createPartInventoryItem(savePart)
-				savePart:setCondition(100)
-			elseif (savePart:getCondition() < 80) then
-				part:setCondition(part:getCondition()-1)
-				savePart:setCondition(100)
-			end
-			if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
-				savePart:setContainerContentAmount(20, false, true);
-			end
-		end
-		-- if redoCond then
-			-- part:setCondition(part:getCondition()-1)
-		-- end
-	end
-end
-
--- function Tuning.Update.WindowMiddle(vehicle, part, elapsedMinutes)
-	-- if part:getId() == "WindowMiddleLeft" then
-		-- local rearWindow = vehicle:getPartById("WindowRearLeft")
-		-- if not part:getInventoryItem() then
-			-- VehicleUtils.createPartInventoryItem(part)
-		-- end
-		-- part:setCondition(rearWindow:getCondition())
-	-- else
-		-- local rearWindow = vehicle:getPartById("WindowRearRight")
-		-- if not part:getInventoryItem() then
-			-- VehicleUtils.createPartInventoryItem(part)
-		-- end
-		-- part:setCondition(rearWindow:getCondition())
-	-- end
-	-- if part:getCondition() == 0 then
-		-- part:setInventoryItem(nil)
-	-- end
--- end
-
 
 --***********************************************************
 --**                                                       **

@@ -108,18 +108,20 @@ function ISCommonMenu.showRadialMenu(playerObj)
 		end
 			
 		if fridge and lightIsOn then
-			if fridge:getItemContainer():isActive() then
-				menu:addSlice(getText("IGUI_Turn_Fridge_Off"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDevice, playerObj, vehicle, fridge)
+			-- print(fridge:getModData().tsarslib)
+			-- print(fridge:getModData().tsarslib.active)
+			if fridge:getModData().tsarslib and fridge:getModData().tsarslib.active then
+				menu:addSlice(getText("IGUI_Turn_Fridge_Off"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
 			else
-				menu:addSlice(getText("IGUI_Turn_Fridge_On"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDevice, playerObj, vehicle, fridge)
+				menu:addSlice(getText("IGUI_Turn_Fridge_On"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
 			end
 		end
 		
 		if freezer and lightIsOn then
 			if freezer:getItemContainer():isActive() then
-				menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDevice, playerObj, vehicle, freezer)
+				menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
 			else
-				menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDevice, playerObj, vehicle, freezer)
+				menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
 			end
 		end
 	end
@@ -153,6 +155,10 @@ end
 	
 function ISCommonMenu.ToggleDevice(playerObj, vehicle, part)
 	CommonTemplates.Use.DefaultDevice(vehicle, part, playerObj)
+end
+
+function ISCommonMenu.ToggleDeviceFridge(playerObj, vehicle, part)
+	CommonTemplates.Use.Fridge(vehicle, part, playerObj)
 end
 
 function ISCommonMenu.ToggleMicrowave(playerObj, vehicle, part, on)

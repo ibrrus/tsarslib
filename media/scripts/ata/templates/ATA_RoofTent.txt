@@ -74,7 +74,7 @@ module Base
 				test = Tuning.ContainerAccess.RoofTent,
 			}
 			area = TruckBed,
-			category = atatuning,
+			category = tuning,
 			itemType = Base.ATARoofTentItem,
 			specificItem = false,
 			mechanicRequireKey = false,

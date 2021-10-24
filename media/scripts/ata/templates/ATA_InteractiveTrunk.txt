@@ -14,7 +14,7 @@ module Base
         Type	=	Normal,
         DisplayName	= Roof Rack,
         Icon	=	ATAInteractiveTrunkRoofRackItem,
-        MaxCapacity = 95,
+        MaxCapacity = 70,
         ConditionAffectsCapacity = false,
         ConditionMax = 100,
         ChanceToSpawnDamaged = 100,
@@ -65,7 +65,7 @@ module Base
         Type	=	Normal,
         DisplayName	= Wheel Rack,
         Icon	=	ATAInteractiveTrunkWheelRackItem,
-        MaxCapacity = 50,
+        MaxCapacity = 35,
         ConditionAffectsCapacity = false,
         ConditionMax = 100,
         ChanceToSpawnDamaged = 100,
@@ -153,7 +153,7 @@ module Base
 		part ATARoofBase
 		{
 			area = TruckBed,
-			category = atatuning,
+			category = tuning,
 			itemType = Base.ATARoofBaseItem,
 			specificItem = false,
 			mechanicRequireKey = false,
@@ -215,7 +215,7 @@ module Base
 		part ATAInteractiveTrunk*
 		{
 			area = TruckBed,
-			category = atatuning,
+			category = tuning,
 			specificItem = false,
 			
 			mechanicRequireKey = false,

@@ -44,7 +44,7 @@ module Base
 			}
 			lua
 			{
-				create = Tuning.Create.DefaultModel,
+				create = Tuning.Create.InstallChance45,
 				init = Tuning.Init.DefaultModel,
 			}
 		}

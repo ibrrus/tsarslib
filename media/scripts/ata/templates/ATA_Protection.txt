@@ -122,7 +122,7 @@ module Base
 				file = Vehicles_Wheel,
 			}
 			area = Engine,
-			category = ataprotection,
+			category = protection,
 			specificItem = false,
 			itemType = Base.ATAProtectionWheelsChain,
 			mechanicRequireKey = false,
@@ -277,7 +277,7 @@ module Base
 
 		part ATAProtectionWindow*
 		{
-			category = ataprotection,
+			category = protection,
 			specificItem = false,
 			mechanicRequireKey = false,
 			itemType = Base.ATAProtectionWindowItem,

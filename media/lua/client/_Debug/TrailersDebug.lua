@@ -117,7 +117,8 @@ debugScenarios.IBrRusScenario_TowingTrailer = {
 		addVehicleDebug("Base.TrailerAdvert", IsoDirections.E, nil, getCell():getGridSquare(vehX, vehY + yShift*6, 0));
 	
 		-- Cars
-		car = addVehicleDebug("Base.PickUpTruckMccoy", IsoDirections.E, nil, getCell():getGridSquare(3685.5, 5789, 0));
+		-- car = addVehicleDebug("Base.PickUpTruckMccoy", IsoDirections.E, nil, getCell():getGridSquare(3685.5, 5789, 0));
+		car = addVehicleDebug("Base.ATAJeepArcher", IsoDirections.E, nil, getCell():getGridSquare(3685.5, 5789, 0));
 		car:repair();
 		inv:AddItem(car:createVehicleKey());			
 	end

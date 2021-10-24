@@ -40,8 +40,8 @@ IG_UI_EN = {
 	
 	IGUI_ExitVehicleTent = "Exit Tent",
 	IGUI_CraftCategory_Tuning = "Tuning",
-	IGUI_VehiclePartCatatatuning = "Tuning",
-	IGUI_VehiclePartCatataprotection = "Protection",
+	IGUI_VehiclePartCattuning = "Tuning",
+	IGUI_VehiclePartCatprotection = "Protection",
 	
 	IGUI_PlayerText_ATA_TentDontOpen = "Tent must be empty",
 	IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first"
