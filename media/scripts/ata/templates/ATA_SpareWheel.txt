@@ -4,6 +4,7 @@ module Base
 	{
 		part ATASpareWheel
 		{
+			area = TruckBed,
 			category = tire,
 			itemType = Base.OldTire;Base.NormalTire;Base.ModernTire,
 			model Default

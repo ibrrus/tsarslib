@@ -20,7 +20,6 @@ require 'Items/ProceduralDistributions'
 
 if getActivatedMods():contains("ATA_Bus") or getActivatedMods():contains("ATA_Jeep") or 
 		getActivatedMods():contains("ATA_Bus_test") or getActivatedMods():contains("ATA_Jeep_test") then
-print("Autotsar.AtTuningMagBus")
 	table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "Autotsar.ATATuningMagUniverse");
 	table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 1);
 	table.insert(ProceduralDistributions.list["CrateMagazines"].items, "Autotsar.ATATuningMagUniverse");
