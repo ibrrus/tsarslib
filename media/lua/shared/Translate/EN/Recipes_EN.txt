@@ -12,9 +12,9 @@ Recipe_EN = {
 	Recipe_Make_ATAProtectionWindowItem = "Create Window protection",
 	Recipe_Cut_ATAProtectionWindowItem = "Cut Window protection",
 	Recipe_Make_ATAProtectionWindowFrontItem = "Create Windshield protection",
-	Recipe_Cut_ATAProtectionWindowFrontItem = "Cut Windshield protection,
+	Recipe_Cut_ATAProtectionWindowFrontItem = "Cut Windshield protection",
 	Recipe_Make_ATAProtectionWheelsItem = "Create a Wheel protection",
-	Recipe_Cut_ATAProtectionWheelsItem = "Cut Wheel protection,
+	Recipe_Cut_ATAProtectionWheelsItem = "Cut Wheel protection",
 	
 	Recipe_Basic_Tuning = "Basic Tuning",
 }
