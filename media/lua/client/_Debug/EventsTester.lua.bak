@@ -162,7 +162,7 @@ end
 
 -- PLAYER
 
-function EventsTester.OnPlayerUpdate(playerObj, nil, nil, nil, nil)
+function EventsTester.OnPlayerUpdate(playerObj, a, b, c, d)
 	print("EventsTester.OnPlayerUpdate ", object, " ", a, " ", b, " ", c, " ", d )
 	-- Происходит с той же частотой, как Events.OnTick, только в качестве переменной получаем игрока, как объект. 
 	-- Для каждого локального игрока своё событие. 
@@ -210,7 +210,7 @@ end
 function EventsTester.OnCreatePlayer(playerNum, playerObj, b, c, d)
 	print("EventsTester.OnCreatePlayer ", playerNum, " ", playerObj, " ", b, " ", c, " ", d )
 	-- Срабатывает:
-		-- Вход в игру игрока. Даже в офлайне 
+		-- Каждый раз когда игрок входит в игру (появляется в мире). Даже в офлайне 
 		-- Подключение нового игрока на джойстике
 	-- playerNum - id игрока
 	-- playerObj - объект-игрок
@@ -252,8 +252,8 @@ function EventsTester.OnObjectAboutToBeRemoved(object, a, b, c, d)
 end
 
 -- Events.OnFillContainer.Add(EventsTester.OnFillContainer)
-Events.OnContainerUpdate.Add(EventsTester.OnContainerUpdate)
-Events.OnObjectAdded.Add(EventsTester.OnObjectAdded)
+-- Events.OnContainerUpdate.Add(EventsTester.OnContainerUpdate)
+-- Events.OnObjectAdded.Add(EventsTester.OnObjectAdded)
 -- Events.OnObjectAboutToBeRemoved.Add(EventsTester.OnObjectAboutToBeRemoved)
 
 

@@ -7,7 +7,7 @@ function ISVehicleMenu.onConfirmSleep(this, button, player, bed)
 	local vehicle = playerObj:getVehicle()
 	if button.internal == "YES" and vehicle:getPartById("Mattress") then
 		-- print("Mattress!!!")
-		ISWorldObjectContextMenu.onSleepWalkToComplete(player, "RV")
+		ISCommonMenu.onSleepWalkToComplete(player, "RV")
 	end
 	-- print("No Mattress!")
 	old_ISVehicleMenu_onConfirmSleep(this, button, player, bed)
@@ -27,7 +27,7 @@ function ISCommonMenu.onSleepWalkToComplete(player, bed)
     end
 
     --playerObj:setBed(bed);
-    --playerObj:setBedType(bedType);
+    playerObj:setBedType(bedType);
 	local modal = nil;
     local sleepFor = ZombRand(playerObj:getStats():getFatigue() * 10, playerObj:getStats():getFatigue() * 13) + 1;
     if playerObj:HasTrait("Insomniac") then
