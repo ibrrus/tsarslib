@@ -106,7 +106,7 @@ module Base
 			area = Engine,
 			table install
 			{
-				requireUninstalled = ATARoofLightFront,
+				requireInstalled = ATARoofLightFront,
 			}
 		}
 		
@@ -115,7 +115,7 @@ module Base
 			area = SeatFrontLeft,
 			table install
 			{
-				requireUninstalled = ATARoofLightLeft,
+				requireInstalled = ATARoofLightLeft,
 			}
 		}
 
@@ -124,7 +124,7 @@ module Base
 			area = SeatFrontRight,
 			table install
 			{
-				requireUninstalled = ATARoofLightRight,
+				requireInstalled = ATARoofLightRight,
 			}
 		}
 
@@ -133,7 +133,7 @@ module Base
 			area = TruckBed,
 			table install
 			{
-				requireUninstalled = ATARoofLightRear,
+				requireInstalled = ATARoofLightRear,
 			}
 		}
 
