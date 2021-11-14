@@ -1,0 +1,20 @@
+Recipe_ES = {
+	Recipe_Make_a_compact_fridge = "Hacer una mini nevera",
+	Recipe_Make_a_compact_stove = "Hacer un mini horno",
+	Recipe_Make_a_compact_microwave = "Hacer un microondas compacto",
+
+	Recipe_Make_ATAInteractiveTrunkRoofRackItem = "Crear portaequipaje",
+	Recipe_Cut_ATAInteractiveTrunkRoofRackItem = "Cortar portaequipaje",
+	Recipe_Make_ATAInteractiveTrunkWheelRackItem = "Crear maletero sobre rueda de repuesto",
+	Recipe_Cut_ATAInteractiveTrunkWheelRackItem = "Cortar maletero sobre rueda de repuesto",
+	Recipe_Make_ATARoofBaseItem = "Crear jaula congo",
+	Recipe_Cut_ATARoofBaseItem = "Cortar jaula congo",
+	Recipe_Make_ATAProtectionWindowItem = "Crear proteccion de ventana",
+	Recipe_Cut_ATAProtectionWindowItem = "Cortar proteccion de ventana",
+	Recipe_Make_ATAProtectionWindowFrontItem = "Crear proteccion de parabrisas",
+	Recipe_Cut_ATAProtectionWindowFrontItem = "Cortar proteccion de parabrisas",
+	Recipe_Make_ATAProtectionWheelsItem = "Crear proteccion de ruedas",
+	Recipe_Cut_ATAProtectionWheelsItem = "Cortar proteccion de ruedas",
+
+	Recipe_Basic_Tuning = "Tuning Basico",
+}

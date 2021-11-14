@@ -1,0 +1,32 @@
+ItemName_ES = {
+	ItemName_Base.ATAInteractiveTrunkRoofRackItem = "Portaequipaje",
+	ItemName_Base.ATAInteractiveTrunkWheelRackItem = "Maletero sobre rueda de repuesto",
+	ItemName_Base.ATARoofBaseItem = "Barras de techo",
+
+	ItemName_Base.ATAProtectionWindowItem = "Proteccion de ventanas",
+	ItemName_Base.ATAProtectionWindowFrontItem = "Proteccion de parabrisas",
+	ItemName_Base.ATAProtectionWheelsChain = "Cadena",
+
+	ItemName_Base.ATARoofLightItem = "Luces de techo",
+	ItemName_Base.ATARoofTentItem = "Carpa de techo",
+	ItemName_Base.ATASnorkelItem = "Esnorquel",
+
+	ItemName_Base.TransportCounter = "Alacena portatil",
+	ItemName_Base.TransportCupboard = "Armario portatil",
+	ItemName_Base.TransportDrawer = "Cajon portatil",
+	ItemName_Base.TransportFreezer = "Congelador portatil",
+	ItemName_Base.TransportMedicine = "Taquilla portatil",
+	ItemName_Base.TransportMicrowave = "Microondas portatil",
+	ItemName_Base.TransportOven = "Horno portatil",
+	ItemName_Base.TransportSeatBoxWooden = "Asiento con baul",
+	ItemName_Base.TransportShelve = "Estante portatil",
+
+	ItemName_Base.500Tank1 = "Deposito 500",
+	ItemName_Base.500Tank2 = "Deposito 500",
+	ItemName_Base.500Tank3 = "Deposito 500",
+	ItemName_Base.1000Tank1 = "Deposito 1000",
+	ItemName_Base.1000Tank2 = "Deposito 1000",
+	ItemName_Base.1000Tank3 = "Deposito 1000",
+
+	ItemName_Autotsar.ATATuningMagUniverse = "Autotsar Tuning Atelier - Reglas generales de Tuning",
+}

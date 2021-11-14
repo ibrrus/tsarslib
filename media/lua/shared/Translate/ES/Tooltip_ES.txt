@@ -1,0 +1,8 @@
+Tooltip_ES = {
+	Tooltip_Compact_Fridge = "Se puede instalar en algunos vehiculos y remolques.",
+	Tooltip_Compact_Oven = "Se puede instalar en algunos vehiculos y remolques.",
+	Tooltip_Compact_Microwave = "Se puede instalar en algunos vehiculos y remolques.",
+
+	Tooltip_item_tuning = "Repuesto para tuning",
+	Tooltip_item_ATATuningMagUniversal = "Despues de leer este numero, obtendra conocimientos basicos de tuning. Aprendera<br>a crear protecciones universales para ventanas, estudiara los dibujos de diferentes tipos de maleteros<br>y comprendera como hacer que el parachoques del automovil sea mas letal.",
+}
