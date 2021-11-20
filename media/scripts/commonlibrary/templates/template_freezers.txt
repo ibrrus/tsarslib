@@ -86,7 +86,7 @@ module Base
 			{
 				create = CommonTemplates.Create.Freezer,
 				init = CommonTemplates.Init.Freezer,
-				update = CommonTemplates.Update.Fridge,
+				update = CommonTemplates.Update.Freezer,
 			}
 		}
 	}

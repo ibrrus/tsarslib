@@ -1,0 +1,74 @@
+v.1.17
+
+Исправлена работа морозильной камеры.
+
+Fixed the work of the freezer.
+-------------------
+v.1.16
+
+Добавлен испанский перевод.
+
+Added Spanish translation.
+
+Thanks Siowar.
+-------------------
+v.1.15
+
+Исправлена ошибка связанная с фонарями для крыши.
+
+Fixed a roof light bug.
+-------------------
+v.1.14
+
+Исправлен английский перевод.
+
+Corrected English translation.
+
+-------------------
+v.1.13
+
+Исправлен ошибка связанная с отсутствием положительного эффекта во время сна на матрасе или в палатке.
+
+Fixed a bug related to the lack of positive effect when sleeping on a mattress or in a tent.
+-------------------
+v.1.12
+
+Исправлены опечатки в файлах с переводами.
+
+Corrected misprints in the translation files.
+-------------------
+v.1.11
+
+Исправлена ошибка связанная с невозможностью установки запасного колеса.
+
+Fixed a bug related to the inability to install a spare wheel.
+-------------------
+v.1.09
+
+Исправлены ошибки связанные с работой холодильника.
+Добавлены функции и скрипты для создания тюнингованных автомобилей.
+
+Fixed errors related to the work of the refrigerator.
+Added functions and scripts for creating tuned cars.
+-------------------
+v.1.08 …
+
+Fixed issue with boat key.
+Added message about losing items while swimming.
+Fixed a bug with the type of spare parts.
+-------------------
+v.1.07
+
+Исправлены ошибки возникающие при заправке цистерны из бензоколонки.
+Исправлены ошибки связанные с появление пустого контекстного меню.
+
+Fixed errors that occurred when refueling a tank from a gas station.
+Fixed errors related to the appearance of an empty context menu.
+-------------------
+v.1.06
+
+Исправлена ошибка связанная со сном в версии PZ 41.51.
+
+Fixed a sleep bug in the PZ 41.51 version.
+-------------------
+v.1.05 …

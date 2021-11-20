@@ -127,11 +127,11 @@ function CommonTemplates.Init.Freezer(vehicle, part)
 	if not part:getModData().tsarslib then part:getModData().tsarslib = {} end
 	if part:getInventoryItem() and part:getItemContainer() then
 		if part:getModData().tsarslib.active then
-			part:getItemContainer():setCustomTemperature(0.0)
-			part:getItemContainer():setActive(true)
+			part:getItemContainer():setCustomTemperature(0.2)
+			-- part:getItemContainer():setActive(true)
 		else		
 			part:getItemContainer():setCustomTemperature(1.0)
-			part:getItemContainer():setActive(false)
+			-- part:getItemContainer():setActive(false)
 		end
 	end
 end
@@ -141,13 +141,9 @@ function CommonTemplates.Init.Fridge(vehicle, part)
 	if not part:getModData().tsarslib then part:getModData().tsarslib = {} end
 	if part:getInventoryItem() and part:getItemContainer() then
 		if part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
-			-- print("Init.Fridge COLD")
 			part:getItemContainer():setCustomTemperature(0.2)
-			-- part:getItemContainer():setActive(true)
-		else	
-			-- print("Init.Fridge HOT")		
+		else		
 			part:getItemContainer():setCustomTemperature(1.0)
-			-- part:getItemContainer():setActive(false)
 		end
 	end
 end
@@ -162,6 +158,41 @@ function CommonTemplates.Update.Fridge(vehicle, part, elapsedMinutes)
 		if part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
 			if currentTemp < minTemp then
 				part:getItemContainer():setCustomTemperature(minTemp)
+			elseif currentTemp > minTemp then
+				part:getItemContainer():setCustomTemperature(currentTemp - (0.04 * elapsedMinutes))
+			end
+			VehicleUtils.chargeBattery(vehicle, FridgeBatteryChange * elapsedMinutes)
+		else
+			if currentTemp < maxTemp then
+				part:getItemContainer():setCustomTemperature(currentTemp + (0.04 * elapsedMinutes))
+			elseif currentTemp >= maxTemp then
+				part:getItemContainer():setCustomTemperature(maxTemp)
+				part:setLightActive(false)
+			end
+		end
+	end
+end
+
+function CommonTemplates.Update.Freezer(vehicle, part, elapsedMinutes)
+	-- print("CommonTemplates.Update.Freezer")
+	local currentTemp = part:getItemContainer():getTemprature()
+	-- print("Freezer currentTemp: ", currentTemp)
+	local minTemp = 0.2
+	local maxTemp = 1.0
+	if part:getInventoryItem() and part:getItemContainer() then
+		if part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
+			if currentTemp <= minTemp then
+				local foodItems = part:getItemContainer():getItemsFromCategory("Food")
+				for i=1, foodItems:size() do
+					local item = foodItems:get(i-1)
+					if item:canBeFrozen() then
+						if item:getFreezingTime() < 100 then
+							item:setFreezingTime(item:getFreezingTime() + (elapsedMinutes)/50 * 100.0)
+						else
+							item:freeze()
+						end
+					end
+				end
 			elseif currentTemp > minTemp then
 				part:getItemContainer():setCustomTemperature(currentTemp - (0.04 * elapsedMinutes))
 			end
