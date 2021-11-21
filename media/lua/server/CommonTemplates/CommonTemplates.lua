@@ -207,13 +207,21 @@ function CommonTemplates.Update.Freezer(vehicle, part, elapsedMinutes)
 				for i=1, foodItems:size() do
 					local item = foodItems:get(i-1)
 					if item:canBeFrozen() then
-						if item:getFreezingTime() < 95 and not part:getModData().tsarslib.freezer[item:getID()] then
+						-- print("getRottenTime " .. item:getRottenTime())
+						-- print(item:isRotten())
+						-- print(item:isFresh())
+						local prevAge = part:getModData().tsarslib.freezer[item:getID()]
+						if item:getFreezingTime() < 95 and not prevAge then
 							item:setFreezingTime(item:getFreezingTime() + (elapsedMinutes)/50 * 100.0)
 						else
+							if prevAge then
+								item:setAge(prevAge + (item:getAge() - prevAge) * 0.02)
+							end
 							item:freeze()
 							item:setFreezingTime(100)
-							newFreezerTable[item:getID()] = true
+							newFreezerTable[item:getID()] = item:getAge()
 						end
+						-- print("Freezer getAge " .. item:getAge())
 					end
 				end
 				part:getModData().tsarslib.freezer = newFreezerTable
