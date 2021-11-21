@@ -118,7 +118,7 @@ function ISCommonMenu.showRadialMenu(playerObj)
 		end
 		
 		if freezer and lightIsOn then
-			if freezer:getItemContainer():isActive() then
+			if freezer:getModData().tsarslib and fridge:getModData().tsarslib.active then
 				menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
 			else
 				menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)

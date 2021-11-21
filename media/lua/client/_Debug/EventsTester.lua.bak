@@ -248,7 +248,7 @@ function EventsTester.OnObjectAboutToBeRemoved(object, a, b, c, d)
 	-- Срабатывает при поднятии предмета с пола
 	-- Не срабатывает при взятии предметов из контейнеров
 	-- zombie.iso.objects.IsoWorldInventoryObject@603a7de	 	nil	 	nil	 	nil	 	nil
-	-- 
+	
 end
 
 -- Events.OnFillContainer.Add(EventsTester.OnFillContainer)
