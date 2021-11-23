@@ -1,4 +1,9 @@
+v.1.20.1
+
+Bugfix.
+-------------------
 v.1.20
+
 Исправлен немецкий перевод. Спасибо Laudern.
 Исправлены ошибки возникающие в версии мода 1.19 при использовании старого сохранения.
 Заблокированы неиспользуемые рецепты.
@@ -9,6 +14,7 @@ Fixed errors occurring in the version 1.19 when using the old save.
 Unused recipes are locked.
 -------------------
 v.1.19
+
 Исправлена скорость порчи продуктов в морозилке.
 
 Fixed speed of food spoilage in the freezer.
