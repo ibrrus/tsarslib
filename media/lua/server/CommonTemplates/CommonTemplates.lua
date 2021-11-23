@@ -95,7 +95,7 @@ function CommonTemplates.Create.Freezer(vehicle, part)
 	if part:getInventoryItem() and part:getItemContainer() then
 		part:getItemContainer():setType("freezer")
 	end
-	CommonTemplates.createActivePart(part)
+	-- CommonTemplates.createActivePart(part)
 end
 
 function CommonTemplates.Create.Fridge(vehicle, part)
@@ -104,20 +104,17 @@ function CommonTemplates.Create.Fridge(vehicle, part)
 	if part:getInventoryItem() and part:getItemContainer() then
 		part:getItemContainer():setType("fridge")
 	end
-	CommonTemplates.createActivePart(part)
+	-- CommonTemplates.createActivePart(part)
 end
 
 function CommonTemplates.Use.Fridge(vehicle, part, player)
 	if not part:getModData().tsarslib then part:getModData().tsarslib = {} end
 	if part:getModData().tsarslib.active then
 		part:getModData().tsarslib.active = false
-		part:getItemContainer():setActive(false)
 		player:getEmitter():playSound("ToggleStove")
 		-- part:getModData().timePassed = 0
 	else
 		part:getModData().tsarslib.active = true
-		part:getItemContainer():setActive(true)
-		part:setLightActive(true)
 		player:getEmitter():playSound("ToggleStove")
 	end
 end
@@ -126,13 +123,15 @@ function CommonTemplates.Init.Freezer(vehicle, part)
 	-- print("CommonTemplates.Init.Freezer")
 	if not part:getModData().tsarslib then 
 		part:getModData().tsarslib = {}
+	end
+	if not part:getModData().tsarslib.freezer then 
 		part:getModData().tsarslib.freezer = {}
 	end
+	
 	if part:getInventoryItem() and part:getItemContainer() then
 		if part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
 			part:getItemContainer():setCustomTemperature(0.2)
-			part:getItemContainer():setActive(true)
-			part:setLightActive(true)
+			-- part:getItemContainer():setActive(true)
 			local foodItems = part:getItemContainer():getItemsFromCategory("Food")
 			for i=1, foodItems:size() do
 				local item = foodItems:get(i-1)
@@ -145,8 +144,8 @@ function CommonTemplates.Init.Freezer(vehicle, part)
 			-- part:getItemContainer():setActive(true)
 		else		
 			part:getItemContainer():setCustomTemperature(1.0)
-			part:getItemContainer():setActive(false)
-			part:setLightActive(false)
+			-- part:getItemContainer():setActive(false)
+			-- part:setLightActive(false)
 			-- part:getItemContainer():setActive(false)
 		end
 	end
@@ -158,12 +157,12 @@ function CommonTemplates.Init.Fridge(vehicle, part)
 	if part:getInventoryItem() and part:getItemContainer() then
 		if part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
 			part:getItemContainer():setCustomTemperature(0.2)
-			part:getItemContainer():setActive(true)
-			part:setLightActive(true)
+			-- part:getItemContainer():setActive(true)
+			-- part:setLightActive(true)
 		else		
 			part:getItemContainer():setCustomTemperature(1.0)
-			part:getItemContainer():setActive(false)
-			part:setLightActive(false)
+			-- part:getItemContainer():setActive(false)
+			-- part:setLightActive(false)
 		end
 	end
 end
@@ -207,9 +206,6 @@ function CommonTemplates.Update.Freezer(vehicle, part, elapsedMinutes)
 				for i=1, foodItems:size() do
 					local item = foodItems:get(i-1)
 					if item:canBeFrozen() then
-						-- print("getRottenTime " .. item:getRottenTime())
-						-- print(item:isRotten())
-						-- print(item:isFresh())
 						local prevAge = part:getModData().tsarslib.freezer[item:getID()]
 						if item:getFreezingTime() < 95 and not prevAge then
 							item:setFreezingTime(item:getFreezingTime() + (elapsedMinutes)/50 * 100.0)
@@ -221,7 +217,6 @@ function CommonTemplates.Update.Freezer(vehicle, part, elapsedMinutes)
 							item:setFreezingTime(100)
 							newFreezerTable[item:getID()] = item:getAge()
 						end
-						-- print("Freezer getAge " .. item:getAge())
 					end
 				end
 				part:getModData().tsarslib.freezer = newFreezerTable

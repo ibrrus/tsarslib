@@ -34,7 +34,7 @@ module Base
 		MechanicsItem = TRUE,
 	}
 	
-	recipe Make a compact microwave
+	/*recipe Make a compact microwave
     {
         MovWhiteMicrowave/MovChromeMicrowave,
         keep Screwdriver,
@@ -44,7 +44,7 @@ module Base
 		SkillRequired:Electricity=2,
 		OnGiveXP:Recipe.OnGiveXP.DismantleElectronics,
     }
-	
+	*/
 	template vehicle Microwaves
 	{
 		part MicrowaveFrontLeft

@@ -57,7 +57,7 @@ module Base
 		WorldObjectSprite	= appliances_cooking_01_21,
 	}
 	
-	recipe Make a compact stove
+	/* recipe Make a compact stove
     {
         MovGreenOven/MovGreyOven/MovRedOven/MovModernOven/MovIndustrialOven,
 		BlowTorch=5,
@@ -74,7 +74,7 @@ module Base
         OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
 		OnGiveXP:Recipe.OnGiveXP.DismantleElectronics,
     }
-	
+	*/
 	template vehicle Ovens
 	{
 		part OvenFrontLeft
