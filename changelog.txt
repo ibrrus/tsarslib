@@ -1,3 +1,10 @@
+v.1.21
+
+Исправлены ошибка возникающая при чтении журнала.
+
+Fixed an error that occurs when reading the tuning magazine.
+
+-------------------
 v.1.20.1
 
 Bugfix.

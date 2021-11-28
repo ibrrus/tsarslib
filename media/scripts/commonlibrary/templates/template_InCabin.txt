@@ -1,7 +1,11 @@
 module Base
-{
+{	
 	template vehicle InCabin
 	{
+		part CabinLock
+		{
+			category = nodisplay,
+		}
 		part InCabinFrontLeft
 		{
 			area = SeatFrontLeft,

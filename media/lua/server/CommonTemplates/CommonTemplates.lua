@@ -85,6 +85,12 @@ function CommonTemplates.ContainerAccess.ContainerByArea(transport, part, player
 	end
 end
 
+function CommonTemplates.Init.Repair(vehicle, part)
+	if part then
+		part:setCondition(100)
+	end
+end
+
 --***********************************************************
 --**                                                       **
 --**                    Fridge n Freezer                   **
