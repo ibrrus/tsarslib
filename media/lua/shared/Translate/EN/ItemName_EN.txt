@@ -28,5 +28,5 @@ ItemName_EN = {
 	ItemName_Base.1000Tank2 = "Tank 1000",
 	ItemName_Base.1000Tank3 = "Tank 1000",
 	
-	ItemName_Autotsar.ATATuningMagUniverse = "Autotsar Tuning Atelier - General Tuning Rules",
+	ItemName_Autotsar.ATATuningMagUniverse = "Magazine «Autotsar Tuning Atelier - General Tuning Rules»",
 }
