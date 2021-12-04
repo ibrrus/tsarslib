@@ -8,7 +8,7 @@ ATAISOpenTent = ISBaseTimedAction:derive("ATAISOpenTent")
 
 function ATAISOpenTent:isValid()
 -- print("ATAISOpenTent:isValid()")
-	if self.part:getInventoryItem() and (self.open or (Tuning.UninstallTest.RoofClose(self.vehicle, self.vehicle:getPartById("SeatMiddleLeft"), self.character) and Tuning.UninstallTest.RoofClose(self.vehicle, self.vehicle:getPartById("SeatMiddleRight"), self.character))) then
+	if self.part:getInventoryItem() and (self.open or (ATATuning.UninstallTest.RoofClose(self.vehicle, self.vehicle:getPartById("SeatMiddleLeft"), self.character) and ATATuning.UninstallTest.RoofClose(self.vehicle, self.vehicle:getPartById("SeatMiddleRight"), self.character))) then
 		return true
 	else
 		return false
@@ -40,7 +40,7 @@ end
 
 function ATAISOpenTent:perform()
 -- print("ATAISOpenTent:perform()")
-	Tuning.Use.RoofTent(self.vehicle, self.part, self.open)
+	ATATuning.Use.RoofTent(self.vehicle, self.part, self.open)
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end

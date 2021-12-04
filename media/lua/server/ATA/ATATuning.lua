@@ -11,21 +11,21 @@ local function lua_split (inputstr, sep)
 	return t
 end
 
-if not Tuning then Tuning = {} end
-if not TuningUtils then TuningUtils = {} end
-if not Tuning.CheckEngine then Tuning.CheckEngine = {} end
-if not Tuning.CheckOperate then Tuning.CheckOperate = {} end
-if not Tuning.ContainerAccess then Tuning.ContainerAccess = {} end
-if not Tuning.Create then Tuning.Create = {} end
-if not Tuning.Init then Tuning.Init = {} end
-if not Tuning.InstallComplete then Tuning.InstallComplete = {} end
-if not Tuning.InstallTest then Tuning.InstallTest = {} end
-if not Tuning.UninstallComplete then Tuning.UninstallComplete = {} end
-if not Tuning.UninstallTest then Tuning.UninstallTest = {} end
-if not Tuning.Update then Tuning.Update = {} end
-if not Tuning.Use then Tuning.Use = {} end
+if not ATATuning then ATATuning = {} end
+if not ATATuningUtils then ATATuningUtils = {} end
+if not ATATuning.CheckEngine then ATATuning.CheckEngine = {} end
+if not ATATuning.CheckOperate then ATATuning.CheckOperate = {} end
+if not ATATuning.ContainerAccess then ATATuning.ContainerAccess = {} end
+if not ATATuning.Create then ATATuning.Create = {} end
+if not ATATuning.Init then ATATuning.Init = {} end
+if not ATATuning.InstallComplete then ATATuning.InstallComplete = {} end
+if not ATATuning.InstallTest then ATATuning.InstallTest = {} end
+if not ATATuning.UninstallComplete then ATATuning.UninstallComplete = {} end
+if not ATATuning.UninstallTest then ATATuning.UninstallTest = {} end
+if not ATATuning.Update then ATATuning.Update = {} end
+if not ATATuning.Use then ATATuning.Use = {} end
 
-function TuningUtils.createPartInventoryItemById(part, id)
+function ATATuningUtils.createPartInventoryItemById(part, id)
 	if not part:getItemType() or part:getItemType():isEmpty() then return nil end
 	local item;
 	if not part:getInventoryItem() then
@@ -59,71 +59,71 @@ function TuningUtils.createPartInventoryItemById(part, id)
 	return part:getInventoryItem()
 end
 
-function Tuning.ContainerAccess.BlockSeat(vehicle, part, playerObj)
+function ATATuning.ContainerAccess.BlockSeat(vehicle, part, playerObj)
 	return false
 end
 
-function Tuning.Create.NotInstallDefault(vehicle, part)
-	-- print("Tuning.Create.NotInstallDefault")
+function ATATuning.Create.NotInstallDefault(vehicle, part)
+	-- print("ATATuning.Create.NotInstallDefault")
 	part:setInventoryItem(nil)
 	part:setModelVisible("Default", false)
 end
 
-function Tuning.Create.DefaultModel(vehicle, part)
-	-- print("Tuning.Create.DefaultModel")
+function ATATuning.Create.DefaultModel(vehicle, part)
+	-- print("ATATuning.Create.DefaultModel")
 	local item = VehicleUtils.createPartInventoryItem(part)
 	if part:getInventoryItem() then
-		-- print("Tuning.Create.DefaultModel: VISIBLE")
+		-- print("ATATuning.Create.DefaultModel: VISIBLE")
 		part:setModelVisible("Default", true)
 	end
 end
 
-function Tuning.Create.InstallChance15(vehicle, part)
+function ATATuning.Create.InstallChance15(vehicle, part)
 	if ZombRand(100) < 15 then
-		Tuning.Create.DefaultModel(vehicle, part)
+		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		Tuning.Create.NotInstallDefault(vehicle, part)
+		ATATuning.Create.NotInstallDefault(vehicle, part)
 	end
 end
 
-function Tuning.Create.InstallChance30(vehicle, part)
+function ATATuning.Create.InstallChance30(vehicle, part)
 	if ZombRand(100) < 30 then
-		Tuning.Create.DefaultModel(vehicle, part)
+		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		Tuning.Create.NotInstallDefault(vehicle, part)
+		ATATuning.Create.NotInstallDefault(vehicle, part)
 	end
 end
 
-function Tuning.Create.InstallChance45(vehicle, part)
+function ATATuning.Create.InstallChance45(vehicle, part)
 	if ZombRand(100) < 45 then
-		Tuning.Create.DefaultModel(vehicle, part)
+		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		Tuning.Create.NotInstallDefault(vehicle, part)
+		ATATuning.Create.NotInstallDefault(vehicle, part)
 	end
 end
 
-function Tuning.Init.DefaultModel(vehicle, part)
-	-- print("Tuning.Init.DefaultModel")
+function ATATuning.Init.DefaultModel(vehicle, part)
+	-- print("ATATuning.Init.DefaultModel")
 	if part:getInventoryItem() then
-		-- print("Tuning.Init.DefaultModel: VISIBLE")
+		-- print("ATATuning.Init.DefaultModel: VISIBLE")
 		part:setModelVisible("Default", true)
 	end
 end
 
-function Tuning.InstallComplete.DefaultModel(vehicle, part)
+function ATATuning.InstallComplete.DefaultModel(vehicle, part)
 	local item = part:getInventoryItem()
 	if not item then return end
 	part:setModelVisible("Default", true)
 	vehicle:doDamageOverlay()
 end
 
-function Tuning.UninstallComplete.DefaultModel(vehicle, part, item)
+function ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	if not item then return end
 	part:setModelVisible("Default", false)
 	vehicle:doDamageOverlay()
 end
 
-function Tuning.InstallTest.multiRequire(vehicle, part, chr)
+function ATATuning.InstallTest.multiRequire(vehicle, part, chr)
 	if ISVehicleMechanics.cheat then return true; end
 	local keyvalues = part:getTable("install")
 	if not keyvalues then return false end
@@ -155,7 +155,7 @@ function Tuning.InstallTest.multiRequire(vehicle, part, chr)
 	return true
 end
 
-function Tuning.UninstallTest.multiRequire(vehicle, part, chr)
+function ATATuning.UninstallTest.multiRequire(vehicle, part, chr)
 	if ISVehicleMechanics.cheat then return true; end
 	local keyvalues = part:getTable("uninstall")
 	if not keyvalues then return false end
@@ -197,15 +197,15 @@ end
 --**                                                       **
 --***********************************************************
 
-function Tuning.Create.RoofTent(vehicle, part)
-	Tuning.Create.NotInstallDefault(vehicle, part)
+function ATATuning.Create.RoofTent(vehicle, part)
+	ATATuning.Create.NotInstallDefault(vehicle, part)
 	part:setModelVisible("Close", false)
 	part:setModelVisible("Open", false)
 	part:getModData()["atatuning"] = {}
 	part:getModData()["atatuning"].status = "close"
 end
 
-function Tuning.ContainerAccess.RoofTent(vehicle, part, chr)
+function ATATuning.ContainerAccess.RoofTent(vehicle, part, chr)
 	if chr:getVehicle() == vehicle then
 		local seat = vehicle:getSeat(chr)
 		return seat == 2 or seat == 3;
@@ -214,10 +214,10 @@ function Tuning.ContainerAccess.RoofTent(vehicle, part, chr)
 	end
 end
 
-function Tuning.Init.RoofTent(vehicle, part)
-	-- print("Tuning.Init.DefaultModel")
+function ATATuning.Init.RoofTent(vehicle, part)
+	-- print("ATATuning.Init.DefaultModel")
 	if part:getInventoryItem() then
-		-- print("Tuning.Init.DefaultModel: VISIBLE")
+		-- print("ATATuning.Init.DefaultModel: VISIBLE")
 		part:setModelVisible("Default", true)
 		if part:getModData()["atatuning"].status == "open" then
 			part:setModelVisible("Close", false)
@@ -229,7 +229,7 @@ function Tuning.Init.RoofTent(vehicle, part)
 	end
 end
 
-function Tuning.InstallComplete.RoofTent(vehicle, part)
+function ATATuning.InstallComplete.RoofTent(vehicle, part)
 	local item = part:getInventoryItem()
 	if not item then return end
 	part:setModelVisible("Default", true)
@@ -239,7 +239,7 @@ function Tuning.InstallComplete.RoofTent(vehicle, part)
 	vehicle:doDamageOverlay()
 end
 
-function Tuning.UninstallComplete.RoofTent(vehicle, part, item)
+function ATATuning.UninstallComplete.RoofTent(vehicle, part, item)
 	if not item then return end
 	part:setModelVisible("Default", false)
 	part:setModelVisible("Close", false)
@@ -248,16 +248,16 @@ function Tuning.UninstallComplete.RoofTent(vehicle, part, item)
 	vehicle:doDamageOverlay()
 end
 
-function Tuning.UninstallTest.RoofTent(vehicle, part, chr)
-	if Tuning.UninstallTest.multiRequire(vehicle, part, chr) then
-		return Tuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleLeft"), chr) and
-		Tuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleRight"), chr)
+function ATATuning.UninstallTest.RoofTent(vehicle, part, chr)
+	if ATATuning.UninstallTest.multiRequire(vehicle, part, chr) then
+		return ATATuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleLeft"), chr) and
+		ATATuning.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleRight"), chr)
 	else
 		return false
 	end
 end
 
-function Tuning.Use.RoofTent(vehicle, part, open)
+function ATATuning.Use.RoofTent(vehicle, part, open)
 	if open then
 		part:setModelVisible("Close", false)
 		part:setModelVisible("Open", true)
@@ -275,7 +275,7 @@ function Tuning.Use.RoofTent(vehicle, part, open)
 	end
 end
 
-function Tuning.UninstallTest.RoofClose(vehicle, part, chr)
+function ATATuning.UninstallTest.RoofClose(vehicle, part, chr)
 	-- if not part:getInventoryItem() then return false end
 	-- if not part:getItemType() or part:getItemType():isEmpty() then return false end
 	-- local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
@@ -293,8 +293,8 @@ end
 --**                                                       **
 --***********************************************************
 
-function Tuning.CommonBamper(vehicle, part, item)
-	-- print("Tuning.CommonBamper")
+function ATATuning.CommonBamper(vehicle, part, item)
+	-- print("ATATuning.CommonBamper")
 	if item then
 		if item:getModData()["ataModel"] and part:getTable("allModels") then
 			for i, oneModel in ipairs(part:getTable("allModels")) do
@@ -312,46 +312,46 @@ function Tuning.CommonBamper(vehicle, part, item)
 	end
 end
 
-function Tuning.Create.CommonBamper(vehicle, part)
+function ATATuning.Create.CommonBamper(vehicle, part)
 	local item = VehicleUtils.createPartInventoryItem(part)
-	Tuning.CommonBamper(vehicle, part, item)
+	ATATuning.CommonBamper(vehicle, part, item)
 	vehicle:doDamageOverlay()
 end
 
-function Tuning.Create.CommonBamperNull(vehicle, part)
+function ATATuning.Create.CommonBamperNull(vehicle, part)
 	part:setInventoryItem(nil)
-	Tuning.CommonBamper(vehicle, part, nil)
+	ATATuning.CommonBamper(vehicle, part, nil)
 	vehicle:doDamageOverlay()
 end
 
-function Tuning.Create.CommonBamperFirstTwo(vehicle, part)
+function ATATuning.Create.CommonBamperFirstTwo(vehicle, part)
 	local item = nil
 	if ZombRand(100) < 30 then
-		item = TuningUtils.createPartInventoryItemById(part, 2)
+		item = ATATuningUtils.createPartInventoryItemById(part, 2)
 	else
-		item = TuningUtils.createPartInventoryItemById(part, 1)
+		item = ATATuningUtils.createPartInventoryItemById(part, 1)
 	end
-	Tuning.CommonBamper(vehicle, part, item)
+	ATATuning.CommonBamper(vehicle, part, item)
 	vehicle:doDamageOverlay()
 end
 
-function Tuning.Init.CommonBamper(vehicle, part)
-	Tuning.CommonBamper(vehicle, part, part:getInventoryItem())
+function ATATuning.Init.CommonBamper(vehicle, part)
+	ATATuning.CommonBamper(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
 end
 
-function Tuning.InstallComplete.CommonBamper(vehicle, part)
--- print(" Tuning.InstallComplete.BusBullbar")
-	Tuning.CommonBamper(vehicle, part, part:getInventoryItem())
+function ATATuning.InstallComplete.CommonBamper(vehicle, part)
+-- print(" ATATuning.InstallComplete.BusBullbar")
+	ATATuning.CommonBamper(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
-	Tuning.InstallComplete.CommonProtection(vehicle, part)
+	ATATuning.InstallComplete.CommonProtection(vehicle, part)
 end
 
-function Tuning.UninstallComplete.CommonBamper(vehicle, part, item)
--- print(" Tuning.UninstallComplete.BusBullbar")
-	Tuning.CommonBamper(vehicle, part)
+function ATATuning.UninstallComplete.CommonBamper(vehicle, part, item)
+-- print(" ATATuning.UninstallComplete.BusBullbar")
+	ATATuning.CommonBamper(vehicle, part)
 	vehicle:doDamageOverlay()
-	Tuning.UninstallComplete.CommonProtection(vehicle, part, item)
+	ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 end
 
 --***********************************************************
@@ -360,25 +360,25 @@ end
 --**                                                       **
 --***********************************************************
 
-function Tuning.UninstallComplete.Door(vehicle, part, item)
+function ATATuning.UninstallComplete.Door(vehicle, part, item)
 	Vehicles.UninstallComplete.Door(vehicle, part, item)
 	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
 	item:setCondition(part:getModData().atatuning.health)
 	part:getModData().atatuning.health = nil
 end
 
-function Tuning.UninstallComplete.Window(vehicle, part, item)
+function ATATuning.UninstallComplete.Window(vehicle, part, item)
 	Vehicles.UninstallComplete.Default(vehicle, part, item)
 	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
 	item:setCondition(part:getModData().atatuning.health)
 	part:getModData().atatuning.health = nil
 end
 
-function Tuning.InstallComplete.CommonProtection(vehicle, part)
--- print("Tuning.InstallComplete.Protection")
+function ATATuning.InstallComplete.CommonProtection(vehicle, part)
+-- print("ATATuning.InstallComplete.Protection")
 	local item = part:getInventoryItem();
 	if not item then return; end
-	Tuning.InstallComplete.DefaultModel(vehicle, part)
+	ATATuning.InstallComplete.DefaultModel(vehicle, part)
 	if not vehicle:getModData().atatuning then
 		vehicle:getModData().atatuning = {}
 	end
@@ -406,10 +406,10 @@ function Tuning.InstallComplete.CommonProtection(vehicle, part)
 	end
 end
 
-function Tuning.UninstallComplete.CommonProtection(vehicle, part, item)
--- print("Tuning.UninstallComplete.Protection")
+function ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
+-- print("ATATuning.UninstallComplete.Protection")
 	if not item then return end
-	Tuning.UninstallComplete.DefaultModel(vehicle, part, item)
+	ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	if not vehicle:getModData().atatuning then return end
 	if part:getParent() then
 		local savePart = part:getParent()
@@ -432,8 +432,8 @@ function Tuning.UninstallComplete.CommonProtection(vehicle, part, item)
 	end
 end
 
-function Tuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
-	-- print("Tuning.Update.Protection")
+function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
+	-- print("ATATuning.Update.Protection")
 	local item = part:getInventoryItem();
 	if not item then return; end
 
@@ -443,7 +443,7 @@ function Tuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 	if part:getCondition() == 0 then
 		part:setInventoryItem(nil);
 		square:AddWorldInventoryItem(item, 0.5, 0.5, 0)
-		Tuning.UninstallComplete.Protection(vehicle, part, item)
+		ATATuning.UninstallComplete.Protection(vehicle, part, item)
 	else
 		local redoCond = false
 		if part:getParent() then
@@ -496,7 +496,7 @@ end
 --**                                                       **
 --***********************************************************
 
-function Tuning.ATAInteractiveTrunk(part)
+function ATATuning.ATAInteractiveTrunk(part)
 	local interactiveItemsTable = part:getTable("interactiveItems")
 	if part:getInventoryItem() then
 		part:setModelVisible(interactiveItemsTable.Base, true)
@@ -558,31 +558,31 @@ function Tuning.ATAInteractiveTrunk(part)
 end
 
 
-function Tuning.ContainerAccess.ATAInteractiveTrunk(vehicle, part, chr)
-	Tuning.ATAInteractiveTrunk(part)
+function ATATuning.ContainerAccess.ATAInteractiveTrunk(vehicle, part, chr)
+	ATATuning.ATAInteractiveTrunk(part)
 	if chr:getVehicle() then return false end
 	if not vehicle:isInArea(part:getArea(), chr) then return false end
 	return true
 end
 
-function Tuning.Create.ATAInteractiveTrunk(vehicle, part)
+function ATATuning.Create.ATAInteractiveTrunk(vehicle, part)
 	part:setInventoryItem(nil)
-	Tuning.ATAInteractiveTrunk(part)
+	ATATuning.ATAInteractiveTrunk(part)
 end
 
-function Tuning.Init.ATAInteractiveTrunk(vehicle, part)
-	Tuning.ATAInteractiveTrunk(part)
+function ATATuning.Init.ATAInteractiveTrunk(vehicle, part)
+	ATATuning.ATAInteractiveTrunk(part)
 end
 
-function Tuning.InstallComplete.ATAInteractiveTrunk(vehicle, part)
+function ATATuning.InstallComplete.ATAInteractiveTrunk(vehicle, part)
 	local item = part:getInventoryItem()
 	if not item then return end
-	Tuning.ATAInteractiveTrunk(part)
+	ATATuning.ATAInteractiveTrunk(part)
 end
 
-function Tuning.UninstallComplete.ATAInteractiveTrunk(vehicle, part, item)
+function ATATuning.UninstallComplete.ATAInteractiveTrunk(vehicle, part, item)
 	if not item then return end
-	Tuning.ATAInteractiveTrunk(part)
+	ATATuning.ATAInteractiveTrunk(part)
 	vehicle:doDamageOverlay()
 end
 
@@ -592,12 +592,12 @@ end
 --**                                                       **
 --***********************************************************
 
-function Tuning.Create.ATALight(vehicle, part)
+function ATATuning.Create.ATALight(vehicle, part)
 	-- local item = VehicleUtils.createPartInventoryItem(part)
 	-- xOffset,yOffset,distance,intensity,dot,focusing
 	-- NOTE: distance,intensity,focusing values are ignored, instead they are
 	-- set based on part condition.
-	Tuning.Create.NotInstallDefault(vehicle, part)
+	ATATuning.Create.NotInstallDefault(vehicle, part)
 	if part:getId() == "ATARoofLampLeft" then
 		part:createSpotLight(4.5, -1, 0.1, 0.1, 1.4, 200) -- (2, -0.8, 0.1, 0.1, 2, 200)
 	elseif part:getId() == "ATARoofLampRight" then
@@ -615,7 +615,7 @@ end
 --**                                                       **
 --***********************************************************
 
-function Tuning.WheelsProtection(vehicle, part)
+function ATATuning.WheelsProtection(vehicle, part)
 	if part:getInventoryItem() then
 		if vehicle:getPartById("TireFrontLeft"):getInventoryItem() then
 			vehicle:getPartById("TireFrontLeft"):setModelVisible("ATAProtection", true);
@@ -645,18 +645,18 @@ function Tuning.WheelsProtection(vehicle, part)
 	end
 end
 
-function Tuning.Init.WheelsProtection(vehicle, part)
-	Tuning.WheelsProtection(vehicle, part)
+function ATATuning.Init.WheelsProtection(vehicle, part)
+	ATATuning.WheelsProtection(vehicle, part)
 end
 
-function Tuning.InstallComplete.WheelsProtection(vehicle, part)
--- print(" Tuning.InstallComplete.BusBullbar")
-	Tuning.WheelsProtection(vehicle, part)
+function ATATuning.InstallComplete.WheelsProtection(vehicle, part)
+-- print(" ATATuning.InstallComplete.BusBullbar")
+	ATATuning.WheelsProtection(vehicle, part)
 end
 
-function Tuning.UninstallComplete.WheelsProtection(vehicle, part, item)
--- print(" Tuning.UninstallComplete.BusBullbar")
-	Tuning.WheelsProtection(vehicle, part)
+function ATATuning.UninstallComplete.WheelsProtection(vehicle, part, item)
+-- print(" ATATuning.UninstallComplete.BusBullbar")
+	ATATuning.WheelsProtection(vehicle, part)
 end
 
 

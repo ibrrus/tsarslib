@@ -34,7 +34,7 @@ function ISPaintBus:perform()
 	self.vehicle:getPartById("TireFrontRight"):setInventoryItem(self.vehicle:getPartById("TireFrontLeft"):getInventoryItem())
 	self.vehicle:getPartById("TireRearLeft"):setInventoryItem(self.vehicle:getPartById("TireFrontLeft"):getInventoryItem())
 	self.vehicle:getPartById("TireRearRight"):setInventoryItem(self.vehicle:getPartById("TireFrontLeft"):getInventoryItem())
-	-- Tuning.Init.WheelsProtection(self.vehicle, self.vehicle:getPartById("TireFrontLeft"))
+	-- ATATuning.Init.WheelsProtection(self.vehicle, self.vehicle:getPartById("TireFrontLeft"))
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end
