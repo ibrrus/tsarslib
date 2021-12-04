@@ -39,7 +39,7 @@ module Base
 					}
 				}
 				time = 100,
-				test = Tuning.InstallTest.multiRequire,
+				test = ATATuning.InstallTest.multiRequire,
 			}
 			table uninstall
 			{
@@ -54,7 +54,7 @@ module Base
 					}
 				}
 				time = 100,
-				test = Tuning.UninstallTest.multiRequire,
+				test = ATATuning.UninstallTest.multiRequire,
 			}
 			lua
 			{

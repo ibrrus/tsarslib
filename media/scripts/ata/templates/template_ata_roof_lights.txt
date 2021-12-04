@@ -77,7 +77,7 @@ module Base
 					}
 				}
 				time = 100,
-				test = Tuning.InstallTest.multiRequire,
+				test = ATATuning.InstallTest.multiRequire,
 			}
 			table uninstall
 			{
@@ -92,11 +92,11 @@ module Base
 					}
 				}
 				time = 100,
-				test = Tuning.UninstallTest.multiRequire,
+				test = ATATuning.UninstallTest.multiRequire,
 			}
 			lua
 			{
-				create = Tuning.Create.NotInstallDefault,
+				create = ATATuning.Create.NotInstallDefault,
 				init = Vehicles.Init.Headlight,
 			}
 		}
@@ -156,7 +156,7 @@ module Base
 					}
 				}
 				time = 100,
-				test = Tuning.InstallTest.multiRequire,
+				test = ATATuning.InstallTest.multiRequire,
 			}
 			table uninstall
 			{
@@ -171,11 +171,11 @@ module Base
 					}
 				}
 				time = 100,
-				test = Tuning.UninstallTest.multiRequire,
+				test = ATATuning.UninstallTest.multiRequire,
 			}
 			lua
 			{
-				create = Tuning.Create.ATALight,
+				create = ATATuning.Create.ATALight,
 				init = Vehicles.Init.Headlight,
 				update = Vehicles.Update.Headlight,
 			}

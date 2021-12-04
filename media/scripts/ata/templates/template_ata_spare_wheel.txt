@@ -24,8 +24,8 @@ module Base
 					}
 				}
 				time = 400,
-				test = Tuning.InstallTest.multiRequire,
-				complete = Tuning.InstallComplete.DefaultModel,
+				test = ATATuning.InstallTest.multiRequire,
+				complete = ATATuning.InstallComplete.DefaultModel,
 			}
 			table uninstall
 			{
@@ -40,13 +40,13 @@ module Base
 					}
 				}
 				time = 400,
-				test = Tuning.UninstallTest.multiRequire,
-				complete = Tuning.UninstallComplete.DefaultModel,
+				test = ATATuning.UninstallTest.multiRequire,
+				complete = ATATuning.UninstallComplete.DefaultModel,
 			}
 			lua
 			{
-				create = Tuning.Create.InstallChance45,
-				init = Tuning.Init.DefaultModel,
+				create = ATATuning.Create.InstallChance45,
+				init = ATATuning.Init.DefaultModel,
 			}
 		}
 	}

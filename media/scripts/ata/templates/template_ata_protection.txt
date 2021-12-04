@@ -141,8 +141,8 @@ module Base
                 }
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
-				test = Tuning.InstallTest.multiRequire,
-				complete = Tuning.InstallComplete.WheelsProtection,
+				test = ATATuning.InstallTest.multiRequire,
+				complete = ATATuning.InstallComplete.WheelsProtection,
             }
             table uninstall
             {
@@ -158,14 +158,14 @@ module Base
                 }
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
-				test = Tuning.UninstallTest.multiRequire,
-				complete = Tuning.UninstallComplete.WheelsProtection,
+				test = ATATuning.UninstallTest.multiRequire,
+				complete = ATATuning.UninstallComplete.WheelsProtection,
             }
 			lua
 			{
-				create = Tuning.Create.NotInstallDefault,
-				init = Tuning.Init.WheelsProtection,
-				update = Tuning.Update.CommonProtection,
+				create = ATATuning.Create.NotInstallDefault,
+				init = ATATuning.Init.WheelsProtection,
+				update = ATATuning.Update.CommonProtection,
 			}
 		}
 		
@@ -295,8 +295,8 @@ module Base
                 }
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
-				test = Tuning.InstallTest.multiRequire,
-				complete = Tuning.InstallComplete.CommonProtection,
+				test = ATATuning.InstallTest.multiRequire,
+				complete = ATATuning.InstallComplete.CommonProtection,
             }
             table uninstall
             {
@@ -312,14 +312,14 @@ module Base
                 }
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
-				test = Tuning.UninstallTest.multiRequire,
-				complete = Tuning.UninstallComplete.CommonProtection,
+				test = ATATuning.UninstallTest.multiRequire,
+				complete = ATATuning.UninstallComplete.CommonProtection,
             }
 			lua
 			{
-				create = Tuning.Create.NotInstallDefault,
-				init = Tuning.Init.DefaultModel,
-				update = Tuning.Update.CommonProtection,
+				create = ATATuning.Create.NotInstallDefault,
+				init = ATATuning.Init.DefaultModel,
+				update = ATATuning.Update.CommonProtection,
 			}
 		}
 	}

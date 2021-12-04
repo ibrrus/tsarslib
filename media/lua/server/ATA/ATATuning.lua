@@ -286,72 +286,116 @@ function ATATuning.UninstallTest.RoofClose(vehicle, part, chr)
 	return true
 end
 
+--************************************************************
+--**                                                       	**
+--**              		 Engine Door 	  	          		**
+--**                                                       	**
+--************************************************************
+
+function ATATuning.Init.Door(vehicle, part)
+	Vehicles.Init.Door(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+end
+
+function ATATuning.InstallComplete.Door(vehicle, part)
+	Vehicles.InstallComplete.Door(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+end
+
+function ATATuning.UninstallComplete.Door(vehicle, part, item)
+	Vehicles.UninstallComplete.Door(vehicle, part, item)
+	ATATuning.ModelByItemName(vehicle, part, item)
+end
 
 --***********************************************************
 --**                                                       **
---**                	 Common bamper  	  	           **
+--**               Show Model By Item Name	  	           **
 --**                                                       **
 --***********************************************************
+-- Example code in the script
+--			model ATAJeepBumper1
+--			{
+--				file = ATA_Jeep_Bumper_1,
+--			}
+--			model ATAJeepBumper2
+--			{
+--				file = ATA_Jeep_Bumper_2,
+--			}
+--			model ATAJeepBumper3
+--			{
+--				file = ATA_Jeep_Bumper_3,
+--			}
+--			model ATAJeepBumper4
+--			{
+--				file = ATA_Jeep_Bumper_4,
+--			}
+--			table allModels 
+--			{
+--				ATAJeepBumper1Item = ATAJeepBumper1,
+--				ATAJeepBumper2Item = ATAJeepBumper2,
+--				ATAJeepBumper3Item = ATAJeepBumper3,
+--				ATAJeepBumper4Item = ATAJeepBumper4,
+--			}
 
-function ATATuning.CommonBamper(vehicle, part, item)
-	-- print("ATATuning.CommonBamper")
-	if item then
-		if item:getModData()["ataModel"] and part:getTable("allModels") then
-			for i, oneModel in ipairs(part:getTable("allModels")) do
-				if item:getModData()["ataModel"] == oneModel then
+
+function ATATuning.ModelByItemName(vehicle, part, item)
+	print("ATATuning.ModelByItemName")
+	if part:getTable("allModels") then
+		if item then
+			print(item:getType())
+			for itemName, oneModel in pairs(part:getTable("allModels")) do
+				if item:getType() == itemName then
 					part:setModelVisible(oneModel, true)
 				else
 					part:setModelVisible(oneModel, false)
 				end
 			end
-		end
-	elseif part:getTable("allModels") then
-		for i, oneModel in ipairs(part:getTable("allModels")) do
-			part:setModelVisible(oneModel, false)
+		else
+			for itemName, oneModel in ipairs(part:getTable("allModels")) do
+				part:setModelVisible(oneModel, false)
+			end
 		end
 	end
 end
 
-function ATATuning.Create.CommonBamper(vehicle, part)
+function ATATuning.Create.ModelByItemName(vehicle, part)
 	local item = VehicleUtils.createPartInventoryItem(part)
-	ATATuning.CommonBamper(vehicle, part, item)
+	ATATuning.ModelByItemName(vehicle, part, item)
 	vehicle:doDamageOverlay()
 end
 
-function ATATuning.Create.CommonBamperNull(vehicle, part)
+function ATATuning.Create.ModelByItemNameNull(vehicle, part)
 	part:setInventoryItem(nil)
-	ATATuning.CommonBamper(vehicle, part, nil)
+	ATATuning.ModelByItemName(vehicle, part, nil)
 	vehicle:doDamageOverlay()
 end
 
-function ATATuning.Create.CommonBamperFirstTwo(vehicle, part)
+function ATATuning.Create.ModelByItemNameFirstTwo(vehicle, part)
 	local item = nil
 	if ZombRand(100) < 30 then
 		item = ATATuningUtils.createPartInventoryItemById(part, 2)
 	else
 		item = ATATuningUtils.createPartInventoryItemById(part, 1)
 	end
-	ATATuning.CommonBamper(vehicle, part, item)
+	ATATuning.ModelByItemName(vehicle, part, item)
 	vehicle:doDamageOverlay()
 end
 
-function ATATuning.Init.CommonBamper(vehicle, part)
-	ATATuning.CommonBamper(vehicle, part, part:getInventoryItem())
+function ATATuning.Init.ModelByItemName(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
 end
 
-function ATATuning.InstallComplete.CommonBamper(vehicle, part)
+function ATATuning.InstallComplete.ModelByItemName(vehicle, part)
 -- print(" ATATuning.InstallComplete.BusBullbar")
-	ATATuning.CommonBamper(vehicle, part, part:getInventoryItem())
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
-	ATATuning.InstallComplete.CommonProtection(vehicle, part)
 end
 
-function ATATuning.UninstallComplete.CommonBamper(vehicle, part, item)
+function ATATuning.UninstallComplete.ModelByItemName(vehicle, part, item)
 -- print(" ATATuning.UninstallComplete.BusBullbar")
-	ATATuning.CommonBamper(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part)
 	vehicle:doDamageOverlay()
-	ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 end
 
 --***********************************************************
@@ -378,6 +422,7 @@ function ATATuning.InstallComplete.CommonProtection(vehicle, part)
 -- print("ATATuning.InstallComplete.Protection")
 	local item = part:getInventoryItem();
 	if not item then return; end
+	ATATuning.ModelByItemName(vehicle, part, item)
 	ATATuning.InstallComplete.DefaultModel(vehicle, part)
 	if not vehicle:getModData().atatuning then
 		vehicle:getModData().atatuning = {}
@@ -409,6 +454,7 @@ end
 function ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 -- print("ATATuning.UninstallComplete.Protection")
 	if not item then return end
+	ATATuning.ModelByItemName(vehicle, part)
 	ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	if not vehicle:getModData().atatuning then return end
 	if part:getParent() then

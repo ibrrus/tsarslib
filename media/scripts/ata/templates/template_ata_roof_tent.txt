@@ -71,7 +71,7 @@ module Base
 			container
 			{
 				capacity = 30,
-				test = Tuning.ContainerAccess.RoofTent,
+				test = ATATuning.ContainerAccess.RoofTent,
 			}
 			area = TruckBed,
 			category = tuning,
@@ -97,8 +97,8 @@ module Base
 					}
 				}
 				time = 400,
-				test = Tuning.InstallTest.multiRequire,
-				complete = Tuning.InstallComplete.RoofTent,
+				test = ATATuning.InstallTest.multiRequire,
+				complete = ATATuning.InstallComplete.RoofTent,
 			}
 			table uninstall
 			{
@@ -113,14 +113,14 @@ module Base
 					}
 				}
 				time = 400,
-				test = Tuning.UninstallTest.RoofTent,
-				complete = Tuning.UninstallComplete.RoofTent,
+				test = ATATuning.UninstallTest.RoofTent,
+				complete = ATATuning.UninstallComplete.RoofTent,
 				requireEmpty = true,
 			}
 			lua
 			{
-				create = Tuning.Create.RoofTent,
-				init = Tuning.Init.RoofTent,
+				create = ATATuning.Create.RoofTent,
+				init = ATATuning.Init.RoofTent,
 			}
 		}
 		
@@ -292,11 +292,11 @@ module Base
 			specificItem = false,
 			container
 			{
-				test = Tuning.ContainerAccess.BlockSeat,
+				test = ATATuning.ContainerAccess.BlockSeat,
 			}
 			lua
 			{
-				create = Tuning.Create.NotInstallDefault,
+				create = ATATuning.Create.NotInstallDefault,
 			}
 		}
 	}

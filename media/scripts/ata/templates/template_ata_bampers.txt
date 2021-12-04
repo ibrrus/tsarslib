@@ -30,8 +30,8 @@ module Base
                 }
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
-				test = Tuning.InstallTest.multiRequire,
-				complete = Tuning.InstallComplete.CommonBamper,
+				test = ATATuning.InstallTest.multiRequire,
+				complete = ATATuning.InstallComplete.ModelByItemName,
             }
             table uninstall
             {
@@ -54,14 +54,14 @@ module Base
                 }
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
-				test = Tuning.UninstallTest.multiRequire,
-				complete = Tuning.UninstallComplete.CommonBamper,
+				test = ATATuning.UninstallTest.multiRequire,
+				complete = ATATuning.UninstallComplete.ModelByItemName,
             }
 			lua
 			{
-				create = Tuning.Create.CommonBamper,
-				init = Tuning.Init.CommonBamper,
-				update = Tuning.Update.CommonProtection,
+				create = ATATuning.Create.ModelByItemName,
+				init = ATATuning.Init.ModelByItemName,
+				update = ATATuning.Update.CommonProtection,
 			}
 		}
 	}
