@@ -1,3 +1,11 @@
+v.1.23dev3
+2021-12-05
+
+Добавлен код для анимирования открытия защитной решетки на окнах.
+
+Added code to animate the opening of the protection on the windows.
+
+-------------------
 v.1.23dev2
 2021-12-04
 

@@ -198,6 +198,9 @@ module Base
 		
 		part ATAProtectionWindowFrontLeft
 		{
+			door
+			{
+			}
 			model Default
 			{
 				file = Vehicles_Wheel,
@@ -211,6 +214,9 @@ module Base
 		}
 		part ATAProtectionWindowFrontRight
 		{
+			door
+			{
+			}
 			model Default
 			{
 				file = Vehicles_Wheel,
@@ -224,6 +230,9 @@ module Base
 		}
 		part ATAProtectionWindowMiddleLeft
 		{
+			door
+			{
+			}
 			model Default
 			{
 				file = Vehicles_Wheel,
@@ -237,6 +246,9 @@ module Base
 		}
 		part ATAProtectionWindowMiddleRight
 		{
+			door
+			{
+			}
 			model Default
 			{
 				file = Vehicles_Wheel,
@@ -250,6 +262,9 @@ module Base
 		}
 		part ATAProtectionWindowRearLeft
 		{
+			door
+			{
+			}
 			model Default
 			{
 				file = Vehicles_Wheel,
@@ -263,6 +278,9 @@ module Base
 		}
 		part ATAProtectionWindowRearRight
 		{
+			door
+			{
+			}
 			model Default
 			{
 				file = Vehicles_Wheel,

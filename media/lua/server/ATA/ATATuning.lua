@@ -107,6 +107,7 @@ function ATATuning.Init.DefaultModel(vehicle, part)
 	if part:getInventoryItem() then
 		-- print("ATATuning.Init.DefaultModel: VISIBLE")
 		part:setModelVisible("Default", true)
+		part:setModelVisible("StaticPart", true)
 	end
 end
 
@@ -114,12 +115,14 @@ function ATATuning.InstallComplete.DefaultModel(vehicle, part)
 	local item = part:getInventoryItem()
 	if not item then return end
 	part:setModelVisible("Default", true)
+	part:setModelVisible("StaticPart", true)
 	vehicle:doDamageOverlay()
 end
 
 function ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	if not item then return end
 	part:setModelVisible("Default", false)
+	part:setModelVisible("StaticPart", false)
 	vehicle:doDamageOverlay()
 end
 
