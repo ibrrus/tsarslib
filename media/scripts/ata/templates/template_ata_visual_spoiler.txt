@@ -1,0 +1,93 @@
+/* Пример создания деталей без функционала (только визуальный эффект)
+model ATASpoilerFront
+	{
+		mesh = WorldItems/ATASpoilerFront,
+		texture = WorldItems/ATASpoilerFront,
+		scale = 1.00,
+	}
+	
+	item ATASpoilerFront
+	{
+		Weight	=	2.0,
+        Type	=	Normal,
+        DisplayName	= ATASpoilerFront,
+        Icon	=	ATASpoilerFront,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = ATASpoilerFront,
+	}
+*/
+
+module Base
+{
+	template vehicle ata_visual
+	{
+		part ATAVisualSpoilerFront
+		{
+			area = Engine,
+		}
+		part ATAVisualSpoilerRear
+		{
+			area = TruckBed,
+		}
+		part ATAVisualSkirtsSide
+		{
+			area = SeatFrontLeft,
+		}
+		part ATAVisualFendersWide
+		{
+			area = TireFrontLeft,
+		}
+		part ATAVisual*
+		{
+			category = tuning,
+			specificItem = false,
+			itemType = Base.LightBulb,
+			mechanicRequireKey = false,
+			repairMechanic = false,
+			model Default
+			{
+				file = Vehicles_Wheel,
+			}
+			table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.LugWrench,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 400,
+				test = ATATuning.InstallTest.multiRequire,
+				complete = ATATuning.InstallComplete.DefaultModel,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+						type = Base.LugWrench,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 400,
+				test = ATATuning.UninstallTest.multiRequire,
+				complete = ATATuning.UninstallComplete.DefaultModel,
+			}
+			lua
+			{
+				create = ATATuning.Create.InstallChance15,
+				init = ATATuning.Init.DefaultModel,
+			}
+		}
+	}
+}
