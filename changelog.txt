@@ -1,3 +1,13 @@
+v.1.23dev5
+2021-12-07
+
+Улучшены функции отвечающие за отображение нескольких 3д-моделей для запчастей.
+Добавлена таблица устанавливающая шанс появления запчасти при спавне автомобиля.
+
+Improved functions responsible for the display of multiple 3D-models for parts.
+Added a table that sets the chance of appearance of the part when the vehicle is spawned.
+
+-------------------
 v.1.23dev4
 2021-12-06
 

@@ -24,65 +24,153 @@ if not ATATuning.UninstallComplete then ATATuning.UninstallComplete = {} end
 if not ATATuning.UninstallTest then ATATuning.UninstallTest = {} end
 if not ATATuning.Update then ATATuning.Update = {} end
 if not ATATuning.Use then ATATuning.Use = {} end
-
-function ATATuningUtils.createPartInventoryItemById(part, id)
-	if not part:getItemType() or part:getItemType():isEmpty() then return nil end
-	local item;
-	if not part:getInventoryItem() then
-		local v = part:getVehicle();
-		local itemType = nil
-		-- print("id : ", id)
-		-- print("part:getItemType():size() : ", part:getItemType():size())
-		if id <= part:getItemType():size() then
-			itemType = part:getItemType():get(id-1)
-		end
-		if not itemType then
-			local chosenKey = nil
-			for i=0, part:getItemType():size() - 1 do
-				if ZombRand(100) > (100 - (100/part:getItemType():size())) or i == part:getItemType():size() - 1 then
-					itemType = part:getItemType():get(i);
-					v:getChoosenParts():put(chosenKey, itemType);
-					break;
+--[[
+	Example code in the script:
+			itemType = Base.Bumper1Item;Base.Bumper2Item;Base.Bumper3Item;Base.Bumper4Item,
+			table ataItemSpawnChance 
+			{
+				1 = 50, 
+				2 = 50, 
+				3 = 0, 
+				4 = 0, 
+			}
+]]--
+function ATATuningUtils.createPartInventoryItem(part)
+	if part:getTable("ataSpawnChance") then
+		if not part:getItemType() or part:getItemType():isEmpty() then return nil end
+		local item;
+		if not part:getInventoryItem() then
+			if #part:getTable("ataItemSpawnChance") == part:getItemType():size() then
+				local v = part:getVehicle();
+				local itemType = nil
+				local previousChance = 0
+				local newChanceTable = {}
+				for id, chance in pairs(part:getTable("ataItemSpawnChance")) do
+					if tonumber(chance) > 0 then
+						newChanceTable[id] = previousChance + chance
+						previousChance = newChanceTable[id]
+					end
 				end
+				if previousChance > 0 then
+					local luck = ZombRand(previousChance)
+					for id, checkLuck in pairs(newChanceTable) do
+						if luck <= checkLuck then
+							itemType = part:getItemType():get(id - 1);
+							break
+						end
+					end
+					
+					item = InventoryItemFactory.CreateItem(itemType);
+					local conditionMultiply = 100/item:getConditionMax();
+					if part:getContainerCapacity() and part:getContainerCapacity() > 0 then
+						item:setMaxCapacity(part:getContainerCapacity());
+					end
+					item:setConditionMax(item:getConditionMax()*conditionMultiply);
+					item:setCondition(item:getCondition()*conditionMultiply);
+					part:setRandomCondition(item);
+					part:setInventoryItem(item)
+				end
+			else
+				print("ATA ERROR: For part " .. part:getId() .. "the spawn table 'ataItemSpawnChance' is set incorrectly. The number of elements in the table (now " .. #part:getTable("ataItemSpawnChance") .. ") must equal the number of possible items (now " .. part:getItemType():size() .. ").")
+				part:throwError()
 			end
 		end
-		item = InventoryItemFactory.CreateItem(itemType);
-		local conditionMultiply = 100/item:getConditionMax();
-		if part:getContainerCapacity() and part:getContainerCapacity() > 0 then
-			item:setMaxCapacity(part:getContainerCapacity());
-		end
-		item:setConditionMax(item:getConditionMax()*conditionMultiply);
-		item:setCondition(item:getCondition()*conditionMultiply);
-		part:setRandomCondition(item);
-		part:setInventoryItem(item)
+		return part:getInventoryItem()
+	else
+		return VehicleUtils.createPartInventoryItem(part)
 	end
-	return part:getInventoryItem()
 end
 
 function ATATuning.ContainerAccess.BlockSeat(vehicle, part, playerObj)
 	return false
 end
 
-function ATATuning.Create.NotInstallDefault(vehicle, part)
-	-- print("ATATuning.Create.NotInstallDefault")
-	part:setInventoryItem(nil)
-	part:setModelVisible("Default", false)
+--[[
+
+Example code in the script
+			model ATAJeepBumper1
+			{
+				file = ATA_Jeep_Bumper_1,
+			}
+			model ATAJeepBumper2
+			{
+				file = ATA_Jeep_Bumper_2,
+			}
+			model ATAJeepBumper3
+			{
+				file = ATA_Jeep_Bumper_3,
+			}
+			model ATAJeepBumper4
+			{
+				file = ATA_Jeep_Bumper_4,
+			}
+			table ataModels 
+			{
+				ATAJeepBumper1Item = ATAJeepBumper1,
+				ATAJeepBumper2Item = ATAJeepBumper2,
+				ATAJeepBumper3Item = ATAJeepBumper3,
+				ATAJeepBumper4Item = ATAJeepBumper4,
+			}
+]]--
+
+function ATATuning.ModelByItemName(vehicle, part, item)
+	if part:getTable("ataModels") then
+		if item then
+			for itemName, oneModel in pairs(part:getTable("ataModels")) do
+				if item:getType() == itemName then
+					part:setModelVisible(oneModel, true)
+				else
+					part:setModelVisible(oneModel, false)
+				end
+			end
+		else
+			for itemName, oneModel in ipairs(part:getTable("ataModels")) do
+				part:setModelVisible(oneModel, false)
+			end
+		end
+	else
+		if item then
+			part:setModelVisible("Default", true)
+			part:setModelVisible("StaticPart", true)
+		else
+			part:setModelVisible("Default", false)
+			part:setModelVisible("StaticPart", false)
+		end
+	end
 end
 
 function ATATuning.Create.DefaultModel(vehicle, part)
-	-- print("ATATuning.Create.DefaultModel")
-	local item = VehicleUtils.createPartInventoryItem(part)
-	if part:getInventoryItem() then
-		-- print("ATATuning.Create.DefaultModel: VISIBLE")
-		part:setModelVisible("Default", true)
-	end
+	local item = ATATuningUtils.createPartInventoryItem(part)
+	ATATuning.ModelByItemName(vehicle, part, item)
+	vehicle:doDamageOverlay()
+end
+
+function ATATuning.Init.DefaultModel(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+	vehicle:doDamageOverlay()
+end
+
+function ATATuning.InstallComplete.DefaultModel(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+	vehicle:doDamageOverlay()
+end
+
+function ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+	vehicle:doDamageOverlay()
+end
+
+function ATATuning.Create.InstallChance0(vehicle, part)
+	part:setInventoryItem(nil)
+	ATATuning.ModelByItemName(vehicle, part)
+	vehicle:doDamageOverlay()
 end
 
 function ATATuning.Create.InstallChance15(vehicle, part)
 	if ZombRand(100) < 15 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		ATATuning.Create.NotInstallDefault(vehicle, part)
+		ATATuning.Create.InstallChance0(vehicle, part)
 	end
 end
 
@@ -90,7 +178,7 @@ function ATATuning.Create.InstallChance30(vehicle, part)
 	if ZombRand(100) < 30 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		ATATuning.Create.NotInstallDefault(vehicle, part)
+		ATATuning.Create.InstallChance0(vehicle, part)
 	end
 end
 
@@ -98,33 +186,15 @@ function ATATuning.Create.InstallChance45(vehicle, part)
 	if ZombRand(100) < 45 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		ATATuning.Create.NotInstallDefault(vehicle, part)
+		ATATuning.Create.InstallChance0(vehicle, part)
 	end
 end
 
-function ATATuning.Init.DefaultModel(vehicle, part)
-	-- print("ATATuning.Init.DefaultModel")
-	if part:getInventoryItem() then
-		-- print("ATATuning.Init.DefaultModel: VISIBLE")
-		part:setModelVisible("Default", true)
-		part:setModelVisible("StaticPart", true)
-	end
-end
-
-function ATATuning.InstallComplete.DefaultModel(vehicle, part)
-	local item = part:getInventoryItem()
-	if not item then return end
-	part:setModelVisible("Default", true)
-	part:setModelVisible("StaticPart", true)
-	vehicle:doDamageOverlay()
-end
-
-function ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
-	if not item then return end
-	part:setModelVisible("Default", false)
-	part:setModelVisible("StaticPart", false)
-	vehicle:doDamageOverlay()
-end
+--***********************************************************
+--**                                                       **
+--**      Multi Require Install and Uninstall table	       **
+--**                                                       **
+--***********************************************************
 
 function ATATuning.InstallTest.multiRequire(vehicle, part, chr)
 	if ISVehicleMechanics.cheat then return true; end
@@ -201,7 +271,7 @@ end
 --***********************************************************
 
 function ATATuning.Create.RoofTent(vehicle, part)
-	ATATuning.Create.NotInstallDefault(vehicle, part)
+	ATATuning.Create.InstallChance0(vehicle, part)
 	part:setModelVisible("Close", false)
 	part:setModelVisible("Open", false)
 	part:getModData()["atatuning"] = {}
@@ -308,97 +378,6 @@ end
 function ATATuning.UninstallComplete.Door(vehicle, part, item)
 	Vehicles.UninstallComplete.Door(vehicle, part, item)
 	ATATuning.ModelByItemName(vehicle, part, item)
-end
-
---***********************************************************
---**                                                       **
---**               Show Model By Item Name	  	           **
---**                                                       **
---***********************************************************
--- Example code in the script
---			model ATAJeepBumper1
---			{
---				file = ATA_Jeep_Bumper_1,
---			}
---			model ATAJeepBumper2
---			{
---				file = ATA_Jeep_Bumper_2,
---			}
---			model ATAJeepBumper3
---			{
---				file = ATA_Jeep_Bumper_3,
---			}
---			model ATAJeepBumper4
---			{
---				file = ATA_Jeep_Bumper_4,
---			}
---			table allModels 
---			{
---				ATAJeepBumper1Item = ATAJeepBumper1,
---				ATAJeepBumper2Item = ATAJeepBumper2,
---				ATAJeepBumper3Item = ATAJeepBumper3,
---				ATAJeepBumper4Item = ATAJeepBumper4,
---			}
-
-
-function ATATuning.ModelByItemName(vehicle, part, item)
-	print("ATATuning.ModelByItemName")
-	if part:getTable("allModels") then
-		if item then
-			print(item:getType())
-			for itemName, oneModel in pairs(part:getTable("allModels")) do
-				if item:getType() == itemName then
-					part:setModelVisible(oneModel, true)
-				else
-					part:setModelVisible(oneModel, false)
-				end
-			end
-		else
-			for itemName, oneModel in ipairs(part:getTable("allModels")) do
-				part:setModelVisible(oneModel, false)
-			end
-		end
-	end
-end
-
-function ATATuning.Create.ModelByItemName(vehicle, part)
-	local item = VehicleUtils.createPartInventoryItem(part)
-	ATATuning.ModelByItemName(vehicle, part, item)
-	vehicle:doDamageOverlay()
-end
-
-function ATATuning.Create.ModelByItemNameNull(vehicle, part)
-	part:setInventoryItem(nil)
-	ATATuning.ModelByItemName(vehicle, part, nil)
-	vehicle:doDamageOverlay()
-end
-
-function ATATuning.Create.ModelByItemNameFirstTwo(vehicle, part)
-	local item = nil
-	if ZombRand(100) < 30 then
-		item = ATATuningUtils.createPartInventoryItemById(part, 2)
-	else
-		item = ATATuningUtils.createPartInventoryItemById(part, 1)
-	end
-	ATATuning.ModelByItemName(vehicle, part, item)
-	vehicle:doDamageOverlay()
-end
-
-function ATATuning.Init.ModelByItemName(vehicle, part)
-	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
-	vehicle:doDamageOverlay()
-end
-
-function ATATuning.InstallComplete.ModelByItemName(vehicle, part)
--- print(" ATATuning.InstallComplete.BusBullbar")
-	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
-	vehicle:doDamageOverlay()
-end
-
-function ATATuning.UninstallComplete.ModelByItemName(vehicle, part, item)
--- print(" ATATuning.UninstallComplete.BusBullbar")
-	ATATuning.ModelByItemName(vehicle, part)
-	vehicle:doDamageOverlay()
 end
 
 --***********************************************************
@@ -646,7 +625,7 @@ function ATATuning.Create.ATALight(vehicle, part)
 	-- xOffset,yOffset,distance,intensity,dot,focusing
 	-- NOTE: distance,intensity,focusing values are ignored, instead they are
 	-- set based on part condition.
-	ATATuning.Create.NotInstallDefault(vehicle, part)
+	ATATuning.Create.InstallChance0(vehicle, part)
 	if part:getId() == "ATARoofLampLeft" then
 		part:createSpotLight(4.5, -1, 0.1, 0.1, 1.4, 200) -- (2, -0.8, 0.1, 0.1, 2, 200)
 	elseif part:getId() == "ATARoofLampRight" then
@@ -707,6 +686,5 @@ function ATATuning.UninstallComplete.WheelsProtection(vehicle, part, item)
 -- print(" ATATuning.UninstallComplete.BusBullbar")
 	ATATuning.WheelsProtection(vehicle, part)
 end
-
 
 -- print("Autotsar tunning loaded")

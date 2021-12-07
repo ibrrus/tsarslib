@@ -296,7 +296,7 @@ module Base
 			}
 			lua
 			{
-				create = ATATuning.Create.NotInstallDefault,
+				create = ATATuning.Create.InstallChance0,
 			}
 		}
 	}

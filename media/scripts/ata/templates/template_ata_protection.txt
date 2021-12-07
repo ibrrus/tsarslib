@@ -163,7 +163,7 @@ module Base
             }
 			lua
 			{
-				create = ATATuning.Create.NotInstallDefault,
+				create = ATATuning.Create.InstallChance0,
 				init = ATATuning.Init.WheelsProtection,
 				update = ATATuning.Update.CommonProtection,
 			}
@@ -335,7 +335,7 @@ module Base
             }
 			lua
 			{
-				create = ATATuning.Create.NotInstallDefault,
+				create = ATATuning.Create.InstallChance0,
 				init = ATATuning.Init.DefaultModel,
 				update = ATATuning.Update.CommonProtection,
 			}
