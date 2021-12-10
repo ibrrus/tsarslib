@@ -171,10 +171,7 @@ module Base
 		
 		part ATAProtectionWindowFront
 		{
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
+			itemType = Base.ATAProtectionWindowFrontItem,
 			parent = Windshield,
 			area = Engine,
 			table install
@@ -184,10 +181,7 @@ module Base
 		}
 		part ATAProtectionWindowRear
 		{
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
+			itemType = Base.ATAProtectionWindowItem,
 			parent = WindshieldRear,
 			area = TruckBed,
 			table install
@@ -201,10 +195,7 @@ module Base
 			door
 			{
 			}
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
+			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowFrontLeft,
 			area = SeatFrontLeft,
 			table install
@@ -217,10 +208,7 @@ module Base
 			door
 			{
 			}
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
+			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowFrontRight,
 			area = SeatFrontRight,
 			table install
@@ -233,10 +221,7 @@ module Base
 			door
 			{
 			}
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
+			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowMiddleLeft,
 			area = SeatMiddleLeft,
 			table install
@@ -249,10 +234,7 @@ module Base
 			door
 			{
 			}
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
+			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowMiddleRight,
 			area = SeatMiddleRight,
 			table install
@@ -265,10 +247,7 @@ module Base
 			door
 			{
 			}
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
+			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowRearLeft,
 			area = SeatRearLeft,
 			table install
@@ -281,10 +260,7 @@ module Base
 			door
 			{
 			}
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
+			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowRearRight,
 			area = SeatRearRight,
 			table install
@@ -298,7 +274,6 @@ module Base
 			category = protection,
 			specificItem = false,
 			mechanicRequireKey = false,
-			itemType = Base.ATAProtectionWindowItem,
 			table install
             {
                 items

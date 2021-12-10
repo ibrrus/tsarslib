@@ -1,4 +1,11 @@
 IGUI_RU = {
+	/* ATA 20211209*/
+	IGUI_VehiclePartATAVisualSpoilerFront = "Губа на передний бампер",
+	IGUI_VehiclePartATAVisualSpoilerRear = "Спойлер",
+	IGUI_VehiclePartATAVisualSkirtsSide = "Юбки боковых порогов",
+	IGUI_VehiclePartATAVisualFendersWide = "Широкие арки",
+	IGUI_ItemCat_Tuning = "Тюнинг",
+	
 	/* ATA */
 	IGUI_VehiclePartATABullbar = "Кенгурятник",
 	IGUI_VehiclePartATARoofRack = "Багажник на крыше",
@@ -25,7 +32,6 @@ IGUI_RU = {
 	IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Багажник на крыше",
 	IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Багажник над запасным колесом",
 	IGUI_VehiclePartATARoofTent = "Палатка на крышу",
-
 
 	IGUI_VehiclePartATARoofLightFront = "Фонари на крыше (передние)",
 	IGUI_VehiclePartATARoofLightLeft = "Фонари на крыше (левые)",

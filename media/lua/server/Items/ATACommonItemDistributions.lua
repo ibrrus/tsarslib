@@ -58,8 +58,8 @@ if getActivatedMods():contains("ATA_Bus") or getActivatedMods():contains("ATA_Je
 	-- Base.ATAInteractiveTrunkRoofRackItem
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Base.ATAInteractiveTrunkRoofRackItem");
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 1);
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATAInteractiveTrunkRoofRackItem");
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATAInteractiveTrunkRoofRackItem");
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, "Autotsar.ATAInteractiveTrunkRoofRackItem");
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, "Autotsar.ATAInteractiveTrunkRoofRackItem");
@@ -69,8 +69,8 @@ if getActivatedMods():contains("ATA_Bus") or getActivatedMods():contains("ATA_Je
 	-- Base.ATAInteractiveTrunkWheelRackItem
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Base.ATAInteractiveTrunkWheelRackItem");
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 1);
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATAInteractiveTrunkWheelRackItem");
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATAInteractiveTrunkWheelRackItem");
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, "Autotsar.ATAInteractiveTrunkWheelRackItem");
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, "Autotsar.ATAInteractiveTrunkWheelRackItem");
@@ -80,8 +80,8 @@ if getActivatedMods():contains("ATA_Bus") or getActivatedMods():contains("ATA_Je
 	-- Base.ATARoofBaseItem
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Base.ATARoofBaseItem");
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 1);
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATARoofBaseItem");
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATARoofBaseItem");
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, "Autotsar.ATARoofBaseItem");
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, "Autotsar.ATARoofBaseItem");
@@ -91,8 +91,8 @@ if getActivatedMods():contains("ATA_Bus") or getActivatedMods():contains("ATA_Je
 	-- Base.ATARoofLightItem
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Autotsar.ATARoofLightItem");
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 5);
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATARoofLightItem");
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, 5);
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATARoofLightItem");
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, 5);
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, "Autotsar.ATARoofLightItem");
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, 5);
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, "Autotsar.ATARoofLightItem");
@@ -104,8 +104,8 @@ if getActivatedMods():contains("ATA_Bus") or getActivatedMods():contains("ATA_Je
 	-- Base.ATARoofTentItem
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Autotsar.ATARoofTentItem");
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 1);
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATARoofTentItem");
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATARoofTentItem");
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, "Autotsar.ATARoofTentItem");
 	table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, "Autotsar.ATARoofTentItem");
@@ -115,8 +115,8 @@ if getActivatedMods():contains("ATA_Bus") or getActivatedMods():contains("ATA_Je
 	-- Base.ATASnorkelItem
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Autotsar.ATASnorkelItem");
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 0.5);
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATASnorkelItem");
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, 0.5);
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATASnorkelItem");
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, 0.5);
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, "Autotsar.ATASnorkelItem");
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, 0.5);
 	table.insert(ProceduralDistributions.list["MechanicShelfElectric"].items, "Autotsar.ATASnorkelItem");
@@ -132,8 +132,8 @@ if getActivatedMods():contains("ATA_Bus") or getActivatedMods():contains("ATA_Je
 	-- Base.ATAProtectionWheelsChain
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Autotsar.ATAProtectionWheelsChain");
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 1);
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATAProtectionWheelsChain");
-	table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, "Autotsar.ATAProtectionWheelsChain");
+	-- table.insert(ProceduralDistributions.list["GarageMechanic"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, "Autotsar.ATAProtectionWheelsChain");
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, "Autotsar.ATAProtectionWheelsChain");

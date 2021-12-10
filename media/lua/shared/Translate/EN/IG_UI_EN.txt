@@ -1,4 +1,11 @@
 IG_UI_EN = {
+	/* ATA 20211209*/
+	IGUI_VehiclePartATAVisualSpoilerFront = "Spoiler Lip",
+	IGUI_VehiclePartATAVisualSpoilerRear = "Spoiler",
+	IGUI_VehiclePartATAVisualSkirtsSide = "Side Skirts",
+	IGUI_VehiclePartATAVisualFendersWide = "Wide Fenders",
+	IGUI_ItemCat_Tuning = "Tuning",
+	
 	/* ATA */
 	IGUI_VehiclePartATABullbar = "Bullbar",
 	IGUI_VehiclePartATARoofRack = "Roof rack",

@@ -116,14 +116,17 @@ Example code in the script
 function ATATuning.ModelByItemName(vehicle, part, item)
 	if part:getTable("ataModels") then
 		if item then
+			part:setModelVisible("StaticPart", true)
 			for itemName, oneModel in pairs(part:getTable("ataModels")) do
 				if item:getType() == itemName then
+					print("setModelVisible: ", oneModel)
 					part:setModelVisible(oneModel, true)
 				else
 					part:setModelVisible(oneModel, false)
 				end
 			end
 		else
+			part:setModelVisible("StaticPart", false)
 			for itemName, oneModel in ipairs(part:getTable("ataModels")) do
 				part:setModelVisible(oneModel, false)
 			end
@@ -156,7 +159,7 @@ function ATATuning.InstallComplete.DefaultModel(vehicle, part)
 end
 
 function ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
-	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+	ATATuning.ModelByItemName(vehicle, part)
 	vehicle:doDamageOverlay()
 end
 
@@ -188,6 +191,32 @@ function ATATuning.Create.InstallChance45(vehicle, part)
 	else
 		ATATuning.Create.InstallChance0(vehicle, part)
 	end
+end
+
+--***********************************************************
+--**                                                       **
+--**     					Wheels					       **
+--**                                                       **
+--***********************************************************
+
+function ATATuning.Create.Tire(vehicle, part)
+	Vehicles.Create.Tire(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+end
+
+function ATATuning.Init.Tire(vehicle, part)
+	Vehicles.Init.Tire(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+end
+
+function ATATuning.InstallComplete.Tire(vehicle, part)
+	Vehicles.InstallComplete.Tire(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+end
+
+function ATATuning.UninstallComplete.Tire(vehicle, part, item)
+	Vehicles.UninstallComplete.Tire(vehicle, part, item)
+	ATATuning.ModelByItemName(vehicle, part)
 end
 
 --***********************************************************

@@ -1,3 +1,17 @@
+v.1.23dev6
+2021-12-11
+
+Добавлена функции для установки разных дисков на авто.
+Исправлены ошибки связанные со спавном предметов (обновление игры 41.60).
+Исправлены ошибки связанные с бампером.
+Добавлены шаблоны кенгурятника.
+
+Added functions for installing different rims on vehicle.
+Fixed errors with items spawning (game update 41.60).
+Fixed bumper bugs.
+Added bullbar templates.
+
+-------------------
 v.1.23dev5
 2021-12-07
 
