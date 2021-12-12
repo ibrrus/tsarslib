@@ -3,6 +3,13 @@ Tooltip_EN = {
 	Tooltip_Compact_Oven = "Can be installed in some vehicles and trailers",
 	Tooltip_Compact_Microwave = "Can be installed in some vehicles and trailers",
 	
-	Tooltip_item_tuning = "Spare part for tuning",
+	Tooltip_item_tuning = "Part for tuning",
 	Tooltip_item_ATATuningMagUniversal = "After reading this issue, you will get basic tuning knowledge. You will learn<br>to create universal protection for windows, study the drawings of different types of trunks<br>and understand how to make the car bumper more lethal.",
+	
+/************ Autotsar Tuning Atelier - Bus ************/
+	Tooltip_item_AtTuningMagBus = "In this issue you will learn how to prepare your bus for the zombie apocalypse,<br>learn how to create protection for windows and wheels, understand how to make<br>an effective grill and how to make a roomy roof rack.",
+	Tooltip_item_kengur	= "You have come up with a new type of bullwhip.<br>All that's left to do is to study your drawings more closely.",
+
+/************ Autotsar Tuning Atelier - Mustang ************/
+	Tooltip_item_ATATuningFordMustang = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, a bullbar and a roof rack for Ford Mustang",
 }

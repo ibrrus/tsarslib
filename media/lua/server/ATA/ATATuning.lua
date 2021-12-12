@@ -1,16 +1,5 @@
 -- print("Autotsar tunning load start")
 
-local function lua_split (inputstr, sep)
-	if sep == nil then
-			sep = "%s"
-	end
-	local t={}
-	for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-			table.insert(t, str)
-	end
-	return t
-end
-
 if not ATATuning then ATATuning = {} end
 if not ATATuningUtils then ATATuningUtils = {} end
 if not ATATuning.CheckEngine then ATATuning.CheckEngine = {} end
@@ -114,30 +103,35 @@ Example code in the script
 ]]--
 
 function ATATuning.ModelByItemName(vehicle, part, item)
-	if part:getTable("ataModels") then
-		if item then
-			part:setModelVisible("StaticPart", true)
-			for itemName, oneModel in pairs(part:getTable("ataModels")) do
-				if item:getType() == itemName then
-					print("setModelVisible: ", oneModel)
-					part:setModelVisible(oneModel, true)
-				else
+	if not part:getItemType() or part:getItemType():isEmpty() then
+		part:setModelVisible("Default", true)
+		part:setModelVisible("StaticPart", true)
+	else
+		if part:getTable("ataModels") then
+			if item then
+				part:setModelVisible("StaticPart", true)
+				for itemName, oneModel in pairs(part:getTable("ataModels")) do
+					if item:getType() == itemName then
+						print("setModelVisible: ", oneModel)
+						part:setModelVisible(oneModel, true)
+					else
+						part:setModelVisible(oneModel, false)
+					end
+				end
+			else
+				part:setModelVisible("StaticPart", false)
+				for itemName, oneModel in ipairs(part:getTable("ataModels")) do
 					part:setModelVisible(oneModel, false)
 				end
 			end
 		else
-			part:setModelVisible("StaticPart", false)
-			for itemName, oneModel in ipairs(part:getTable("ataModels")) do
-				part:setModelVisible(oneModel, false)
+			if item then
+				part:setModelVisible("Default", true)
+				part:setModelVisible("StaticPart", true)
+			else
+				part:setModelVisible("Default", false)
+				part:setModelVisible("StaticPart", false)
 			end
-		end
-	else
-		if item then
-			part:setModelVisible("Default", true)
-			part:setModelVisible("StaticPart", true)
-		else
-			part:setModelVisible("Default", false)
-			part:setModelVisible("StaticPart", false)
 		end
 	end
 end
@@ -163,33 +157,33 @@ function ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
 	vehicle:doDamageOverlay()
 end
 
-function ATATuning.Create.InstallChance0(vehicle, part)
+function ATATuning.Create.Chance0(vehicle, part)
 	part:setInventoryItem(nil)
 	ATATuning.ModelByItemName(vehicle, part)
 	vehicle:doDamageOverlay()
 end
 
-function ATATuning.Create.InstallChance15(vehicle, part)
+function ATATuning.Create.Chance15(vehicle, part)
 	if ZombRand(100) < 15 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		ATATuning.Create.InstallChance0(vehicle, part)
+		ATATuning.Create.Chance0(vehicle, part)
 	end
 end
 
-function ATATuning.Create.InstallChance30(vehicle, part)
+function ATATuning.Create.Chance30(vehicle, part)
 	if ZombRand(100) < 30 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		ATATuning.Create.InstallChance0(vehicle, part)
+		ATATuning.Create.Chance0(vehicle, part)
 	end
 end
 
-function ATATuning.Create.InstallChance45(vehicle, part)
+function ATATuning.Create.Chance45(vehicle, part)
 	if ZombRand(100) < 45 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
-		ATATuning.Create.InstallChance0(vehicle, part)
+		ATATuning.Create.Chance0(vehicle, part)
 	end
 end
 
@@ -300,7 +294,7 @@ end
 --***********************************************************
 
 function ATATuning.Create.RoofTent(vehicle, part)
-	ATATuning.Create.InstallChance0(vehicle, part)
+	ATATuning.Create.Chance0(vehicle, part)
 	part:setModelVisible("Close", false)
 	part:setModelVisible("Open", false)
 	part:getModData()["atatuning"] = {}
@@ -406,7 +400,10 @@ end
 
 function ATATuning.UninstallComplete.Door(vehicle, part, item)
 	Vehicles.UninstallComplete.Door(vehicle, part, item)
-	ATATuning.ModelByItemName(vehicle, part, item)
+	ATATuning.ModelByItemName(vehicle, part)
+	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
+	item:setCondition(part:getModData().atatuning.health)
+	part:getModData().atatuning.health = nil
 end
 
 --***********************************************************
@@ -414,13 +411,6 @@ end
 --**                 	Common Protection  	               **
 --**                                                       **
 --***********************************************************
-
-function ATATuning.UninstallComplete.Door(vehicle, part, item)
-	Vehicles.UninstallComplete.Door(vehicle, part, item)
-	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
-	item:setCondition(part:getModData().atatuning.health)
-	part:getModData().atatuning.health = nil
-end
 
 function ATATuning.UninstallComplete.Window(vehicle, part, item)
 	Vehicles.UninstallComplete.Default(vehicle, part, item)
@@ -500,9 +490,9 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 	if part:getCondition() == 0 then
 		part:setInventoryItem(nil);
 		square:AddWorldInventoryItem(item, 0.5, 0.5, 0)
-		ATATuning.UninstallComplete.Protection(vehicle, part, item)
+		ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 	else
-		local redoCond = false
+		-- local redoCond = false
 		if part:getParent() then
 			local savePart = part:getParent()
 			if savePart:getInventoryItem() then
@@ -513,7 +503,8 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 					savePart:getModData().atatuning.health = savePart:getCondition()
 				end
 				if (savePart:getCondition() < 80) then
-					redoCond = true
+					-- redoCond = true
+					part:setCondition(part:getCondition()-1)
 					savePart:setCondition(100)
 				end
 				if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
@@ -524,7 +515,7 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 			local partNames = item:getModData()["ataProtection"]:split(";");
 			for k, partName in ipairs(partNames) do 
 				local savePart = vehicle:getPartById(partName)
-				if savePart:getInventoryItem() then
+				if savePart and savePart:getInventoryItem() then
 					if not savePart:getModData().atatuning then
 						savePart:getModData().atatuning = {}
 					end
@@ -532,7 +523,8 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 						savePart:getModData().atatuning.health = savePart:getCondition()
 					end
 					if (savePart:getCondition() < 80) then
-						redoCond = true
+						-- redoCond = true
+						part:setCondition(part:getCondition()-1)
 						savePart:setCondition(100)
 					end
 					if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
@@ -541,9 +533,9 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 				end
 			end
 		end
-		if redoCond then
-			part:setCondition(part:getCondition()-1)
-		end
+		-- if redoCond then
+			-- part:setCondition(part:getCondition()-1)
+		-- end
 	end
 end
 
@@ -654,7 +646,7 @@ function ATATuning.Create.ATALight(vehicle, part)
 	-- xOffset,yOffset,distance,intensity,dot,focusing
 	-- NOTE: distance,intensity,focusing values are ignored, instead they are
 	-- set based on part condition.
-	ATATuning.Create.InstallChance0(vehicle, part)
+	ATATuning.Create.Chance0(vehicle, part)
 	if part:getId() == "ATARoofLampLeft" then
 		part:createSpotLight(4.5, -1, 0.1, 0.1, 1.4, 200) -- (2, -0.8, 0.1, 0.1, 2, 200)
 	elseif part:getId() == "ATARoofLampRight" then

@@ -1,3 +1,15 @@
+v.1.23dev7
+2021-12-12
+
+Все ATA переводы перенесены в этот мод.
+Исправлены ошибки в скриптах.
+Переименованы некоторые функции.
+
+All ATA translations transferred to this mod.
+Fixed errors in scripts.
+Renamed some functions.
+
+-------------------
 v.1.23dev6
 2021-12-11
 

@@ -14,4 +14,7 @@ ContextMenu_ES = {
 
 	ContextMenu_CloseTent = "Cerrar carpa",
 	ContextMenu_OpenTent = "Abrir carpa",
+	
+	ContextMenu_Vehicle_EGNH = "Escribir «EGNH»",
+	
 }

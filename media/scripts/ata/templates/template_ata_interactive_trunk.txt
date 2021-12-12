@@ -10,6 +10,7 @@ module Base
 	
 	item ATAInteractiveTrunkRoofRackItem /* Спавн + Крафт */ 
 	{
+		DisplayCategory = Tuning,
 		Weight	=	10.0,
         Type	=	Normal,
         DisplayName	= Roof Rack,
@@ -61,6 +62,7 @@ module Base
 	
 	item ATAInteractiveTrunkWheelRackItem /* Спавн + Крафт */ 
 	{
+		DisplayCategory = Tuning,
 		Weight	=	10.0,
         Type	=	Normal,
         DisplayName	= Wheel Rack,
@@ -110,6 +112,7 @@ module Base
 	
 	item ATARoofBaseItem /* Спавн + Крафт */
 	{
+		DisplayCategory = Tuning,
 		Weight	=	10.0,
         Type	=	Normal,
         DisplayName	= ATARoofBaseItem,
@@ -197,7 +200,7 @@ module Base
 			}
 			lua
 			{
-				create = ATATuning.Create.InstallChance15,
+				create = ATATuning.Create.Chance15,
 				init = ATATuning.Init.DefaultModel,
 			}
 		}

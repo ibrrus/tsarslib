@@ -17,4 +17,55 @@ Recipe_EN = {
 	Recipe_Cut_ATAProtectionWheelsItem = "Cut Wheel protection",
 	
 	Recipe_Basic_Tuning = "Basic Tuning",
+	
+	/************ Autotsar Tuning Atelier - Bus ************/
+	
+    Recipe_Make_ATABusKengur1Item = "Make bullbar for the bus",
+	Recipe_Make_ATABusKengur2Item = "Make improved bullbar",
+	Recipe_Make_ATABusKengur3Item = "Make spiked plow",
+	Recipe_Make_ATABusRoofRack = "Make bus roof rack",
+	Recipe_Make_ATABusProtectionDoorItem = "Make protection for door",
+	Recipe_Make_ATABusProtectionDoorRearItem = "Make protection for rear door",
+	Recipe_Make_ATABusProtectionWheelsItem = "Make protection for wheels",
+	Recipe_Make_ATABusProtectionWindowsFrontItem = "Make protection for windshield",
+	Recipe_Make_ATABusProtectionWindowsRightItem = "Make protection for right windows",
+	Recipe_Make_ATABusProtectionWindowsLeftItem = "Make protection for left windows",
+	Recipe_Make_ATABusRoofBoxItem = "Make bus toolbox",
+	
+	/************ Autotsar Tuning Atelier - Jeep ************/
+	
+	Recipe_Cut_ATAJeepBumper1Item = "Cut Bumper for Jeep Wrangler",
+	Recipe_Cut_ATAJeepBumper2Item = "Cut Bumper for Jeep Wrangler",
+	Recipe_Cut_ATAJeepBumper3Item = "Cut Bumper for Jeep Wrangler",
+	Recipe_Cut_ATAJeepBumper4Item = "Cut Bumper for Jeep Wrangler",
+	Recipe_Make_ATAJeepBumper4Item = "Create Lethal bumper for Jeep Wrangler",	
+	
+	/************ Autotsar Tuning Atelier - Mustang ************/
+	
+		Recipe_Cut_ATAMustangBullbar1Item = "Cut Bullbar for Ford Mustang",
+	Recipe_Cut_ATAMustangBullbar2Item = "Cut Bullbar for Ford Mustang",
+	Recipe_Cut_ATAMustangBullbar3Item = "Cut Bullbar for Ford Mustang",
+	Recipe_Make_ATAMustangBullbar3Item = "Make Bullbar for Ford Mustang",
+
+	Recipe_Cut_ATAMustangHood2Item3 = "Cut Hood for Ford Mustang",
+	Recipe_Cut_ATAMustangHood3Item3 = "Cut Hood for Ford Mustang",
+	
+	Recipe_Cut_ATAMustangFendersWideItem = "Cut Hood for Ford Mustang",
+	Recipe_Cut_ATAMustangSkirtsSideItem = "Cut Hood for Ford Mustang",
+	Recipe_Cut_ATAMustangSpoilerFrontItem = "Cut Spoiler for Ford Mustang",
+	Recipe_Cut_ATAMustangSpoilerRear1Item = "Cut Spoiler for Ford Mustang",
+	Recipe_Cut_ATAMustangSpoilerRear2Item = "Cut Spoiler for Ford Mustang",
+	
+	Recipe_Make_ATAMustangProtectionWindowLeftItem = "Make Left Window Protection Ford Mustang",
+	Recipe_Make_ATAMustangProtectionWindowRightItem = "Make Right Window Protection Ford Mustang",
+	Recipe_Make_ATAMustangProtectionWindowFrontItem = "Make Windshield Protection Ford Mustang",
+	Recipe_Make_ATAMustangProtectionWindowRearItem = "Make Rear Window Protection Ford Mustang",
+	Recipe_Cut_ATAMustangProtectionWindowLeftItem = "Cut Left Window Protection Ford Mustang",
+	Recipe_Cut_ATAMustangProtectionWindowRightItem = "Cut Right Window Protection Ford Mustang",
+	Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Cut Windshield Protection Ford Mustang",
+	Recipe_Cut_ATAMustangProtectionWindowRearItem = "Cut Rear Window Protection Ford Mustang",
+	
+	Recipe_Make_ATAMustangRoofRackItem = "Make Roof Rack for Ford Mustang",
+	Recipe_Cut_ATAMustangRoofRackItem = "Cut Roof Rack for Ford Mustang",
+	
 }

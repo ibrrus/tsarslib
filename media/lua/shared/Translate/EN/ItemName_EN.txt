@@ -29,4 +29,53 @@ ItemName_EN = {
 	ItemName_Base.1000Tank3 = "Tank 1000",
 	
 	ItemName_Autotsar.ATATuningMagUniverse = "Magazine «Autotsar Tuning Atelier - General Tuning Rules»",
+
+
+	/************ Autotsar Tuning Atelier - Bus ************/
+	
+	ItemName_Autotsar.AtTuningMagBus = "Magazine «Autotsar Tuning Atelier - Bear Bus»",
+	ItemName_Autotsar.Bullbar2Blueprint = "Blueprint of an improved bullbar",
+	ItemName_Autotsar.Bullbar3Blueprint = "Blueprint of a spikes plow",
+
+	ItemName_Autotsar.ATA_Bus_Kengur_1_Item = "Bear Bus - Bullbar",
+	ItemName_Autotsar.ATA_Bus_Kengur_2_Item = "Bear Bus - Improved bullbar",
+	ItemName_Autotsar.ATA_Bus_Kengur_3_Item = "Bear Bus - Spiked plow",
+	
+	ItemName_Autotsar.ATA_Bus_Protection_door_Item = "Bear Bus - Protection for door",
+	ItemName_Autotsar.ATA_Bus_Protection_door_rear_Item = "Bear Bus - Protection for rear door",
+	ItemName_Autotsar.ATA_Bus_Protection_wheels_Item = "Bear Bus - Protection for wheels",
+	ItemName_Autotsar.ATA_Bus_Protection_windows_front_Item = "Bear Bus - Protection for windshield",
+	ItemName_Autotsar.ATA_Bus_Protection_windows_right_Item = "Bear Bus - Protection for right windows",
+	ItemName_Autotsar.ATA_Bus_Protection_windows_left_Item = "Bear Bus - Protection for left windows",
+	
+	ItemName_Autotsar.ATA_Bus_Roof_Rack = "Bear Bus - Roof Rack",
+	ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Toolbox",
+	
+
+	/************ Autotsar Tuning Atelier - Jeep ************/
+	
+	ItemName_Base.ATAJeepBumper1Item = "Jeep Wrangler - classic bumper",
+	ItemName_Base.ATAJeepBumper2Item = "Jeep Wrangler - winch bumper",
+	ItemName_Base.ATAJeepBumper3Item = "Jeep Wrangler - bullbar",
+	ItemName_Base.ATAJeepBumper4Item = "Jeep Wrangler - lethal bumper",
+	
+	
+	/************ Autotsar Tuning Atelier - Mustang ************/
+	
+	ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Ford Mustang»",
+	ItemName_Autotsar.ATAMustangBullbar1Item = "Ford Mustang - Standart Bullbar",
+	ItemName_Autotsar.ATAMustangBullbar2Item = "Ford Mustang - Police Bullbar",
+	ItemName_Autotsar.ATAMustangBullbar3Item = "Ford Mustang - Lethal Bullbar",
+	ItemName_Autotsar.ATAMustangFendersWideItem = "Ford Mustang - Wide Fenders",
+	ItemName_Autotsar.ATAMustangSkirtsSideItem = "Ford Mustang - Side Skirts",
+	ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Ford Mustang - Spoiler Lip",
+	ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Ford Mustang - Standart Spoiler",
+	ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Ford Mustang - High Spoiler",
+	ItemName_Autotsar.ATAMustangHood2Item3 = "Ford Mustang - Cowl Hood",
+	ItemName_Autotsar.ATAMustangHood3Item3 = "Ford Mustang - Ram Air Hood",
+	ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Ford Mustang - Left Window Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Ford Mustang - Right Window Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Ford Mustang - Windshield Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Ford Mustang - Rear Window Protection",
+	ItemName_Autotsar.ATAMustangRoofRackItem = "Ford Mustang - Roof Rack",
 }

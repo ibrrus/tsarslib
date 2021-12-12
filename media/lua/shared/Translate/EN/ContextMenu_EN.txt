@@ -14,4 +14,9 @@ ContextMenu_EN = {
 	
 	ContextMenu_CloseTent = "Close tent",
 	ContextMenu_OpenTent = "Open tent",
+	
+	/************ Autotsar Tuning Atelier - Bus ************/
+	ContextMenu_Vehicle_EGNH = "Write «EGNH»",
+	
+	
 }

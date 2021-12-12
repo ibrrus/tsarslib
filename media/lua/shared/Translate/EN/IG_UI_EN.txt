@@ -51,7 +51,8 @@ IG_UI_EN = {
 	IGUI_VehiclePartCatprotection = "Protection",
 	
 	IGUI_PlayerText_ATA_TentDontOpen = "Tent must be empty",
-	IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first"
+	IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first",
+	
 	/* Common Library */
 	IGUI_VehiclePartshelves = "Shelves",
 	IGUI_VehiclePartstove = "Stove",
@@ -114,4 +115,26 @@ IG_UI_EN = {
 	IGUI_VehiclePartBatteryChargerA = "Battery place",
 	IGUI_VehiclePartBatteryChargerB = "Battery place",
 	IGUI_VehiclePartBatteryChargerC = "Battery place",
+
+
+	/************ Autotsar Tuning Atelier - Bus ************/
+	
+	IGUI_VehicleNameATAArmyBus = "Bear Bus - Army Edition",
+	IGUI_VehicleNameATASchoolBus = "Bear Bus - School Edition",
+	IGUI_VehicleNameATAPrisonBus = "Bear Bus - Prison Edition",
+
+	
+	/************ Autotsar Tuning Atelier - Jeep ************/
+	
+	IGUI_VehicleNameATAJeepClassic = "Jeep Wrangler Classic",
+	IGUI_VehicleNameATAJeepRubicon = "Jeep Wrangler Rubicon",
+	IGUI_VehicleNameATAJeepArcher = "Jeep Wrangler Archer",
+	
+	
+	/************ Autotsar Tuning Atelier - Mustang ************/
+	
+	IGUI_VehicleNameATAMustangClassic = "Ford Mustang",
+	IGUI_VehicleNameATAMustangPolice = "Ford Mustang",
+
+	
 }

@@ -55,12 +55,12 @@ module Base
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.UninstallTest.multiRequire,
-				complete = ATATuning.UninstallComplete.Default,
+				complete = ATATuning.UninstallComplete.DefaultModel,
             }
 			lua
 			{
-				create = ATATuning.Create.Default,
-				init = ATATuning.Init.Default,
+				create = ATATuning.Create.DefaultModel,
+				init = ATATuning.Init.DefaultModel,
 				update = ATATuning.Update.CommonProtection,
 			}
 		}

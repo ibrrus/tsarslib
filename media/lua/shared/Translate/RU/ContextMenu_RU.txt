@@ -14,4 +14,7 @@ ContextMenu_RU = {
 	
 	ContextMenu_CloseTent = "Закрыть палатку",
 	ContextMenu_OpenTent = "Открыть палатку",
+	
+	ContextMenu_Vehicle_EGNH = "Написать «EGNH»",
+	
 }

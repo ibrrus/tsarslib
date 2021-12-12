@@ -17,4 +17,27 @@ Recipe_ES = {
 	Recipe_Cut_ATAProtectionWheelsItem = "Cortar proteccion de ruedas",
 
 	Recipe_Basic_Tuning = "Tuning Basico",
+
+
+/************ Autotsar Tuning Atelier - Bus ************/
+	Recipe_Basic_Tuning = "Tuning basico",
+	Recipe_Make_ATABusKengur1Item = "Hacer barra de toro para autobus",
+	Recipe_Make_ATABusKengur2Item = "Hacer barra de toro mejorado",
+	Recipe_Make_ATABusKengur3Item = "Hacer defensa con puas",
+	Recipe_Make_ATABusRoofRack = "Hacer portaequipaje para autobus",
+	Recipe_Make_ATABusProtectionDoorItem = "Hacer proteccion para puerta",
+	Recipe_Make_ATABusProtectionDoorRearItem = "Hacer proteccion para puerta trasera",
+	Recipe_Make_ATABusProtectionWheelsItem = "Hacer proteccion para ruedas",
+	Recipe_Make_ATABusProtectionWindowsFrontItem = "Hacer proteccion para parabrisas",
+	Recipe_Make_ATABusProtectionWindowsRightItem = "Hacer proteccion para ventanas derechas",
+	Recipe_Make_ATABusProtectionWindowsLeftItem = "Hacer proteccion para ventanas izquierdas",
+	Recipe_Make_ATABusRoofBoxItem = "Hacer caja de herramientas montada para autobus",
+
+/************ Autotsar Tuning Atelier - Jeep ************/
+	Recipe_Cut_ATAJeepBumper1Item = "Cortar parachoques para Jeep Wrangler",
+	Recipe_Cut_ATAJeepBumper2Item = "Cortar parachoques para Jeep Wrangler",
+	Recipe_Cut_ATAJeepBumper3Item = "Cortar parachoques para Jeep Wrangler",
+	Recipe_Cut_ATAJeepBumper4Item = "Cortar parachoques para Jeep Wrangler",
+	Recipe_Make_ATAJeepBumper4Item = "Crear parachoques letal para Jeep Wrangler",
+	
 }
