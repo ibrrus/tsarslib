@@ -47,16 +47,15 @@ ItemName_ES = {
 	ItemName_Autotsar.ATA_Bus_Protection_windows_right_Item = "Bear Bus - Proteccion para ventanas derechas",
 	ItemName_Autotsar.ATA_Bus_Protection_windows_left_Item = "Bear Bus - Proteccion para ventanas izquierdas",
 
-ItemName_Autotsar.ATA_Bus_Roof_Rack = "Bear Bus - Portaequipaje de autobus",
-ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Caja de herramientas para techo",
+	ItemName_Autotsar.ATA_Bus_Roof_Rack = "Bear Bus - Portaequipaje de autobus",
+	ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Caja de herramientas para techo",
 
 
 /************ Autotsar Tuning Atelier - Jeep ************/
-	ItemName_Base.ATAJeepBumper1Item = "Jeep Wrangler - parachoques clasico",
-	ItemName_Base.ATAJeepBumper2Item = "Jeep Wrangler - parachoques de cabrestante",
-	ItemName_Base.ATAJeepBumper3Item = "Jeep Wrangler - barra de toro",
-	ItemName_Base.ATAJeepBumper4Item = "Jeep Wrangler - parachoques letal",
+	ItemName_Autotsar.ATAJeepBumper1Item = "Jeep Wrangler - parachoques clasico",
+	ItemName_Autotsar.ATAJeepBumper2Item = "Jeep Wrangler - parachoques de cabrestante",
+	ItemName_Autotsar.ATAJeepBumper3Item = "Jeep Wrangler - barra de toro",
+	ItemName_Autotsar.ATAJeepBumper4Item = "Jeep Wrangler - parachoques letal",
 
 
-	
 }

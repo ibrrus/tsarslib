@@ -10,6 +10,11 @@ Tooltip_EN = {
 	Tooltip_item_AtTuningMagBus = "In this issue you will learn how to prepare your bus for the zombie apocalypse,<br>learn how to create protection for windows and wheels, understand how to make<br>an effective grill and how to make a roomy roof rack.",
 	Tooltip_item_kengur	= "You have come up with a new type of bullwhip.<br>All that's left to do is to study your drawings more closely.",
 
+/************ Autotsar Tuning Atelier - Jeep ************/
+
+	Tooltip_item_AtTuningMagJeep = "After reading this issue you will get basic tuning knowledge and learn how to create protection, bumpers, roof rails and additional trunks for Jeep Wrangler",
+
+
 /************ Autotsar Tuning Atelier - Mustang ************/
 	Tooltip_item_ATATuningFordMustang = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, a bullbar and a roof rack for Ford Mustang",
 }

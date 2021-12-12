@@ -32,27 +32,6 @@
 
 module Base
 {	
-	model ATARoofTentWorld
-	{
-		mesh = WorldItems/ATA_PalatkaClosed,
-		texture = WorldItems/ATA_Common_palatka,
-		scale = 0.04,
-	}
-	
-	item ATARoofTentItem /* Спавн */ 
-	{
-		Weight	=	15.0,
-        Type	=	Normal,
-        DisplayName	= ATARoofTentItem,
-        Icon	=	ATARoofTentItem,
-        ChanceToSpawnDamaged = 25,
-		MaxCapacity = 30,
-        ConditionMax = 100,
-        MechanicsItem = TRUE,
-		Tooltip = Tooltip_item_tuning,
-		WorldStaticModel = ATARoofTentWorld,
-	}
-	
 	item ATASleepingBag
 	{
 		Weight	=	1.0,
@@ -75,7 +54,6 @@ module Base
 			}
 			area = TruckBed,
 			category = tuning,
-			itemType = Base.ATARoofTentItem,
 			specificItem = false,
 			mechanicRequireKey = false,
 			repairMechanic = false,

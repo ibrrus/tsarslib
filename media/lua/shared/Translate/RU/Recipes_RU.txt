@@ -2,23 +2,12 @@ Recipe_RU = {
 	Recipe_Make_a_compact_fridge = "Создать компактный холодильник",
 	Recipe_Make_a_compact_stove = "Создать компактную плиту",
 	Recipe_Make_a_compact_microwave = "Создать компактную микроволновку",
-	
-	Recipe_Make_ATAInteractiveTrunkRoofRackItem = "Создать Багажник для крыши",
-	Recipe_Cut_ATAInteractiveTrunkRoofRackItem = "Разрезать Багажник для крыши",
-	Recipe_Make_ATAInteractiveTrunkWheelRackItem = "Создать Багажник над запасным колесом",
-	Recipe_Cut_ATAInteractiveTrunkWheelRackItem = "Разрезать Багажник над запасным колесом",
-	Recipe_Make_ATARoofBaseItem = "Создать Рейлинги",
-	Recipe_Cut_ATARoofBaseItem = "Разрезать Рейлинги",
-	Recipe_Make_ATAProtectionWindowItem = "Создать Защиту для окон",
-	Recipe_Cut_ATAProtectionWindowItem = "Разрезать Защиту для окон",
-	Recipe_Make_ATAProtectionWindowFrontItem = "Создать Защиту для лобового стекла",
-	Recipe_Cut_ATAProtectionWindowFrontItem = "Разрезать Защиту для лобового стекла",
+
 	Recipe_Make_ATAProtectionWheelsItem = "Создать Защиту колес",
 	Recipe_Cut_ATAProtectionWheelsItem = "Разрезать Защиту колес",
 	
 	Recipe_Basic_Tuning = "Базовый тюнинг",
 
-	
 /************ Autotsar Tuning Atelier - Bus ************/
 	
 	Recipe_Make_ATABusKengur1Item = "Cделать кенгурятник для автобуса",
@@ -42,6 +31,19 @@ Recipe_RU = {
 	Recipe_Cut_ATAJeepBumper4Item = "Разрезать Бампер для Jeep Wrangler",
 	Recipe_Make_ATAJeepBumper4Item = "Создать Смертоносный бампер для Jeep Wrangler",
 	
+	Recipe_Make_ATAJeepProtectionWindowItem = "Создать Защиту стёкол Jeep Wrangler",
+	Recipe_Cut_ATAJeepProtectionWindowItem = "Разрезать Защиту стёкол Jeep Wrangler",
+	Recipe_Make_ATAJeepProtectionWindowFrontItem = "Создать Защиту лобового стекла Jeep Wrangler",
+	Recipe_Cut_ATAJeepProtectionWindowFrontItem = "Разрезать Защиту лобового стекла Jeep Wrangler",
+	Recipe_Make_ATAJeepProtectionWindowRearItem = "Создать Защиту заднего стекла Jeep Wrangler",
+	Recipe_Cut_ATAJeepProtectionWindowRearItem = "Разрезать Защиту заднего стекла Jeep Wrangler",
+	
+	Recipe_Make_ATAJeepInteractiveTrunkRoofRackItem = "Создать Багажник для крыши Jeep Wrangler",
+	Recipe_Cut_ATAJeepInteractiveTrunkRoofRackItem = "Разрезать Багажник для крыши Jeep Wrangler",
+	Recipe_Make_ATAJeepInteractiveTrunkWheelRackItem = "Создать Багажник над запасным колесом Jeep Wrangler",
+	Recipe_Cut_ATAJeepInteractiveTrunkWheelRackItem = "Разрезать Багажник над запасным колесом Jeep Wrangler",
+	Recipe_Make_ATAJeepRoofBaseItem = "Создать Рейлинги Jeep Wrangler",
+	Recipe_Cut_ATAJeepRoofBaseItem = "Разрезать Рейлинги Jeep Wrangler",
 	
 /************ Autotsar Tuning Atelier - Mustang ************/
 	

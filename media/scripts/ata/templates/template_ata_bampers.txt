@@ -31,7 +31,7 @@ module Base
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.InstallTest.multiRequire,
-				complete = ATATuning.InstallComplete.Default,
+				complete = ATATuning.InstallComplete.DefaultModel,
             }
             table uninstall
             {

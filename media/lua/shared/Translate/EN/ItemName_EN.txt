@@ -1,16 +1,4 @@
 ItemName_EN = {
-	ItemName_Base.ATAInteractiveTrunkRoofRackItem = "Roof rack",
-	ItemName_Base.ATAInteractiveTrunkWheelRackItem = "Trunk over spare wheel",
-	ItemName_Base.ATARoofBaseItem = "Roof rails",
-	
-	ItemName_Base.ATAProtectionWindowItem = "Windows Protection",
-	ItemName_Base.ATAProtectionWindowFrontItem = "Windshield Protection",
-	ItemName_Base.ATAProtectionWheelsChain = "Chain",
-	
-	ItemName_Base.ATARoofLightItem = "Roof lights",
-	ItemName_Base.ATARoofTentItem = "Roof tent",
-	ItemName_Base.ATASnorkelItem = "Schnorkel",
-	
 	ItemName_Base.TransportCounter = "Portable shelf",
 	ItemName_Base.TransportCupboard = "Portable cupboard",
 	ItemName_Base.TransportDrawer = "Portable drawer",
@@ -28,7 +16,8 @@ ItemName_EN = {
 	ItemName_Base.1000Tank2 = "Tank 1000",
 	ItemName_Base.1000Tank3 = "Tank 1000",
 	
-	ItemName_Autotsar.ATATuningMagUniverse = "Magazine «Autotsar Tuning Atelier - General Tuning Rules»",
+	ItemName_Base.ATARoofLightItem = "Roof lights",
+	ItemName_Base.ATAProtectionWheelsChain = "Chain",
 
 
 	/************ Autotsar Tuning Atelier - Bus ************/
@@ -54,10 +43,23 @@ ItemName_EN = {
 
 	/************ Autotsar Tuning Atelier - Jeep ************/
 	
-	ItemName_Base.ATAJeepBumper1Item = "Jeep Wrangler - classic bumper",
-	ItemName_Base.ATAJeepBumper2Item = "Jeep Wrangler - winch bumper",
-	ItemName_Base.ATAJeepBumper3Item = "Jeep Wrangler - bullbar",
-	ItemName_Base.ATAJeepBumper4Item = "Jeep Wrangler - lethal bumper",
+	ItemName_Autotsar.AtTuningMagJeep = "Magazine «Autotsar Tuning Atelier - Jeep Wrangler»",
+	
+	ItemName_Autotsar.ATAJeepBumper1Item = "Jeep Wrangler - classic bumper",
+	ItemName_Autotsar.ATAJeepBumper2Item = "Jeep Wrangler - winch bumper",
+	ItemName_Autotsar.ATAJeepBumper3Item = "Jeep Wrangler - bullbar",
+	ItemName_Autotsar.ATAJeepBumper4Item = "Jeep Wrangler - lethal bumper",
+	
+	ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jeep Wrangler - Side Windows Protection",
+	ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jeep Wrangler - Windshield Protection",
+	ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jeep Wrangler - Rear Window Protection",
+	
+	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jeep Wrangler - Roof Rils",
+	ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jeep Wrangler - Roof Rack",
+	ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jeep Wrangler - Trunk over Spare Wheel",
+
+	ItemName_Autotsar.ATAJeepSnorkelItem = "Jeep Wrangler - Schnorkel",
+	ItemName_Autotsar.ATAJeepRoofTentItem = "Jeep Wrangler - Roof Tent",
 	
 	
 	/************ Autotsar Tuning Atelier - Mustang ************/

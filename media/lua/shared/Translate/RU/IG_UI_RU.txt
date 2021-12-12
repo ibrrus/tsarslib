@@ -4,6 +4,7 @@ IGUI_RU = {
 	IGUI_VehiclePartATAVisualSpoilerRear = "Спойлер",
 	IGUI_VehiclePartATAVisualSkirtsSide = "Юбки боковых порогов",
 	IGUI_VehiclePartATAVisualFendersWide = "Широкие арки",
+	IGUI_VehiclePartATAVisualSnorkel = "Шноркель",
 	IGUI_ItemCat_Tuning = "Тюнинг",
 	
 	/* ATA */
@@ -19,12 +20,12 @@ IGUI_RU = {
 	IGUI_VehiclePartWindowsRightProtection = "Защита правых боковых стекол",
 	IGUI_VehiclePartATAProtectionWindowFront = "... стекла лобового",
 	IGUI_VehiclePartATAProtectionWindowRear = "... стекла заднего",
-	IGUI_VehiclePartATAProtectionWindowFrontLeft = "... стекла бокового переднего левого",
-	IGUI_VehiclePartATAProtectionWindowFrontRight = "... стекла бокового переднего правого",
-	IGUI_VehiclePartATAProtectionWindowMiddleLeft = "... стекла бокового среднего левого",
-	IGUI_VehiclePartATAProtectionWindowMiddleRight = "... стекла бокового среднего правого",
-	IGUI_VehiclePartATAProtectionWindowRearLeft = "... стекла бокового заднего левого",
-	IGUI_VehiclePartATAProtectionWindowRearRight = "... стекла бокового заднего правого",
+	IGUI_VehiclePartATAProtectionWindowFrontLeft = "... окна переднего левого",
+	IGUI_VehiclePartATAProtectionWindowFrontRight = "... окна переднего правого",
+	IGUI_VehiclePartATAProtectionWindowMiddleLeft = "... окна среднего левого",
+	IGUI_VehiclePartATAProtectionWindowMiddleRight = "... окна среднего правого",
+	IGUI_VehiclePartATAProtectionWindowRearLeft = "... окна заднего левого",
+	IGUI_VehiclePartATAProtectionWindowRearRight = "... окна заднего правого",
 	IGUI_VehiclePartATAProtectionWheels = "... колес",
 	IGUI_VehiclePartATASpareWheel = "Запасное колесо",
 	IGUI_VehiclePartATABumper = "Бампер",
@@ -43,15 +44,14 @@ IGUI_RU = {
 	IGUI_VehiclePartATARoofLampRight = "Лампочка для правых фонарей на крыше",
 	IGUI_VehiclePartATARoofLampRear = "Лампочка для задних фонарей на крыше",
 	
-	IGUI_VehiclePartATASnorkel = "Шноркель",
-	
-	IGUI_ExitVehicleTent = "Выйти из палатки",
 	IGUI_CraftCategory_Tuning = "Тюнинг",
 	IGUI_VehiclePartCattuning = "Тюнинг",
 	IGUI_VehiclePartCatprotection = "Защита",
-	IGUI_PlayerText_ATA_TentDontOpen = "Палатка должна быть пустая",
+	IGUI_ExitVehicleTent = "Выйти из палатки",
 	
+	IGUI_PlayerText_ATA_TentDontOpen = "Палатка должна быть пустая",
 	IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник",
+	
 	/* Common Library */
 	IGUI_VehiclePartshelves = "Полки",
 	IGUI_VehiclePartstove = "Плита",
@@ -113,4 +113,8 @@ IGUI_RU = {
     IGUI_Sleep_NotTiredEnough_Mattress = "Я не устал для того чтобы спать",
 	IGUI_Turn_Oven_On = "Включить плиту", 
 	IGUI_Turn_Oven_Off = "Выключить плиту",
+	IGUI_VehiclePartCatBatteryCharger = "Зарядное устройство",
+	IGUI_VehiclePartBatteryChargerA = "Место под аккумулятор",
+	IGUI_VehiclePartBatteryChargerB = "Место под аккумулятор",
+	IGUI_VehiclePartBatteryChargerC = "Место под аккумулятор",
 }

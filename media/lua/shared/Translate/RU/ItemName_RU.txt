@@ -1,16 +1,4 @@
 ItemName_RU = {
-	ItemName_Base.ATAInteractiveTrunkRoofRackItem = "Багажник для крыши",
-	ItemName_Base.ATAInteractiveTrunkWheelRackItem = "Багажник над запасным колесом",
-	ItemName_Base.ATARoofBaseItem = "Рейлинги",
-	
-	ItemName_Base.ATAProtectionWindowItem = "Защита для автостекол",
-	ItemName_Base.ATAProtectionWindowFrontItem = "Защита для лобового стекла",
-	ItemName_Base.ATAProtectionWheelsChain = "Цепь",
-	
-	ItemName_Base.ATARoofLightItem = "Фонари для крыши",
-	ItemName_Base.ATARoofTentItem = "Палатка для крыши",
-	ItemName_Base.ATASnorkelItem = "Шноркель",
-	
 	ItemName_Base.TransportCounter = "Портативная полка",
 	ItemName_Base.TransportCupboard = "Портативный шкаф",
 	ItemName_Base.TransportDrawer = "Портативный шкаф",
@@ -28,7 +16,8 @@ ItemName_RU = {
 	ItemName_Base.1000Tank2 = "Цистерна 1000",
 	ItemName_Base.1000Tank3 = "Цистерна 1000",
 	
-	ItemName_Autotsar.ATATuningMagUniverse = "Журнал «Autotsar Tuning Atelier - Общие правила тюнинга»",
+	ItemName_Base.ATARoofLightItem = "Фонари для крыши",
+	ItemName_Base.ATAProtectionWheelsChain = "Цепь",
 	
 	
 /************ Autotsar Tuning Atelier - Bus ************/
@@ -53,11 +42,25 @@ ItemName_RU = {
 
 
 /************ Autotsar Tuning Atelier - Jeep ************/
-	ItemName_Base.ATAJeepBumper1Item = "Jeep Wrangler - классический бампер",
-	ItemName_Base.ATAJeepBumper2Item = "Jeep Wrangler - бампер под лебедку",
-	ItemName_Base.ATAJeepBumper3Item = "Jeep Wrangler - кенгурятник",
-	ItemName_Base.ATAJeepBumper4Item = "Jeep Wrangler - смертоносный бампер",
 
+	ItemName_Autotsar.AtTuningMagJeep = "Журнал «Autotsar Tuning Atelier - Jeep Wrangler»",
+	
+	ItemName_Autotsar.ATAJeepBumper1Item = "Jeep Wrangler - классический бампер",
+	ItemName_Autotsar.ATAJeepBumper2Item = "Jeep Wrangler - бампер под лебедку",
+	ItemName_Autotsar.ATAJeepBumper3Item = "Jeep Wrangler - кенгурятник",
+	ItemName_Autotsar.ATAJeepBumper4Item = "Jeep Wrangler - смертоносный бампер",
+	
+	ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jeep Wrangler - защита для боковых стекол",
+	ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jeep Wrangler - защита для лобового стекла",
+	ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jeep Wrangler - защита для заднего стекла",
+
+	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jeep Wrangler - рейлинги",
+	ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jeep Wrangler - багажник для крыши",
+	ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jeep Wrangler - багажник над запасным колесом",
+	
+	ItemName_Autotsar.ATAJeepSnorkelItem = "Jeep Wrangler - шноркель",
+	ItemName_Autotsar.ATAJeepRoofTentItem = "Jeep Wrangler - палатка для крыши",
+	
 	
 /************ Autotsar Tuning Atelier - Mustang ************/
 	
@@ -77,6 +80,4 @@ ItemName_RU = {
 	ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Ford Mustang - защита лобового стекла",
 	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Ford Mustang - защита заднего стекла",
 	ItemName_Autotsar.ATAMustangRoofRackItem = "Ford Mustang - багажник для крыши",
-	
-	
 }

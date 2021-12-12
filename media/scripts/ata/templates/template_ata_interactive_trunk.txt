@@ -1,163 +1,11 @@
 module Base
 {
-	
-	model ATAInteractiveTrunkRoofRackWorld
-	{
-		mesh = WorldItems/ATA_RoofTrunk,
-		texture = WorldItems/ATA_Common_items,
-		scale = 0.04,
-	}
-	
-	item ATAInteractiveTrunkRoofRackItem /* Спавн + Крафт */ 
-	{
-		DisplayCategory = Tuning,
-		Weight	=	10.0,
-        Type	=	Normal,
-        DisplayName	= Roof Rack,
-        Icon	=	ATAInteractiveTrunkRoofRackItem,
-        MaxCapacity = 70,
-        ConditionAffectsCapacity = false,
-        ConditionMax = 100,
-        ChanceToSpawnDamaged = 100,
-        MechanicsItem = TRUE,
-		Tooltip = Tooltip_item_tuning,
-		WorldStaticModel = ATAInteractiveTrunkRoofRackWorld,
-	}
-	
-	recipe Make ATAInteractiveTrunkRoofRackItem
-	{
-	   MetalPipe=12,
-	   MetalBar=4,
-	   BlowTorch=32,
-	   keep WeldingMask,
-	   Result:ATAInteractiveTrunkRoofRackItem,
-	   Time:350.0,
-	   Category:Tuning,
-	   SkillRequired:MetalWelding=5,
-	   OnGiveXP:Recipe.OnGiveXP.MetalWelding20,
-	   NeedToBeLearn:true,
-	}
-	
-	recipe Cut ATAInteractiveTrunkRoofRackItem
-	{
-	   ATAInteractiveTrunkRoofRackItem=1,
-	   BlowTorch=32,
-	   keep WeldingMask,
-	   Result:MetalPipe=8,
-	   Time:350.0,
-	   Category:Tuning,
-	   SkillRequired:MetalWelding=2,
-	   OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
-	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
-	   NeedToBeLearn:false,
-	}
-	
-	model ATAInteractiveTrunkWheelRackWorld
-	{
-		mesh = WorldItems/ATA_RearTrunk,
-		texture = WorldItems/ATA_Common_items,
-		scale = 0.04,
-	}
-	
-	
-	item ATAInteractiveTrunkWheelRackItem /* Спавн + Крафт */ 
-	{
-		DisplayCategory = Tuning,
-		Weight	=	10.0,
-        Type	=	Normal,
-        DisplayName	= Wheel Rack,
-        Icon	=	ATAInteractiveTrunkWheelRackItem,
-        MaxCapacity = 35,
-        ConditionAffectsCapacity = false,
-        ConditionMax = 100,
-        ChanceToSpawnDamaged = 100,
-        MechanicsItem = TRUE,
-		Tooltip = Tooltip_item_tuning,
-		WorldStaticModel = ATAInteractiveTrunkWheelRackWorld,
-	}
-	
-	recipe Make ATAInteractiveTrunkWheelRackItem
-	{
-	   MetalPipe=4,
-	   MetalBar=4,
-	   BlowTorch=16,
-	   keep WeldingMask,
-	   Result:ATAInteractiveTrunkWheelRackItem,
-	   Time:350.0,
-	   Category:Tuning,
-	   SkillRequired:MetalWelding=3,
-	   OnGiveXP:Recipe.OnGiveXP.MetalWelding15,
-	   NeedToBeLearn:true,
-	}
-	
-	recipe Cut ATAInteractiveTrunkWheelRackItem
-	{
-	   ATAInteractiveTrunkWheelRackItem=1,
-	   BlowTorch=16,
-	   keep WeldingMask,
-	   Result:MetalPipe=4,
-	   Time:350.0,
-	   Category:Tuning,
-	   SkillRequired:MetalWelding=2,
-	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
-	   NeedToBeLearn:false,
-	}
-	
-	model ATARoofBaseWorld
-	{
-		mesh = WorldItems/ATA_Cage,
-		texture = WorldItems/ATA_Common_items,
-		scale = 0.04,
-	}
-	
-	item ATARoofBaseItem /* Спавн + Крафт */
-	{
-		DisplayCategory = Tuning,
-		Weight	=	10.0,
-        Type	=	Normal,
-        DisplayName	= ATARoofBaseItem,
-        Icon	=	ATARoofBaseItem,
-        ChanceToSpawnDamaged = 25,
-        ConditionMax = 100,
-        MechanicsItem = TRUE,
-		Tooltip = Tooltip_item_tuning,
-		WorldStaticModel = ATARoofBaseWorld,
-	}
-	
-	recipe Make ATARoofBaseItem
-	{
-	   MetalPipe=8,
-	   BlowTorch=16,
-	   keep WeldingMask,
-	   Result:ATARoofBaseItem,
-	   Time:350.0,
-	   Category:Tuning,
-	   SkillRequired:MetalWelding=4,
-	   OnGiveXP:Recipe.OnGiveXP.MetalWelding15,
-	   NeedToBeLearn:true,
-	}
-	
-	recipe Cut ATARoofBaseItem
-	{
-	   ATARoofBaseItem=1,
-	   BlowTorch=16,
-	   keep WeldingMask,
-	   Result:MetalPipe=4,
-	   Time:350.0,
-	   Category:Tuning,
-	   SkillRequired:MetalWelding=2,
-	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
-	   NeedToBeLearn:false,
-	}
-	
 	template vehicle ATAInteractiveTrunk
 	{
-		
 		part ATARoofBase
 		{
 			area = TruckBed,
 			category = tuning,
-			itemType = Base.ATARoofBaseItem,
 			specificItem = false,
 			mechanicRequireKey = false,
 			repairMechanic = true,
@@ -183,7 +31,7 @@ module Base
 			}
 			table uninstall
 			{
-				requireUninstalled = ATARoofRackFirst;ATARoofTent;ATARoofLightFront;ATARoofLightLeft;ATARoofLightRight;ATARoofLightRear,
+				requireUninstalled = ATAInteractiveTrunkRoofRack;ATARoofTent;ATARoofLightFront;ATARoofLightLeft;ATARoofLightRight;ATARoofLightRear,
 				items
 				{
 					1
@@ -207,12 +55,12 @@ module Base
 		
 		part ATAInteractiveTrunkRoofRack
 		{
-			itemType = Base.ATAInteractiveTrunkRoofRackItem,
+			
 		}
 		
 		part ATAInteractiveTrunkWheelRack
 		{
-			itemType = Base.ATAInteractiveTrunkWheelRackItem,
+			
 		}
 		
 		part ATAInteractiveTrunk*

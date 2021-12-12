@@ -1,3 +1,13 @@
+v.1.23dev8
+2021-12-12
+
+Убраны все общие предметы для тюнинга.
+Улучшены переводы на русском и английском.
+
+Removed all common items for tuning.
+Improved translations in Russian and English.
+
+-------------------
 v.1.23dev7
 2021-12-12
 

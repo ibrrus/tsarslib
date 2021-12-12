@@ -1,105 +1,6 @@
 module Base
 {
 
-	model ATAProtectionWindowWorld
-	{
-		mesh = WorldItems/ATA_WindowsArmor,
-		texture = WorldItems/ATA_Common_items,
-		scale = 0.04,
-	}
-
-	item ATAProtectionWindowItem /* Крафт */ 
-	{
-		Weight	=	10.0,
-        Type	=	Normal,
-        DisplayName	=	ATAProtectionWindowItem,
-        Icon	=	ATAProtectionWindowItem,
-		ConditionMax = 100,
-        MechanicsItem = TRUE,
-		Tooltip = Tooltip_item_tuning,
-		WorldStaticModel = ATAProtectionWindowWorld,
-	}
-	
-	recipe Make ATAProtectionWindowItem
-    {
-       MetalBar=10,
-       BlowTorch=20,
-       keep WeldingMask,
-       Result:ATAProtectionWindowItem,
-       Time:350.0,
-       Category:Tuning,
-       SkillRequired:MetalWelding=3,
-       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
-       NeedToBeLearn:true,
-    }
-	
-	recipe Cut ATAProtectionWindowItem
-    {
-       ATAProtectionWindowItem=1,
-       BlowTorch=20,
-       keep WeldingMask,
-       Result:MetalPipe=5,
-       Time:350.0,
-       Category:Tuning,
-       SkillRequired:MetalWelding=2,
-	   OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
-       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
-       NeedToBeLearn:false,
-    }
-	
-	model ATAProtectionWindowFrontItemWorld
-	{
-		mesh = WorldItems/ATA_FrontWindowArmor,
-		texture = WorldItems/ATA_Common_items,
-		scale = 0.04,
-	}
-	
-	item ATAProtectionWindowFrontItem /* Крафт */ 
-	{
-		Weight	=	10.0,
-        Type	=	Normal,
-        DisplayName	=	ATAProtectionWindowFrontItem,
-        Icon	=	ATAProtectionWindowFrontItem,
-		ConditionMax = 100,
-        MechanicsItem = TRUE,
-		Tooltip = Tooltip_item_tuning,
-		WorldStaticModel = ATAProtectionWindowFrontItemWorld,
-	}
-	
-	recipe Make ATAProtectionWindowFrontItem
-	{
-	   MetalPipe=2,
-	   SheetMetal=3,
-	   SmallSheetMetal=4,
-	   MetalBar=4,
-	   Screws=8,
-	   BlowTorch=26,
-	   keep WeldingMask,
-	   keep Screwdriver,
-	   Result:ATAProtectionWindowFrontItem,
-	   Time:650.0,
-	   Category:Tuning,
-	   SkillRequired:MetalWelding=4,
-	   OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
-	   NeedToBeLearn:true,
-	}
-	
-	recipe Cut ATAProtectionWindowFrontItem
-	{
-	   ATAProtectionWindowFrontItem=1,
-	   BlowTorch=26,
-	   keep WeldingMask,
-	   keep Screwdriver,
-	   Result:SmallSheetMetal=4,
-	   Time:650.0,
-	   Category:Tuning,
-	   SkillRequired:MetalWelding=2,
-	   OnCreate:Recipe.OnCreate.CutATAProtectionWindowFrontItem,
-	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
-	   NeedToBeLearn:false,
-	}
-	
-		
 	item ATAProtectionWheelsChain /* Спавн */ 
 	{
 		Weight	=	3.0,
@@ -111,12 +12,11 @@ module Base
 		Tooltip = Tooltip_item_tuning,
 		ataProtection = TireFrontLeft;TireFrontRight;TireRearLeft;TireRearRight,
 	}
-	
+
 	template vehicle ATAProtection
 	{
 		part ATAProtectionWheels
 		{
-			
 			model ATAProtection
 			{
 				file = Vehicles_Wheel,
@@ -171,7 +71,6 @@ module Base
 		
 		part ATAProtectionWindowFront
 		{
-			itemType = Base.ATAProtectionWindowFrontItem,
 			parent = Windshield,
 			area = Engine,
 			table install
@@ -181,7 +80,6 @@ module Base
 		}
 		part ATAProtectionWindowRear
 		{
-			itemType = Base.ATAProtectionWindowItem,
 			parent = WindshieldRear,
 			area = TruckBed,
 			table install
@@ -195,7 +93,6 @@ module Base
 			door
 			{
 			}
-			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowFrontLeft,
 			area = SeatFrontLeft,
 			table install
@@ -208,7 +105,6 @@ module Base
 			door
 			{
 			}
-			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowFrontRight,
 			area = SeatFrontRight,
 			table install
@@ -221,7 +117,6 @@ module Base
 			door
 			{
 			}
-			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowMiddleLeft,
 			area = SeatMiddleLeft,
 			table install
@@ -234,7 +129,6 @@ module Base
 			door
 			{
 			}
-			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowMiddleRight,
 			area = SeatMiddleRight,
 			table install
@@ -247,7 +141,6 @@ module Base
 			door
 			{
 			}
-			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowRearLeft,
 			area = SeatRearLeft,
 			table install
@@ -260,7 +153,6 @@ module Base
 			door
 			{
 			}
-			itemType = Base.ATAProtectionWindowItem,
 			parent = WindowRearRight,
 			area = SeatRearRight,
 			table install

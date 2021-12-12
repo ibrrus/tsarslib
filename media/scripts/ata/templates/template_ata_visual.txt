@@ -40,6 +40,10 @@ module Base
 		{
 			area = TireFrontLeft,
 		}
+		part ATAVisualSnorkel
+		{
+			area = TireFrontRight,
+		}
 		part ATAVisual*
 		{
 			category = tuning,
@@ -47,10 +51,6 @@ module Base
 			itemType = Base.LightBulb,
 			mechanicRequireKey = false,
 			repairMechanic = false,
-			model Default
-			{
-				file = Vehicles_Wheel,
-			}
 			table install
 			{
 				items
