@@ -45,16 +45,16 @@ ItemName_EN = {
 	
 	ItemName_Autotsar.AtTuningMagJeep = "Magazine «Autotsar Tuning Atelier - Jeep Wrangler»",
 	
-	ItemName_Autotsar.ATAJeepBumper1Item = "Jeep Wrangler - classic bumper",
-	ItemName_Autotsar.ATAJeepBumper2Item = "Jeep Wrangler - winch bumper",
-	ItemName_Autotsar.ATAJeepBumper3Item = "Jeep Wrangler - bullbar",
-	ItemName_Autotsar.ATAJeepBumper4Item = "Jeep Wrangler - lethal bumper",
+	ItemName_Autotsar.ATAJeepBumper1Item = "Jeep Wrangler - Classic bumper",
+	ItemName_Autotsar.ATAJeepBumper2Item = "Jeep Wrangler - Winch bumper",
+	ItemName_Autotsar.ATAJeepBumper3Item = "Jeep Wrangler - Bullbar",
+	ItemName_Autotsar.ATAJeepBumper4Item = "Jeep Wrangler - Lethal bumper",
 	
 	ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jeep Wrangler - Side Windows Protection",
 	ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jeep Wrangler - Windshield Protection",
 	ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jeep Wrangler - Rear Window Protection",
 	
-	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jeep Wrangler - Roof Rils",
+	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jeep Wrangler - Congo cage",
 	ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jeep Wrangler - Roof Rack",
 	ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jeep Wrangler - Trunk over Spare Wheel",
 

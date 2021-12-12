@@ -108,14 +108,18 @@ function ATATuning.ModelByItemName(vehicle, part, item)
 		part:setModelVisible("StaticPart", true)
 	else
 		if part:getTable("ataModels") then
+			local modelVisibleList = {}
 			if item then
 				part:setModelVisible("StaticPart", true)
 				for itemName, oneModel in pairs(part:getTable("ataModels")) do
 					if item:getType() == itemName then
 						print("setModelVisible: ", oneModel)
 						part:setModelVisible(oneModel, true)
+						modelVisibleList[oneModel] = true
 					else
-						part:setModelVisible(oneModel, false)
+						if not modelVisibleList[oneModel] then
+							part:setModelVisible(oneModel, false)
+						end
 					end
 				end
 			else
@@ -163,8 +167,16 @@ function ATATuning.Create.Chance0(vehicle, part)
 	vehicle:doDamageOverlay()
 end
 
+function ATATuning.Create.Chance5(vehicle, part)
+	if ZombRand(100) <= 5 then
+		ATATuning.Create.DefaultModel(vehicle, part)
+	else
+		ATATuning.Create.Chance0(vehicle, part)
+	end
+end
+
 function ATATuning.Create.Chance15(vehicle, part)
-	if ZombRand(100) < 15 then
+	if ZombRand(100) <= 15 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
 		ATATuning.Create.Chance0(vehicle, part)
@@ -172,7 +184,7 @@ function ATATuning.Create.Chance15(vehicle, part)
 end
 
 function ATATuning.Create.Chance30(vehicle, part)
-	if ZombRand(100) < 30 then
+	if ZombRand(100) <= 30 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
 		ATATuning.Create.Chance0(vehicle, part)
@@ -180,7 +192,7 @@ function ATATuning.Create.Chance30(vehicle, part)
 end
 
 function ATATuning.Create.Chance45(vehicle, part)
-	if ZombRand(100) < 45 then
+	if ZombRand(100) <= 45 then
 		ATATuning.Create.DefaultModel(vehicle, part)
 	else
 		ATATuning.Create.Chance0(vehicle, part)

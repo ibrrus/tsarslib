@@ -89,8 +89,9 @@ module Base
 						equip = primary,
                     }
                 }
+				skills = Mechanics:3,
 				time = 2000,
-				recipes = Intermediate Mechanics;Basic Tuning,
+				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.InstallTest.multiRequire,
 				complete = ATATuning.InstallComplete.ATAInteractiveTrunk,
             }
@@ -108,6 +109,7 @@ module Base
  						equip = primary,
                    }
                 }
+				skills = Mechanics:2,
 				time = 2000,
 				recipes = Intermediate Mechanics;Basic Tuning,
 				test = ATATuning.UninstallTest.multiRequire,

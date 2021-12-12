@@ -57,12 +57,20 @@ module Base
 				{
 					1
 					{
-						type = Base.LugWrench,
+						type = Base.Screwdriver,
 						count = 1,
 						keep = true,
 						equip = primary,
 					}
+					2
+					{
+						type = Base.Wrench,
+						count = 1,
+						keep = true,
+						equip = secondary,
+					}
 				}
+				skills = Mechanics:6,
 				time = 400,
 				test = ATATuning.InstallTest.multiRequire,
 				complete = ATATuning.InstallComplete.DefaultModel,
@@ -73,12 +81,20 @@ module Base
 				{
 					1
 					{
-						type = Base.LugWrench,
+						type = Base.Screwdriver,
 						count = 1,
 						keep = true,
 						equip = primary,
 					}
+					2
+					{
+						type = Base.Wrench,
+						count = 1,
+						keep = true,
+						equip = secondary,
+					}
 				}
+				skills = Mechanics:5,
 				time = 400,
 				test = ATATuning.UninstallTest.multiRequire,
 				complete = ATATuning.UninstallComplete.DefaultModel,

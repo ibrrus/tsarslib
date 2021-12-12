@@ -40,6 +40,7 @@ module Base
                     }
                 }
 				time = 2000,
+				skills = Mechanics:2,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.InstallTest.multiRequire,
 				complete = ATATuning.InstallComplete.WheelsProtection,
@@ -57,6 +58,7 @@ module Base
                    }
                 }
 				time = 2000,
+				skills = Mechanics:2,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.UninstallTest.multiRequire,
 				complete = ATATuning.UninstallComplete.WheelsProtection,
@@ -178,6 +180,7 @@ module Base
 						equip = primary,
                     }
                 }
+				skills = Mechanics:5,
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.InstallTest.multiRequire,
@@ -195,6 +198,7 @@ module Base
  						equip = primary,
                    }
                 }
+				skills = Mechanics:4,
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.UninstallTest.multiRequire,

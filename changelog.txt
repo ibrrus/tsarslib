@@ -1,3 +1,13 @@
+v.1.23
+2021-12-12
+
+Исправлены переводы. 
+Добавлена проверка скиллов механика при установке тюнингованных запчастей.
+
+Fixed translations. 
+Added mechanic's skills check when installing tuned parts.
+
+-------------------
 v.1.23dev8
 2021-12-12
 

@@ -28,6 +28,7 @@ module Base
 						equip = primary,
                     }
                 }
+				skills = Mechanics:5,
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.InstallTest.multiRequire,
@@ -52,6 +53,7 @@ module Base
 						equip = primary,
                     }
                 }
+				skills = Mechanics:4,
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.UninstallTest.multiRequire,
