@@ -83,37 +83,37 @@ local function OnPreGameStart(object)
 end
 
 
-local function OnTickEvenPaused(object)
+local function EventsTester.OnTickEvenPaused(object)
 	print("OnTickEvenPaused: ", object)
 end
-local function OnRenderUpdate(object)
+local function EventsTester.OnRenderUpdate(object)
 	print("OnRenderUpdate: ", object)
 end
 
-local function OnKeyStartPressed(object, a, b, c, d)
+local function EventsTester.OnKeyStartPressed(object, a, b, c, d)
 	print("OnKeyStartPressed: ", object, " ", a, " ", b, " ", c, " ", d )
 end
 
-local function OnKeyPressed(object, a, b, c, d)
+local function EventsTester.OnKeyPressed(object, a, b, c, d)
 	print("OnKeyPressed: ", object, " ", a, " ", b, " ", c, " ", d )
 end
 
-local function OnJoypadActivate(id, a, b, c, d)
+local function EventsTester.OnJoypadActivate(id, a, b, c, d)
 	print("OnJoypadActivate: ", object, " ", a, " ", b, " ", c, " ", d )
 	
 end
 
-local function OnJoypadActivateUI(object, a, b, c, d)
+local function EventsTester.OnJoypadActivateUI(object, a, b, c, d)
 	print("OnJoypadActivateUI: ", object, " ", a, " ", b, " ", c, " ", d )
 end
 
-local function OnInitWorld(object, a, b, c, d)
+local function EventsTester.OnInitWorld(object, a, b, c, d)
 	print("EventsTester.OnInitWorld: BIP", object, " ", a, " ", b, " ", c, " ", d )
 	-- Срабатывает:
 	-- 		после запуска игры до нажатия "НАЧАТЬ ИГРУ";
 end
 
-local function LoadGridsquare(object)
+local function EventsTester.LoadGridsquare(object)
 	print("EventsTester.OnInitWorld: BIP", object, " ", a, " ", b, " ", c, " ", d )
 	-- Срабатывает:
 	-- 		при появлении новой ячейки (square);
@@ -121,16 +121,16 @@ local function LoadGridsquare(object)
 end
 
 -- Events.LoadGridsquare.Add(LoadGridsquare)
--- Events.OnGameBoot.Add(OnGameBoot)
--- Events.OnPreGameStart.Add(OnPreGameStart)
--- Events.OnInitWorld.Add(OnInitWorld)
-
+-- Events.OnGameBoot.Add(OnGameBoot) -- +
+-- Events.OnPreGameStart.Add(OnPreGameStart) -- +
+-- Events.OnInitWorld.Add(OnInitWorld)  -- +
+-- Events.OnGameStart.Add(tb)
 
 
 -- Events.OnTickEvenPaused.Add(OnTickEvenPaused)
 -- Events.OnRenderUpdate.Add(OnRenderUpdate)
 -- Events.OnFETick.Add(tb)
--- Events.OnGameStart.Add(tb)
+
 -- Events.OnPreUIDraw.Add(tb)
 -- Events.OnPostUIDraw.Add(tb)
 -- Events.OnCharacterCollide.Add(tb)

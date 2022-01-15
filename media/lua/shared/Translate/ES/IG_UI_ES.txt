@@ -107,4 +107,30 @@ IG_UI_ES = {
 	IGUI_VehiclePartBatteryChargerA = "Espacio de la bateria",
 	IGUI_VehiclePartBatteryChargerB = "Espacio de la bateria",
 	IGUI_VehiclePartBatteryChargerC = "Espacio de la bateria",
+	
+	/************ Autotsar Trailers ************/
+	IGUI_VehicleNameTrailerFirst = "Autotsar GNV 250",
+	IGUI_VehicleNameTrailerSecond = "Autotsar GNV 500",
+	IGUI_VehicleNameTrailerHome = "Autotsar iLYA-1990",
+	IGUI_VehicleNameTrailerHomeHartman = "Autotsar iLYA-1990 Â«HartmanÂ»",
+	IGUI_VehicleNameTrailerHomeExplorer = "Autotsar iLYA-1990 Â«ExplorerÂ»",
+	IGUI_VehicleNameTrailerKbac = "Autotsar KBAC",
+	IGUI_VehicleNameTrailerGenerator = "Autotsar GENA-220",
+
+	IGUI_VehiclePartCatGenerator = "Generador",
+	IGUI_VehiclePartEarthingOn = "Cable de alimentaciĂłn conectado",
+	IGUI_VehiclePartEarthingOff = "Cable de alimentaciĂłn desconectado",
+	
+	/************ True Actions ************/
+	IGUI_PlayerText_TRUEA_cant_lie = "Es peligroso acostarse ahora.",
+	IGUI_PlayerText_TRUEA_cant_sit = "Es peligroso sentarse ahora.",
+	IGUI_PlayerText_TRUEA_need_come_closer = "Necesito acercarme.",
+	IGUI_PlayerText_TRUEA_bed_away_wall = "Es necesario despejar el paso a la cama.",
+	IGUI_PlayerText_TRUEA_OccupiedPhrases_Sit_1 = "ÂżEstĂˇs en una pausa para el cafĂ©?",
+	IGUI_PlayerText_TRUEA_OccupiedPhrases_Lie_1 = "ÂżPor quĂ© estĂˇs acostado aquĂ­?",
+	IGUI_PlayerText_TRUEA_OccupiedPhrases_2 = "ÂżTener un descanso? Ahora es mi turno.",
+	IGUI_PlayerText_TRUEA_OccupiedPhrases_3 = "Dame el lugar, por favor.",
+	IGUI_PlayerText_TRUEA_dont_push_1 = "ÂżPor quĂ© estĂˇs empujando?",
+	IGUI_PlayerText_TRUEA_dont_push_2 = "ÂˇNo empujes!",
+	IGUI_PlayerText_TRUEA_dont_push_3 = "ÂˇDĂ©jame descansar!",
 }

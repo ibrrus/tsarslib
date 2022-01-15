@@ -55,4 +55,9 @@ IG_UI_IT = {
 	IGUI_VehiclePartBatteryChargerA = "Posto per batteria",
 	IGUI_VehiclePartBatteryChargerB = "Posto per batteria",
 	IGUI_VehiclePartBatteryChargerC = "Posto per batteria",
+	
+	/************ Autotsar Trailers ************/
+	IGUI_VehiclePartCatGenerator = "Generatore",
+	IGUI_VehiclePartEarthingOn = "Cavo elettrico connesso",
+	IGUI_VehiclePartEarthingOff ="Cavo elettrico disconnesso",
 }

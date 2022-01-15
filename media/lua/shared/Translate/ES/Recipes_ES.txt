@@ -34,10 +34,10 @@ Recipe_ES = {
 	Recipe_Make_ATABusRoofBoxItem = "Hacer caja de herramientas montada para autobus",
 
 /************ Autotsar Tuning Atelier - Jeep ************/
-	Recipe_Cut_ATAJeepBumper1Item = "Cortar parachoques para Jeep Wrangler",
-	Recipe_Cut_ATAJeepBumper2Item = "Cortar parachoques para Jeep Wrangler",
-	Recipe_Cut_ATAJeepBumper3Item = "Cortar parachoques para Jeep Wrangler",
-	Recipe_Cut_ATAJeepBumper4Item = "Cortar parachoques para Jeep Wrangler",
-	Recipe_Make_ATAJeepBumper4Item = "Crear parachoques letal para Jeep Wrangler",
+	Recipe_Cut_ATAJeepBumper1Item = "Cortar parachoques para Jaap Wrungel",
+	Recipe_Cut_ATAJeepBumper2Item = "Cortar parachoques para Jaap Wrungel",
+	Recipe_Cut_ATAJeepBumper3Item = "Cortar parachoques para Jaap Wrungel",
+	Recipe_Cut_ATAJeepBumper4Item = "Cortar parachoques para Jaap Wrungel",
+	Recipe_Make_ATAJeepBumper4Item = "Crear parachoques letal para Jaap Wrungel",
 	
 }

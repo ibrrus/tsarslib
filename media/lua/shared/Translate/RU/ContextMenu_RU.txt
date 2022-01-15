@@ -1,20 +1,41 @@
 ContextMenu_RU = {
-	ContextMenu_AirCondOff = "Выключить кондиционер",
-	ContextMenu_AirCondOn = "Включить кондиционер",
-	ContextMenu_Sleep_Mattress = "Спать на матрасе",
-	ContextMenu_PainNoSleep_Mattress = "Слишком сильная боль,<br>чтобы спать",
-	ContextMenu_PanicNoSleep_Mattress = "Слишком паникую,<br>чтобы спать",
-	ContextMenu_NoSleepTooEarly_Mattress = "Не могу снова заснуть на матрасе.<br>Попробую позднее",
-	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Залить бензин в цистерну",
-	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Слить бензин из цистерны",
-	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Заправить цистерну<br>от колонки",
-	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Заправить цистерну",
-	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Заправиться из цистерны",
-	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Нужна пустая канистра",
+	ContextMenu_AirCondOff = "Р’С‹РєР»СЋС‡РёС‚СЊ РєРѕРЅРґРёС†РёРѕРЅРµСЂ",
+	ContextMenu_AirCondOn = "Р’РєР»СЋС‡РёС‚СЊ РєРѕРЅРґРёС†РёРѕРЅРµСЂ",
+	ContextMenu_Sleep_Mattress = "РЎРїР°С‚СЊ РЅР° РјР°С‚СЂР°СЃРµ",
+	ContextMenu_PainNoSleep_Mattress = "РЎР»РёС€РєРѕРј СЃРёР»СЊРЅР°СЏ Р±РѕР»СЊ,<br>С‡С‚РѕР±С‹ СЃРїР°С‚СЊ",
+	ContextMenu_PanicNoSleep_Mattress = "РЎР»РёС€РєРѕРј РїР°РЅРёРєСѓСЋ,<br>С‡С‚РѕР±С‹ СЃРїР°С‚СЊ",
+	ContextMenu_NoSleepTooEarly_Mattress = "РќРµ РјРѕРіСѓ СЃРЅРѕРІР° Р·Р°СЃРЅСѓС‚СЊ РЅР° РјР°С‚СЂР°СЃРµ.<br>РџРѕРїСЂРѕР±СѓСЋ РїРѕР·РґРЅРµРµ",
+	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Р—Р°Р»РёС‚СЊ Р±РµРЅР·РёРЅ РІ С†РёСЃС‚РµСЂРЅСѓ",
+	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "РЎР»РёС‚СЊ Р±РµРЅР·РёРЅ РёР· С†РёСЃС‚РµСЂРЅС‹",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Р—Р°РїСЂР°РІРёС‚СЊ С†РёСЃС‚РµСЂРЅСѓ<br>РѕС‚ РєРѕР»РѕРЅРєРё",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Р—Р°РїСЂР°РІРёС‚СЊ С†РёСЃС‚РµСЂРЅСѓ",
+	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Р—Р°РїСЂР°РІРёС‚СЊСЃСЏ РёР· С†РёСЃС‚РµСЂРЅС‹",
+	ContextMenu_For_get_Gasoline_Need_Gas_Can = "РќСѓР¶РЅР° РїСѓСЃС‚Р°СЏ РєР°РЅРёСЃС‚СЂР°",
 	
-	ContextMenu_CloseTent = "Закрыть палатку",
-	ContextMenu_OpenTent = "Открыть палатку",
+	ContextMenu_CloseTent = "Р—Р°РєСЂС‹С‚СЊ РїР°Р»Р°С‚РєСѓ",
+	ContextMenu_OpenTent = "РћС‚РєСЂС‹С‚СЊ РїР°Р»Р°С‚РєСѓ",
 	
-	ContextMenu_Vehicle_EGNH = "Написать «EGNH»",
+	ContextMenu_Vehicle_EGNH = "РќР°РїРёСЃР°С‚СЊ В«EGNHВ»",
 	
+/************ Autotsar Trailers ************/
+	
+	ContextMenu_Close_trunk = "Р—Р°РєСЂС‹С‚СЊ Р±Р°РіР°Р¶РЅРёРє",
+	ContextMenu_Open_trunk = "РћС‚РєСЂС‹С‚СЊ Р±Р°РіР°Р¶РЅРёРє",
+	ContextMenu_TrailerSpotlightOn = "Р’РєР»СЋС‡РёС‚СЊ РїСЂРѕР¶РµРєС‚РѕСЂС‹",
+	ContextMenu_TrailerSpotlightOff = "Р’С‹РєР»СЋС‡РёС‚СЊ РїСЂРѕР¶РµРєС‚РѕСЂС‹",
+	ContextMenu_Turn_On_Generator = "Р—Р°РїСѓСЃС‚РёС‚СЊ РіРµРЅРµСЂР°С‚РѕСЂ",
+	
+/************ True Actions ************/
+	ContextMenu_Sit = "РЎРµСЃС‚СЊ",
+	ContextMenu_Lie = "РџСЂРёР»РµС‡СЊ",
+	ContextMenu_OnSleep = "Р›РµС‡СЊ",
+	
+/************ True Music ************/
+	ContextMenu_Stop_music = "Р’С‹РєР»СЋС‡РёС‚СЊ РјСѓР·С‹РєСѓ",
+	ContextMenu_Play_music = "РРіСЂР°С‚СЊ РјСѓР·С‹РєСѓ",
+    ContextMenu_Sound_carrier_not_install = "РќРѕСЃРёС‚РµР»СЊ РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ",
+    ContextMenu_Song = "РџРµС‚СЊ",
+	
+/************ ZuperCart ************/
+	ContextMenu_GrabTrolley = "Р’Р·СЏС‚СЊ С‚РµР»РµР¶РєСѓ",
 }

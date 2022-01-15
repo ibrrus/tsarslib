@@ -12,4 +12,11 @@ ContextMenu_IT = {
 	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Riempire il serbatoio con il carburante dell'autocisterna",
 	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Rifornirsi dall'autocisterna",
 	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Serve una tanica per la benzina",
+
+	/************ Autotsar Trailers ************/
+	ContextMenu_Close_trunk = "Chiudere il bagagliaio",
+	ContextMenu_Open_trunk = "Aprire il bagagliaio",
+	ContextMenu_TrailerSpotlightOn = "Accendere i fari",
+	ContextMenu_TrailerSpotlightOff = "Spegnere i fari",
+	ContextMenu_Turn_On_Generator = "Avviare il generatore",
 }

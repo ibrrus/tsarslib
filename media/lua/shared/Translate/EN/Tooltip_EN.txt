@@ -12,9 +12,13 @@ Tooltip_EN = {
 
 /************ Autotsar Tuning Atelier - Jeep ************/
 
-	Tooltip_item_AtTuningMagJeep = "After reading this issue you will get basic tuning knowledge and learn how to create protection, bumpers, roof rails and additional trunks for Jeep Wrangler",
+	Tooltip_item_AtTuningMagJeep = "After reading this issue you will get basic tuning knowledge and learn how to create protection, bumpers, roof rails and additional trunks for Jaap Wrungel",
 
 
 /************ Autotsar Tuning Atelier - Mustang ************/
-	Tooltip_item_ATATuningFordMustang = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, a bullbar and a roof rack for Ford Mustang",
+	Tooltip_item_ATATuningFordMustang = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, a bullbar and a roof rack for Fjord Mustard",
+	
+/************ True Music ************/
+	Tooltip_item_Boombox = "Foreign boombox. Doesn't get local radio,<br>but can play cassettes. Powered by batteries.",
+	Tooltip_item_Vinyl = "It needs electricity and connected speakers to function.",
 }

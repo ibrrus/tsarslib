@@ -41,43 +41,54 @@ ItemName_EN = {
 	ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Toolbox",
 	
 
-	/************ Autotsar Tuning Atelier - Jeep ************/
+	/************ Autotsar Tuning Atelier - Jaap Wrungel ************/
 	
-	ItemName_Autotsar.AtTuningMagJeep = "Magazine «Autotsar Tuning Atelier - Jeep Wrangler»",
+	ItemName_Autotsar.AtTuningMagJeep = "Magazine «Autotsar Tuning Atelier - Jaap Wrungel»",
 	
-	ItemName_Autotsar.ATAJeepBumper1Item = "Jeep Wrangler - Classic bumper",
-	ItemName_Autotsar.ATAJeepBumper2Item = "Jeep Wrangler - Winch bumper",
-	ItemName_Autotsar.ATAJeepBumper3Item = "Jeep Wrangler - Bullbar",
-	ItemName_Autotsar.ATAJeepBumper4Item = "Jeep Wrangler - Lethal bumper",
+	ItemName_Autotsar.ATAJeepBumper1Item = "Jaap Wrungel - Classic bumper",
+	ItemName_Autotsar.ATAJeepBumper2Item = "Jaap Wrungel - Winch bumper",
+	ItemName_Autotsar.ATAJeepBumper3Item = "Jaap Wrungel - Bullbar",
+	ItemName_Autotsar.ATAJeepBumper4Item = "Jaap Wrungel - Lethal bumper",
 	
-	ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jeep Wrangler - Side Windows Protection",
-	ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jeep Wrangler - Windshield Protection",
-	ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jeep Wrangler - Rear Window Protection",
+	ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jaap Wrungel - Side Windows Protection",
+	ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - Windshield Protection",
+	ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jaap Wrungel - Rear Window Protection",
 	
-	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jeep Wrangler - Congo cage",
-	ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jeep Wrangler - Roof Rack",
-	ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jeep Wrangler - Trunk over Spare Wheel",
+	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jaap Wrungel - Congo cage",
+	ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - Roof Rack",
+	ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - Trunk over Spare Wheel",
 
-	ItemName_Autotsar.ATAJeepSnorkelItem = "Jeep Wrangler - Schnorkel",
-	ItemName_Autotsar.ATAJeepRoofTentItem = "Jeep Wrangler - Roof Tent",
+	ItemName_Autotsar.ATAJeepSnorkelItem = "Jaap Wrungel - Schnorkel",
+	ItemName_Autotsar.ATAJeepRoofTentItem = "Jaap Wrungel - Roof Tent",
 	
 	
-	/************ Autotsar Tuning Atelier - Mustang ************/
+	/************ Autotsar Tuning Atelier - Fjord Mustard ************/
 	
-	ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Ford Mustang»",
-	ItemName_Autotsar.ATAMustangBullbar1Item = "Ford Mustang - Standart Bullbar",
-	ItemName_Autotsar.ATAMustangBullbar2Item = "Ford Mustang - Police Bullbar",
-	ItemName_Autotsar.ATAMustangBullbar3Item = "Ford Mustang - Lethal Bullbar",
-	ItemName_Autotsar.ATAMustangFendersWideItem = "Ford Mustang - Wide Fenders",
-	ItemName_Autotsar.ATAMustangSkirtsSideItem = "Ford Mustang - Side Skirts",
-	ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Ford Mustang - Spoiler Lip",
-	ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Ford Mustang - Standart Spoiler",
-	ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Ford Mustang - High Spoiler",
-	ItemName_Autotsar.ATAMustangHood2Item3 = "Ford Mustang - Cowl Hood",
-	ItemName_Autotsar.ATAMustangHood3Item3 = "Ford Mustang - Ram Air Hood",
-	ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Ford Mustang - Left Window Protection",
-	ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Ford Mustang - Right Window Protection",
-	ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Ford Mustang - Windshield Protection",
-	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Ford Mustang - Rear Window Protection",
-	ItemName_Autotsar.ATAMustangRoofRackItem = "Ford Mustang - Roof Rack",
+	ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Fjord Mustard»",
+	ItemName_Autotsar.ATAMustangBullbar1Item = "Fjord Mustard - Standart Bullbar",
+	ItemName_Autotsar.ATAMustangBullbar2Item = "Fjord Mustard - Police Bullbar",
+	ItemName_Autotsar.ATAMustangBullbar3Item = "Fjord Mustard - Lethal Bullbar",
+	ItemName_Autotsar.ATAMustangFendersWideItem = "Fjord Mustard - Wide Fenders",
+	ItemName_Autotsar.ATAMustangSkirtsSideItem = "Fjord Mustard - Side Skirts",
+	ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Fjord Mustard - Spoiler Lip",
+	ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Fjord Mustard - Standart Spoiler",
+	ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Fjord Mustard - High Spoiler",
+	ItemName_Autotsar.ATAMustangHood2Item3 = "Fjord Mustard - Cowl Hood",
+	ItemName_Autotsar.ATAMustangHood3Item3 = "Fjord Mustard - Ram Air Hood",
+	ItemName_Autotsar.ATAMustangHood4Item3 = "Fjord Mustard - Mongoose Hood",
+	ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Fjord Mustard - Left Window Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Fjord Mustard - Right Window Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Windshield Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - Rear Window Protection",
+	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - Roof Rack",
+	
+	/************ True Music ************/
+	ItemName_Tsarcraft.TCBoombox = "Boombox 'Kazakhstan-102-stereo'",
+    ItemName_Tsarcraft.TCVinylplayer = "Vinyl player 'Elektronika S1-01'",
+	
+	/************ ZuperCart ************/
+	ItemName_TMC.TrolleyContainer = "Trolley",
+	ItemName_TMC.TrolleyContainer2 = "Trolley",
+	ItemName_TMC.CartContainer = "Supermarket cart",
+	ItemName_TMC.CartContainer2 = "Supermarket cart",
 }

@@ -15,6 +15,21 @@ ContextMenu_ES = {
 	ContextMenu_CloseTent = "Cerrar carpa",
 	ContextMenu_OpenTent = "Abrir carpa",
 	
-	ContextMenu_Vehicle_EGNH = "Escribir «EGNH»",
+	ContextMenu_Vehicle_EGNH = "Escribir Â«EGNHÂ»",
+	
+	/************ Autotsar Trailers ************/
+	ContextMenu_Close_trunk = "Cerrar maletero",
+	ContextMenu_Open_trunk = "Abrir maletero",
+	ContextMenu_TrailerSpotlightOn = "Encender los focos",
+	ContextMenu_TrailerSpotlightOff = "Apagar los focos",
+	ContextMenu_Turn_On_Generator = "Encender generador",
+	
+	/************ True Actions ************/
+	ContextMenu_Sit = "Sentarse",
+	ContextMenu_Lie = "Acostarse",
+	ContextMenu_OnSleep = "Acostarse para dormir",
+	
+	/************ ZuperCart ************/
+	ContextMenu_GrabTrolley = "Coger carrito",
 	
 }

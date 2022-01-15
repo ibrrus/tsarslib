@@ -32,7 +32,7 @@ ItemName_ES = {
 
 
 /************ Autotsar Tuning Atelier - Bus ************/
-	ItemName_Autotsar.AtTuningMagBus = "Revista «Autotsar Tuning Atelier - Bear Bus»",
+	ItemName_Autotsar.AtTuningMagBus = "Revista Â«Autotsar Tuning Atelier - Bear BusÂ»",
 	ItemName_Autotsar.Bullbar2Blueprint = "Plano de barra de toro mejorada",
 	ItemName_Autotsar.Bullbar3Blueprint = "Plano de defensa con puas",
 
@@ -52,10 +52,14 @@ ItemName_ES = {
 
 
 /************ Autotsar Tuning Atelier - Jeep ************/
-	ItemName_Autotsar.ATAJeepBumper1Item = "Jeep Wrangler - parachoques clasico",
-	ItemName_Autotsar.ATAJeepBumper2Item = "Jeep Wrangler - parachoques de cabrestante",
-	ItemName_Autotsar.ATAJeepBumper3Item = "Jeep Wrangler - barra de toro",
-	ItemName_Autotsar.ATAJeepBumper4Item = "Jeep Wrangler - parachoques letal",
-
-
+	ItemName_Autotsar.ATAJeepBumper1Item = "Jaap Wrungel - parachoques clasico",
+	ItemName_Autotsar.ATAJeepBumper2Item = "Jaap Wrungel - parachoques de cabrestante",
+	ItemName_Autotsar.ATAJeepBumper3Item = "Jaap Wrungel - barra de toro",
+	ItemName_Autotsar.ATAJeepBumper4Item = "Jaap Wrungel - parachoques letal",
+	
+/************ ZuperCart ************/
+	ItemName_TMC.TrolleyContainer = "Carrito de carga",
+	ItemName_TMC.TrolleyContainer2 = "Carrito de carga",
+	ItemName_TMC.CartContainer = "Carrito de super",
+	ItemName_TMC.CartContainer2 = "Carrito de super",
 }

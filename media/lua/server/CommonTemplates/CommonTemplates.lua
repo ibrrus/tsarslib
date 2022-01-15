@@ -593,12 +593,14 @@ function CommonTemplates.Create.BatteryCharger(trailer, part)
 end
 
 function CommonTemplates.Update.BatteryCharger(trailer, part, elapsedMinutes)
+	-- print("CommonTemplates.Update.BatteryCharger")
 	if part:getInventoryItem() then
 		local chargeOld = part:getInventoryItem():getUsedDelta()
+		-- print(chargeOld)
 		local charge = chargeOld
 		-- Running the engine charges the battery
 		if elapsedMinutes > 0 and trailer:isEngineRunning() then
-			charge = math.min(charge + elapsedMinutes * 0.0001, 1.0)
+			charge = math.min(charge + elapsedMinutes * 0.001, 1.0)
 		end
 		if charge ~= chargeOld then
 			part:getInventoryItem():setUsedDelta(charge)

@@ -15,8 +15,28 @@ ContextMenu_EN = {
 	ContextMenu_CloseTent = "Close tent",
 	ContextMenu_OpenTent = "Open tent",
 	
-	/************ Autotsar Tuning Atelier - Bus ************/
+/************ Autotsar Tuning Atelier - Bus ************/
 	ContextMenu_Vehicle_EGNH = "Write «EGNH»",
 	
+/************ Autotsar Trailers ************/
+	ContextMenu_Close_trunk = "Close trunk",
+	ContextMenu_Open_trunk = "Open trunk",
+	ContextMenu_TrailerSpotlightOn = "Turn Spotlights on",
+	ContextMenu_TrailerSpotlightOff = "Turn Spotlights off",
+	ContextMenu_Turn_On_Generator = "Start generator",
 	
+/************ True Actions ************/
+	ContextMenu_Sit = "Sit",
+	ContextMenu_Lie = "Lie",
+	ContextMenu_OnSleep = "Lie down",
+	
+/************ True Music ************/
+	ContextMenu_Stop_music = "Stop music",
+	ContextMenu_Play_music = "Play music",
+    ContextMenu_Sound_carrier_not_install = "Sound carrier not install",
+    ContextMenu_Song = "Song",
+	
+/************ ZuperCart ************/
+	ContextMenu_GrabTrolley = "Take trolley",
 }
+

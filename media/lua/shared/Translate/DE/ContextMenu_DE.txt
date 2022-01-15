@@ -7,10 +7,17 @@ ContextMenu_DE = {
 	ContextMenu_NoSleepTooEarly_Mattress = "Kann nicht wieder einschlafen.<br>Versuche es spater nochmal",
 	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Treibstoff in den Tank fullen",
 	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Treibstoff aus dem Tank ablassen",
-	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Tanke mit der Zapfs‰ule",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Tanke mit der Zapfs√§ule",
 	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Tanke aus dem Tankwagen",
 	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Tanke aus dem Tankwagen",
-	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Benˆtige einen Kanister",
-	ContextMenu_CloseTent = "Schlieﬂe Zelt",
-	ContextMenu_OpenTent = "÷ffne Zelt",
+	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Ben√∂tige einen Kanister",
+	ContextMenu_CloseTent = "Schlie√üe Zelt",
+	ContextMenu_OpenTent = "√ñffne Zelt",
+	
+	/************ Autotsar Trailers ************/
+	ContextMenu_Close_trunk = "Kofferraum schlie?en",
+	ContextMenu_Open_trunk = "Kofferraum offnen",
+	ContextMenu_TrailerSpotlightOn = "Lichtwerfer ausschalten",
+    ContextMenu_TrailerSpotlightOff = "Lichtwerfer einschalten",
+	ContextMenu_Turn_On_Generator = "Start-Generator",
 }

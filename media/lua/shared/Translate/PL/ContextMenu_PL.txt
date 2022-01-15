@@ -2,10 +2,10 @@ ContextMenu_PL = {
 	ContextMenu_AirCondOn = "Sterowanie klimatyzacja",
 	ContextMenu_AirCondOff = "Sterowanie klimatyzacja",
 	
-	ContextMenu_Sleep_Mattress = "Њpij na materacu.",
-	ContextMenu_PainNoSleep_Mattress = "Bуl uniemoїliwia sen."
-	ContextMenu_PanicNoSleep_Mattress = "Panika uniemoїliwia sen."
-	ContextMenu_NoSleepTooEarly_Mattress = "Nie moїna teraz pуjњж spaж.<br>Sprуbuj pуџniej.",
+	ContextMenu_Sleep_Mattress = "Śpij na materacu.",
+	ContextMenu_PainNoSleep_Mattress = "Ból uniemożliwia sen."
+	ContextMenu_PanicNoSleep_Mattress = "Panika uniemożliwia sen."
+	ContextMenu_NoSleepTooEarly_Mattress = "Nie można teraz pójść spać.<br>Spróbuj później.",
 	
 	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Dolej benzyny do zbiornika przyczepy",
 	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Nalej benzyny ze zbiornika przyczepy",
@@ -13,5 +13,12 @@ ContextMenu_PL = {
 	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Zatankuj zbiornik przyczepy z cysterny",
 	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Zatankuj ze zbiornika przyczepy",
 	
-	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Wymaga kanistra na benzynк",
+	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Wymaga kanistra na benzynę",
+	
+	/************ Autotsar Trailers ************/
+	ContextMenu_Close_trunk = "Zamknij bagażnik",
+	ContextMenu_Open_trunk = "Otwórz bagażnik",
+	ContextMenu_TrailerSpotlightOff = "Wyłącz reflektory",
+    ContextMenu_TrailerSpotlightOn = "Włącz reflektory",
+	ContextMenu_Turn_On_Generator = "Uruchom generator",
 }
