@@ -32,7 +32,7 @@ module Base
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.InstallTest.multiRequire,
-				complete = ATATuning.InstallComplete.DefaultModel,
+				complete = ATATuning.InstallComplete.CommonProtection,
             }
             table uninstall
             {
@@ -57,7 +57,7 @@ module Base
 				time = 2000,
 				recipes = Advanced Mechanics;Basic Tuning,
 				test = ATATuning.UninstallTest.multiRequire,
-				complete = ATATuning.UninstallComplete.DefaultModel,
+				complete = ATATuning.UninstallComplete.CommonProtection,
             }
 			lua
 			{

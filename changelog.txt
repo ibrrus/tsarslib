@@ -1,3 +1,19 @@
+v.1.24
+
+Собраны все переводы из зависимых от библиотеки модов.
+Добавлены потерянные transmit'ы.
+Исправлены ошибки с защитой колес.
+Уменьшено количество спавна фонарей для крыши.
+Исправлены скрипты бамперов и кенгурятников.
+
+Collected all translations from library-dependent mods.
+Added lost 'transmit's.
+Fixed bugs with wheel protection.
+Reduced the number of spawn lanterns for the roof.
+Fixed bumpers and bullbar scripts.
+
+-------------------
+
 v.1.23
 2021-12-12
 
@@ -8,6 +24,7 @@ Fixed translations.
 Added mechanic's skills check when installing tuned parts.
 
 -------------------
+
 v.1.23dev8
 2021-12-12
 

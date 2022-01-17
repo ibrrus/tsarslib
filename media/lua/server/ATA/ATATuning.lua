@@ -1,5 +1,4 @@
 -- print("Autotsar tunning load start")
-
 if not ATATuning then ATATuning = {} end
 if not ATATuningUtils then ATATuningUtils = {} end
 if not ATATuning.CheckEngine then ATATuning.CheckEngine = {} end
@@ -103,6 +102,7 @@ Example code in the script
 ]]--
 
 function ATATuning.ModelByItemName(vehicle, part, item)
+print("ATATuning.ModelByItemName")
 	if not part:getItemType() or part:getItemType():isEmpty() then
 		part:setModelVisible("Default", true)
 		part:setModelVisible("StaticPart", true)
@@ -113,7 +113,7 @@ function ATATuning.ModelByItemName(vehicle, part, item)
 				part:setModelVisible("StaticPart", true)
 				for itemName, oneModel in pairs(part:getTable("ataModels")) do
 					if item:getType() == itemName then
-						print("setModelVisible: ", oneModel)
+						-- print("setModelVisible: ", oneModel)
 						part:setModelVisible(oneModel, true)
 						modelVisibleList[oneModel] = true
 					else
@@ -143,6 +143,8 @@ end
 function ATATuning.Create.DefaultModel(vehicle, part)
 	local item = ATATuningUtils.createPartInventoryItem(part)
 	ATATuning.ModelByItemName(vehicle, part, item)
+    vehicle:transmitPartCondition(part)
+	vehicle:transmitPartItem(part)
 	vehicle:doDamageOverlay()
 end
 
@@ -152,17 +154,20 @@ function ATATuning.Init.DefaultModel(vehicle, part)
 end
 
 function ATATuning.InstallComplete.DefaultModel(vehicle, part)
+print("ATATuning.InstallComplete.DefaultModel")
 	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
 end
 
 function ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
+print("ATATuning.UninstallComplete.DefaultModel")
 	ATATuning.ModelByItemName(vehicle, part)
 	vehicle:doDamageOverlay()
 end
 
 function ATATuning.Create.Chance0(vehicle, part)
 	part:setInventoryItem(nil)
+    vehicle:transmitPartItem(part)
 	ATATuning.ModelByItemName(vehicle, part)
 	vehicle:doDamageOverlay()
 end
@@ -311,6 +316,7 @@ function ATATuning.Create.RoofTent(vehicle, part)
 	part:setModelVisible("Open", false)
 	part:getModData()["atatuning"] = {}
 	part:getModData()["atatuning"].status = "close"
+    vehicle:transmitPartModData(part)
 end
 
 function ATATuning.ContainerAccess.RoofTent(vehicle, part, chr)
@@ -344,6 +350,7 @@ function ATATuning.InstallComplete.RoofTent(vehicle, part)
 	part:setModelVisible("Close", true)
 	part:setModelVisible("Open", false)
 	part:getModData()["atatuning"].status = "close"
+    vehicle:transmitPartModData(part)
 	vehicle:doDamageOverlay()
 end
 
@@ -353,6 +360,7 @@ function ATATuning.UninstallComplete.RoofTent(vehicle, part, item)
 	part:setModelVisible("Close", false)
 	part:setModelVisible("Open", false)
 	part:getModData()["atatuning"] = {}
+    vehicle:transmitPartModData(part)
 	vehicle:doDamageOverlay()
 end
 
@@ -370,6 +378,7 @@ function ATATuning.Use.RoofTent(vehicle, part, open)
 		part:setModelVisible("Close", false)
 		part:setModelVisible("Open", true)
 		part:getModData()["atatuning"].status = "open"
+        vehicle:transmitPartModData(part)
 		VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleLeft"))
 		vehicle:getPartById("SeatMiddleLeft"):setContainerContentAmount(0)
 		VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleRight"))
@@ -379,7 +388,10 @@ function ATATuning.Use.RoofTent(vehicle, part, open)
 		part:setModelVisible("Open", false)
 		vehicle:getPartById("SeatMiddleLeft"):setInventoryItem(nil)
 		vehicle:getPartById("SeatMiddleRight"):setInventoryItem(nil)
+        vehicle:transmitPartItem(vehicle:getPartById("SeatMiddleLeft"))
+        vehicle:transmitPartItem(vehicle:getPartById("SeatMiddleRight"))
 		part:getModData()["atatuning"].status = "close"
+        vehicle:transmitPartModData(part)
 	end
 end
 
@@ -416,6 +428,7 @@ function ATATuning.UninstallComplete.Door(vehicle, part, item)
 	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
 	item:setCondition(part:getModData().atatuning.health)
 	part:getModData().atatuning.health = nil
+    vehicle:transmitPartModData(part)
 end
 
 --***********************************************************
@@ -429,37 +442,42 @@ function ATATuning.UninstallComplete.Window(vehicle, part, item)
 	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
 	item:setCondition(part:getModData().atatuning.health)
 	part:getModData().atatuning.health = nil
+    vehicle:transmitPartModData(part)
 end
 
 function ATATuning.InstallComplete.CommonProtection(vehicle, part)
 -- print("ATATuning.InstallComplete.Protection")
 	local item = part:getInventoryItem();
 	if not item then return; end
-	ATATuning.ModelByItemName(vehicle, part, item)
 	ATATuning.InstallComplete.DefaultModel(vehicle, part)
-	if not vehicle:getModData().atatuning then
-		vehicle:getModData().atatuning = {}
-	end
 	if part:getParent() then
+        -- print("PARENT")
 		local savePart = part:getParent()
 		if savePart and savePart:getInventoryItem() then
 			if not savePart:getModData().atatuning then
 				savePart:getModData().atatuning = {}
 			end
 			savePart:getModData().atatuning.health = savePart:getCondition()
+            vehicle:transmitPartModData(savePart)
 			savePart:setCondition(100)
+            vehicle:transmitPartCondition(savePart)
 		end
 	elseif item:getModData()["ataProtection"] then
 		local partNames = item:getModData()["ataProtection"]:split(";");
-		for k, partName in ipairs(partNames) do 
-			local savePart = vehicle:getPartById(partName)
-			if savePart and savePart:getInventoryItem() then
-				if not savePart:getModData().atatuning then
-					savePart:getModData().atatuning = {}
-				end
-				savePart:getModData().atatuning.health = savePart:getCondition()
-				savePart:setCondition(100)
-			end
+		for k, partName in ipairs(partNames) do
+            -- print(partName)
+            if partName ~= "Engine" then -- защита кода от "защиты двигателя"
+                local savePart = vehicle:getPartById(partName)
+                if savePart and savePart:getInventoryItem() then
+                    if not savePart:getModData().atatuning then
+                        savePart:getModData().atatuning = {}
+                    end
+                    savePart:getModData().atatuning.health = savePart:getCondition()
+                    vehicle:transmitPartModData(savePart)
+                    savePart:setCondition(100)
+                    vehicle:transmitPartCondition(savePart)
+                end
+            end
 		end
 	end
 end
@@ -467,26 +485,33 @@ end
 function ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 -- print("ATATuning.UninstallComplete.Protection")
 	if not item then return end
-	ATATuning.ModelByItemName(vehicle, part)
 	ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
-	if not vehicle:getModData().atatuning then return end
 	if part:getParent() then
+    -- print("PARENT")
 		local savePart = part:getParent()
 		if savePart then
 			if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
+            print(savePart:getModData().atatuning.health)
 			savePart:setCondition(savePart:getModData().atatuning.health)
 			savePart:getModData().atatuning.health = nil
+            vehicle:transmitPartCondition(savePart)
+            vehicle:transmitPartModData(savePart)
 		end
 	elseif item:getModData()["ataProtection"] then
 		local partNames = item:getModData()["ataProtection"]:split(";");
 		for k, partName in ipairs(partNames) do 
-			-- print(vehicle:getModData().atatuning[partName].health)
-			local savePart = vehicle:getPartById(partName)
-			if savePart then
-				if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
-				savePart:setCondition(savePart:getModData().atatuning.health)
-				savePart:getModData().atatuning.health = nil
-			end
+            -- print(partName)
+            if partName ~= "Engine" then  -- защита кода от "защиты двигателя"
+                local savePart = vehicle:getPartById(partName)
+                if savePart then
+                    if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
+                    print(savePart:getModData().atatuning.health)
+                    savePart:setCondition(savePart:getModData().atatuning.health)
+                    savePart:getModData().atatuning.health = nil
+                    vehicle:transmitPartCondition(savePart)
+                    vehicle:transmitPartModData(savePart)
+                end
+            end
 		end
 	end
 end
@@ -501,13 +526,14 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 	local square = getCell():getGridSquare(areaCenter:getX(), areaCenter:getY(), vehicle:getZ())
 	if part:getCondition() == 0 then
 		part:setInventoryItem(nil);
+        vehicle:transmitPartItem(part)
 		square:AddWorldInventoryItem(item, 0.5, 0.5, 0)
 		ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 	else
 		-- local redoCond = false
-		if part:getParent() then
-			local savePart = part:getParent()
-			if savePart:getInventoryItem() then
+        local savePart = part:getParent()
+		if savePart then
+			if savePart and savePart:getInventoryItem() then
 				if not savePart:getModData().atatuning then
 					savePart:getModData().atatuning = {}
 				end
@@ -518,36 +544,41 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 					-- redoCond = true
 					part:setCondition(part:getCondition()-1)
 					savePart:setCondition(100)
+                    vehicle:transmitPartCondition(part)
+                    vehicle:transmitPartCondition(savePart)
 				end
 				if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
 					savePart:setContainerContentAmount(20, false, true);
 				end
+                vehicle:transmitPartModData(savePart)
 			end
 		elseif item:getModData()["ataProtection"] then
 			local partNames = item:getModData()["ataProtection"]:split(";");
-			for k, partName in ipairs(partNames) do 
-				local savePart = vehicle:getPartById(partName)
-				if savePart and savePart:getInventoryItem() then
-					if not savePart:getModData().atatuning then
-						savePart:getModData().atatuning = {}
-					end
-					if not savePart:getModData().atatuning.health then
-						savePart:getModData().atatuning.health = savePart:getCondition()
-					end
-					if (savePart:getCondition() < 80) then
-						-- redoCond = true
-						part:setCondition(part:getCondition()-1)
-						savePart:setCondition(100)
-					end
-					if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
-						savePart:setContainerContentAmount(20, false, true);
-					end
-				end
+			for k, partName in ipairs(partNames) do
+                if partName ~= "Engine" then -- защита кода от "защиты двигателя"
+                    savePart = vehicle:getPartById(partName)
+                    if savePart and savePart:getInventoryItem() then
+                        if not savePart:getModData().atatuning then
+                            savePart:getModData().atatuning = {}
+                        end
+                        if not savePart:getModData().atatuning.health then
+                            savePart:getModData().atatuning.health = savePart:getCondition()
+                        end
+                        if (savePart:getCondition() < 80) then
+                            -- redoCond = true
+                            part:setCondition(part:getCondition()-1)
+                            savePart:setCondition(100)
+                            vehicle:transmitPartCondition(part)
+                            vehicle:transmitPartCondition(savePart)
+                        end
+                        if string.match(savePart:getId(), "Tire") and savePart:getContainerContentAmount() < 10 then
+                            savePart:setContainerContentAmount(20, false, true);
+                        end
+                        vehicle:transmitPartModData(savePart)
+                    end
+                end
 			end
 		end
-		-- if redoCond then
-			-- part:setCondition(part:getCondition()-1)
-		-- end
 	end
 end
 
@@ -628,6 +659,7 @@ end
 
 function ATATuning.Create.ATAInteractiveTrunk(vehicle, part)
 	part:setInventoryItem(nil)
+    vehicle:transmitPartItem(part)
 	ATATuning.ATAInteractiveTrunk(part)
 end
 
@@ -713,11 +745,13 @@ end
 function ATATuning.InstallComplete.WheelsProtection(vehicle, part)
 -- print(" ATATuning.InstallComplete.BusBullbar")
 	ATATuning.WheelsProtection(vehicle, part)
+    ATATuning.InstallComplete.CommonProtection(vehicle, part)
 end
 
 function ATATuning.UninstallComplete.WheelsProtection(vehicle, part, item)
 -- print(" ATATuning.UninstallComplete.BusBullbar")
 	ATATuning.WheelsProtection(vehicle, part)
+    ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 end
 
 -- print("Autotsar tunning loaded")

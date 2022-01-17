@@ -88,6 +88,7 @@ end
 function CommonTemplates.Init.Repair(vehicle, part)
 	if part then
 		part:setCondition(100)
+        vehicle:transmitPartCondition(part)
 	end
 end
 
@@ -125,6 +126,7 @@ function CommonTemplates.Use.Fridge(vehicle, part, player)
 		part:setLightActive(true)
 		player:getEmitter():playSound("ToggleStove")
 	end
+    vehicle:transmitPartModData(part)
 end
 
 function CommonTemplates.Init.Freezer(vehicle, part)
@@ -158,6 +160,7 @@ function CommonTemplates.Init.Freezer(vehicle, part)
 		end
 		-- print("Freezer currentTemp: ", part:getItemContainer():getTemprature())
 	end
+    vehicle:transmitPartModData(part)
 end
 
 function CommonTemplates.Init.Fridge(vehicle, part)
@@ -175,6 +178,7 @@ function CommonTemplates.Init.Fridge(vehicle, part)
 		end
 		-- print("Fridge currentTemp: ", part:getItemContainer():getTemprature())
 	end
+    vehicle:transmitPartModData(part)
 end
 
 function CommonTemplates.Update.Fridge(vehicle, part, elapsedMinutes)
@@ -184,7 +188,7 @@ function CommonTemplates.Update.Fridge(vehicle, part, elapsedMinutes)
 	local minTemp = 0.2
 	local maxTemp = 1.0
 	if part:getInventoryItem() and part:getItemContainer() then
-		if part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
+		if part:getModData().tsarslib and part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
 			part:setLightActive(true)
 			if currentTemp < minTemp then
 				part:getItemContainer():setCustomTemperature(minTemp)
@@ -210,7 +214,7 @@ function CommonTemplates.Update.Freezer(vehicle, part, elapsedMinutes)
 	local minTemp = 0.2
 	local maxTemp = 1.0
 	if part:getInventoryItem() and part:getItemContainer() then
-		if part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
+		if part:getModData().tsarslib and part:getModData().tsarslib.active and vehicle:getBatteryCharge() > 0.00010 then
 			part:setLightActive(true)
 			if currentTemp <= minTemp then
 				local foodItems = part:getItemContainer():getItemsFromCategory("Food")
@@ -232,6 +236,7 @@ function CommonTemplates.Update.Freezer(vehicle, part, elapsedMinutes)
 					end
 				end
 				part:getModData().tsarslib.freezer = newFreezerTable
+                vehicle:transmitPartModData(part)
 			elseif currentTemp > minTemp then
 				part:getItemContainer():setCustomTemperature(currentTemp - (0.04 * elapsedMinutes))
 			end
@@ -260,6 +265,7 @@ function CommonTemplates.Create.Oven(vehicle, part)
 	part:getModData().timer = 0
 	part:getModData().timePassed = 0
 	part:getModData().maxTemperature = 0
+    vehicle:transmitPartModData(part)
 	CommonTemplates.createActivePart(part)
 end
 
@@ -268,6 +274,7 @@ function CommonTemplates.Use.DefaultDevice(vehicle, part, player)
 		part:getItemContainer():setActive(false)
 		player:getEmitter():playSound("ToggleStove")
 		part:getModData().timePassed = 0
+        vehicle:transmitPartModData(part)
 	else
 		part:getItemContainer():setActive(true)
 		part:setLightActive(true)
@@ -319,6 +326,7 @@ function CommonTemplates.Update.Oven(vehicle, part, elapsedMinutes)
 				part:setLightActive(false)
 			end
 		end
+        vehicle:transmitPartModData(part)
 	end
 end
 --***********************************************************
@@ -335,6 +343,7 @@ function CommonTemplates.Create.Microwave(vehicle, part)
 	part:getModData().timer = 0
 	part:getModData().timePassed = 0
 	part:getModData().maxTemperature = 0
+    vehicle:transmitPartModData(part)
 	CommonTemplates.createActivePart(part)
 end
 
@@ -354,6 +363,7 @@ function CommonTemplates.Use.Microwave(vehicle, part, player, on)
 			vehicle:getEmitter():playSoundLooped("NewMicrowaveRunning")
 		end
 	end
+    vehicle:transmitPartModData(part)
 end
 
 function CommonTemplates.Update.Microwave(vehicle, part, elapsedMinutes)
@@ -395,6 +405,7 @@ function CommonTemplates.Update.Microwave(vehicle, part, elapsedMinutes)
 				part:setLightActive(false)
 			end
 		end
+        vehicle:transmitPartModData(part)
 	end
 end
 --***********************************************************
@@ -412,6 +423,7 @@ function CommonTemplates.Create.LightApi(boat, part)
 		CommonTemplates.createActivePart(part)
 	end
 	part:setInventoryItem(nil)
+    vehicle:transmitPartItem(part)
 end
 
 function CommonTemplates.Init.LightApi(boat, part)
@@ -440,24 +452,25 @@ function CommonTemplates.Create.Light(boat, part)
 	-- end
 end
 
-function CommonTemplates.Init.Light(boat, part)
+function CommonTemplates.Init.Light(vehicle, part)
 	part:setModelVisible("test", true)
 end
 
-function CommonTemplates.InstallComplete.Light(boat, part)
+function CommonTemplates.InstallComplete.Light(vehicle, part)
 	-- print("CommonTemplates.InstallComplete.Light")
 	
 end
 
-function CommonTemplates.UninstallComplete.Light(boat, part)
+function CommonTemplates.UninstallComplete.Light(vehicle, part)
 	-- print("CommonTemplates.UninstallComplete.Light")
 	if part:getId() == "LightCabin" then
-		boat:getPartById("HeadlightRearRight"):setInventoryItem(nil)
+		vehicle:getPartById("HeadlightRearRight"):setInventoryItem(nil)
 	elseif part:getId() == "LightFloodlightLeft" then
-		boat:getPartById("HeadlightLeft"):setInventoryItem(nil) 
+		vehicle:getPartById("HeadlightLeft"):setInventoryItem(nil)
 	elseif part:getId() == "LightFloodlightRight" then
-		boat:getPartById("HeadlightRight"):setInventoryItem(nil) 
+		vehicle:getPartById("HeadlightRight"):setInventoryItem(nil) 
 	end
+    vehicle:transmitPartItem(part)
 end
 
 --***********************************************************
@@ -590,6 +603,7 @@ end
 function CommonTemplates.Create.BatteryCharger(trailer, part)
 	local item = VehicleUtils.createPartInventoryItem(part);
 	part:setInventoryItem(nil)
+    vehicle:transmitPartItem(part)
 end
 
 function CommonTemplates.Update.BatteryCharger(trailer, part, elapsedMinutes)

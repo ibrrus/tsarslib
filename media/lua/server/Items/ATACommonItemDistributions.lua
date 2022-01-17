@@ -20,14 +20,14 @@ require 'Items/ProceduralDistributions'
 	
 	-- Base.ATARoofLightItem
 	table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Base.ATARoofLightItem");
-	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 5);
+	table.insert(ProceduralDistributions.list["CrateMechanics"].items, 1);
 	table.insert(ProceduralDistributions.list["GarageMechanics"].items, "Base.ATARoofLightItem");
-	table.insert(ProceduralDistributions.list["GarageMechanics"].items, 5);
+	table.insert(ProceduralDistributions.list["GarageMechanics"].items, 1);
 	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, "Base.ATARoofLightItem");
-	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, 5);
+	table.insert(ProceduralDistributions.list["GarageMetalwork"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, "Base.ATARoofLightItem");
-	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, 5);
+	table.insert(ProceduralDistributions.list["MechanicShelfMisc"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfElectric"].items, "Base.ATARoofLightItem");
-	table.insert(ProceduralDistributions.list["MechanicShelfElectric"].items, 5);
+	table.insert(ProceduralDistributions.list["MechanicShelfElectric"].items, 1);
 	table.insert(ProceduralDistributions.list["MechanicShelfElectric"].junk.items, "Base.ATARoofLightItem");
 	table.insert(ProceduralDistributions.list["MechanicShelfElectric"].junk.items, 1);

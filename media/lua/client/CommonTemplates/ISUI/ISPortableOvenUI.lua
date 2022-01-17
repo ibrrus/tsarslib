@@ -91,6 +91,7 @@ function ISPortableOvenUI:ChangeKnob()
     self.oven:getModData().maxTemperature = self.tempKnob:getValue()
     self.oven:getModData().timer = self.timerKnob:getValue()
 	self.oven:getModData().timePassed = 0
+    self.vehicle:transmitPartModData(self.oven)
 end
 
 function ISPortableOvenUI:update()
@@ -168,6 +169,7 @@ function ISPortableOvenUI:onClick(button)
     if button.internal == "OK" then
         self.oven:getModData().maxTemperature = self.tempKnob:getValue()
 		self.oven:getModData().timer = self.timerKnob:getValue()
+        self.vehicle:transmitPartModData(self.oven)
 		CommonTemplates.Use.DefaultDevice(self.vehicle, self.oven, self.character)
         -- self.oven:Toggle();
     end

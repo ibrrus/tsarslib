@@ -61,6 +61,7 @@ function ISPortableMicrowaveUI:ChangeKnob()
 	self.oven:getModData().timePassed = 0
 	self.oven:getModData().maxTemperature = self.tempKnob:getValue()
 	self.oven:getModData().timer = self.timerKnob:getValue()
+    self.vehicle:transmitPartModData(self.oven)
 	if self.oven:getModData().timer > 0 then
 		CommonTemplates.Use.Microwave(self.vehicle, self.oven, self.character, true)
 	else
@@ -87,12 +88,6 @@ function ISPortableMicrowaveUI:updateButtons()
     if not self.tempKnob.dragging then
         self.tempKnob:setKnobPosition(self.oven:getModData().maxTemperature);
     end
-    -- if self.oven:getItemContainer():isActive() then
-       -- self.ok:setTitle(getText("ContextMenu_Turn_Off"))
-    -- else
-        -- self.ok:setTitle(getText("ContextMenu_Turn_On"))
-    -- end
-    -- self.ok:setEnable(self.oven:getModData().timer > 0)
 end
 
 function ISPortableMicrowaveUI:addKnobValues()

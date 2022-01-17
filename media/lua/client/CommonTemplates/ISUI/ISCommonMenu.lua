@@ -212,6 +212,7 @@ function ISCommonMenu.onToggleCabinlights(playerObj)
 			vehicle:getEmitter():playSound("SwitchLamp")
 			sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = true })
 		end
+        vehicle:transmitPartCondition(part)
 	else
 		vehicle:getEmitter():playSound("SwitchLampFail")
 		-- playerObj:Say(getText("IGUI_PlayerText_CabinlightDoNotWork"))
