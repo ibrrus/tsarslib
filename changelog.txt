@@ -1,16 +1,23 @@
 v.1.24
+2022-01-20
 
 Собраны все переводы из зависимых от библиотеки модов.
 Добавлены потерянные transmit'ы.
 Исправлены ошибки с защитой колес.
 Уменьшено количество спавна фонарей для крыши.
 Исправлены скрипты бамперов и кенгурятников.
+Запрещено разбивать окна, если на них установлена защита.
+Исправлено: цистерны восстанавливают топливо при инициализации.
+Добавлены шаблоны для защиты капота и багажника.
 
 Collected all translations from library-dependent mods.
-Added lost 'transmit's.
+Added lost transmit's.
 Fixed bugs with wheel protection.
 Reduced the number of spawn lanterns for the roof.
 Fixed bumpers and bullbar scripts.
+It is forbidden to break windows if they are protected.
+Fixed: cistern recovers fuel during initialization.
+Added templates for hood and trunk protection.
 
 -------------------
 

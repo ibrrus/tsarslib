@@ -148,12 +148,6 @@ function FindVehicleGas(playerObj, playerVehicle)
 					x = math.abs(vehicle:getX()-playerObj:getX())
 					y = math.abs(vehicle:getY()-playerObj:getY())
 					if x < radius and y < radius then
-					--if playerObj:distTo(vehicle) < 10 then
-						-- We've found fuel storage
-						--print("FUEL")
-						--print(tostring(vehicle:getX()))
-						--print(tostring(vehicle:getY()))
-						--return true
 						return part
 					end
 			end
@@ -171,6 +165,6 @@ function ISVehiclePartMenu.onPumpGasolineFromTruck(playerObj, part, source_Tank)
 		local action = ISPathFindAction:pathToVehicleArea(playerObj, part:getVehicle(), part:getArea())
 		action:setOnFail(ISVehiclePartMenu.onPumpGasolinePathFail, playerObj)
 		ISTimedActionQueue.add(action)
-		ISTimedActionQueue.add(ISRefuelFromFuelTruck:new(playerObj, part, square, 100, source_Tank))
+		ISTimedActionQueue.add(ISRefuelFromLiqudTanker:new(playerObj, part, square, 100, source_Tank))
 	end
 end

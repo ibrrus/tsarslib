@@ -4,18 +4,18 @@
 
 require "TimedActions/ISBaseTimedAction"
 
-ISRefuelFromFuelTruck = ISBaseTimedAction:derive("ISRefuelFromFuelTruck")
+ISRefuelFromLiqudTanker = ISBaseTimedAction:derive("ISRefuelFromLiqudTanker")
 
-function ISRefuelFromFuelTruck:isValid()
+function ISRefuelFromLiqudTanker:isValid()
 	return self.vehicle:isInArea(self.part:getArea(), self.character)
 end
 
-function ISRefuelFromFuelTruck:waitToStart()
+function ISRefuelFromLiqudTanker:waitToStart()
 	self.character:faceThisObject(self.vehicle)
 	return self.character:shouldBeTurning()
 end
 
-function ISRefuelFromFuelTruck:update()
+function ISRefuelFromLiqudTanker:update()
 	local litres = self.tankStart + (self.tankTarget - self.tankStart) * self:getJobDelta()
 	litres = math.floor(litres)
 	if litres ~= self.amountSent then
@@ -36,12 +36,12 @@ function ISRefuelFromFuelTruck:update()
 ]]--
 	local pumpUnits = self.pumpStart + (self.pumpTarget - self.pumpStart) * self:getJobDelta()
 	pumpUnits = math.ceil(pumpUnits)
-	--self.square:getProperties():Set("fuelAmount", tostring(pumpUnits))
-	self.tank:setContainerContentAmount(pumpUnits)
+    args = { vehicle = self.tank:getVehicle():getId(), part = self.tank:getId(), amount = pumpUnits }
+    sendClientCommand(self.character, 'vehicle', 'setContainerContentAmount', args)
     self.character:setMetabolicTarget(Metabolics.HeavyDomestic);
 end
 
-function ISRefuelFromFuelTruck:start()
+function ISRefuelFromLiqudTanker:start()
 	self.tankStart = self.part:getContainerContentAmount()
 	-- Pumps start with 100 units of fuel.  8 pump units = 1 PetrolCan according to ISTakeFuel.
 	--self.pumpStart = tonumber(self.square:getProperties():Val("fuelAmount"))
@@ -59,16 +59,16 @@ function ISRefuelFromFuelTruck:start()
 	self:setOverrideHandModels(nil, nil)
 end
 
-function ISRefuelFromFuelTruck:stop()
+function ISRefuelFromLiqudTanker:stop()
 	ISBaseTimedAction.stop(self)
 end
 
-function ISRefuelFromFuelTruck:perform()
+function ISRefuelFromLiqudTanker:perform()
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end
 
-function ISRefuelFromFuelTruck:new(character, part, square, time, source_Tank)
+function ISRefuelFromLiqudTanker:new(character, part, square, time, source_Tank)
 	local o = {}
 	setmetatable(o, self)
 	self.__index = self

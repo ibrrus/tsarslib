@@ -83,8 +83,8 @@ ItemName_RU = {
 	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - багажник для крыши",
 	
 /************ True Music ************/
-	ItemName_Tsarcraft.TCBoombox = "Ѕумбокс 'Kazakhstan-102-stereo'",
-    ItemName_Tsarcraft.TCVinylplayer = "¬иниловый проигрыватель 'Elektronika S1-01'",
+	ItemName_Tsarcraft.TCBoombox = "Бумбокс 'Kazakhstan-102-stereo'",
+    ItemName_Tsarcraft.TCVinylplayer = "Виниловый проигрыватель 'Elektronika S1-01'",
 	
 /************ ZuperCart ************/
 	ItemName_TMC.TrolleyContainer = "Тележка",

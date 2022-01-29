@@ -15,8 +15,11 @@ ContextMenu_RU = {
 	ContextMenu_CloseTent = "Закрыть палатку",
 	ContextMenu_OpenTent = "Открыть палатку",
 	
+    ContextMenu_Vehicle_For_Smashwindow_Uninstall_Protection = "Чтобы разбить окно,<br>снимите защиту.",
+    
+/************ Autotsar Tuning Atelier - Bus ************/
 	ContextMenu_Vehicle_EGNH = "Написать «EGNH»",
-	
+
 /************ Autotsar Trailers ************/
 	
 	ContextMenu_Close_trunk = "Закрыть багажник",

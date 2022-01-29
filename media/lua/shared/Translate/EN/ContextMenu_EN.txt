@@ -14,6 +14,8 @@ ContextMenu_EN = {
 	
 	ContextMenu_CloseTent = "Close tent",
 	ContextMenu_OpenTent = "Open tent",
+    
+    ContextMenu_Vehicle_For_Smashwindow_Uninstall_Protection = "To break the window,<br>remove the protection.",
 	
 /************ Autotsar Tuning Atelier - Bus ************/
 	ContextMenu_Vehicle_EGNH = "Write «EGNH»",

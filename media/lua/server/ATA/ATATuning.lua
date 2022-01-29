@@ -102,7 +102,7 @@ Example code in the script
 ]]--
 
 function ATATuning.ModelByItemName(vehicle, part, item)
-print("ATATuning.ModelByItemName")
+-- print("ATATuning.ModelByItemName")
 	if not part:getItemType() or part:getItemType():isEmpty() then
 		part:setModelVisible("Default", true)
 		part:setModelVisible("StaticPart", true)
@@ -124,7 +124,7 @@ print("ATATuning.ModelByItemName")
 				end
 			else
 				part:setModelVisible("StaticPart", false)
-				for itemName, oneModel in ipairs(part:getTable("ataModels")) do
+				for itemName, oneModel in pairs(part:getTable("ataModels")) do
 					part:setModelVisible(oneModel, false)
 				end
 			end
@@ -154,13 +154,13 @@ function ATATuning.Init.DefaultModel(vehicle, part)
 end
 
 function ATATuning.InstallComplete.DefaultModel(vehicle, part)
-print("ATATuning.InstallComplete.DefaultModel")
+-- print("ATATuning.InstallComplete.DefaultModel")
 	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
 end
 
 function ATATuning.UninstallComplete.DefaultModel(vehicle, part, item)
-print("ATATuning.UninstallComplete.DefaultModel")
+-- print("ATATuning.UninstallComplete.DefaultModel")
 	ATATuning.ModelByItemName(vehicle, part)
 	vehicle:doDamageOverlay()
 end

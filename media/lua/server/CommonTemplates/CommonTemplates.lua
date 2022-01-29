@@ -603,7 +603,7 @@ end
 function CommonTemplates.Create.BatteryCharger(trailer, part)
 	local item = VehicleUtils.createPartInventoryItem(part);
 	part:setInventoryItem(nil)
-    vehicle:transmitPartItem(part)
+    trailer:transmitPartItem(part)
 end
 
 function CommonTemplates.Update.BatteryCharger(trailer, part, elapsedMinutes)

@@ -19,7 +19,9 @@ function ISRadialMenu:updateSliceTsar(oldtext, newtext, newtexture, newcommand, 
 					self.javaObject:setSliceTexture(sliceIndex-1, newtexture)
 				end
 			end
-			if newcommand then
+			if newcommand == false then
+                slice.command = { nil, nil, nil, nil, nil, nil, nil }
+            elseif newcommand then
 				slice.command = { newcommand, arg1, arg2, arg3, arg4, arg5, arg6 }
 			end
 			return true

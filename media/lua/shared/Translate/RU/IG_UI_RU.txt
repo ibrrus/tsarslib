@@ -1,5 +1,8 @@
 IGUI_RU = {
-	/* ATA 20211209*/
+	/* ATA 20220118*/
+    IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Я не смогу разбить окно, пока на нем стоит защита.",
+    
+    /* ATA 20211209*/
 	IGUI_VehiclePartATAVisualSpoilerFront = "Губа на передний бампер",
 	IGUI_VehiclePartATAVisualSpoilerRear = "Спойлер",
 	IGUI_VehiclePartATAVisualSkirtsSide = "Юбки боковых порогов",
@@ -27,6 +30,8 @@ IGUI_RU = {
 	IGUI_VehiclePartATAProtectionWindowRearLeft = "Защита окна заднего левого",
 	IGUI_VehiclePartATAProtectionWindowRearRight = "Защита окна заднего правого",
 	IGUI_VehiclePartATAProtectionWheels = "Защита колес",
+    IGUI_VehiclePartATAProtectionHood = "Защита капота",
+	IGUI_VehiclePartATAProtectionTrunk = "Защита багажника",
 	IGUI_VehiclePartATASpareWheel = "Запасное колесо",
 	IGUI_VehiclePartATABumper = "Бампер",
 	IGUI_VehiclePartATARoofBase = "Рейлинги",

@@ -1,5 +1,8 @@
 IG_UI_EN = {
-	/* ATA 20211209*/
+	/* ATA 20220118*/
+    IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "I can't break a window as long as it's protected.",
+    
+    /* ATA 20211209*/
 	IGUI_VehiclePartATAVisualSpoilerFront = "Spoiler Lip",
 	IGUI_VehiclePartATAVisualSpoilerRear = "Spoiler",
 	IGUI_VehiclePartATAVisualSkirtsSide = "Side Skirts",
@@ -26,7 +29,9 @@ IG_UI_EN = {
 	IGUI_VehiclePartATAProtectionWindowMiddleRight = "Protection for middle right window",
 	IGUI_VehiclePartATAProtectionWindowRearLeft = "Protection for rear left window",
 	IGUI_VehiclePartATAProtectionWindowRearRight = "Protection for rear right window",
-	IGUI_VehiclePartATAProtectionWheels = "Protection wheels",
+	IGUI_VehiclePartATAProtectionWheels = "Protection for wheels",
+	IGUI_VehiclePartATAProtectionHood = "Protection for hood",
+	IGUI_VehiclePartATAProtectionTrunk = "Protection for trunk",
 	IGUI_VehiclePartATASpareWheel = "Spare Wheel",
 	IGUI_VehiclePartATABumper = "Bumper",
 	IGUI_VehiclePartATARoofBase = "Congo cage",
