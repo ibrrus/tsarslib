@@ -1,0 +1,14 @@
+module Base
+{
+    template vehicle ATABags
+    {
+        part ATABag
+        {
+            category = nodisplay,
+            lua
+            {
+                init = ATATuning.Init.DefaultModel,
+            }
+        }
+    }
+}

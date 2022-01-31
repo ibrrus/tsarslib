@@ -491,7 +491,7 @@ function ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 		local savePart = part:getParent()
 		if savePart then
 			if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
-            print(savePart:getModData().atatuning.health)
+            -- print(savePart:getModData().atatuning.health)
 			savePart:setCondition(savePart:getModData().atatuning.health)
 			savePart:getModData().atatuning.health = nil
             vehicle:transmitPartCondition(savePart)
@@ -505,7 +505,7 @@ function ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
                 local savePart = vehicle:getPartById(partName)
                 if savePart then
                     if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
-                    print(savePart:getModData().atatuning.health)
+                    -- print(savePart:getModData().atatuning.health)
                     savePart:setCondition(savePart:getModData().atatuning.health)
                     savePart:getModData().atatuning.health = nil
                     vehicle:transmitPartCondition(savePart)
@@ -590,63 +590,96 @@ end
 
 function ATATuning.ATAInteractiveTrunk(part)
 	local interactiveItemsTable = part:getTable("interactiveItems")
-	if part:getInventoryItem() then
-		part:setModelVisible(interactiveItemsTable.Base, true)
-		if part:getItemContainer():getItems():isEmpty() then
-			for itemName, k in pairs(interactiveItemsTable) do
-				if type(k) == "table" then
-					for i, modelName in ipairs(k) do
-						part:setModelVisible(modelName, false)
-					end
-				end
-			end
-		else
-			for i, modelName in pairs(interactiveItemsTable.fullness) do
-				if i <= (math.floor((part:getItemContainer():getContentsWeight() / part:getItemContainer():getCapacity()) / (1/#interactiveItemsTable.fullness)) + 1) then
-					part:setModelVisible(modelName, true)
-				else
-					part:setModelVisible(modelName, false)
-				end
-			end
-			for itemName, k in pairs(interactiveItemsTable) do
-				if not (itemName == "fullness") and type(k) == "table" then
-					local itemcount = 0
-					if string.match(itemName, "#") then
-						for i, itemNameNew in ipairs(itemName:split("#")) do
-							itemcount = itemcount + part:getItemContainer():getCountType(itemNameNew)
-						end
-					else
-						itemcount = part:getItemContainer():getCountType(itemName)
-					end
-					if itemcount > 0 then
-						if itemcount > #k then
-							itemcount = #k
-						end
-						for _id, modelName in ipairs(k) do
-							if _id <= itemcount then
-								part:setModelVisible(modelName, true)
-							else
-								part:setModelVisible(modelName, false)
-							end
-						end
-					else
-						for _id, modelName in ipairs(k) do
-							part:setModelVisible(modelName, false)
-						end
-					end
-				end
-			end
-		end
-	else
-		part:setModelVisible(interactiveItemsTable.fullness[1], true)
-		for itemName, k in pairs(interactiveItemsTable) do
-			if type(k) == "table" then
-				for i, modelName in ipairs(k) do
-					part:setModelVisible(modelName, false)
-				end
-			end
-		end
-	end
+    if interactiveItemsTable then
+        if part:getInventoryItem() then
+            if interactiveItemsTable.Base then
+                part:setModelVisible(interactiveItemsTable.Base, true)
+            end
+            if part:getItemContainer():getItems():isEmpty() then
+                -- Обход всех таблиц интерактивного багажника для отключения видимости предметов.
+                for itemName, k in pairs(interactiveItemsTable) do
+                    if type(k) == "table" then
+                        for i, modelName in ipairs(k) do
+                            part:setModelVisible(modelName, false)
+                        end
+                    end
+                end
+            else
+                
+                for itemName, k in pairs(interactiveItemsTable) do
+                    if type(k) == "table" then
+                        -- fullness - таблица для включения отображения предметов в зависимости от заполнености багажника.
+                        --            каждый следующий предмет отображается в дополнение к предыдущему
+                        if itemName == "fullness" then
+                            for i, modelName in pairs(k) do
+                                if i <= (math.floor((part:getItemContainer():getContentsWeight() / part:getItemContainer():getCapacity()) / (1/#k)) + 1) then
+                                    part:setModelVisible(modelName, true)
+                                else
+                                    part:setModelVisible(modelName, false)
+                                end
+                            end
+                        -- fullness_one - функционал аналогичен fullness, за исключением того, что
+                        --            каждый следующий предмет отключает отображение предыдущего предмета
+                        elseif itemName == "fullness_one" then
+                            local visibleId = (math.floor((part:getItemContainer():getContentsWeight() / part:getItemContainer():getCapacity()) / (1/#k)) + 1)
+                            if visibleId > #k then
+                                visibleId = #k
+                            end
+                            for i, modelName in pairs(k) do
+                                if i ~= visibleId then
+                                    part:setModelVisible(modelName, false)
+                                else
+                                    part:setModelVisible(modelName, true)
+                                end
+                            end
+                        -- Все остальные таблицы интерактивного багажника служат для непосредственного отображения предметов, которые в нем лежат.
+                        else
+                            local itemcount = 0
+                            if string.match(itemName, "#") then
+                                for i, itemNameNew in ipairs(itemName:split("#")) do
+                                    itemcount = itemcount + part:getItemContainer():getCountType(itemNameNew)
+                                end
+                            else
+                                itemcount = part:getItemContainer():getCountType(itemName)
+                            end
+                            if itemcount > 0 then
+                                if itemcount > #k then
+                                    itemcount = #k
+                                end
+                                for _id, modelName in ipairs(k) do
+                                    if _id <= itemcount then
+                                        part:setModelVisible(modelName, true)
+                                    else
+                                        part:setModelVisible(modelName, false)
+                                    end
+                                end
+                            else
+                                for _id, modelName in ipairs(k) do
+                                    part:setModelVisible(modelName, false)
+                                end
+                            end
+                        end
+                    end
+                
+                    -- if not (itemName == "fullness") and not (itemName == "fullness_one") and type(k) == "table" then
+                        
+                    -- end
+                end
+            end
+        else
+            if interactiveItemsTable.Base then
+                part:setModelVisible(interactiveItemsTable.Base, false)
+            end
+            -- Обход всех таблиц интерактивного багажника для отключения видимости предметов.
+            for itemName, k in pairs(interactiveItemsTable) do
+                if type(k) == "table" then
+                    for i, modelName in ipairs(k) do
+                        part:setModelVisible(modelName, false)
+                    end
+                end
+            end
+        end
+    end
 end
 
 

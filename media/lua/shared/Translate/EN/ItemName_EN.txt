@@ -20,7 +20,7 @@ ItemName_EN = {
 	ItemName_Base.ATAProtectionWheelsChain = "Chain",
 
 
-	/************ Autotsar Tuning Atelier - Bus ************/
+/************ Autotsar Tuning Atelier - Bus ************/
 	
 	ItemName_Autotsar.AtTuningMagBus = "Magazine «Autotsar Tuning Atelier - Bear Bus»",
 	ItemName_Autotsar.Bullbar2Blueprint = "Blueprint of an improved bullbar",
@@ -41,7 +41,7 @@ ItemName_EN = {
 	ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Toolbox",
 	
 
-	/************ Autotsar Tuning Atelier - Jaap Wrungel ************/
+/************ Autotsar Tuning Atelier - Jaap Wrungel ************/
 	
 	ItemName_Autotsar.AtTuningMagJeep = "Magazine «Autotsar Tuning Atelier - Jaap Wrungel»",
 	
@@ -62,7 +62,7 @@ ItemName_EN = {
 	ItemName_Autotsar.ATAJeepRoofTentItem = "Jaap Wrungel - Roof Tent",
 	
 	
-	/************ Autotsar Tuning Atelier - Fjord Mustard ************/
+/************ Autotsar Tuning Atelier - Fjord Mustard ************/
 	
 	ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Fjord Mustard»",
 	ItemName_Autotsar.ATAMustangBullbar1Item = "Fjord Mustard - Standart Bullbar",
@@ -82,11 +82,23 @@ ItemName_EN = {
 	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - Rear Window Protection",
 	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - Roof Rack",
 	
-	/************ True Music ************/
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+	
+	ItemName_Autotsar.ATADodgeTuningMag = "Magazine «Autotsar Tuning Atelier - Dadge Steals RT»",
+	ItemName_Autotsar.ATADodgeBullbar1Item = "Dadge Steals RT - Police Bullbar",
+	ItemName_Autotsar.ATADodgeBullbar2Item = "Dadge Steals RT - Homemade  Bullbar",
+	ItemName_Autotsar.ATADodgeBullbar3Item = "Dadge Steals RT - Lethal Bullbar",
+	ItemName_Autotsar.ATADodgeProtectionWindowLeftItem = "Dadge Steals RT - Left Window Protection",
+	ItemName_Autotsar.ATADodgeProtectionWindowRightItem = "Dadge Steals RT - Right Window Protection",
+	ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - Windshield Protection",
+	ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - Roof Rack",
+	ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - Rear Window Rack",
+    
+/************ True Music ************/
 	ItemName_Tsarcraft.TCBoombox = "Boombox 'Kazakhstan-102-stereo'",
     ItemName_Tsarcraft.TCVinylplayer = "Vinyl player 'Elektronika S1-01'",
 	
-	/************ ZuperCart ************/
+/************ ZuperCart ************/
 	ItemName_TMC.TrolleyContainer = "Trolley",
 	ItemName_TMC.TrolleyContainer2 = "Trolley",
 	ItemName_TMC.CartContainer = "Supermarket cart",

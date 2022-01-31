@@ -81,7 +81,19 @@ ItemName_RU = {
 	ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Fjord Mustard - защита лобового стекла",
 	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - защита заднего стекла",
 	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - багажник для крыши",
+    
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
 	
+	ItemName_Autotsar.ATADodgeTuningMag = "Журнал «Autotsar Tuning Atelier - Dadge Steals RT»",
+	ItemName_Autotsar.ATADodgeBullbar1Item = "Dadge Steals RT - кенгурятник полицейский",
+	ItemName_Autotsar.ATADodgeBullbar2Item = "Dadge Steals RT - кенгурятник самодельный",
+	ItemName_Autotsar.ATADodgeBullbar3Item = "Dadge Steals RT - кенгурятник смертоносный",
+	ItemName_Autotsar.ATADodgeProtectionWindowLeftItem = "Dadge Steals RT - защита левого стекла",
+	ItemName_Autotsar.ATADodgeProtectionWindowRightItem = "Dadge Steals RT - защита правого стекла",
+	ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - защита лобового стекла",
+	ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - багажник для крыши",
+	ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - багажник для для заднего стекла",
+
 /************ True Music ************/
 	ItemName_Tsarcraft.TCBoombox = "Бумбокс 'Kazakhstan-102-stereo'",
     ItemName_Tsarcraft.TCVinylplayer = "Виниловый проигрыватель 'Elektronika S1-01'",

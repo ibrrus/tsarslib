@@ -77,5 +77,24 @@ Recipe_RU = {
 	Recipe_Make_ATAMustangRoofRackItem = "Создать Багажник для крыши (Fjord Mustard)",
 	Recipe_Cut_ATAMustangRoofRackItem = "Разрезать Багажник для крыши (Fjord Mustard)",
 	
-	
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+
+	Recipe_Make_ATADodgeRoofRackItem = "Создать Багажник для крыши (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeRoofRackItem = "Разрезать Багажник для крыши (Dadge Steals RT)",
+    Recipe_Make_ATADodgeWindowRackItem = "Создать Багажник для заднего стекла (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeWindowRackItem = "Разрезать Багажник для заднего стекла (Dadge Steals RT)",
+    
+	Recipe_Cut_ATADodgeBullbar1Item = "Разрезать Кенгурятник (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeBullbar2Item = "Разрезать Кенгурятник (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeBullbar3Item = "Разрезать Кенгурятник (Dadge Steals RT)",
+    
+	Recipe_Make_ATADodgeBullbar2Item = "Создать Кенгурятник (Dadge Steals RT)",
+	Recipe_Make_ATADodgeBullbar3Item = "Создать Кенгурятник (Dadge Steals RT)",
+    
+	Recipe_Make_ATADodgeProtectionWindowLeftItem = "Создать Защиту левого стекла (Dadge Steals RT)",
+    Recipe_Cut_ATADodgeProtectionWindowLeftItem = "Разрезать Защиту левого стекла (Dadge Steals RT)",
+	Recipe_Make_ATADodgeProtectionWindowRightItem = "Создать Защиту правого стекла (Dadge Steals RT)",
+    Recipe_Cut_ATADodgeProtectionWindowRightItem = "Разрезать Защиту правого стекла (Dadge Steals RT)",
+	Recipe_Make_ATADodgeProtectionWindowFrontItem = "Создать Защиту лобового стекла (Dadge Steals RT)",
+    Recipe_Cut_ATADodgeProtectionWindowFrontItem = "Разрезать Защиту лобового стекла (Dadge Steals RT)",
 }

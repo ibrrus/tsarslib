@@ -86,9 +86,7 @@ function ISCommonMenu.showRadialMenu(playerObj)
 				menu:addSlice(getText("ContextMenu_AirCondOn"), tex, ISCommonMenu.onToggleHeater, playerObj )
 			end
 		end
-		
-		
-		
+
 		if oven and lightIsOn then
 			menu:addSlice(getText("IGUI_UseStove"), getTexture("media/ui/Container_Oven"), ISCommonMenu.onStoveSetting, playerObj, vehicle, oven)
 			-- if oven:getItemContainer():isActive() then
@@ -124,7 +122,48 @@ function ISCommonMenu.showRadialMenu(playerObj)
 				menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
 			end
 		end
+        
+        if vehicle:isDriver(playerObj) then
+            local doorPart = vehicle:getPartById("ATAHeadlightsPopUP")
+            if doorPart and doorPart:getDoor() then
+                if doorPart:getDoor():isOpen() then
+                    menu:addSlice(getText("IGUI_CloseHeadlightsPopUP"), getTexture("media/ui/ata/ata_popup_headlight_close.png"), ISCommonMenu.onCloseHeadlight, playerObj, doorPart)
+                else
+                    menu:addSlice(getText("IGUI_OpenHeadlightsPopUP"), getTexture("media/ui/ata/ata_popup_headlight_open.png"), ISCommonMenu.onOpenDoor, playerObj, doorPart)
+                    menu:updateSliceTsar(getText("ContextMenu_VehicleHeadlightsOn"), nil, nil, ISCommonMenu.onToggleHeadlights, playerObj, doorPart)
+                end
+            end
+        end
 	end
+end
+
+function ISCommonMenu.onToggleHeadlights(playerObj, part)
+-- print("ISCommonMenu.onToggleHeadlights")
+    local vehicle = playerObj:getVehicle()
+	if not vehicle then return end
+    if vehicle:getHeadlightsOn() then
+        ISCommonMenu.onCloseDoor(playerObj, part)
+    else
+        ISCommonMenu.onOpenDoor(playerObj, part)
+    end
+	sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = not vehicle:getHeadlightsOn() })
+end
+
+function ISCommonMenu.onCloseHeadlight(playerObj, part)
+    local vehicle = playerObj:getVehicle()
+	if not vehicle then return end
+    if vehicle:getHeadlightsOn() then
+        sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = not vehicle:getHeadlightsOn() })
+    end
+	ISTimedActionQueue.add(ATAISAnimatedPartClose:new(playerObj, part:getVehicle(), part))
+end
+
+function ISCommonMenu.onOpenDoor(playerObj, part)
+	ISTimedActionQueue.add(ATAISAnimatedPartOpen:new(playerObj, part:getVehicle(), part))
+end
+
+function ISCommonMenu.onCloseDoor(playerObj, part)
+	ISTimedActionQueue.add(ATAISAnimatedPartClose:new(playerObj, part:getVehicle(), part))
 end
 
 function ISCommonMenu.onToggleHeater(playerObj)

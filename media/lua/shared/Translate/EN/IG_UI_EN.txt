@@ -1,8 +1,12 @@
 IG_UI_EN = {
-	/* ATA 20220118*/
+/* ATA 2022-01-30*/
+    IGUI_CloseHeadlightsPopUP = "Down Headlights",
+    IGUI_OpenHeadlightsPopUP = "Up Headlights",
+    
+/* ATA 20220118*/
     IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "I can't break a window as long as it's protected.",
     
-    /* ATA 20211209*/
+/* ATA 20211209*/
 	IGUI_VehiclePartATAVisualSpoilerFront = "Spoiler Lip",
 	IGUI_VehiclePartATAVisualSpoilerRear = "Spoiler",
 	IGUI_VehiclePartATAVisualSkirtsSide = "Side Skirts",
@@ -10,7 +14,7 @@ IG_UI_EN = {
 	IGUI_VehiclePartATAVisualSnorkel = "Snorkel",
 	IGUI_ItemCat_Tuning = "Tuning",
 	
-	/* ATA */
+/* ATA */
 	IGUI_VehiclePartATABullbar = "Bullbar",
 	IGUI_VehiclePartATARoofRack = "Roof rack",
 	IGUI_VehiclePartATARoofRackToolbox = "Roof toolbox",
@@ -36,7 +40,8 @@ IG_UI_EN = {
 	IGUI_VehiclePartATABumper = "Bumper",
 	IGUI_VehiclePartATARoofBase = "Congo cage",
 	IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Roof rack",
-	IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Trunk over spare wheel",
+	IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Spare wheel rack",
+	IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Rear window rack",
 	IGUI_VehiclePartATARoofTent = "Roof tent",
 	
 	IGUI_VehiclePartATARoofLightFront = "Roof lights (front)",
@@ -57,7 +62,7 @@ IG_UI_EN = {
 	IGUI_PlayerText_ATA_TentDontOpen = "Tent must be empty",
 	IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first",
 	
-	/* Common Library */
+/* Common Library */
 	IGUI_VehiclePartshelves = "Shelves",
 	IGUI_VehiclePartstove = "Stove",
 	IGUI_VehiclePartfridge = "Fridge",
@@ -121,26 +126,30 @@ IG_UI_EN = {
 	IGUI_VehiclePartBatteryChargerC = "Battery place",
 
 
-	/************ Autotsar Tuning Atelier - Bus ************/
+/************ Autotsar Tuning Atelier - Bus ************/
 	
 	IGUI_VehicleNameATAArmyBus = "Bear Bus - Army Edition",
 	IGUI_VehicleNameATASchoolBus = "Bear Bus - School Edition",
 	IGUI_VehicleNameATAPrisonBus = "Bear Bus - Prison Edition",
 
 	
-	/************ Autotsar Tuning Atelier - Jeep ************/
+/************ Autotsar Tuning Atelier - Jeep ************/
 	
 	IGUI_VehicleNameATAJeepClassic = "Jaap Wrungel Classic",
 	IGUI_VehicleNameATAJeepRubicon = "Jaap Wrungel Rubicon",
 	IGUI_VehicleNameATAJeepArcher = "Jaap Wrungel Archer",
 	
 	
-	/************ Autotsar Tuning Atelier - Mustang ************/
+/************ Autotsar Tuning Atelier - Mustang ************/
 	
 	IGUI_VehicleNameATAMustangClassic = "Fjord Mustard",
 	IGUI_VehicleNameATAMustangPolice = "Fjord Mustard",
+    
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+	
+	IGUI_VehicleNameATADodge = "Dadge Steals RT Twin Turbo",
 
-	/************ Autotsar Trailers ************/
+/************ Autotsar Trailers ************/
 	IGUI_VehicleNameTrailerFirst = "Autotsar GNV 250",
 	IGUI_VehicleNameTrailerSecond = "Autotsar GNV 500",
 	IGUI_VehicleNameTrailerHome = "Autotsar iLYA-1990",
@@ -153,7 +162,7 @@ IG_UI_EN = {
 	IGUI_VehiclePartEarthingOn = "Earthing",
 	IGUI_VehiclePartEarthingOff = "disconnected power cable",
 	
-	/************ True Actions ************/
+/************ True Actions ************/
 	IGUI_PlayerText_TRUEA_cant_lie = "It's dangerous to lie down now.",
 	IGUI_PlayerText_TRUEA_cant_sit = "It's dangerous to sit now.",
 	IGUI_PlayerText_TRUEA_need_come_closer = "Need to come closer.",
@@ -166,7 +175,7 @@ IG_UI_EN = {
 	IGUI_PlayerText_TRUEA_dont_push_2 = "Don't push!",
 	IGUI_PlayerText_TRUEA_dont_push_3 = "Let me rest!",
 	
-	/************ True Music ************/
+/************ True Music ************/
 	IGUI_media_dragCassette = "Insert cassette",
 	IGUI_media_dragVinyl = "Insert vinyl",
 	IGUI_TC_connect_speaker = "Connect speaker",

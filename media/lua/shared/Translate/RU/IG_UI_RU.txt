@@ -1,8 +1,12 @@
 IGUI_RU = {
-	/* ATA 20220118*/
+/* ATA 2022-01-30*/
+    IGUI_CloseHeadlightsPopUP = "Задвинуть фары",
+    IGUI_OpenHeadlightsPopUP = "Выдвинуть фары",
+    
+/* ATA 20220118*/
     IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Я не смогу разбить окно, пока на нем стоит защита.",
     
-    /* ATA 20211209*/
+/* ATA 20211209*/
 	IGUI_VehiclePartATAVisualSpoilerFront = "Губа на передний бампер",
 	IGUI_VehiclePartATAVisualSpoilerRear = "Спойлер",
 	IGUI_VehiclePartATAVisualSkirtsSide = "Юбки боковых порогов",
@@ -10,7 +14,7 @@ IGUI_RU = {
 	IGUI_VehiclePartATAVisualSnorkel = "Шноркель",
 	IGUI_ItemCat_Tuning = "Тюнинг",
 	
-	/* ATA */
+/* ATA */
 	IGUI_VehiclePartATABullbar = "Кенгурятник",
 	IGUI_VehiclePartATARoofRack = "Багажник на крыше",
 	IGUI_VehiclePartATARoofRackToolbox = "Ящик для инструментов",
@@ -37,6 +41,7 @@ IGUI_RU = {
 	IGUI_VehiclePartATARoofBase = "Рейлинги",
 	IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Багажник на крыше",
 	IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Багажник над запасным колесом",
+	IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Багажник для заднего стекла",
 	IGUI_VehiclePartATARoofTent = "Палатка на крышу",
 
 	IGUI_VehiclePartATARoofLightFront = "Фонари на крыше (передние)",

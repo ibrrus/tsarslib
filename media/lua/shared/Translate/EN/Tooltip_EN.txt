@@ -17,7 +17,10 @@ Tooltip_EN = {
 
 /************ Autotsar Tuning Atelier - Mustang ************/
 	Tooltip_item_ATATuningFordMustang = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, a bullbar and a roof rack for Fjord Mustard",
-	
+
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+	Tooltip_item_ATADodgeTuningMag = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, bullbars and racks for Dadge Steals RT",
+
 /************ True Music ************/
 	Tooltip_item_Boombox = "Foreign boombox. Doesn't get local radio,<br>but can play cassettes. Powered by batteries.",
 	Tooltip_item_Vinyl = "It needs electricity and connected speakers to function.",

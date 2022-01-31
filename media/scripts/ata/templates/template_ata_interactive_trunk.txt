@@ -58,6 +58,11 @@ module Base
             
         }
         
+        part ATAInteractiveTrunkWindowRearRack
+        {
+            
+        }
+        
         part ATAInteractiveTrunkWheelRack
         {
             
