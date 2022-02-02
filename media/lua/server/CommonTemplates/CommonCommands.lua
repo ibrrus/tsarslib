@@ -1,4 +1,6 @@
 
+if isClient() then return end
+
 local CommonCommands = {}
 local Commands = {}
 
@@ -17,7 +19,7 @@ function Commands.toggleBatteryHeater(playerObj, args)
 	end
 end
 
-
+-- sendClientCommand(self.character, 'commonlib', 'addVehicle', {trailer=self.trailer:getId(), activate = self.activate})
 CommonCommands.OnClientCommand = function(module, command, playerObj, args)
 	--print("CommonCommands.OnClientCommand")
 	if module == 'commonlib' and Commands[command] then

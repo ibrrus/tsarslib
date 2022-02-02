@@ -17,11 +17,46 @@ ContextMenu_RU = {
 	
     ContextMenu_Vehicle_For_Smashwindow_Uninstall_Protection = "Чтобы разбить окно,<br>снимите защиту.",
     
+/************ Aquatsar Yacht Club ************/
+    ContextMenu_BoatAddGas = "Заправить лодку",
+    ContextMenu_BoatCabinelightsOff = "Выключить свет",
+    ContextMenu_BoatCabinelightsOn = "Включить свет",
+    
+    ContextMenu_BoatHeadlightsOff = "Выключить прожекторы",
+    ContextMenu_BoatHeadlightsOn = "Включить прожекторы",
+    ContextMenu_BoatHotwireSkill = "Нужны ключи или<br>навыки электроники I уровня<br>и автомеханики II уровня",
+    
+    ContextMenu_RemoveSail = "Спустить паруса", 
+    ContextMenu_SetLeftSail = "Установить паруса<br>на левую сторону",
+    ContextMenu_SetRightSail = "Установить паруса<br>на правую сторону",
+    ContextMenu_SwimToLand = "Уплыть",
+    
+    ContextMenu_LaunchBoat = "Спустить лодку<br>на воду",
+    ContextMenu_CantLaunchBoat = "Нужно подвезти<br>прицеп к воде",
+    ContextMenu_LoadBoatOntoTrailer = "Загрузить лодку<br>на прицеп",
+    ContextMenu_CantLoadBoatOntoTrailer = "Лодка и прицеп должны<br>находиться рядом",
+    
+    ContextMenu_VehicleStartEngineManual = "Запустить двигатель вручную",
+    ContextMenu_VehicleManualStarterDamage = "Ручной стартер не установлен<br>или поврежден",
+    ContextMenu_set_anchor_on = "Бросить якорь",
+    ContextMenu_set_anchor_off = "Поднять якорь",
+    ContextMenu_bind_boat = "Привязать лодку",
+    ContextMenu_unbind_boat = "Отвязать лодку",
+    
+    ContextMenu_Wooden_Pantone = "Деревянный понтон",
+    
+    ContextMenu_Open_Cabin = "Открыть каюту",
+    ContextMenu_Open_Cabin_Force = "Открыть каюту<br>(будет использоваться<br>%1)",
+    ContextMenu_Open_Cabin_Force_Need_Crowbar = "Открыть каюту<br>(нужен инструмент или ключ)",
+    ContextMenu_Close_Cabin = "Закрыть каюту",
+    ContextMenu_cabinForceUnlock_tooTired = "Я слишком устал,<br>чтобы вскрывать каюту",
+    ContextMenu_cabinForceUnlock_tooBored = "Не хочу сейчас<br>этим заниматься",
+    ContextMenu_cabinForceUnlock_tooUnhappy = "Я не в настроении<br>этим заниматься",
+    
 /************ Autotsar Tuning Atelier - Bus ************/
 	ContextMenu_Vehicle_EGNH = "Написать «EGNH»",
 
 /************ Autotsar Trailers ************/
-	
 	ContextMenu_Close_trunk = "Закрыть багажник",
 	ContextMenu_Open_trunk = "Открыть багажник",
 	ContextMenu_TrailerSpotlightOn = "Включить прожекторы",

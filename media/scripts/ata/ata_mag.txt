@@ -26,7 +26,7 @@ recipe Make ATABusKengur1Item
    MetalBar=1,
    ScrapMetal=1,
    Screws=1,
-   BlowTorch=1,
+   BlowTorch=1, /* (MetalPipe + SheetMetal + SmallSheetMetal + MetalBar + ScrapMetal)*2 */
    keep WeldingMask,
    keep Screwdriver,
    Result:ATABusKengur1Item,

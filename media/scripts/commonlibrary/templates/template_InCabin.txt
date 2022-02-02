@@ -5,6 +5,10 @@ module Base
 		part CabinLock
 		{
 			category = nodisplay,
+            lua
+			{
+				create = CommonTemplates.Create.CabinLock,
+			}
 		}
 		part InCabinFrontLeft
 		{

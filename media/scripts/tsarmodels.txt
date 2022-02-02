@@ -1,0 +1,10 @@
+module Base
+{
+	model TsarNullModel
+	{
+		mesh = TsarNullModel,
+        texture = Vehicles/vehicle_wheel,
+		shader = vehiclewheel,
+        scale = 0.0001,
+	}
+}

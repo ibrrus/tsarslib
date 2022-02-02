@@ -18,8 +18,26 @@ ItemName_EN = {
 	
 	ItemName_Base.ATARoofLightItem = "Roof lights",
 	ItemName_Base.ATAProtectionWheelsChain = "Chain",
-
-
+    
+/************ Aquatsar Yacht Club ************/
+    ItemName_Aquatsar.BoatPropeller = "Boat Propeller",
+    ItemName_Aquatsar.ManualStarter = "Manual Starter",
+    ItemName_Aquatsar.Sails = "Sails",
+    ItemName_Aquatsar.BoatMag = "Repair Your Boats Magazine",
+    ItemName_Aquatsar.SwimMag = "Swimming Times Magazine",
+    ItemName_Aquatsar.Lifebuoy = "Lifebuoy",
+    ItemName_Aquatsar.DivingMask = "Diving Mask",
+    ItemName_Aquatsar.TaintedLiterature = "Tainted literature",
+    ItemName_Aquatsar.Compass = "Compass",
+    ItemName_Aquatsar.DeflatedTireTube = "Deflated Tire Tube",
+    ItemName_Aquatsar.TireTube = "Tire Tube",
+    ItemName_Base.SailingYachtName_Default_Item = "No name",
+    ItemName_Base.SailingYachtName_La_Brigandine = "La Brigandine",
+    ItemName_Base.SailingYachtName_Sakharov_Item = "Akademik Sakharov",
+    ItemName_Base.BoatMotorName_Default_Item = "No name",
+    ItemName_Base.BoatMotorName_Orianna_Item = "M/Y Orianna",
+    ItemName_Base.BoatMotorName_NP_Item = "Nautilus P.",
+    
 /************ Autotsar Tuning Atelier - Bus ************/
 	
 	ItemName_Autotsar.AtTuningMagBus = "Magazine «Autotsar Tuning Atelier - Bear Bus»",
@@ -88,8 +106,7 @@ ItemName_EN = {
 	ItemName_Autotsar.ATADodgeBullbar1Item = "Dadge Steals RT - Police Bullbar",
 	ItemName_Autotsar.ATADodgeBullbar2Item = "Dadge Steals RT - Homemade  Bullbar",
 	ItemName_Autotsar.ATADodgeBullbar3Item = "Dadge Steals RT - Lethal Bullbar",
-	ItemName_Autotsar.ATADodgeProtectionWindowLeftItem = "Dadge Steals RT - Left Window Protection",
-	ItemName_Autotsar.ATADodgeProtectionWindowRightItem = "Dadge Steals RT - Right Window Protection",
+	ItemName_Autotsar.ATADodgeProtectionWindowSideItem = "Dadge Steals RT - Side Window Protection",
 	ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - Windshield Protection",
 	ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - Roof Rack",
 	ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - Rear Window Rack",

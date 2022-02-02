@@ -2,4 +2,10 @@ Tooltip_PL = {
 	Tooltip_Compact_Fridge = "Może być zainstalowana w niektórych samochodach i przyczepach",
 	Tooltip_Compact_Oven = "Może być zainstalowany w niektórych samochodach i przyczepach",
 	Tooltip_Compact_Microwave = "Może być zainstalowany w niektórych samochodach i przyczepach",
+    
+/************ Aquatsar Yacht Club ************/
+    Tooltip_item_BoatMechanic = "Typ lodzi",
+    Tooltip_BoatDashboard_SpeedValueButton = "Zmien jednostki miary",
+    Tooltip_Boat_LowBattery = "Niski poziom baterii",
+    Tooltip_item_BoatMag = "Instrukcja obslugi zawierajaca diagramy oraz zadania<br>konserwacyjne dla popularnych modeli lodzi.",
 }

@@ -7,7 +7,15 @@ Recipe_RU = {
 	Recipe_Cut_ATAProtectionWheelsItem = "Разрезать Защиту колес",
 	
 	Recipe_Basic_Tuning = "Базовый тюнинг",
-
+    
+/************ Aquatsar Yacht Club ************/
+    Recipe_Extract_Tire_Tube = "Извлечь камеру из шины",
+    Recipe_Flatten_Tire_Tube = "Сдуть камеру",
+    Recipe_Inflate_Tire_Tube = "Надуть камеру",
+    Recipe_Powerboats_Mechanics = "Механика моторных лодок",
+    Recipe_Sailboats_Mechanics = "Механика парусников",
+    Recipe_Performance_Boat_Mechanics = "Профессиональный ремонт лодок",
+    Recipe_Swimming = "Лучшая техника плавания",
 
 /************ Autotsar Tuning Atelier - Bus ************/
 	
@@ -91,10 +99,8 @@ Recipe_RU = {
 	Recipe_Make_ATADodgeBullbar2Item = "Создать Кенгурятник (Dadge Steals RT)",
 	Recipe_Make_ATADodgeBullbar3Item = "Создать Кенгурятник (Dadge Steals RT)",
     
-	Recipe_Make_ATADodgeProtectionWindowLeftItem = "Создать Защиту левого стекла (Dadge Steals RT)",
-    Recipe_Cut_ATADodgeProtectionWindowLeftItem = "Разрезать Защиту левого стекла (Dadge Steals RT)",
-	Recipe_Make_ATADodgeProtectionWindowRightItem = "Создать Защиту правого стекла (Dadge Steals RT)",
-    Recipe_Cut_ATADodgeProtectionWindowRightItem = "Разрезать Защиту правого стекла (Dadge Steals RT)",
+	Recipe_Make_ATADodgeProtectionWindowSideItem = "Создать Защиту бокового стекла (Dadge Steals RT)",
+    Recipe_Cut_ATADodgeProtectionWindowSideItem = "Разрезать Защиту бокового стекла (Dadge Steals RT)",
 	Recipe_Make_ATADodgeProtectionWindowFrontItem = "Создать Защиту лобового стекла (Dadge Steals RT)",
     Recipe_Cut_ATADodgeProtectionWindowFrontItem = "Разрезать Защиту лобового стекла (Dadge Steals RT)",
 }

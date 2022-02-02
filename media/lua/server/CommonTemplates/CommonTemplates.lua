@@ -413,7 +413,7 @@ end
 --**                         Light                         **
 --**                                                       **
 --***********************************************************
-function CommonTemplates.Create.LightApi(boat, part)
+function CommonTemplates.Create.LightApi(vehicle, part)
 	local item = VehicleUtils.createPartInventoryItem(part)
 	if part:getId() == "HeadlightLeft" then
 		part:createSpotLight(0.5, 2.0, 8.0+ZombRand(16.0), 0.75, 0.96, ZombRand(200))
@@ -426,24 +426,24 @@ function CommonTemplates.Create.LightApi(boat, part)
     vehicle:transmitPartItem(part)
 end
 
-function CommonTemplates.Init.LightApi(boat, part)
+function CommonTemplates.Init.LightApi(vehicle, part)
 	part:setModelVisible("test", true)
 end
 
-function CommonTemplates.Update.LightApi(boat, part, elapsedMinutes)
+function CommonTemplates.Update.LightApi(vehicle, part, elapsedMinutes)
 	local light = part:getLight()
 	if not light then return end
-	local active = boat:getHeadlightsOn()
-	if active and (not part:getInventoryItem() or boat:getBatteryCharge() <= 0.0) then
+	local active = vehicle:getHeadlightsOn()
+	if active and (not part:getInventoryItem() or vehicle:getBatteryCharge() <= 0.0) then
 		active = false
 	end
 	part:setLightActive(active)
-	if active and not boat:isEngineRunning() then
-		VehicleUtils.chargeBattery(boat, -0.000025 * elapsedMinutes)
+	if active and not vehicle:isEngineRunning() then
+		VehicleUtils.chargeBattery(vehicle, -0.000025 * elapsedMinutes)
 	end
 end
 
-function CommonTemplates.Create.Light(boat, part)
+function CommonTemplates.Create.Light(vehicle, part)
 	local item = VehicleUtils.createPartInventoryItem(part)
 	-- if part:getId() == "LightFloodlightLeft" then
 		-- part:createSpotLight(0.5, 2.0, 8.0+ZombRand(16.0), 0.75, 0.96, ZombRand(200))
@@ -687,6 +687,9 @@ function CommonTemplates.Create.SeatBoxWooden(vehicle, part)
 	end
 end
 
-
-
-
+function CommonTemplates.Create.CabinLock(vehicle, part)
+	if ZombRand(100) < 20 then
+		part:getModData()["AquaCabin_isUnlocked"] = true
+        vehicle:transmitPartModData(part)	    
+	end
+end

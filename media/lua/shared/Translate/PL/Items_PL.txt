@@ -14,4 +14,17 @@ Items_PL = {
 	DisplayName_Compact_Oven = "Kompaktowy piekarnik",
 	DisplayName_Compact_Stove = "Kompaktowa kuchenka",
 	DisplayName_Compact_Microwave = "Kompaktowa kuchenka mikrofalowa",
+    
+    /************ Aquatsar Yacht Club ************/
+    ItemName_Aquatsar.BoatPropeller = "Sruba do lodzi",
+    ItemName_Aquatsar.ManualStarter = "Reczny rozrusznik",
+    ItemName_Aquatsar.Sails = "Zagle",
+    ItemName_Aquatsar.BoatMag = "Magazyn Napraw Twoja Lodz",
+    ItemName_Aquatsar.SwimMag = "Magazyn Czas Poplywac",
+    ItemName_Aquatsar.Lifebuoy = "Boja ratunkowa",
+    ItemName_Aquatsar.DivingMask = "Maska do nurkowania",
+    ItemName_Aquatsar.TaintedLiterature = "Skazona literatura",
+    ItemName_Aquatsar.Compass = "Kompas",
+    ItemName_Aquatsar.DeflatedTireTube = "Pusta detka opony",
+    ItemName_Aquatsar.TireTube = "Detka opony",
 }
