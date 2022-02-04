@@ -53,8 +53,8 @@ function ATATuningUtils.createPartInventoryItem(part)
 					if part:getContainerCapacity() and part:getContainerCapacity() > 0 then
 						item:setMaxCapacity(part:getContainerCapacity());
 					end
-					item:setConditionMax(item:getConditionMax()*conditionMultiply);
-					item:setCondition(item:getCondition()*conditionMultiply);
+					item:setConditionMax(item:getConditionMax()*conditionMultiply); 
+					item:setCondition(item:getCondition()*conditionMultiply); -- no need transmit
 					part:setRandomCondition(item);
 					part:setInventoryItem(item)
 				end
@@ -426,7 +426,7 @@ function ATATuning.UninstallComplete.Door(vehicle, part, item)
 	Vehicles.UninstallComplete.Door(vehicle, part, item)
 	ATATuning.ModelByItemName(vehicle, part)
 	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
-	item:setCondition(part:getModData().atatuning.health)
+	item:setCondition(part:getModData().atatuning.health) -- no need transmit
 	part:getModData().atatuning.health = nil
     vehicle:transmitPartModData(part)
 end
@@ -440,7 +440,7 @@ end
 function ATATuning.UninstallComplete.Window(vehicle, part, item)
 	Vehicles.UninstallComplete.Default(vehicle, part, item)
 	if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
-	item:setCondition(part:getModData().atatuning.health)
+	item:setCondition(part:getModData().atatuning.health) -- no need transmit
 	part:getModData().atatuning.health = nil
     vehicle:transmitPartModData(part)
 end
@@ -459,7 +459,7 @@ function ATATuning.InstallComplete.CommonProtection(vehicle, part)
 			end
 			savePart:getModData().atatuning.health = savePart:getCondition()
             vehicle:transmitPartModData(savePart)
-			savePart:setCondition(100)
+			savePart:setCondition(100) -- transmit
             vehicle:transmitPartCondition(savePart)
 		end
 	elseif item:getModData()["ataProtection"] then
@@ -474,7 +474,7 @@ function ATATuning.InstallComplete.CommonProtection(vehicle, part)
                     end
                     savePart:getModData().atatuning.health = savePart:getCondition()
                     vehicle:transmitPartModData(savePart)
-                    savePart:setCondition(100)
+                    savePart:setCondition(100) -- transmit
                     vehicle:transmitPartCondition(savePart)
                 end
             end
@@ -492,7 +492,7 @@ function ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
 		if savePart then
 			if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
             -- print(savePart:getModData().atatuning.health)
-			savePart:setCondition(savePart:getModData().atatuning.health)
+			savePart:setCondition(savePart:getModData().atatuning.health) -- transmit
 			savePart:getModData().atatuning.health = nil
             vehicle:transmitPartCondition(savePart)
             vehicle:transmitPartModData(savePart)
@@ -506,7 +506,7 @@ function ATATuning.UninstallComplete.CommonProtection(vehicle, part, item)
                 if savePart then
                     if not savePart:getModData().atatuning or not savePart:getModData().atatuning.health then return end
                     -- print(savePart:getModData().atatuning.health)
-                    savePart:setCondition(savePart:getModData().atatuning.health)
+                    savePart:setCondition(savePart:getModData().atatuning.health) -- transmit
                     savePart:getModData().atatuning.health = nil
                     vehicle:transmitPartCondition(savePart)
                     vehicle:transmitPartModData(savePart)
@@ -542,8 +542,8 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
 				end
 				if (savePart:getCondition() < 80) then
 					-- redoCond = true
-					part:setCondition(part:getCondition()-1)
-					savePart:setCondition(100)
+					part:setCondition(part:getCondition()-1) -- transmit
+					savePart:setCondition(100) -- transmit
                     vehicle:transmitPartCondition(part)
                     vehicle:transmitPartCondition(savePart)
 				end
@@ -566,8 +566,8 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
                         end
                         if (savePart:getCondition() < 80) then
                             -- redoCond = true
-                            part:setCondition(part:getCondition()-1)
-                            savePart:setCondition(100)
+                            part:setCondition(part:getCondition()-1) -- transmit
+                            savePart:setCondition(100) -- transmit
                             vehicle:transmitPartCondition(part)
                             vehicle:transmitPartCondition(savePart)
                         end

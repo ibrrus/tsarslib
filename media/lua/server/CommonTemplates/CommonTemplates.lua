@@ -87,7 +87,7 @@ end
 
 function CommonTemplates.Init.Repair(vehicle, part)
 	if part then
-		part:setCondition(100)
+		part:setCondition(100) -- transmit
         vehicle:transmitPartCondition(part)
 	end
 end

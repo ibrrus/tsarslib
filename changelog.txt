@@ -1,3 +1,26 @@
+v.1.25
+2022-02-04
+
+Исправлены ошибки в серверных функциях библиотеки.
+Обновлен код отображения предметов в интерактивном багажнике.
+Добавлена обработка таблицы интерактивного багажника "fullness_one".
+Добавлены переводы для ATA_Dodge.
+Добавлена новая модель для скрытия колес "TsarNullModel".
+Перенесены переводы из мода "Aquatsar Yacht Club".
+Добавлен шаблон сумок для авто.
+Добавлен шаблон и настроена работа выдвижных фар.
+Добавлен шаблон багажника на заднее стекло.
+
+Fixed errors in the server functions of the library.
+Updated the code for displaying items in the interactive trunk.
+Added processing of interactive trunk table "fullness_one".
+Added translations for ATA_Dodge.
+Added new model for hiding wheels "TsarNullModel".
+Added translations from "Aquatsar Yacht Club" mod.
+Added template for car bags.
+Added template for retractable headlights.
+Added template for trunk on the rear window.
+
 v.1.24
 2022-01-20
 

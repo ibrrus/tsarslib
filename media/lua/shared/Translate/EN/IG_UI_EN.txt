@@ -1,7 +1,9 @@
 IG_UI_EN = {
-/* ATA 2022-01-30*/
+/* ATA 2022-02-04*/
     IGUI_CloseHeadlightsPopUP = "Down Headlights",
     IGUI_OpenHeadlightsPopUP = "Up Headlights",
+    IGUI_VehiclePartATABagOnProtectionWindowFrontLeft = "Bag on protection (left)",
+    IGUI_VehiclePartATABagOnProtectionWindowFrontRight = "Bag on protection (right)",
     
 /* ATA 20220118*/
     IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "I can't break a window as long as it's protected.",

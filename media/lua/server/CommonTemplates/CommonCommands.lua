@@ -19,6 +19,70 @@ function Commands.toggleBatteryHeater(playerObj, args)
 	end
 end
 
+-- sendClientCommand(playerObj, 'commonlib', 'bulbSmash', {vehicle = vehicle:getId(),})
+function Commands.bulbSmash(playerObj, args)
+    if args.vehicle then
+        local vehicle = getVehicleById(args.vehicle)
+        local part = vehicle:getPartById("LightCabin")
+        if part and part:getInventoryItem() then
+            part:setCondition(0)
+            vehicle:transmitPartCondition(part)
+        end
+    end
+end
+
+-- sendClientCommand(playerObj, 'commonlib', 'cabinlightsOn', {vehicle = vehicle:getId(),})
+function Commands.cabinlightsOn(playerObj, args)
+    if args.vehicle then
+        local vehicle = getVehicleById(args.vehicle)
+        local part = vehicle:getPartById("LightCabin")
+        if part and part:getInventoryItem() then
+            local apipart = vehicle:getPartById("HeadlightRearRight")
+            local newItem = InventoryItemFactory.CreateItem("Base.LightBulb")
+            local partCondition = part:getCondition()
+            newItem:setCondition(partCondition)
+            apipart:setInventoryItem(newItem, 10) -- transmit
+            vehicle:transmitPartItem(apipart)
+            partCondition = partCondition - 1
+            part:setCondition(partCondition)
+            vehicle:transmitPartCondition(part)
+        end
+    end
+end
+
+
+-- sendClientCommand(self.character, 'commonlib', 'updatePaintVehicle', {vehicle = self.vehicle:getId(),})
+function Commands.updatePaintVehicle(playerObj, args)
+    if args.vehicle then
+        local vehicle = getVehicleById(args.vehicle)
+        local part = vehicle:getPartById("TireFrontLeft")
+        local invItem = part:getInventoryItem()
+        part:setInventoryItem(nil)
+        vehicle:transmitPartItem(part)
+        part:setInventoryItem(invItem)
+        vehicle:transmitPartItem(part)
+        part = vehicle:getPartById("TireFrontRight")
+        invItem = part:getInventoryItem()
+        part:setInventoryItem(nil)
+        vehicle:transmitPartItem(part)
+        part:setInventoryItem(invItem)
+        vehicle:transmitPartItem(part)
+        part = vehicle:getPartById("TireRearLeft")
+        invItem = part:getInventoryItem()
+        part:setInventoryItem(nil)
+        vehicle:transmitPartItem(part)
+        part:setInventoryItem(invItem)
+        vehicle:transmitPartItem(part)
+        part = vehicle:getPartById("TireRearRight")
+        invItem = part:getInventoryItem()
+        part:setInventoryItem(nil)
+        vehicle:transmitPartItem(part)
+        part:setInventoryItem(invItem)
+        vehicle:transmitPartItem(part)
+    end
+end
+
+
 -- sendClientCommand(self.character, 'commonlib', 'addVehicle', {trailer=self.trailer:getId(), activate = self.activate})
 CommonCommands.OnClientCommand = function(module, command, playerObj, args)
 	--print("CommonCommands.OnClientCommand")

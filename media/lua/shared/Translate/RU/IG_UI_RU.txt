@@ -1,7 +1,9 @@
 IGUI_RU = {
-/* ATA 2022-01-30*/
+/* ATA 2022-02-04*/
     IGUI_CloseHeadlightsPopUP = "Задвинуть фары",
     IGUI_OpenHeadlightsPopUP = "Выдвинуть фары",
+    IGUI_VehiclePartATABagOnProtectionWindowFrontLeft = "Сумка на защите (левая)",
+    IGUI_VehiclePartATABagOnProtectionWindowFrontRight = "Сумка на защите (правая)",
     
 /* ATA 20220118*/
     IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Я не смогу разбить окно, пока на нем стоит защита.",

@@ -238,20 +238,13 @@ function ISCommonMenu.onToggleCabinlights(playerObj)
 	if part and part:getInventoryItem() and partCondition > 0 then
 		local chanceFail = (100 - partCondition)/10
 		if ZombRand(100) < chanceFail then
-			part:setCondition(0)
+			sendClientCommand(playerObj, 'commonlib', 'bulbSmash', {vehicle = vehicle:getId(),})
 			vehicle:getEmitter():playSound("BulbSmash")
 		else
-			local apipart = vehicle:getPartById("HeadlightRearRight")
-			local newItem = InventoryItemFactory.CreateItem("Base.LightBulb")
-			newItem:setCondition(partCondition)
-			apipart:setInventoryItem(newItem, 10)
-			partCondition = partCondition - 1
-			part:setCondition(partCondition)
-
+			sendClientCommand(playerObj, 'commonlib', 'cabinlightsOn', {vehicle = vehicle:getId(),})
+            sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = true })
 			vehicle:getEmitter():playSound("SwitchLamp")
-			sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = true })
 		end
-        vehicle:transmitPartCondition(part)
 	else
 		vehicle:getEmitter():playSound("SwitchLampFail")
 		-- playerObj:Say(getText("IGUI_PlayerText_CabinlightDoNotWork"))

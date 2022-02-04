@@ -35,6 +35,7 @@ ContextMenu_RU = {
     ContextMenu_CantLaunchBoat = "Нужно подвезти<br>прицеп к воде",
     ContextMenu_LoadBoatOntoTrailer = "Загрузить лодку<br>на прицеп",
     ContextMenu_CantLoadBoatOntoTrailer = "Лодка и прицеп должны<br>находиться рядом",
+    ContextMenu_CantLoadBoatOntoTrailerMan = "В лодке не должно быть<br>людей",
     
     ContextMenu_VehicleStartEngineManual = "Запустить двигатель вручную",
     ContextMenu_VehicleManualStarterDamage = "Ручной стартер не установлен<br>или поврежден",
