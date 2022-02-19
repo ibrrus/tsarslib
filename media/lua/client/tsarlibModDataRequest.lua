@@ -1,5 +1,3 @@
--- TsarModDataTable = {}
-
 local tickControl = 100 -- Сокращает количество срабатываний скрипта. Больше число - меньше срабатываний
 
 local tsarlibModData = {}

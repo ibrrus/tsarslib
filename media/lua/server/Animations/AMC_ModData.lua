@@ -1,3 +1,5 @@
+if not isClient() and not isServer() then return end
+
 local tsarslibOnInitGlobalModData = function(_module, _packet)
 	if not ModData.exists("tsaranimations") then
 		local t = ModData.create("tsaranimations")
@@ -29,3 +31,17 @@ end
 
 Events.OnInitGlobalModData.Add(tsarslibOnInitGlobalModData);
 Events.OnReceiveGlobalModData.Add(tsarslibOnReceiveGlobalModData);
+
+
+local function tsarlibAnimModDataClear()
+    for playerOnlineID, needAnim in pairs(ModData.getOrCreate("tsaranimations")) do
+        if needAnim then
+            local player = getPlayerByOnlineID(playerOnlineID)
+            if not player then
+                ModData.getOrCreate("tsaranimations")[playerOnlineID] = nil
+            end
+        end
+    end
+end
+
+Events.EveryHours.Add(tsarlibAnimModDataClear)
