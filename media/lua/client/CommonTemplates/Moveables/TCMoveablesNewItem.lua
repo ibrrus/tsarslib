@@ -84,4 +84,4 @@ function TCOnObjectAboutToBeRemoved(object)
 	end
 end
 
-Events.OnObjectAboutToBeRemoved.Add(TCOnObjectAboutToBeRemoved)
+-- Events.OnObjectAboutToBeRemoved.Add(TCOnObjectAboutToBeRemoved)

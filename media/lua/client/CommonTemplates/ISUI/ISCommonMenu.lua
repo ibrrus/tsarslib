@@ -2,126 +2,143 @@ if ISCommonMenu == nil then ISCommonMenu = {} end
 -- require 'Boats/ISUI/ISBoatMenu'
 
 if not ISCommonMenu.oldShowRadialMenu then
-	ISCommonMenu.oldShowRadialMenu = ISVehicleMenu.showRadialMenu
+    ISCommonMenu.oldShowRadialMenu = ISVehicleMenu.showRadialMenu
 end
 
 -- function ISCommonMenu.onKeyStartPressed(key)
-	-- local playerObj = getPlayer()
-	-- if not playerObj then return end
-	-- if playerObj:isDead() then return end
-	-- local vehicle = playerObj:getVehicle()
-	-- if vehicle and key == getCore():getKey("VehicleRadialMenu") then
-		-- ISCommonMenu.showRadialMenu(playerObj, vehicle)
-	-- end
+    -- local playerObj = getPlayer()
+    -- if not playerObj then return end
+    -- if playerObj:isDead() then return end
+    -- local vehicle = playerObj:getVehicle()
+    -- if vehicle and key == getCore():getKey("VehicleRadialMenu") then
+        -- ISCommonMenu.showRadialMenu(playerObj, vehicle)
+    -- end
 -- end
 
 function ISVehicleMenu.showRadialMenu(playerObj)
-	ISCommonMenu.oldShowRadialMenu(playerObj)
-	ISCommonMenu.showRadialMenu(playerObj)
+    ISCommonMenu.oldShowRadialMenu(playerObj)
+    ISCommonMenu.showRadialMenu(playerObj)
 end
 
 
+local old_ISVehicleMenu_doTowingMenu = ISVehicleMenu.doTowingMenu
+
+-- Отключение функции для подсоединения прицепа вручную
+function ISVehicleMenu.doTowingMenu(playerObj, vehicle, menu)
+    if vehicle and vehicle:getPartById("TCLConfig") then
+        if vehicle:getPartById("TCLConfig"):getTable("TCLConfig").trailerOutside == "false" then
+            return
+        end
+    end
+    old_ISVehicleMenu_doTowingMenu(playerObj, vehicle, menu)
+end
+
 function ISCommonMenu.showRadialMenu(playerObj)
-	local isPaused = UIManager.getSpeedControls() and UIManager.getSpeedControls():getCurrentGameSpeed() == 0
-	if isPaused then return end
-	local vehicle = playerObj:getVehicle()
-	if vehicle then
-		local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
-		local seat = seatNameTable[vehicle:getSeat(playerObj)+1]
-		local oven = vehicle:getPartById("Oven" .. seat)
-		local fridge = vehicle:getPartById("Fridge" .. seat)
-		local freezer = vehicle:getPartById("Freezer" .. seat)
-		local microwave = vehicle:getPartById("Microwave" .. seat)
-		local inCabin = vehicle:getPartById("InCabin" .. seat)
-		local inRoofTent = vehicle:getPartById("InRoofTent" .. seat)
-		local mattress = vehicle:getPartById("Mattress" .. seat)
-		local lightIsOn = true
-		local timeHours = getGameTime():getHour()
-		
-		if inCabin then
-			if vehicle:getPartById("HeadlightRearRight") and vehicle:getPartById("HeadlightRearRight"):getInventoryItem() then
-				menu:addSlice(getText("ContextMenu_BoatCabinelightsOff"), getTexture("media/ui/boats/boat_switch_off.png"), ISCommonMenu.offToggleCabinlights, playerObj)
-			else
-				if (timeHours > 22 or timeHours < 7) then
-					menu:addSlice(getText("ContextMenu_BoatCabinelightsOn"), getTexture("media/ui/boats/boat_switch_on.png"), ISCommonMenu.onToggleCabinlights, playerObj)
-					lightIsOn = false
-				else
-					menu:addSlice(getText("ContextMenu_BoatCabinelightsOn"), getTexture("media/ui/boats/boat_switch_on_day.png"), ISCommonMenu.onToggleCabinlights, playerObj)
-				end
-			end
-		end
-		if inRoofTent then
-			menu:deleteMultiSliceTsar({getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Lock_Doors"), getText("ContextMenu_VehicleHeaterOn"), getText("ContextMenu_VehicleHeaterOff"), getText("ContextMenu_VehicleMechanics")})
-			menu:updateSliceTsar(getText("IGUI_ExitVehicle"), getText("IGUI_ExitVehicleTent"), getTexture("media/ui/commonlibrary/tent_exit.png"))
-			menu:updateSliceTsar(getText("ContextMenu_Close_window"), getText("ContextMenu_Close_window"), getTexture("media/ui/commonlibrary/UI_commonlib_close_tent_window.png"))
-			menu:updateSliceTsar(getText("ContextMenu_Open_window"), getText("ContextMenu_Open_window"), getTexture("media/ui/commonlibrary/UI_commonlib_open_tent_window.png"))
-			menu:updateSliceTsar(getText("IGUI_SwitchSeat"), getText("IGUI_SwitchSeat"), getTexture("media/ui/commonlibrary/UI_commonlib_sleep_bag_change.png"))
-		end
-		
-		if mattress and (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
-			local mattressTex = getTexture("media/ui/commonlibrary/mattress.png")
-			if inRoofTent then
-				mattressTex = getTexture("media/ui/commonlibrary/sleeping_bag.png")
-			end
-			if menu:updateSliceTsar(getText("IGUI_Sleep_NotTiredEnough"), nil, mattressTex, nil, playerObj, vehicle) or
-			menu:updateSliceTsar(getText("IGUI_PlayerText_CanNotSleepInMovingCar"), nil, mattressTex, nil, playerObj, vehicle) or
-			menu:updateSliceTsar(getText("ContextMenu_PainNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
-			menu:updateSliceTsar(getText("ContextMenu_PanicNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
-			menu:updateSliceTsar(getText("ContextMenu_NoSleepTooEarly"), nil, mattressTex, nil, playerObj, vehicle)  or
-			menu:updateSliceTsar(getText("ContextMenu_Sleep"), getText("ContextMenu_Sleep"), mattressTex, ISVehicleMenu.onSleep, playerObj, vehicle) then end
-		end
+    local isPaused = UIManager.getSpeedControls() and UIManager.getSpeedControls():getCurrentGameSpeed() == 0
+    if isPaused then return end
+    local vehicle = playerObj:getVehicle()
+    if vehicle then
+        local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
+        local tableTCLConfig = nil
+        if vehicle:getPartById("TCLConfig") then
+            tableTCLConfig = vehicle:getPartById("TCLConfig"):getTable("TCLConfig")
+        end
 
-		
-		if vehicle:getPartById("BatteryHeater") and lightIsOn and inCabin then
-			-- print("BatteryHeater")
-			local tex = getTexture("media/ui/commonlibrary/UI_temperatureHC.png")
-			if (vehicle:getPartById("BatteryHeater"):getModData().temperature or 0) < 0 then
-				tex = getTexture("media/ui/vehicles/vehicle_temperatureCOLD.png")
-			elseif (vehicle:getPartById("BatteryHeater"):getModData().temperature or 0) > 0 then
-				tex = getTexture("media/ui/vehicles/vehicle_temperatureHOT.png")
-			end		
-			if vehicle:getPartById("BatteryHeater"):getModData().active then
-				menu:addSlice(getText("ContextMenu_AirCondOff"), tex, ISCommonMenu.onToggleHeater, playerObj )
-			else
-				menu:addSlice(getText("ContextMenu_AirCondOn"), tex, ISCommonMenu.onToggleHeater, playerObj )
-			end
-		end
+        local seat = seatNameTable[vehicle:getSeat(playerObj)+1]
+        local oven = vehicle:getPartById("Oven" .. seat)
+        local fridge = vehicle:getPartById("Fridge" .. seat)
+        local freezer = vehicle:getPartById("Freezer" .. seat)
+        local microwave = vehicle:getPartById("Microwave" .. seat)
+        local inCabin = vehicle:getPartById("InCabin" .. seat)
+        local inRoofTent = vehicle:getPartById("InRoofTent" .. seat)
+        local mattress = vehicle:getPartById("Mattress" .. seat)
+        local lightIsOn = true
+        local timeHours = getGameTime():getHour()
+        
+        if inCabin then
+            if vehicle:getPartById("HeadlightRearRight") and vehicle:getPartById("HeadlightRearRight"):getInventoryItem() then
+                menu:addSlice(getText("ContextMenu_BoatCabinelightsOff"), getTexture("media/ui/boats/boat_switch_off.png"), ISCommonMenu.offToggleCabinlights, playerObj)
+            else
+                if (timeHours > 22 or timeHours < 7) then
+                    menu:addSlice(getText("ContextMenu_BoatCabinelightsOn"), getTexture("media/ui/boats/boat_switch_on.png"), ISCommonMenu.onToggleCabinlights, playerObj)
+                    lightIsOn = false
+                else
+                    menu:addSlice(getText("ContextMenu_BoatCabinelightsOn"), getTexture("media/ui/boats/boat_switch_on_day.png"), ISCommonMenu.onToggleCabinlights, playerObj)
+                end
+            end
+        end
+        if inRoofTent then
+            menu:deleteMultiSliceTsar({getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Lock_Doors"), getText("ContextMenu_VehicleHeaterOn"), getText("ContextMenu_VehicleHeaterOff"), getText("ContextMenu_VehicleMechanics")})
+            menu:updateSliceTsar(getText("IGUI_ExitVehicle"), getText("IGUI_ExitVehicleTent"), getTexture("media/ui/commonlibrary/tent_exit.png"))
+            menu:updateSliceTsar(getText("ContextMenu_Close_window"), getText("ContextMenu_Close_window"), getTexture("media/ui/commonlibrary/UI_commonlib_close_tent_window.png"))
+            menu:updateSliceTsar(getText("ContextMenu_Open_window"), getText("ContextMenu_Open_window"), getTexture("media/ui/commonlibrary/UI_commonlib_open_tent_window.png"))
+            menu:updateSliceTsar(getText("IGUI_SwitchSeat"), getText("IGUI_SwitchSeat"), getTexture("media/ui/commonlibrary/UI_commonlib_sleep_bag_change.png"))
+        end
+        
+        if mattress and (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
+            local mattressTex = getTexture("media/ui/commonlibrary/mattress.png")
+            if inRoofTent then
+                mattressTex = getTexture("media/ui/commonlibrary/sleeping_bag.png")
+            end
+            if menu:updateSliceTsar(getText("IGUI_Sleep_NotTiredEnough"), nil, mattressTex, nil, playerObj, vehicle) or
+            menu:updateSliceTsar(getText("IGUI_PlayerText_CanNotSleepInMovingCar"), nil, mattressTex, nil, playerObj, vehicle) or
+            menu:updateSliceTsar(getText("ContextMenu_PainNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
+            menu:updateSliceTsar(getText("ContextMenu_PanicNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
+            menu:updateSliceTsar(getText("ContextMenu_NoSleepTooEarly"), nil, mattressTex, nil, playerObj, vehicle)  or
+            menu:updateSliceTsar(getText("ContextMenu_Sleep"), getText("ContextMenu_Sleep"), mattressTex, ISVehicleMenu.onSleep, playerObj, vehicle) then end
+        end
 
-		if oven and lightIsOn then
-			menu:addSlice(getText("IGUI_UseStove"), getTexture("media/ui/Container_Oven"), ISCommonMenu.onStoveSetting, playerObj, vehicle, oven)
-			-- if oven:getItemContainer():isActive() then
-				-- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
-			-- else
-				-- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
-			-- end
-		end
-		
-		if microwave and lightIsOn then
-			menu:addSlice(getText("IGUI_UseMicrowave"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.onMicrowaveSetting, playerObj, vehicle, microwave)
-			-- if microwave:getItemContainer():isActive() then
-				-- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, false)
-			-- else
-				-- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, true)
-			-- end
-		end
-			
-		if fridge and lightIsOn then
-			-- print(fridge:getModData().tsarslib)
-			-- print(fridge:getModData().tsarslib.active)
-			if fridge:getModData().tsarslib and fridge:getModData().tsarslib.active then
-				menu:addSlice(getText("IGUI_Turn_Fridge_Off"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
-			else
-				menu:addSlice(getText("IGUI_Turn_Fridge_On"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
-			end
-		end
-		
-		if freezer and lightIsOn then
-			if freezer:getModData().tsarslib and freezer:getModData().tsarslib.active then
-				menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
-			else
-				menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
-			end
-		end
+        
+        if vehicle:getPartById("BatteryHeater") and lightIsOn and inCabin then
+            -- print("BatteryHeater")
+            local tex = getTexture("media/ui/commonlibrary/UI_temperatureHC.png")
+            if (vehicle:getPartById("BatteryHeater"):getModData().temperature or 0) < 0 then
+                tex = getTexture("media/ui/vehicles/vehicle_temperatureCOLD.png")
+            elseif (vehicle:getPartById("BatteryHeater"):getModData().temperature or 0) > 0 then
+                tex = getTexture("media/ui/vehicles/vehicle_temperatureHOT.png")
+            end        
+            if vehicle:getPartById("BatteryHeater"):getModData().active then
+                menu:addSlice(getText("ContextMenu_AirCondOff"), tex, ISCommonMenu.onToggleHeater, playerObj )
+            else
+                menu:addSlice(getText("ContextMenu_AirCondOn"), tex, ISCommonMenu.onToggleHeater, playerObj )
+            end
+        end
+
+        if oven and lightIsOn then
+            menu:addSlice(getText("IGUI_UseStove"), getTexture("media/ui/Container_Oven"), ISCommonMenu.onStoveSetting, playerObj, vehicle, oven)
+            -- if oven:getItemContainer():isActive() then
+                -- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
+            -- else
+                -- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
+            -- end
+        end
+        
+        if microwave and lightIsOn then
+            menu:addSlice(getText("IGUI_UseMicrowave"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.onMicrowaveSetting, playerObj, vehicle, microwave)
+            -- if microwave:getItemContainer():isActive() then
+                -- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, false)
+            -- else
+                -- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, true)
+            -- end
+        end
+            
+        if fridge and lightIsOn then
+            -- print(fridge:getModData().tsarslib)
+            -- print(fridge:getModData().tsarslib.active)
+            if fridge:getModData().tsarslib and fridge:getModData().tsarslib.active then
+                menu:addSlice(getText("IGUI_Turn_Fridge_Off"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
+            else
+                menu:addSlice(getText("IGUI_Turn_Fridge_On"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
+            end
+        end
+        
+        if freezer and lightIsOn then
+            if freezer:getModData().tsarslib and freezer:getModData().tsarslib.active then
+                menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
+            else
+                menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
+            end
+        end
         
         if vehicle:isDriver(playerObj) then
             local doorPart = vehicle:getPartById("ATAHeadlightsPopUP")
@@ -134,147 +151,219 @@ function ISCommonMenu.showRadialMenu(playerObj)
                 end
             end
         end
-	end
+        ISCommonMenu.doTowingMenu(playerObj, vehicle, menu)
+    end
+end
+
+local TowMenu = {}
+
+function TowMenu.isBurnt(vehicle)
+    return string.contains(vehicle:getScriptName(), "Burnt")
+end
+
+function TowMenu.isTrailer(vehicle)
+    return string.contains(vehicle:getScriptName(), "Trailer")
+end
+
+function TowMenu.attachVehicleToOther(playerObj, vehicle, menu)
+    local attachmentA, attachmentB = "trailerTruck", "trailerTruck"
+    local vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
+
+    if not vehicleB then
+        attachmentA, attachmentB = "trailerTruck", "trailerTruck"
+        vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
+    end
+
+    if not vehicleB then
+        attachmentA, attachmentB = "trailerTruck", "trailerTruck"
+        vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
+    end
+
+    if not vehicleB then
+        attachmentA, attachmentB = "trailerTruck", "trailerTruck"
+        vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
+    end
+
+    if vehicleB then
+        if TowMenu.isBurnt(vehicleB) then
+            TowMenu.addOption(playerObj, menu, vehicle, vehicleB, attachmentA, attachmentB)
+        elseif TowMenu.isTrailer(vehicleB) then
+            TowMenu.addOption(playerObj, menu, vehicle, vehicleB, attachmentA, attachmentB)
+        else
+            TowMenu.addOption(playerObj, menu, vehicle, vehicleB, attachmentA, attachmentB)
+        end
+    end
+end
+
+function TowMenu.addOption(playerObj, menu, vehicleA, vehicleB, attachmentA, attachmentB)
+    local aName = ISVehicleMenu.getVehicleDisplayName(vehicleA)
+    local bName = ISVehicleMenu.getVehicleDisplayName(vehicleB)
+    local text = getText("ContextMenu_Vehicle_AttachTrailer", bName, aName);
+    menu:addSlice(text, getTexture("media/ui/ZoomIn.png"), ISCommonMenu.onAttachTrailer, playerObj, vehicleA, attachmentA, attachmentB)
+end
+
+function ISCommonMenu.onAttachTrailer(playerObj, vehicle, attachmentA, attachmentB)
+    local square = vehicle:getCurrentSquare()
+    local vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(square, vehicle, attachmentA, attachmentB)
+    if not vehicleB then return end
+    local args = { vehicleA = vehicle:getId(), vehicleB = vehicleB:getId(), attachmentA = attachmentA, attachmentB = attachmentB }
+    sendClientCommand(playerObj, 'vehicle', 'attachTrailer', args)
+end
+
+function ISCommonMenu.onDetachTrailer(playerObj, vehicle, attachmentA)
+    sendClientCommand(playerObj, 'vehicle', 'detachTrailer', { vehicle = vehicle:getId() })
+    -- local nextAction = ISDetachTrailerFromVehicle:new(playerObj, vehicle, attachmentA)
+    -- ISTimedActionQueue.add(nextAction)
+    -- if not ISVehicleTrailerUtils.walkToTrailer(playerObj, vehicle, attachmentA, nextAction) then return end
+end
+
+function ISCommonMenu.doTowingMenu(playerObj, vehicle, menu)
+    if vehicle:getVehicleTowing() then
+        local bName = ISVehicleMenu.getVehicleDisplayName(vehicle:getVehicleTowing())
+        menu:addSlice(getText("ContextMenu_Vehicle_DetachTrailer", bName), getTexture("media/ui/ZoomOut.png"), ISCommonMenu.onDetachTrailer, playerObj, vehicle, vehicle:getTowAttachmentSelf())
+        return
+    end
+    TowMenu.attachVehicleToOther(playerObj, vehicle, menu)
 end
 
 function ISCommonMenu.onToggleHeadlights(playerObj, part)
 -- print("ISCommonMenu.onToggleHeadlights")
     local vehicle = playerObj:getVehicle()
-	if not vehicle then return end
+    if not vehicle then return end
     if vehicle:getHeadlightsOn() then
         ISCommonMenu.onCloseDoor(playerObj, part)
     else
         ISCommonMenu.onOpenDoor(playerObj, part)
     end
-	sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = not vehicle:getHeadlightsOn() })
+    sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = not vehicle:getHeadlightsOn() })
 end
 
 function ISCommonMenu.onCloseHeadlight(playerObj, part)
     local vehicle = playerObj:getVehicle()
-	if not vehicle then return end
+    if not vehicle then return end
     if vehicle:getHeadlightsOn() then
         sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = not vehicle:getHeadlightsOn() })
     end
-	ISTimedActionQueue.add(ATAISAnimatedPartClose:new(playerObj, part:getVehicle(), part))
+    ISTimedActionQueue.add(ATAISAnimatedPartClose:new(playerObj, part:getVehicle(), part))
 end
 
 function ISCommonMenu.onOpenDoor(playerObj, part)
-	ISTimedActionQueue.add(ATAISAnimatedPartOpen:new(playerObj, part:getVehicle(), part))
+    ISTimedActionQueue.add(ATAISAnimatedPartOpen:new(playerObj, part:getVehicle(), part))
 end
 
 function ISCommonMenu.onCloseDoor(playerObj, part)
-	ISTimedActionQueue.add(ATAISAnimatedPartClose:new(playerObj, part:getVehicle(), part))
+    ISTimedActionQueue.add(ATAISAnimatedPartClose:new(playerObj, part:getVehicle(), part))
 end
 
 function ISCommonMenu.onToggleHeater(playerObj)
-	local playerNum = playerObj:getPlayerNum()
-	if not ISCommonMenu.acui then
-		ISCommonMenu.acui = {}
-	end
-	local ui = ISCommonMenu.acui[playerNum]
-	if not ui or ui.character ~= playerObj then
-		ui = ISBatteryACUI:new(0,0,playerObj)
-		ui:initialise()
-		ui:instantiate()
-		ISCommonMenu.acui[playerNum] = ui
-	end
-	if ui:isReallyVisible() then
-		ui:removeFromUIManager()
-		if JoypadState.players[playerNum+1] then
-			setJoypadFocus(playerNum, nil)
-		end
-	else
-		ui:setVehicle(playerObj:getVehicle())
-		ui:addToUIManager()
-		if JoypadState.players[playerNum+1] then
-			JoypadState.players[playerNum+1].focus = ui
-		end
-	end
-end	
-	
+    local playerNum = playerObj:getPlayerNum()
+    if not ISCommonMenu.acui then
+        ISCommonMenu.acui = {}
+    end
+    local ui = ISCommonMenu.acui[playerNum]
+    if not ui or ui.character ~= playerObj then
+        ui = ISBatteryACUI:new(0,0,playerObj)
+        ui:initialise()
+        ui:instantiate()
+        ISCommonMenu.acui[playerNum] = ui
+    end
+    if ui:isReallyVisible() then
+        ui:removeFromUIManager()
+        if JoypadState.players[playerNum+1] then
+            setJoypadFocus(playerNum, nil)
+        end
+    else
+        ui:setVehicle(playerObj:getVehicle())
+        ui:addToUIManager()
+        if JoypadState.players[playerNum+1] then
+            JoypadState.players[playerNum+1].focus = ui
+        end
+    end
+end    
+    
 function ISCommonMenu.ToggleDevice(playerObj, vehicle, part)
-	CommonTemplates.Use.DefaultDevice(vehicle, part, playerObj)
+    CommonTemplates.Use.DefaultDevice(vehicle, part, playerObj)
 end
 
 function ISCommonMenu.ToggleDeviceFridge(playerObj, vehicle, part)
-	CommonTemplates.Use.Fridge(vehicle, part, playerObj)
+    CommonTemplates.Use.Fridge(vehicle, part, playerObj)
 end
 
 function ISCommonMenu.ToggleMicrowave(playerObj, vehicle, part, on)
-	CommonTemplates.Use.Microwave(vehicle, part, playerObj, on)
+    CommonTemplates.Use.Microwave(vehicle, part, playerObj, on)
 end
 
 function ISCommonMenu.onStoveSetting(playerObj, vehicle, part)
-	local data = getPlayerData(playerObj:getPlayerNum())
-	if not data.portableOvenUI or not data.portableOvenUI:getIsVisible() then
-		data.portableOvenUI = ISPortableOvenUI:new(0,0,430,310, playerObj, vehicle, part)
-		data.portableOvenUI:initialise()
-		data.portableOvenUI:addToUIManager()
-	else
-		data.portableOvenUI:setVisible(false);
+    local data = getPlayerData(playerObj:getPlayerNum())
+    if not data.portableOvenUI or not data.portableOvenUI:getIsVisible() then
+        data.portableOvenUI = ISPortableOvenUI:new(0,0,430,310, playerObj, vehicle, part)
+        data.portableOvenUI:initialise()
+        data.portableOvenUI:addToUIManager()
+    else
+        data.portableOvenUI:setVisible(false);
         data.portableOvenUI:removeFromUIManager();
-		data.portableOvenUI = nil
-	end
+        data.portableOvenUI = nil
+    end
 end
 
 function ISCommonMenu.onMicrowaveSetting(playerObj, vehicle, part)
-	local data = getPlayerData(playerObj:getPlayerNum())
-	if not data.portableOvenUI or not data.portableOvenUI:getIsVisible() then
-		data.portableOvenUI = ISPortableMicrowaveUI:new(0,0,430,310, playerObj, vehicle, part)
-		data.portableOvenUI:initialise()
-		data.portableOvenUI:addToUIManager()
-	else
-		data.portableOvenUI:setVisible(false);
+    local data = getPlayerData(playerObj:getPlayerNum())
+    if not data.portableOvenUI or not data.portableOvenUI:getIsVisible() then
+        data.portableOvenUI = ISPortableMicrowaveUI:new(0,0,430,310, playerObj, vehicle, part)
+        data.portableOvenUI:initialise()
+        data.portableOvenUI:addToUIManager()
+    else
+        data.portableOvenUI:setVisible(false);
         data.portableOvenUI:removeFromUIManager();
-		data.portableOvenUI = nil
-	end
+        data.portableOvenUI = nil
+    end
 end
 
 function ISCommonMenu.onToggleCabinlights(playerObj)
-	local vehicle = playerObj:getVehicle()
-	if not vehicle then return end
-	local part = vehicle:getPartById("LightCabin")
-	local partCondition = part:getCondition()
-	if part and part:getInventoryItem() and partCondition > 0 then
-		local chanceFail = (100 - partCondition)/10
-		if ZombRand(100) < chanceFail then
-			sendClientCommand(playerObj, 'commonlib', 'bulbSmash', {vehicle = vehicle:getId(),})
-			vehicle:getEmitter():playSound("BulbSmash")
-		else
-			sendClientCommand(playerObj, 'commonlib', 'cabinlightsOn', {vehicle = vehicle:getId(),})
+    local vehicle = playerObj:getVehicle()
+    if not vehicle then return end
+    local part = vehicle:getPartById("LightCabin")
+    local partCondition = part:getCondition()
+    if part and part:getInventoryItem() and partCondition > 0 then
+        local chanceFail = (100 - partCondition)/10
+        if ZombRand(100) < chanceFail then
+            sendClientCommand(playerObj, 'commonlib', 'bulbSmash', {vehicle = vehicle:getId(),})
+            vehicle:getEmitter():playSound("BulbSmash")
+        else
+            sendClientCommand(playerObj, 'commonlib', 'cabinlightsOn', {vehicle = vehicle:getId(),})
             sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = true })
-			vehicle:getEmitter():playSound("SwitchLamp")
-		end
-	else
-		vehicle:getEmitter():playSound("SwitchLampFail")
-		-- playerObj:Say(getText("IGUI_PlayerText_CabinlightDoNotWork"))
-	end
-	--sendClientCommand(playerObj, 'vehicle', 'setStoplightsOn', { on = not boat:getHeadlightsOn() })
+            vehicle:getEmitter():playSound("SwitchLamp")
+        end
+    else
+        vehicle:getEmitter():playSound("SwitchLampFail")
+        -- playerObj:Say(getText("IGUI_PlayerText_CabinlightDoNotWork"))
+    end
+    --sendClientCommand(playerObj, 'vehicle', 'setStoplightsOn', { on = not boat:getHeadlightsOn() })
 end
 
 function ISCommonMenu.offToggleCabinlights(playerObj)
-	local vehicle = playerObj:getVehicle()
-	if not vehicle then return end
-	local part = vehicle:getPartById("HeadlightRearRight")
-	part:setInventoryItem(nil)
-	vehicle:getEmitter():playSound("SwitchLamp")
-	local lightIsOn = false
-	part = vehicle:getPartById("HeadlightLeft")
-	if part then
-		if part:getInventoryItem() then
-			lightIsOn = true
-		end
-	end
-	part = vehicle:getPartById("HeadlightRight")
-	if part then
-		if part:getInventoryItem() then
-			lightIsOn = true
-		end
-	end
-	if not lightIsOn then
-		sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = false })
-	end
-	--sendClientCommand(playerObj, 'vehicle', 'setStoplightsOn', { on = not boat:getHeadlightsOn() })
+    local vehicle = playerObj:getVehicle()
+    if not vehicle then return end
+    local part = vehicle:getPartById("HeadlightRearRight")
+    part:setInventoryItem(nil)
+    vehicle:getEmitter():playSound("SwitchLamp")
+    local lightIsOn = false
+    part = vehicle:getPartById("HeadlightLeft")
+    if part then
+        if part:getInventoryItem() then
+            lightIsOn = true
+        end
+    end
+    part = vehicle:getPartById("HeadlightRight")
+    if part then
+        if part:getInventoryItem() then
+            lightIsOn = true
+        end
+    end
+    if not lightIsOn then
+        sendClientCommand(playerObj, 'vehicle', 'setHeadlightsOn', { on = false })
+    end
+    --sendClientCommand(playerObj, 'vehicle', 'setStoplightsOn', { on = not boat:getHeadlightsOn() })
 end
 
 -- Events.OnKeyStartPressed.Add(ISCommonMenu.onKeyStartPressed)

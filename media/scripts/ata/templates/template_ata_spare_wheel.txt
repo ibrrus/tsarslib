@@ -7,10 +7,6 @@ module Base
             area = TruckBed,
             category = tire,
             itemType = Base.OldTire;Base.NormalTire;Base.ModernTire,
-            model Default
-            {
-                file = Vehicles_Wheel,
-            }
             table install
             {
                 items

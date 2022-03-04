@@ -92,6 +92,15 @@ function CommonTemplates.Init.Repair(vehicle, part)
 	end
 end
 
+function CommonTemplates.Create.setInventoryNil(vehicle, part)
+    part:setInventoryItem(nil)
+end
+
+function CommonTemplates.Init.setInventoryNil(vehicle, part)
+    part:setInventoryItem(nil)
+end
+
+
 --***********************************************************
 --**                                                       **
 --**                    Fridge n Freezer                   **

@@ -1,50 +1,65 @@
 AMCTickControl = {}
 
-function AMCTickControl.setLocalVariables(playerObj, moto, motoInfo)
-    local seatId = moto:getSeat(playerObj)
-    if playerObj:getVariableString("ATVehicleType") ~= motoInfo.type .. seatId then
-        playerObj:setVariable("ATVehicleType", motoInfo.type .. seatId);
+function AMCTickControl.setLocalVariables(playerObj, vehicle, vehicleInfo)
+    local seatId = vehicle:getSeat(playerObj)
+    if playerObj:getVariableString("ATVehicleType") ~= vehicleInfo.type .. seatId then
+        playerObj:setVariable("ATVehicleType", vehicleInfo.type .. seatId);
         if isClient() and playerObj:isLocalPlayer() then
             ModData.getOrCreate("tsaranimations")[playerObj:getOnlineID()] = true
             ModData.transmit("tsaranimations")
         end
     end
-    if moto:isDriver(playerObj) then
-        local playerStatus = moto:getPartForSeatContainer(0):getModData()["tsaranimation"]
-        local passengerStatus = moto:getPartForSeatContainer(1):getModData()["tsaranimation"]
-        playerObj:setVariable("ATPassengerStatus", passengerStatus);
-        if playerStatus ~= "enter" and playerStatus ~= "exit" then
-            local motoSpeedKPH = moto:getCurrentSpeedKmHour()
-            if motoSpeedKPH > tonumber(motoInfo.speedDelta) then 
+    if vehicle:isDriver(playerObj) then
+        local playerStatus = nil
+        if vehicle:getPartForSeatContainer(0) then
+            playerStatus = vehicle:getPartForSeatContainer(0):getModData()["tsaranimation"]
+        end
+        local passengerStatus = nil
+        if vehicle:getPartForSeatContainer(1) then
+            passengerStatus = vehicle:getPartForSeatContainer(1):getModData()["tsaranimation"]
+        end
+        if not passengerStatus then
+            passengerStatus = "none"
+        end
+        playerObj:setVariable("ATPassengerStatus", passengerStatus)
+        if playerStatus and playerStatus ~= "enter" and playerStatus ~= "exit" then
+            local vehicleSpeedKPH = vehicle:getCurrentSpeedKmHour()
+            if vehicleSpeedKPH > tonumber(vehicleInfo.speedDelta) then 
                 if playerObj:getVariableString("ATVehicleStatus") ~= "forward" then
                     playerObj:setVariable("ATVehicleStatus", "forward");
-                    sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = moto:getId(), seatId = seatId, status = "forward",})
+                    sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = vehicle:getId(), seatId = seatId, status = "forward",})
                 end
-            elseif motoSpeedKPH < (0 - tonumber(motoInfo.speedDelta)) then
+            elseif vehicleSpeedKPH < (0 - tonumber(vehicleInfo.speedDelta)) then
                 if playerObj:getVariableString("ATVehicleStatus") ~= "backward" then
                     playerObj:setVariable("ATVehicleStatus", "backward");
-                    sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = moto:getId(), seatId = seatId, status = "backward",})
+                    sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = vehicle:getId(), seatId = seatId, status = "backward",})
                 end
             else
                 if playerObj:getVariableString("ATVehicleStatus") ~= "stop" then
                     playerObj:setVariable("ATVehicleStatus", "stop");
-                    sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = moto:getId(), seatId = seatId, status = "stop",})
+                    sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = vehicle:getId(), seatId = seatId, status = "stop",})
                 end
             end
         end
     else
-        local passengerStatus = moto:getPartForSeatContainer(0):getModData()["tsaranimation"]
+        local passengerStatus = nil
+        if vehicle:getPartForSeatContainer(0) then
+            passengerStatus = vehicle:getPartForSeatContainer(0):getModData()["tsaranimation"]
+        end
+        if not passengerStatus then
+            passengerStatus = "none"
+        end
         playerObj:setVariable("ATPassengerStatus", passengerStatus);
         
         if isClient() and passengerStatus == "crash" then
-            sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = moto:getId(), seatId = 0, status = "none",})
-            sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = moto:getId(), seatId = seatId, status = "none",})
-            moto:exit(playerObj)
+            sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = vehicle:getId(), seatId = 0, status = "none",})
+            sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = vehicle:getId(), seatId = seatId, status = "none",})
+            vehicle:exit(playerObj)
             triggerEvent("OnExitVehicle", playerObj)
             playerObj:setKnockedDown(true)
             return
         end
-        if moto:getDriver() then
+        if vehicle:getDriver() then
             if passengerStatus and passengerStatus ~= "exit" and passengerStatus ~= "enter" then
                 playerObj:setVariable("ATVehicleStatus", passengerStatus);
             else
@@ -54,7 +69,7 @@ function AMCTickControl.setLocalVariables(playerObj, moto, motoInfo)
             if passengerStatus == "none" then
                 if playerObj:getVariableString("ATVehicleStatus") ~= "stop" then
                     playerObj:setVariable("ATVehicleStatus", "stop");
-                    sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = moto:getId(), seatId = seatId, status = "stop",})
+                    sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = vehicle:getId(), seatId = seatId, status = "stop",})
                 end
             end
         end
@@ -62,19 +77,24 @@ function AMCTickControl.setLocalVariables(playerObj, moto, motoInfo)
 end
 
 
-function AMCTickControl.setAvatarVariables(playerObj, moto, motoInfo)
-print("setAvatarVariables")
-    local seatId = moto:getSeat(playerObj)
-    if playerObj:getVariableString("ATVehicleType") ~= motoInfo.type .. seatId then
-        playerObj:setVariable("ATVehicleType", motoInfo.type .. seatId);
+function AMCTickControl.setAvatarVariables(playerObj, vehicle, vehicleInfo)
+-- print("setAvatarVariables")
+    local seatId = vehicle:getSeat(playerObj)
+    if playerObj:getVariableString("ATVehicleType") ~= vehicleInfo.type .. seatId then
+        playerObj:setVariable("ATVehicleType", vehicleInfo.type .. seatId);
     end
     
-    local motoSpeedKPH = moto:getCurrentSpeedKmHour()
-    if moto:isDriver(playerObj) then
-        local passengerStatus = moto:getPartForSeatContainer(1):getModData()["tsaranimation"]
-        playerObj:setVariable("ATPassengerStatus", passengerStatus);
-        
-        local driverStatus = moto:getPartForSeatContainer(moto:getSeat(playerObj)):getModData()["tsaranimation"]
+    local vehicleSpeedKPH = vehicle:getCurrentSpeedKmHour()
+    if vehicle:isDriver(playerObj) then
+        if vehicle:getPartForSeatContainer(1) then
+            playerObj:setVariable("ATPassengerStatus", vehicle:getPartForSeatContainer(1):getModData()["tsaranimation"]); -- passengerStatus
+        else
+            playerObj:setVariable("ATPassengerStatus", "none")
+        end
+        local driverStatus = nil
+        if vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)) then
+            driverStatus = vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)):getModData()["tsaranimation"]
+        end
         if driverStatus == "exit" then
             playerObj:SetVariable("bExitingVehicle", "true")
         elseif driverStatus == "enter" then
@@ -90,11 +110,13 @@ print("setAvatarVariables")
             playerObj:setVariable("ATVehicleStatus", driverStatus);
         end
     else
-        local passengerStatus = moto:getPartForSeatContainer(0):getModData()["tsaranimation"]
-        playerObj:setVariable("ATPassengerStatus", passengerStatus);
-        
-        if moto:getDriver() then
-            if motoSpeedKPH < (0 - tonumber(motoInfo.speedDelta)) then
+        if vehicle:getPartForSeatContainer(0) then
+            playerObj:setVariable("ATPassengerStatus", vehicle:getPartForSeatContainer(0):getModData()["tsaranimation"]); -- passengerStatus
+        else
+            playerObj:setVariable("ATPassengerStatus", "none")
+        end
+        if vehicle:getDriver() then
+            if vehicleSpeedKPH < (0 - tonumber(vehicleInfo.speedDelta)) then
                 playerObj:setVariable("ATVehicleStatus", "backward");
             else
                 playerObj:setVariable("ATVehicleStatus", "forward");
@@ -106,11 +128,11 @@ print("setAvatarVariables")
     end
 end
 
-function AMCTickControl.fallControl(playerObj, moto)
+function AMCTickControl.fallControl(playerObj, vehicle)
     if not playerObj:getModData()["mototsar"] then
         playerObj:getModData()["mototsar"] = {}
     end
-    local generalCondition = getClassFieldVal(moto, getClassField(moto, 62)) + getClassFieldVal(moto, getClassField(moto, 63))
+    local generalCondition = getClassFieldVal(vehicle, getClassField(vehicle, 62)) + getClassFieldVal(vehicle, getClassField(vehicle, 63))
     -- print(generalCondition)
     if not playerObj:getModData()["mototsar"].health then
         -- print("health none")
@@ -118,9 +140,9 @@ function AMCTickControl.fallControl(playerObj, moto)
     end
     if (playerObj:getModData()["mototsar"].health - generalCondition) >= 3 then
         -- playerObj:setVariable("isMotoCrash", true);
-        sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = moto:getId(), seatId = moto:getSeat(playerObj), status = "crash",})
+        sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = vehicle:getId(), seatId = vehicle:getSeat(playerObj), status = "crash",})
         playerObj:getModData()["mototsar"].health = nil
-        moto:exit(playerObj)
+        vehicle:exit(playerObj)
         triggerEvent("OnExitVehicle", playerObj)
         playerObj:setKnockedDown(true)
         return
@@ -140,32 +162,32 @@ function AMCTickControl.main()
             local plLocX = playerLocal:getX()
             local plLocY = playerLocal:getY()
             local playersWithAnim = ModData.getOrCreate("tsaranimations")
-            local moto = playerLocal:getVehicle()
-            local motoInfo = nil
-            if moto and moto:getPartById("AMCConfig") then
-                motoInfo = moto:getPartById("AMCConfig"):getTable("AMCConfig")
+            local vehicle = playerLocal:getVehicle()
+            local vehicleInfo = nil
+            if vehicle and vehicle:getPartById("AMCConfig") then
+                vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
             end
-            if motoInfo then
-                if moto:isDriver(playerLocal) and motoInfo.fall then
-                    AMCTickControl.fallControl(playerLocal, moto)
+            if vehicleInfo then
+                if vehicle:isDriver(playerLocal) and vehicleInfo.fall then
+                    AMCTickControl.fallControl(playerLocal, vehicle)
                 end
-                AMCTickControl.setLocalVariables(playerLocal, moto, motoInfo)
+                AMCTickControl.setLocalVariables(playerLocal, vehicle, vehicleInfo)
             end
             -- print(playersWithAnim)
             for playerId, _ in pairs(playersWithAnim) do
                 player = getPlayerByOnlineID(playerId)
                 if player and not player:isLocalPlayer() and not player:isDead() then
-                    local moto = player:getVehicle()
-                    local motoInfo = nil
-                    if moto and moto:getPartById("AMCConfig") then
-                        motoInfo = moto:getPartById("AMCConfig"):getTable("AMCConfig")
+                    local vehicle = player:getVehicle()
+                    local vehicleInfo = nil
+                    if vehicle and vehicle:getPartById("AMCConfig") then
+                        vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
                     end
-                    if motoInfo then
+                    if vehicleInfo then
                         local x = player:getX()
                         local y = player:getY()
                         if ((plLocX >= x - 60 and plLocX <= x + 60 and
                                 plLocY >= y - 60 and plLocY <= y + 60)) then
-                            AMCTickControl.setAvatarVariables(player, moto, motoInfo)
+                            AMCTickControl.setAvatarVariables(player, vehicle, vehicleInfo)
                         end
                     end
                 end
@@ -176,16 +198,16 @@ function AMCTickControl.main()
                 -- print(playerNum)
                 local playerObj = getSpecificPlayer(playerNum)
                 if playerObj then
-                    local moto = playerObj:getVehicle()
-                    local motoInfo = nil
-                    if moto and moto:getPartById("AMCConfig") then
-                        motoInfo = moto:getPartById("AMCConfig"):getTable("AMCConfig")
+                    local vehicle = playerObj:getVehicle()
+                    local vehicleInfo = nil
+                    if vehicle and vehicle:getPartById("AMCConfig") then
+                        vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
                     end
-                    if motoInfo then
-                        if motoInfo.fall then
-                            AMCTickControl.fallControl(playerObj, moto)
+                    if vehicleInfo then
+                        if vehicleInfo.fall then
+                            AMCTickControl.fallControl(playerObj, vehicle)
                         end
-                        AMCTickControl.setLocalVariables(playerObj, moto, motoInfo)
+                        AMCTickControl.setLocalVariables(playerObj, vehicle, vehicleInfo)
                     elseif playerObj:getModData()["mototsar"] and playerObj:getModData()["mototsar"].health then
                         playerObj:getModData()["mototsar"].health = nil
                     end
@@ -195,6 +217,12 @@ function AMCTickControl.main()
     end
 end
 
+local function onCreatePlayer(id)
+    playerObj:getModData()["mototsar"] = {}
+    playerObj:getModData()["mototsar"].health = nil
+end
+
 -- Events.OnTileRemoved.Add(AMCTickControl.checkWaterBuild)
+Events.OnCreatePlayer.Add(onCreatePlayer)
 Events.OnTick.Add(AMCTickControl.main)
 -- Events.OnPlayerDeath.Add(onPlayerDeathStopSwimSound)

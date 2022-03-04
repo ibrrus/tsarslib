@@ -17,10 +17,6 @@ module Base
     {
         part ATAProtectionWheels
         {
-            model ATAProtection
-            {
-                file = Vehicles_Wheel,
-            }
             area = Engine,
             category = protection,
             specificItem = false,
@@ -88,8 +84,7 @@ module Base
             {
                 requireInstalled = WindshieldRear,
             }
-        }
-        
+        }        
         part ATAProtectionWindowFrontLeft
         {
             door
@@ -165,6 +160,74 @@ module Base
         
         part ATAProtectionWindow*
         {
+            itemType = Base.LightBulb,
+            category = protection,
+            specificItem = false,
+            mechanicRequireKey = false,
+            table install
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+                        equip = primary,
+                    }
+                }
+                skills = Mechanics:5,
+                time = 2000,
+                recipes = Advanced Mechanics;Basic Tuning,
+                test = ATATuning.InstallTest.multiRequire,
+                complete = ATATuning.InstallComplete.CommonProtection,
+            }
+            table uninstall
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+                         equip = primary,
+                   }
+                }
+                skills = Mechanics:4,
+                time = 2000,
+                recipes = Advanced Mechanics;Basic Tuning,
+                test = ATATuning.UninstallTest.multiRequire,
+                complete = ATATuning.UninstallComplete.CommonProtection,
+            }
+            lua
+            {
+                create = ATATuning.Create.Chance0,
+                init = ATATuning.Init.DefaultModel,
+                update = ATATuning.Update.CommonProtection,
+            }
+        }
+        
+        part ATAProtectionSideLeft
+        {
+            area = SeatFrontLeft,
+        }
+        part ATAProtectionSideRight
+        {
+            area = SeatFrontRight,
+        }
+        part ATAProtectionSideFront
+        {
+            area = SeatFrontLeft,
+        }
+        part ATAProtectionSideRoof
+        {
+            area = SeatFrontRight,
+        }
+        
+        part ATAProtectionSide*
+        {
+            itemType = Base.LightBulb,
             category = protection,
             specificItem = false,
             mechanicRequireKey = false,
@@ -214,6 +277,7 @@ module Base
         
         part ATAProtectionHood
         {
+            itemType = Base.LightBulb,
             category = protection,
             area = Engine,
             parent = EngineDoor,
@@ -265,6 +329,7 @@ module Base
         
         part ATAProtectionTrunk
         {
+            itemType = Base.LightBulb,
             category = protection,
             area = TruckBed,
             specificItem = false,
