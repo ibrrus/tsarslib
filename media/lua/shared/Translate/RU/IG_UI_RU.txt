@@ -1,5 +1,5 @@
 IGUI_RU = {
-/* ATA 2022-02-26*/
+/* ATA 2022-03-12*/
     IGUI_VehiclePartTireMiddleRight = "Задняя правая шина",
     IGUI_VehiclePartTireMiddleLeft = "Задняя левая шина",
     IGUI_VehiclePartSuspensionMiddleLeft = "Задняя левая подвеска",
@@ -10,6 +10,12 @@ IGUI_RU = {
     IGUI_VehiclePartATAProtectionSideRight = "Защита правая",
     IGUI_VehiclePartATAProtectionSideFront = "Защита передняя",
     IGUI_VehiclePartATAProtectionSideRoof = "Защита верхняя",
+    IGUI_VehiclePartATAInteractiveTrunkFront = "Багажник передний",
+    IGUI_VehiclePartATAInteractiveTrunkRear = "Багажник задний",
+    IGUI_VehiclePartATABagMotoLeft = "Мотосумка левая",
+    IGUI_VehiclePartATABagMotoRight = "Мотосумка правая",
+    IGUI_VehiclePartATABagMotoHolsterLeft = "Мотокобура левая",
+    IGUI_VehiclePartATABagMotoHolsterRight = "Мотокобура правая",
     
 /* ATA 2022-02-04*/
     IGUI_CloseHeadlightsPopUP = "Задвинуть фары",

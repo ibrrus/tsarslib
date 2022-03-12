@@ -589,9 +589,10 @@ end
 --***********************************************************
 
 function ATATuning.ATAInteractiveTrunk(part)
+-- print("ATATuning.ATAInteractiveTrunk")
 	local interactiveItemsTable = part:getTable("interactiveItems")
     if interactiveItemsTable then
-        if part:getInventoryItem() then
+        if part:getInventoryItem() or not part:getItemType() then
             if interactiveItemsTable.Base then
                 part:setModelVisible(interactiveItemsTable.Base, true)
             end
@@ -605,7 +606,6 @@ function ATATuning.ATAInteractiveTrunk(part)
                     end
                 end
             else
-                
                 for itemName, k in pairs(interactiveItemsTable) do
                     if type(k) == "table" then
                         -- fullness - таблица для включения отображения предметов в зависимости от заполнености багажника.

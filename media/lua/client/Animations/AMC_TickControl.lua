@@ -1,6 +1,7 @@
 AMCTickControl = {}
 
 function AMCTickControl.setLocalVariables(playerObj, vehicle, vehicleInfo)
+    playerObj:setHideWeaponModel(true)
     local seatId = vehicle:getSeat(playerObj)
     if playerObj:getVariableString("ATVehicleType") ~= vehicleInfo.type .. seatId then
         playerObj:setVariable("ATVehicleType", vehicleInfo.type .. seatId);
@@ -128,17 +129,21 @@ function AMCTickControl.setAvatarVariables(playerObj, vehicle, vehicleInfo)
     end
 end
 
-function AMCTickControl.fallControl(playerObj, vehicle)
+function AMCTickControl.fallControl(playerObj, vehicle, fallDelta)
     if not playerObj:getModData()["mototsar"] then
         playerObj:getModData()["mototsar"] = {}
     end
-    local generalCondition = getClassFieldVal(vehicle, getClassField(vehicle, 62)) + getClassFieldVal(vehicle, getClassField(vehicle, 63))
-    -- print(generalCondition)
+    local generalCondition = getClassFieldVal(vehicle, getClassField(vehicle, 61)) + getClassFieldVal(vehicle, getClassField(vehicle, 62))
+    -- currentFrontEndDurability
+    -- currentRearEndDurability
+    
+    
     if not playerObj:getModData()["mototsar"].health then
         -- print("health none")
         playerObj:getModData()["mototsar"].health = generalCondition
     end
-    if (playerObj:getModData()["mototsar"].health - generalCondition) >= 3 then
+    
+    if (playerObj:getModData()["mototsar"].health - generalCondition) >= fallDelta then
         -- playerObj:setVariable("isMotoCrash", true);
         sendClientCommand(playerObj, 'autotsaranim', 'updateVariables', {vehicle = vehicle:getId(), seatId = vehicle:getSeat(playerObj), status = "crash",})
         playerObj:getModData()["mototsar"].health = nil
@@ -150,7 +155,7 @@ function AMCTickControl.fallControl(playerObj, vehicle)
     playerObj:getModData()["mototsar"].health = generalCondition
 end
 
-local tickControl = 10 -- Сокращает количество срабатываний скрипта. Больше число - меньше срабатываний
+local tickControl = 3 -- Сокращает количество срабатываний скрипта. Больше число - меньше срабатываний
 local tickStart = 0
 
 function AMCTickControl.main()
@@ -163,33 +168,32 @@ function AMCTickControl.main()
             local plLocY = playerLocal:getY()
             local playersWithAnim = ModData.getOrCreate("tsaranimations")
             local vehicle = playerLocal:getVehicle()
-            local vehicleInfo = nil
             if vehicle and vehicle:getPartById("AMCConfig") then
-                vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
-            end
-            if vehicleInfo then
-                if vehicle:isDriver(playerLocal) and vehicleInfo.fall then
-                    AMCTickControl.fallControl(playerLocal, vehicle)
+                local vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
+                if vehicleInfo then
+                    if vehicle:isDriver(playerLocal) and vehicleInfo.fallDelta then
+                        AMCTickControl.fallControl(playerLocal, vehicle, tonumber(vehicleInfo.fallDelta))
+                    end
+                    AMCTickControl.setLocalVariables(playerLocal, vehicle, vehicleInfo)
                 end
-                AMCTickControl.setLocalVariables(playerLocal, vehicle, vehicleInfo)
             end
             -- print(playersWithAnim)
             for playerId, _ in pairs(playersWithAnim) do
                 player = getPlayerByOnlineID(playerId)
                 if player and not player:isLocalPlayer() and not player:isDead() then
                     local vehicle = player:getVehicle()
-                    local vehicleInfo = nil
                     if vehicle and vehicle:getPartById("AMCConfig") then
-                        vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
-                    end
-                    if vehicleInfo then
-                        local x = player:getX()
-                        local y = player:getY()
-                        if ((plLocX >= x - 60 and plLocX <= x + 60 and
-                                plLocY >= y - 60 and plLocY <= y + 60)) then
-                            AMCTickControl.setAvatarVariables(player, vehicle, vehicleInfo)
+                        local vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
+                        if vehicleInfo then
+                            local x = player:getX()
+                            local y = player:getY()
+                            if ((plLocX >= x - 60 and plLocX <= x + 60 and
+                                    plLocY >= y - 60 and plLocY <= y + 60)) then
+                                AMCTickControl.setAvatarVariables(player, vehicle, vehicleInfo)
+                            end
                         end
                     end
+                    
                 end
             end
         else
@@ -199,17 +203,16 @@ function AMCTickControl.main()
                 local playerObj = getSpecificPlayer(playerNum)
                 if playerObj then
                     local vehicle = playerObj:getVehicle()
-                    local vehicleInfo = nil
                     if vehicle and vehicle:getPartById("AMCConfig") then
-                        vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
-                    end
-                    if vehicleInfo then
-                        if vehicleInfo.fall then
-                            AMCTickControl.fallControl(playerObj, vehicle)
+                        local vehicleInfo = vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
+                        if vehicleInfo then
+                            if vehicleInfo.fallDelta then
+                                AMCTickControl.fallControl(playerObj, vehicle, tonumber(vehicleInfo.fallDelta))
+                            end
+                            AMCTickControl.setLocalVariables(playerObj, vehicle, vehicleInfo)
+                        elseif playerObj:getModData()["mototsar"] and playerObj:getModData()["mototsar"].health then
+                            playerObj:getModData()["mototsar"].health = nil
                         end
-                        AMCTickControl.setLocalVariables(playerObj, vehicle, vehicleInfo)
-                    elseif playerObj:getModData()["mototsar"] and playerObj:getModData()["mototsar"].health then
-                        playerObj:getModData()["mototsar"].health = nil
                     end
                 end
             end
@@ -218,8 +221,17 @@ function AMCTickControl.main()
 end
 
 local function onCreatePlayer(id)
+    local playerObj = getSpecificPlayer(id)
     playerObj:getModData()["mototsar"] = {}
     playerObj:getModData()["mototsar"].health = nil
+    if playerObj:getVehicle() then
+        local motoInfo = playerObj:getVehicle():getPartById("AMCConfig"):getTable("AMCConfig")
+        if motoInfo and (motoInfo.hideWeapon == "1") then
+            playerObj:setHideWeaponModel(true)
+            return
+        end
+    end
+    playerObj:setHideWeaponModel(false)
 end
 
 -- Events.OnTileRemoved.Add(AMCTickControl.checkWaterBuild)

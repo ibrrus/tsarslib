@@ -25,7 +25,7 @@ local OvenBatteryChange = -0.000500
 local FridgeBatteryChange = -0.000020
 local MicrowaveBatteryChange = -0.000200
 
-seatNameTable = {"FrontLeft", "FrontRight", "MiddleLeft", "MiddleRight", "RearLeft", "RearRight"}
+-- seatNameTable = {"FrontLeft", "FrontRight", "MiddleLeft", "MiddleRight", "RearLeft", "RearRight"}
 
 --***********************************************************
 --**                                                       **
@@ -38,38 +38,30 @@ function CommonTemplates.createActivePart(part)
 	end
 end
 
-function CommonUtils.PartInCabin(vehicle, part)
-	if vehicle:getPartById("InCabin" .. seatNameTable[vehicle:getSeat(playerObj)+1]) then
-		return true
-	else
-		return false
-	end
-end
-
 function CommonTemplates.InstallTest.PartInCabin(vehicle, part, playerObj)
 	if ISVehicleMechanics.cheat then return true; end
-	if not vehicle:getPartById("InCabin" .. seatNameTable[vehicle:getSeat(playerObj)+1]) then return false end
+	if not vehicle:getPartById("InCabin" .. string.sub(vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)):getId(), 5)) then return false end
 	return Vehicles.InstallTest.Default(vehicle, part, playerObj)
 end
 
 function CommonTemplates.UninstallTest.PartInCabin(vehicle, part, playerObj)
 	if ISVehicleMechanics.cheat then return true end
 	if vehicle:getSeat(playerObj) == -1 then return false end
-	if not vehicle:getPartById("InCabin" .. seatNameTable[vehicle:getSeat(playerObj)+1]) then return false end
+	if not vehicle:getPartById("InCabin" .. string.sub(vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)):getId(), 5)) then return false end
 	return Vehicles.UninstallTest.Default(vehicle, part, playerObj)
 end
 
 function CommonTemplates.InstallTest.PartNotInCabin(vehicle, part, playerObj)
 	if ISVehicleMechanics.cheat then return true; end
 	if vehicle:getSeat(playerObj) == -1 then return false end
-	if vehicle:getPartById("InCabin" .. seatNameTable[vehicle:getSeat(playerObj)+1]) then return false end
+	if vehicle:getPartById("InCabin" .. string.sub(vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)):getId(), 5)) then return false end
 	return Vehicles.InstallTest.Default(vehicle, part, playerObj)
 end
 
 function CommonTemplates.UninstallTest.PartNotInCabin(vehicle, part, playerObj)
 	if ISVehicleMechanics.cheat then return true; end
 	if vehicle:getSeat(playerObj) == -1 then return false end
-	if vehicle:getPartById("InCabin" .. seatNameTable[vehicle:getSeat(playerObj)+1]) then return false end
+	if vehicle:getPartById("InCabin" .. string.sub(vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)):getId(), 5)) then return false end
 	return Vehicles.UninstallTest.Default(vehicle, part, playerObj)
 end
 
@@ -356,55 +348,60 @@ function CommonTemplates.Create.Microwave(vehicle, part)
 	CommonTemplates.createActivePart(part)
 end
 
-function CommonTemplates.Use.Microwave(vehicle, part, player, on)
-	if part:getItemContainer():isActive() and not on then
-		part:getItemContainer():setActive(false)
-		vehicle:getEmitter():stopSoundByName("NewMicrowaveRunning")
-		vehicle:getEmitter():playSound("MicrowaveTimerExpired")
-		part:getModData().timer = 0
-		part:getModData().timePassed = 0
-	elseif part:getModData().timer > 0 and on then
-		part:getModData().timePassed = 0.001
-		part:getItemContainer():setActive(true)
-		part:setLightActive(true)
-		vehicle:getEmitter():playSound("ToggleStove")
-		if not vehicle:getEmitter():isPlaying("NewMicrowaveRunning") then
-			vehicle:getEmitter():playSoundLooped("NewMicrowaveRunning")
-		end
-	end
-    vehicle:transmitPartModData(part)
-end
+-- function CommonTemplates.Use.Microwave(vehicle, part, player, on)
+	-- if part:getItemContainer():isActive() and not on then
+		-- part:getItemContainer():setActive(false)
+		-- vehicle:getEmitter():stopSoundByName("MicrowaveRunning")
+		-- vehicle:getEmitter():playSound("MicrowaveTimerExpired")
+		-- part:getModData().timer = 0
+		-- part:getModData().timePassed = 0
+	-- elseif part:getModData().timer > 0 and on then
+		-- part:getModData().timePassed = 0.001
+		-- part:getItemContainer():setActive(true)
+		-- part:setLightActive(true)
+		-- vehicle:getEmitter():playSound("ToggleStove")
+		-- if not vehicle:getEmitter():isPlaying("MicrowaveRunning") then
+			-- vehicle:getEmitter():playSoundLooped("MicrowaveRunning")
+		-- end
+	-- end
+    -- vehicle:transmitPartModData(part)
+-- end
 
 function CommonTemplates.Update.Microwave(vehicle, part, elapsedMinutes)
-	--print("CommonTemplates.Update.Microwave")
+	-- print("CommonTemplates.Update.Microwave")
 	local currentTemp = part:getItemContainer():getTemprature()
 	local minTemp = 1.0
 	local maxTemp = (part:getModData().maxTemperature + 100) / 100
 	if part:getInventoryItem() and part:getItemContainer() then
 		if part:getItemContainer():isActive() and vehicle:getBatteryCharge() > 0.00200 then
-			if currentTemp < maxTemp then
-				part:getItemContainer():setCustomTemperature(currentTemp + 0.5)
-			elseif currentTemp >= maxTemp then
-				part:getItemContainer():setCustomTemperature(maxTemp)
-			end
+			if isServer() then
+                part:getItemContainer():setCustomTemperature(maxTemp)
+            else            
+                if currentTemp < maxTemp then
+                    part:getItemContainer():setCustomTemperature(currentTemp + 0.5)
+                elseif currentTemp >= maxTemp then
+                    part:getItemContainer():setCustomTemperature(maxTemp)
+                end
+            end
 			VehicleUtils.chargeBattery(vehicle, MicrowaveBatteryChange)
 			if part:getModData().timer > 0 then
 				if part:getModData().timePassed < part:getModData().timer then
-					part:getModData().timePassed = part:getModData().timePassed + 1
+					part:getModData().timePassed = part:getModData().timePassed + 0.3
 				else 
-					vehicle:getEmitter():stopSoundByName("NewMicrowaveRunning")
+					vehicle:getEmitter():stopSoundByName("MicrowaveRunning")
 					vehicle:getEmitter():playSound("MicrowaveTimerExpired")
 					part:getItemContainer():setActive(false)
 					part:getModData().timer = 0
 					part:getModData().timePassed = 0
 				end
 			else
-				vehicle:getEmitter():stopSoundByName("NewMicrowaveRunning")
+				vehicle:getEmitter():stopSoundByName("MicrowaveRunning")
 				vehicle:getEmitter():playSound("MicrowaveTimerExpired")
 				part:getItemContainer():setActive(false)
 				part:getModData().timer = 0
 				part:getModData().timePassed = 0
 			end
+            vehicle:updateParts();
 		else
 			part:getModData().timePassed = 0
 			if currentTemp > minTemp then
@@ -413,8 +410,11 @@ function CommonTemplates.Update.Microwave(vehicle, part, elapsedMinutes)
 				part:getItemContainer():setCustomTemperature(minTemp)
 				part:setLightActive(false)
 			end
+            vehicle:updateParts();
 		end
-        vehicle:transmitPartModData(part)
+        if isServer() then
+            vehicle:transmitPartModData(part)
+        end
 	end
 end
 --***********************************************************

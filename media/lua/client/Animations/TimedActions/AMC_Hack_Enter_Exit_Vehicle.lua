@@ -12,43 +12,44 @@ local old_ISSwitchVehicleSeat_perform = ISSwitchVehicleSeat.perform
 
 function ISEnterVehicle:start()
     old_ISEnterVehicle_start(self)
-    local motoInfo = nil
     if self.vehicle and self.vehicle:getPartById("AMCConfig") then
-        motoInfo = self.vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
-    end
-    if motoInfo then
-        self.character:setVariable("ATVehicleType", motoInfo.type .. self.seat)
-        if isClient() and self.character:isLocalPlayer() then
-            ModData.getOrCreate("tsaranimations")[self.character:getOnlineID()] = true
-            ModData.transmit("tsaranimations")
+        local motoInfo = self.vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
+        if motoInfo then
+            self.character:setVariable("ATVehicleType", motoInfo.type .. self.seat)
+            if motoInfo.hideWeapon == "1" then
+                self.character:setHideWeaponModel(true)
+            end
+            if isClient() and self.character:isLocalPlayer() then
+                ModData.getOrCreate("tsaranimations")[self.character:getOnlineID()] = true
+                ModData.transmit("tsaranimations")
+            end
+            sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.vehicle:getId(), seatId = self.seat, status = "enter",})
         end
-        sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.vehicle:getId(), seatId = self.seat, status = "enter",})
     end
 end
 
 function ISEnterVehicle:stop()
-    local motoInfo = nil
     if self.vehicle and self.vehicle:getPartById("AMCConfig") then
-        motoInfo = self.vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
-    end
-    if motoInfo then
-        self.character:ClearVariable("ATVehicleType")
-        if isClient() then
-            ModData.getOrCreate("tsaranimations")[self.character:getOnlineID()] = nil
-            ModData.transmit("tsaranimations")
+        local motoInfo = self.vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
+        if motoInfo then
+            self.character:ClearVariable("ATVehicleType")
+            self.character:setHideWeaponModel(false)
+            if isClient() then
+                ModData.getOrCreate("tsaranimations")[self.character:getOnlineID()] = nil
+                ModData.transmit("tsaranimations")
+            end
+            sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.vehicle:getId(), seatId = self.seat, status = "none",})
         end
-        sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.vehicle:getId(), seatId = self.seat, status = "none",})
     end
     old_ISEnterVehicle_stop(self)
 end
 
 function ISEnterVehicle:perform()
-    local motoInfo = nil
     if self.vehicle and self.vehicle:getPartById("AMCConfig") then
-        motoInfo = self.vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
-    end
-    if motoInfo then
-        sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.vehicle:getId(), seatId = self.seat, status = "stop",})
+        local motoInfo = self.vehicle:getPartById("AMCConfig"):getTable("AMCConfig")
+        if motoInfo then
+            sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.vehicle:getId(), seatId = self.seat, status = "stop",})
+        end
     end
     old_ISEnterVehicle_perform(self)
 end
@@ -56,40 +57,38 @@ end
 
 function ISExitVehicle:start()
     old_ISExitVehicle_start(self)
-    local motoInfo = nil
     if self.character:getVehicle() and self.character:getVehicle():getPartById("AMCConfig") then
-        motoInfo = self.character:getVehicle():getPartById("AMCConfig"):getTable("AMCConfig")
-    end
-    if motoInfo then
-        sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.character:getVehicle():getId(), seatId = self.character:getVehicle():getSeat(self.character), status = "exit",})
+        local motoInfo = self.character:getVehicle():getPartById("AMCConfig"):getTable("AMCConfig")
+        if motoInfo then
+            sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.character:getVehicle():getId(), seatId = self.character:getVehicle():getSeat(self.character), status = "exit",})
+        end
     end
 end
 
 function ISExitVehicle:stop()
-    local motoInfo = nil
     if self.character:getVehicle() and self.character:getVehicle():getPartById("AMCConfig") then
-        motoInfo = self.character:getVehicle():getPartById("AMCConfig"):getTable("AMCConfig")
-    end
-    if motoInfo then
-        sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.character:getVehicle():getId(), seatId = self.character:getVehicle():getSeat(self.character), status = "stop",})
+        local motoInfo = self.character:getVehicle():getPartById("AMCConfig"):getTable("AMCConfig")
+        if motoInfo then
+            sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.character:getVehicle():getId(), seatId = self.character:getVehicle():getSeat(self.character), status = "stop",})
+        end
     end
     old_ISExitVehicle_stop(self)
 end
 
 function ISExitVehicle:perform()
-    local motoInfo = nil
     if self.character:getVehicle() and self.character:getVehicle():getPartById("AMCConfig") then
-        motoInfo = self.character:getVehicle():getPartById("AMCConfig"):getTable("AMCConfig")
-    end
-    if motoInfo then
-        self.character:clearVariable("ATVehicleType")
-        self.character:clearVariable("ATVehicleStatus")
-        self.character:clearVariable("ATPassengerStatus")
-        if isClient() then
-            ModData.getOrCreate("tsaranimations")[self.character:getOnlineID()] = nil
-            ModData.transmit("tsaranimations")
+        local motoInfo = self.character:getVehicle():getPartById("AMCConfig"):getTable("AMCConfig")
+        if motoInfo then
+            self.character:setHideWeaponModel(false)
+            self.character:clearVariable("ATVehicleType")
+            self.character:clearVariable("ATVehicleStatus")
+            self.character:clearVariable("ATPassengerStatus")
+            if isClient() then
+                ModData.getOrCreate("tsaranimations")[self.character:getOnlineID()] = nil
+                ModData.transmit("tsaranimations")
+            end
+            sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.character:getVehicle():getId(), seatId = self.character:getVehicle():getSeat(self.character), status = "none",})
         end
-        sendClientCommand(self.character, 'autotsaranim', 'updateVariables', {vehicle = self.character:getVehicle():getId(), seatId = self.character:getVehicle():getSeat(self.character), status = "none",})
     end
     old_ISExitVehicle_perform(self)
 end

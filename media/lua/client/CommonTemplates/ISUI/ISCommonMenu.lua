@@ -39,12 +39,7 @@ function ISCommonMenu.showRadialMenu(playerObj)
     local vehicle = playerObj:getVehicle()
     if vehicle then
         local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
-        local tableTCLConfig = nil
-        if vehicle:getPartById("TCLConfig") then
-            tableTCLConfig = vehicle:getPartById("TCLConfig"):getTable("TCLConfig")
-        end
-
-        local seat = seatNameTable[vehicle:getSeat(playerObj)+1]
+        local seat = string.sub(vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)):getId(), 5)
         local oven = vehicle:getPartById("Oven" .. seat)
         local fridge = vehicle:getPartById("Fridge" .. seat)
         local freezer = vehicle:getPartById("Freezer" .. seat)
@@ -54,7 +49,6 @@ function ISCommonMenu.showRadialMenu(playerObj)
         local mattress = vehicle:getPartById("Mattress" .. seat)
         local lightIsOn = true
         local timeHours = getGameTime():getHour()
-        
         if inCabin then
             if vehicle:getPartById("HeadlightRearRight") and vehicle:getPartById("HeadlightRearRight"):getInventoryItem() then
                 menu:addSlice(getText("ContextMenu_BoatCabinelightsOff"), getTexture("media/ui/boats/boat_switch_off.png"), ISCommonMenu.offToggleCabinlights, playerObj)
@@ -289,9 +283,9 @@ function ISCommonMenu.ToggleDeviceFridge(playerObj, vehicle, part)
     CommonTemplates.Use.Fridge(vehicle, part, playerObj)
 end
 
-function ISCommonMenu.ToggleMicrowave(playerObj, vehicle, part, on)
-    CommonTemplates.Use.Microwave(vehicle, part, playerObj, on)
-end
+-- function ISCommonMenu.ToggleMicrowave(playerObj, vehicle, part, on)
+    -- CommonTemplates.Use.Microwave(vehicle, part, playerObj, on)
+-- end
 
 function ISCommonMenu.onStoveSetting(playerObj, vehicle, part)
     local data = getPlayerData(playerObj:getPlayerNum())

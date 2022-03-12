@@ -224,6 +224,10 @@ module Base
         {
             area = SeatFrontRight,
         }
+        part ATAProtectionSideSleeper
+        {
+            area = SeatFrontRight,
+        }
         
         part ATAProtectionSide*
         {

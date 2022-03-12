@@ -81,7 +81,25 @@ function Commands.updatePaintVehicle(playerObj, args)
         vehicle:transmitPartItem(part)
     end
 end
-
+-- sendClientCommand(self.character, 'commonlib', 'usePortableMicrowave', {vehicle = self.vehicle:getId(), oven = self.oven:getId(), on = true, timer = self.oven:getModData().timer, maxTemperature = self.oven:getModData().maxTemperature})
+function Commands.usePortableMicrowave(playerObj, args)
+    if args.vehicle then
+        local vehicle = getVehicleById(args.vehicle)
+        local part = vehicle:getPartById(args.oven)
+        part:getModData().maxTemperature = args.maxTemperature
+        part:getModData().timer = args.timer
+        if part:getItemContainer():isActive() and not args.on then
+            part:getItemContainer():setActive(false)
+            part:getModData().timer = 0
+            part:getModData().timePassed = 0
+        elseif part:getModData().timer > 0 and args.on then
+            part:getItemContainer():setActive(true)
+            part:getModData().timePassed = 0.001
+            part:setLightActive(true)
+        end
+        vehicle:transmitPartModData(part)
+    end
+end
 
 -- sendClientCommand(self.character, 'commonlib', 'addVehicle', {trailer=self.trailer:getId(), activate = self.activate})
 CommonCommands.OnClientCommand = function(module, command, playerObj, args)

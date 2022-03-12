@@ -68,6 +68,15 @@ module Base
             
         }
         
+        part ATAInteractiveTrunkFront
+        {
+            
+        }
+        part ATAInteractiveTrunkRear
+        {
+            
+        }
+        
         part ATAInteractiveTrunk*
         {
             area = TruckBed,

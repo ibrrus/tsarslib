@@ -19,16 +19,24 @@ module Base
                 requireInstalled = ATAProtectionWindowFrontRight,
             }
         }
-        
         part ATABagOnProtection*
         {
             category = protection,
         }
+        
         part ATABagMotoLeft
         {
             
         }
         part ATABagMotoRight
+        {
+            
+        }
+        part ATABagMotoHolsterLeft
+        {
+            
+        }
+        part ATABagMotoHolsterRight
         {
             
         }

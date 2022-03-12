@@ -25,7 +25,6 @@ function ISPortableMicrowaveUI:initialise()
     self.close.borderColor = {r=1, g=1, b=1, a=0.1};
     self:addChild(self.close);
 
-
     self.tempKnob = ISKnob:new(20,40,getTexture("media/ui/Knobs/KnobDial.png"), getTexture("media/ui/Knobs/KnobBGMicrowaveTemp.png"), getText("IGUI_Temperature"), self.character);
     self.tempKnob:initialise();
     self.tempKnob:instantiate();
@@ -39,16 +38,11 @@ function ISPortableMicrowaveUI:initialise()
     self.timerKnob.onMouseUpFct = ISPortableMicrowaveUI.ChangeKnob;
     self.timerKnob.target = self;
     self:addChild(self.timerKnob);
+    
 
-    -- self.ok = ISButton:new(10, self:getHeight() - padBottom - btnHgt, btnWid, btnHgt, getText("ContextMenu_Turn_On"), self, ISPortableMicrowaveUI.onClick);
-    -- self.ok.internal = "OK";
-    -- self.ok.anchorTop = false
-    -- self.ok.anchorBottom = true
-    -- self.ok:initialise();
-    -- self.ok:instantiate();
-    -- self.ok.borderColor = {r=1, g=1, b=1, a=0.1};
-    -- self:addChild(self.ok);
-
+    
+    -- self:setHeight(self.close:getBottom() + padBottom)
+    
     self:addKnobValues();
     self:updateButtons();
 	
@@ -56,16 +50,20 @@ function ISPortableMicrowaveUI:initialise()
 end
 
 function ISPortableMicrowaveUI:ChangeKnob()
-    -- self.oven:getModData().maxTemperature = self.tempKnob:getValue()
-    -- self.oven:getModData().timer = self.timerKnob:getValue()
-	self.oven:getModData().timePassed = 0
 	self.oven:getModData().maxTemperature = self.tempKnob:getValue()
 	self.oven:getModData().timer = self.timerKnob:getValue()
-    self.vehicle:transmitPartModData(self.oven)
-	if self.oven:getModData().timer > 0 then
-		CommonTemplates.Use.Microwave(self.vehicle, self.oven, self.character, true)
+	self.vehicle:getEmitter():playSound("ToggleStove")
+    if self.oven:getModData().timer > 0 then
+        sendClientCommand(self.character, 'commonlib', 'usePortableMicrowave', {vehicle = self.vehicle:getId(), oven = self.oven:getId(), on = true, timer = self.oven:getModData().timer, maxTemperature = self.oven:getModData().maxTemperature})
+        if not self.vehicle:getEmitter():isPlaying("MicrowaveRunning") then
+			self.vehicle:getEmitter():playSoundLooped("MicrowaveRunning")
+		end
 	else
-		CommonTemplates.Use.Microwave(self.vehicle, self.oven, self.character, false)
+        sendClientCommand(self.character, 'commonlib', 'usePortableMicrowave', {vehicle = self.vehicle:getId(), oven = self.oven:getId(), on = false, timer = self.oven:getModData().timer, maxTemperature = self.oven:getModData().maxTemperature})
+        self.vehicle:getEmitter():stopSoundByName("MicrowaveRunning")
+        if self.oven:getModData().timePassed > 0 then
+            self.vehicle:getEmitter():playSound("MicrowaveTimerExpired")
+        end
 	end
 end
 

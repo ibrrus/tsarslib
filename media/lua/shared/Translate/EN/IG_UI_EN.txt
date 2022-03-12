@@ -1,5 +1,5 @@
 IGUI_EN = {
-/* ATA 2022-03-04*/
+/* ATA 2022-03-12*/
     IGUI_VehiclePartTireMiddleRight = "Rear Right Tire",
     IGUI_VehiclePartTireMiddleLeft = "Rear Left Tire",
     IGUI_VehiclePartSuspensionMiddleLeft = "Rear Left Suspension",
@@ -8,8 +8,14 @@ IGUI_EN = {
     IGUI_VehiclePartBrakeMiddleRight = "Rear Right Brake",
     IGUI_VehiclePartATAProtectionSideLeft = "Left Protection",
     IGUI_VehiclePartATAProtectionSideRight = "Right Protection",
-    IGUI_VehiclePartATAProtectionSideFront = "Front protection",
-    IGUI_VehiclePartATAProtectionSideRoof = "Top protection",
+    IGUI_VehiclePartATAProtectionSideFront = "Front Protection",
+    IGUI_VehiclePartATAProtectionSideRoof = "Top Protection",
+    IGUI_VehiclePartATAInteractiveTrunkFront = "Front Trunk",
+    IGUI_VehiclePartATAInteractiveTrunkRear = "Rear Trunk",
+    IGUI_VehiclePartATABagMotoLeft = "Moto Bag Left",
+    IGUI_VehiclePartATABagMotoRight = "Moto Bag Right",
+    IGUI_VehiclePartATABagMotoHolsterLeft = "Moto Holster Left",
+    IGUI_VehiclePartATABagMotoHolsterRight = "Moto Holster Right",
     
 /* ATA 2022-02-04*/
     IGUI_CloseHeadlightsPopUP = "Down Headlights",
