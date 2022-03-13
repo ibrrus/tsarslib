@@ -16,6 +16,8 @@ IGUI_EN = {
     IGUI_VehiclePartATABagMotoRight = "Moto Bag Right",
     IGUI_VehiclePartATABagMotoHolsterLeft = "Moto Holster Left",
     IGUI_VehiclePartATABagMotoHolsterRight = "Moto Holster Right",
+    IGUI_VehiclePartATAMotoTireFrontWheel = "Front Wheel",
+    IGUI_VehiclePartATAMotoTireRearWheel = "Rear Wheel",
     
 /* ATA 2022-02-04*/
     IGUI_CloseHeadlightsPopUP = "Down Headlights",

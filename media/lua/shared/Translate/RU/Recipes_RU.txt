@@ -8,7 +8,14 @@ Recipe_RU = {
 	
 	Recipe_Basic_Tuning = "Базовый тюнинг",
     
+    
+/************ Autotsar Motorclub ************/
+
+    Recipe_Make_ATAMotoBMWCustomMuffler = "BWM R80/7 - сделать кастомный глушитель",
+    
+    
 /************ Aquatsar Yacht Club ************/
+
     Recipe_Extract_Tire_Tube = "Извлечь камеру из шины",
     Recipe_Flatten_Tire_Tube = "Сдуть камеру",
     Recipe_Inflate_Tire_Tube = "Надуть камеру",
@@ -17,90 +24,92 @@ Recipe_RU = {
     Recipe_Performance_Boat_Mechanics = "Профессиональный ремонт лодок",
     Recipe_Swimming = "Лучшая техника плавания",
 
+
 /************ Autotsar Tuning Atelier - Bus ************/
 	
-	Recipe_Make_ATABusKengur1Item = "Создать Кенгурятник (Bear Bus)",
-	Recipe_Make_ATABusKengur2Item = "Создать Улучшенный кенгурятник (Bear Bus)",
-	Recipe_Make_ATABusKengur3Item = "Создать Плуг с шипами (Bear Bus)",
-	Recipe_Make_ATABusRoofRack = "Создать Багажник для крыши (Bear Bus)",
-	Recipe_Make_ATABusProtectionDoorItem = "Создать Защиту для двери (Bear Bus)",
-	Recipe_Make_ATABusProtectionDoorRearItem = "Создать Защиту для задних дверей (Bear Bus)",
-	Recipe_Make_ATABusProtectionWheelsItem = "Создать Защиту для колес (Bear Bus)",
-	Recipe_Make_ATABusProtectionWindowsFrontItem = "Создать Защиту для лобового стекла (Bear Bus)",
-	Recipe_Make_ATABusProtectionWindowsRightItem = "Создать Защиту для правых боковых стекол (Bear Bus)",
-	Recipe_Make_ATABusProtectionWindowsLeftItem = "Создать Защиту для левых боковых стекол (Bear Bus)",
-	Recipe_Make_ATABusRoofBoxItem = "Создать Ящик для инструментов",
+	Recipe_Make_ATABusKengur1Item = "Bear Bus - создать Кенгурятник",
+	Recipe_Make_ATABusKengur2Item = "Bear Bus - создать Улучшенный кенгурятник",
+	Recipe_Make_ATABusKengur3Item = "Bear Bus - создать Плуг с шипами",
+	Recipe_Make_ATABusRoofRack = "Bear Bus - создать Багажник для крыши",
+	Recipe_Make_ATABusProtectionDoorItem = "Bear Bus - создать Защиту для двери",
+	Recipe_Make_ATABusProtectionDoorRearItem = "Bear Bus - создать Защиту для задних дверей",
+	Recipe_Make_ATABusProtectionWheelsItem = "Bear Bus - создать Защиту для колес",
+	Recipe_Make_ATABusProtectionWindowsFrontItem = "Bear Bus - создать Защиту для лобового стекла",
+	Recipe_Make_ATABusProtectionWindowsRightItem = "Bear Bus - создать Защиту для правых боковых стекол",
+	Recipe_Make_ATABusProtectionWindowsLeftItem = "Bear Bus - создать Защиту для левых боковых стекол",
+	Recipe_Make_ATABusRoofBoxItem = "Bear Bus - создать Ящик для инструментов",
 
 
 /************ Autotsar Tuning Atelier - Jeep ************/	
 
-	Recipe_Cut_ATAJeepBumper1Item = "Разрезать Бампер (Jaap Wrungel)",
-	Recipe_Cut_ATAJeepBumper2Item = "Разрезать Бампер (Jaap Wrungel)",
-	Recipe_Cut_ATAJeepBumper3Item = "Разрезать Бампер (Jaap Wrungel)",
-	Recipe_Cut_ATAJeepBumper4Item = "Разрезать Бампер (Jaap Wrungel)",
-	Recipe_Make_ATAJeepBumper4Item = "Создать Смертоносный бампер (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepBumper1Item = "Jaap Wrungel - разрезать Бампер",
+	Recipe_Cut_ATAJeepBumper2Item = "Jaap Wrungel - разрезать Бампер",
+	Recipe_Cut_ATAJeepBumper3Item = "Jaap Wrungel - разрезать Бампер",
+	Recipe_Cut_ATAJeepBumper4Item = "Jaap Wrungel - разрезать Бампер",
+	Recipe_Make_ATAJeepBumper4Item = "Jaap Wrungel - cоздать Смертоносный бампер",
 	
-	Recipe_Make_ATAJeepProtectionWindowItem = "Создать Защиту стёкол (Jaap Wrungel)",
-	Recipe_Cut_ATAJeepProtectionWindowItem = "Разрезать Защиту стёкол (Jaap Wrungel)",
-	Recipe_Make_ATAJeepProtectionWindowFrontItem = "Создать Защиту лобового стекла ((Jaap Wrungel))",
-	Recipe_Cut_ATAJeepProtectionWindowFrontItem = "Разрезать Защиту лобового стекла (Jaap Wrungel)",
-	Recipe_Make_ATAJeepProtectionWindowRearItem = "Создать Защиту заднего стекла (Jaap Wrungel)",
-	Recipe_Cut_ATAJeepProtectionWindowRearItem = "Разрезать Защиту заднего стекла (Jaap Wrungel)",
+	Recipe_Make_ATAJeepProtectionWindowItem = "Jaap Wrungel - cоздать Защиту стёкол",
+	Recipe_Cut_ATAJeepProtectionWindowItem = "Jaap Wrungel - разрезать Защиту стёкол",
+	Recipe_Make_ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - cоздать Защиту лобового стекла ((Jaap Wrungel))",
+	Recipe_Cut_ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - разрезать Защиту лобового стекла",
+	Recipe_Make_ATAJeepProtectionWindowRearItem = "Jaap Wrungel - cоздать Защиту заднего стекла",
+	Recipe_Cut_ATAJeepProtectionWindowRearItem = "Jaap Wrungel - разрезать Защиту заднего стекла",
 	
-	Recipe_Make_ATAJeepInteractiveTrunkRoofRackItem = "Создать Багажник для крыши (Jaap Wrungel)",
-	Recipe_Cut_ATAJeepInteractiveTrunkRoofRackItem = "Разрезать Багажник для крыши (Jaap Wrungel)",
-	Recipe_Make_ATAJeepInteractiveTrunkWheelRackItem = "Создать Багажник над запасным колесом (Jaap Wrungel)",
-	Recipe_Cut_ATAJeepInteractiveTrunkWheelRackItem = "Разрезать Багажник над запасным колесом (Jaap Wrungel)",
-	Recipe_Make_ATAJeepRoofBaseItem = "Создать Рейлинги (Jaap Wrungel)",
-	Recipe_Cut_ATAJeepRoofBaseItem = "Разрезать Рейлинги (Jaap Wrungel)",
+	Recipe_Make_ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - cоздать Багажник для крыши",
+	Recipe_Cut_ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - разрезать Багажник для крыши",
+	Recipe_Make_ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - cоздать Багажник над запасным колесом",
+	Recipe_Cut_ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - разрезать Багажник над запасным колесом",
+	Recipe_Make_ATAJeepRoofBaseItem = "Jaap Wrungel - cоздать Рейлинги",
+	Recipe_Cut_ATAJeepRoofBaseItem = "Jaap Wrungel - разрезать Рейлинги",
 	
 	
 /************ Autotsar Tuning Atelier - Mustang ************/
 	
-	Recipe_Cut_ATAMustangBullbar1Item = "Разрезать Кенгурятник (Fjord Mustard)",
-	Recipe_Cut_ATAMustangBullbar2Item = "Разрезать Кенгурятник (Fjord Mustard)",
-	Recipe_Cut_ATAMustangBullbar3Item = "Разрезать Кенгурятник (Fjord Mustard)",
-	Recipe_Make_ATAMustangBullbar3Item = "Создать Кенгурятник (Fjord Mustard)",
+	Recipe_Cut_ATAMustangBullbar1Item = "Fjord Mustard - разрезать Кенгурятник",
+	Recipe_Cut_ATAMustangBullbar2Item = "Fjord Mustard - разрезать Кенгурятник",
+	Recipe_Cut_ATAMustangBullbar3Item = "Fjord Mustard - разрезать Кенгурятник",
+	Recipe_Make_ATAMustangBullbar3Item = "Fjord Mustard - создать Кенгурятник",
 
-	Recipe_Cut_ATAMustangHood2Item3 = "Разрезать Капот (Fjord Mustard)",
-	Recipe_Cut_ATAMustangHood3Item3 = "Разрезать Капот (Fjord Mustard)",
-	Recipe_Cut_ATAMustangHood4Item3 = "Разрезать Капот (Fjord Mustard)",
-	Recipe_Cut_ATAMustangHoodItem = "Разрезать Капот (Fjord Mustard)",
+	Recipe_Cut_ATAMustangHood2Item3 = "Fjord Mustard - разрезать Капот",
+	Recipe_Cut_ATAMustangHood3Item3 = "Fjord Mustard - разрезать Капот",
+	Recipe_Cut_ATAMustangHood4Item3 = "Fjord Mustard - разрезать Капот",
+	Recipe_Cut_ATAMustangHoodItem = "Fjord Mustard - разрезать Капот",
 	
-	Recipe_Cut_ATAMustangFendersWideItem = "Разрезать Капот (Fjord Mustard)",
-	Recipe_Cut_ATAMustangSkirtsSideItem = "Разрезать Капот (Fjord Mustard)",
-	Recipe_Cut_ATAMustangSpoilerFrontItem = "Разрезать Губу переднего бампера (Fjord Mustard)",
-	Recipe_Cut_ATAMustangSpoilerRear1Item = "Разрезать Спойлер (Fjord Mustard)",
-	Recipe_Cut_ATAMustangSpoilerRear2Item = "Разрезать Спойлер (Fjord Mustard)",
+	Recipe_Cut_ATAMustangFendersWideItem = "Fjord Mustard - разрезать Капот",
+	Recipe_Cut_ATAMustangSkirtsSideItem = "Fjord Mustard - разрезать Капот",
+	Recipe_Cut_ATAMustangSpoilerFrontItem = "Fjord Mustard - разрезать Губу переднего бампера",
+	Recipe_Cut_ATAMustangSpoilerRear1Item = "Fjord Mustard - разрезать Спойлер",
+	Recipe_Cut_ATAMustangSpoilerRear2Item = "Fjord Mustard - разрезать Спойлер",
 	
-	Recipe_Make_ATAMustangProtectionWindowLeftItem = "Создать Защиту левого стекла (Fjord Mustard)",
-	Recipe_Make_ATAMustangProtectionWindowRightItem = "Создать Защиту правого стекла (Fjord Mustard)",
-	Recipe_Make_ATAMustangProtectionWindowFrontItem = "Создать Защиту лобового стекла (Fjord Mustard)",
-	Recipe_Make_ATAMustangProtectionWindowRearItem = "Создать Защиту заднего стекла (Fjord Mustard)",
-	Recipe_Cut_ATAMustangProtectionWindowLeftItem = "Разрезать Защиту левого стекла (Fjord Mustard)",
-	Recipe_Cut_ATAMustangProtectionWindowRightItem = "Разрезать Защиту правого стекла (Fjord Mustard)",
-	Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Разрезать Защиту лобового стекла (Fjord Mustard)",
-	Recipe_Cut_ATAMustangProtectionWindowRearItem = "Разрезать Защиту заднего стекла (Fjord Mustard)",
+	Recipe_Make_ATAMustangProtectionWindowLeftItem = "Fjord Mustard - создать Защиту левого стекла",
+	Recipe_Make_ATAMustangProtectionWindowRightItem = "Fjord Mustard - создать Защиту правого стекла",
+	Recipe_Make_ATAMustangProtectionWindowFrontItem = "Fjord Mustard - создать Защиту лобового стекла",
+	Recipe_Make_ATAMustangProtectionWindowRearItem = "Fjord Mustard - создать Защиту заднего стекла",
+	Recipe_Cut_ATAMustangProtectionWindowLeftItem = "Fjord Mustard - разрезать Защиту левого стекла",
+	Recipe_Cut_ATAMustangProtectionWindowRightItem = "Fjord Mustard - разрезать Защиту правого стекла",
+	Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Fjord Mustard - разрезать Защиту лобового стекла",
+	Recipe_Cut_ATAMustangProtectionWindowRearItem = "Fjord Mustard - разрезать Защиту заднего стекла",
 	
-	Recipe_Make_ATAMustangRoofRackItem = "Создать Багажник для крыши (Fjord Mustard)",
-	Recipe_Cut_ATAMustangRoofRackItem = "Разрезать Багажник для крыши (Fjord Mustard)",
+	Recipe_Make_ATAMustangRoofRackItem = "Fjord Mustard - создать Багажник для крыши",
+	Recipe_Cut_ATAMustangRoofRackItem = "Fjord Mustard - разрезать Багажник для крыши",
 	
+    
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
 
-	Recipe_Make_ATADodgeRoofRackItem = "Создать Багажник для крыши (Dadge Steals RT)",
-	Recipe_Cut_ATADodgeRoofRackItem = "Разрезать Багажник для крыши (Dadge Steals RT)",
-    Recipe_Make_ATADodgeWindowRackItem = "Создать Багажник для заднего стекла (Dadge Steals RT)",
-	Recipe_Cut_ATADodgeWindowRackItem = "Разрезать Багажник для заднего стекла (Dadge Steals RT)",
+	Recipe_Make_ATADodgeRoofRackItem = "Dadge Steals RT - создать Багажник для крыши",
+	Recipe_Cut_ATADodgeRoofRackItem = "Dadge Steals RT - разрезать Багажник для крыши",
+    Recipe_Make_ATADodgeWindowRackItem = "Dadge Steals RT - создать Багажник для заднего стекла",
+	Recipe_Cut_ATADodgeWindowRackItem = "Dadge Steals RT - разрезать Багажник для заднего стекла",
     
-	Recipe_Cut_ATADodgeBullbar1Item = "Разрезать Кенгурятник (Dadge Steals RT)",
-	Recipe_Cut_ATADodgeBullbar2Item = "Разрезать Кенгурятник (Dadge Steals RT)",
-	Recipe_Cut_ATADodgeBullbar3Item = "Разрезать Кенгурятник (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeBullbar1Item = "Dadge Steals RT - разрезать Кенгурятник",
+	Recipe_Cut_ATADodgeBullbar2Item = "Dadge Steals RT - разрезать Кенгурятник",
+	Recipe_Cut_ATADodgeBullbar3Item = "Dadge Steals RT - разрезать Кенгурятник",
     
-	Recipe_Make_ATADodgeBullbar2Item = "Создать Кенгурятник (Dadge Steals RT)",
-	Recipe_Make_ATADodgeBullbar3Item = "Создать Кенгурятник (Dadge Steals RT)",
+	Recipe_Make_ATADodgeBullbar2Item = "Dadge Steals RT - создать Кенгурятник",
+	Recipe_Make_ATADodgeBullbar3Item = "Dadge Steals RT - создать Кенгурятник",
     
-	Recipe_Make_ATADodgeProtectionWindowSideItem = "Создать Защиту бокового стекла (Dadge Steals RT)",
-    Recipe_Cut_ATADodgeProtectionWindowSideItem = "Разрезать Защиту бокового стекла (Dadge Steals RT)",
-	Recipe_Make_ATADodgeProtectionWindowFrontItem = "Создать Защиту лобового стекла (Dadge Steals RT)",
-    Recipe_Cut_ATADodgeProtectionWindowFrontItem = "Разрезать Защиту лобового стекла (Dadge Steals RT)",
+	Recipe_Make_ATADodgeProtectionWindowSideItem = "Dadge Steals RT - создать Защиту бокового стекла",
+    Recipe_Cut_ATADodgeProtectionWindowSideItem = "Dadge Steals RT - разрезать Защиту бокового стекла",
+	Recipe_Make_ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - создать Защиту лобового стекла",
+    Recipe_Cut_ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - разрезать Защиту лобового стекла",
 }

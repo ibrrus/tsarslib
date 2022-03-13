@@ -18,8 +18,33 @@ ItemName_RU = {
 	
 	ItemName_Base.ATARoofLightItem = "Фонари для крыши",
 	ItemName_Base.ATAProtectionWheelsChain = "Цепь",
+
+
+/************ Autotsar Motorclub ************/
+
+    ItemName_Autotsar.ATAMotoBagBMW1 = "BWM R80/7 - мотосумка",
+    ItemName_Autotsar.ATAMotoBagBMW2 = "BWM R80/7 - мотосумка улучшенная",
+    ItemName_Autotsar.ATAMotoBMWCustomMuffler = "BWM R80/7 - глушитель кастомный",
+    ItemName_Autotsar.ATAMotoBMWClassicMuffler = "BWM R80/7 - глушитель серийный",
+    ItemName_Autotsar.ATAMotoBMWOldTire = "BWM R80/7 - колесо старое",
+    ItemName_Autotsar.ATAMotoBMWNormalTire = "BWM R80/7 - колесо обычное",
+    ItemName_Autotsar.ATAMotoBMWModernTire = "BWM R80/7 - колесо качественное",
+    ItemName_Autotsar.ATAMotoBMWGasTank = "BWM R80/7 - бензобак",
+    ItemName_Autotsar.ATAMotoBMWSeat = "BWM R80/7 - сиденье серийное",
+    ItemName_Autotsar.ATAMotoBMWSeatCustom = "BWM R80/7 - сиденье кастомное",
+    
+    ItemName_Autotsar.ATAMotoHarleyBag = "Xarley-Davitsan Sportstep - мотосумка",
+    ItemName_Autotsar.ATAMotoHarleyMuffler = "Xarley-Davitsan Sportstep - глушитель",
+    ItemName_Autotsar.ATAMotoHarleyOldTire = "Xarley-Davitsan Sportstep - колесо старое",
+    ItemName_Autotsar.ATAMotoHarleyNormalTire = "Xarley-Davitsan Sportstep - колесо обычное",
+    ItemName_Autotsar.ATAMotoHarleyModernTire = "Xarley-Davitsan Sportstep - колесо качественное",
+    ItemName_Autotsar.ATAMotoHarleyGasTank = "Xarley-Davitsan Sportstep - бензобак",
+    ItemName_Autotsar.ATAMotoHarleyHolster = "Xarley-Davitsan Sportstep - мотокобура",
+    ItemName_Autotsar.ATAMotoHarleySeat = "Xarley-Davitsan Sportstep - сиденье",
+    
     
 /************ Aquatsar Yacht Club ************/
+
     ItemName_Aquatsar.BoatPropeller = "Лодочный пропеллер",
     ItemName_Aquatsar.ManualStarter = "Ручной стартер",
     ItemName_Aquatsar.Sails = "Паруса",
@@ -33,7 +58,12 @@ ItemName_RU = {
     ItemName_Aquatsar.TireTube = "Камера для шины",
     ItemName_Base.SailingYachtName_Default_Item = "Без имени",
     ItemName_Base.BoatMotorName_Default_Item = "Без имени",
+    ItemName_Base.SailingYachtName_La_Brigandine = "La Brigandine",
+    ItemName_Base.SailingYachtName_Sakharov_Item = "Akademik Sakharov",
+    ItemName_Base.BoatMotorName_Orianna_Item = "M/Y Orianna",
+    ItemName_Base.BoatMotorName_NP_Item = "Nautilus P.",
 	
+    
 /************ Autotsar Tuning Atelier - Bus ************/
 	
 	ItemName_Autotsar.AtTuningMagBus = "Журнал «Autotsar Tuning Atelier - Bear Bus»",
@@ -96,6 +126,7 @@ ItemName_RU = {
 	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - защита заднего стекла",
 	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - багажник для крыши",
     
+    
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
 	
 	ItemName_Autotsar.ATADodgeTuningMag = "Журнал «Autotsar Tuning Atelier - Dadge Steals RT»",
@@ -107,11 +138,15 @@ ItemName_RU = {
 	ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - багажник для крыши",
 	ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - багажник для для заднего стекла",
 
+
 /************ True Music ************/
+
 	ItemName_Tsarcraft.TCBoombox = "Бумбокс 'Kazakhstan-102-stereo'",
     ItemName_Tsarcraft.TCVinylplayer = "Виниловый проигрыватель 'Elektronika S1-01'",
 	
+    
 /************ ZuperCart ************/
+
 	ItemName_TMC.TrolleyContainer = "Тележка",
 	ItemName_TMC.TrolleyContainer2 = "Тележка",
 	ItemName_TMC.CartContainer = "Тележка из супермаркета",

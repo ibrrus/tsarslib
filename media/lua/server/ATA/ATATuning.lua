@@ -140,6 +140,14 @@ function ATATuning.ModelByItemName(vehicle, part, item)
 	end
 end
 
+function ATATuning.Create.Default(vehicle, part)
+	local item = ATATuningUtils.createPartInventoryItem(part)
+	ATATuning.ModelByItemName(vehicle, part, item)
+    vehicle:transmitPartCondition(part)
+	vehicle:transmitPartItem(part)
+	vehicle:doDamageOverlay()
+end
+
 function ATATuning.Create.DefaultModel(vehicle, part)
 	local item = ATATuningUtils.createPartInventoryItem(part)
 	ATATuning.ModelByItemName(vehicle, part, item)
@@ -148,6 +156,12 @@ function ATATuning.Create.DefaultModel(vehicle, part)
 	vehicle:doDamageOverlay()
 end
 
+function ATATuning.Init.Default(vehicle, part)
+	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
+	vehicle:doDamageOverlay()
+end
+
+-- Don't use. Will be delete.
 function ATATuning.Init.DefaultModel(vehicle, part)
 	ATATuning.ModelByItemName(vehicle, part, part:getInventoryItem())
 	vehicle:doDamageOverlay()
@@ -788,3 +802,128 @@ function ATATuning.UninstallComplete.WheelsProtection(vehicle, part, item)
 end
 
 -- print("Autotsar tunning loaded")
+
+--***********************************************************
+--**                                                       **
+--**                	    Fake Wheels  	               **
+--**                                                       **
+--***********************************************************
+
+function ATATuning.InstallComplete.ATAMotoTireFrontWheel(vehicle, part)
+    -- vehicle:setTireRemoved(0, false)
+    -- vehicle:setTireRemoved(1, false)
+    vehicle:getPartById("TireFrontLeft"):setInventoryItem(part:getInventoryItem())
+    vehicle:getPartById("TireFrontRight"):setInventoryItem(part:getInventoryItem())
+    vehicle:transmitPartItem(vehicle:getPartById("TireFrontLeft"))
+    vehicle:transmitPartItem(vehicle:getPartById("TireFrontRight"))
+    Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireFrontLeft"))
+    Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireFrontRight"))
+end
+
+function ATATuning.UninstallComplete.ATAMotoTireFrontWheel(vehicle, part, item)
+    -- vehicle:setTireRemoved(0, true)
+    -- vehicle:setTireRemoved(1, true)
+	vehicle:getPartById("TireFrontLeft"):setInventoryItem(nil)
+	vehicle:getPartById("TireFrontRight"):setInventoryItem(nil)
+    vehicle:transmitPartItem(vehicle:getPartById("TireFrontLeft"))
+    vehicle:transmitPartItem(vehicle:getPartById("TireFrontRight"))
+    Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireFrontLeft"))
+    Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireFrontRight"))
+end
+
+function ATATuning.Update.ATAMotoTireFrontWheel(vehicle, part, elapsedMinutes)
+    local wPart1 = vehicle:getPartById("TireFrontLeft")
+    local wPart2 = vehicle:getPartById("TireFrontRight")
+    if part:getInventoryItem() then
+        if wPart1:getInventoryItem() then
+            if wPart1:getContainerContentAmount() < part:getContainerContentAmount() then
+                part:setContainerContentAmount(wPart1:getContainerContentAmount())
+            end
+            if wPart1:getCondition() < part:getCondition() then
+                part:setCondition(wPart1:getCondition())
+            end
+        else
+            VehicleUtils.RemoveTire(part, false);
+            return
+        end
+        if wPart2:getInventoryItem() then
+            if wPart2:getContainerContentAmount() < part:getContainerContentAmount() then
+                part:setContainerContentAmount(wPart2:getContainerContentAmount())
+            end
+            if wPart2:getCondition() < part:getCondition() then
+                part:setCondition(wPart2:getCondition())
+            end
+        else
+            VehicleUtils.RemoveTire(part, false);
+            return
+        end
+    else
+        if wPart1:getInventoryItem() then
+            VehicleUtils.RemoveTire(wPart1, false);
+        end
+        if wPart2:getInventoryItem() then
+            VehicleUtils.RemoveTire(wPart2, false);
+        end
+    end
+end
+
+function ATATuning.InstallComplete.ATAMotoTireRearWheel(vehicle, part)
+    -- vehicle:setTireRemoved(2, false)
+    -- vehicle:setTireRemoved(3, false)
+    vehicle:getPartById("TireRearLeft"):setInventoryItem(part:getInventoryItem())
+    vehicle:getPartById("TireRearRight"):setInventoryItem(part:getInventoryItem())
+    vehicle:transmitPartItem(vehicle:getPartById("TireRearLeft"))
+    vehicle:transmitPartItem(vehicle:getPartById("TireRearRight"))
+    Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireRearLeft"))
+    Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireRearRight"))
+end
+
+function ATATuning.UninstallComplete.ATAMotoTireRearWheel(vehicle, part, item)
+    -- vehicle:setTireRemoved(2, true)
+    -- vehicle:setTireRemoved(3, true)
+    vehicle:getPartById("TireRearLeft"):setInventoryItem(nil)
+    vehicle:getPartById("TireRearRight"):setInventoryItem(nil)
+    vehicle:transmitPartItem(vehicle:getPartById("TireRearLeft"))
+    vehicle:transmitPartItem(vehicle:getPartById("TireRearRight"))
+    Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireRearLeft"))
+    Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireRearRight"))
+end
+
+function ATATuning.Update.ATAMotoTireRearWheel(vehicle, part, elapsedMinutes)
+    local wPart1 = vehicle:getPartById("TireRearLeft")
+    local wPart2 = vehicle:getPartById("TireRearRight")
+    if part:getInventoryItem() then
+        if wPart1:getInventoryItem() then
+            if wPart1:getContainerContentAmount() < part:getContainerContentAmount() then
+                part:setContainerContentAmount(wPart1:getContainerContentAmount())
+            end
+            if wPart1:getCondition() < part:getCondition() then
+                part:setCondition(wPart1:getCondition())
+            end
+        else
+            VehicleUtils.RemoveTire(part, false);
+            ATATuning.UninstallComplete.ATAMotoTireRearWheel(vehicle, part, nil)
+            return
+        end
+        if wPart2:getInventoryItem() then
+            if wPart2:getContainerContentAmount() < part:getContainerContentAmount() then
+                part:setContainerContentAmount(wPart2:getContainerContentAmount())
+            end
+            if wPart2:getCondition() < part:getCondition() then
+                part:setCondition(wPart2:getCondition())
+            end
+        else
+            VehicleUtils.RemoveTire(part, false);
+            ATATuning.UninstallComplete.ATAMotoTireRearWheel(vehicle, part, nil)
+            return
+        end
+    else
+        if wPart1:getInventoryItem() then
+            VehicleUtils.RemoveTire(wPart1, false);
+        end
+        if wPart2:getInventoryItem() then
+            VehicleUtils.RemoveTire(wPart2, false);
+        end
+    end
+end
+

@@ -16,6 +16,8 @@ IGUI_RU = {
     IGUI_VehiclePartATABagMotoRight = "Мотосумка правая",
     IGUI_VehiclePartATABagMotoHolsterLeft = "Мотокобура левая",
     IGUI_VehiclePartATABagMotoHolsterRight = "Мотокобура правая",
+    IGUI_VehiclePartATAMotoTireFrontWheel = "Колесо переднее",
+    IGUI_VehiclePartATAMotoTireRearWheel = "Колесо заднее",
     
 /* ATA 2022-02-04*/
     IGUI_CloseHeadlightsPopUP = "Задвинуть фары",

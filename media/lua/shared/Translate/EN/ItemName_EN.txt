@@ -19,7 +19,32 @@ ItemName_EN = {
 	ItemName_Base.ATARoofLightItem = "Roof lights",
 	ItemName_Base.ATAProtectionWheelsChain = "Chain",
     
+    
+/************ Autotsar Motorclub ************/
+
+    ItemName_Autotsar.ATAMotoBagBMW1 = "BWM R80/7 - motobag",
+    ItemName_Autotsar.ATAMotoBagBMW2 = "BWM R80/7 - motobag enhanced",
+    ItemName_Autotsar.ATAMotoBMWCustomMuffler = "BWM R80/7 - custom muffler",
+    ItemName_Autotsar.ATAMotoBMWClassicMuffler = "BWM R80/7 - serial muffler",
+    ItemName_Autotsar.ATAMotoBMWOldTire = "BWM R80/7 - old tire",
+    ItemName_Autotsar.ATAMotoBMWNormalTire = "BWM R80/7 - normal tire",
+    ItemName_Autotsar.ATAMotoBMWModernTire = "BWM R80/7 - modern tire",
+    ItemName_Autotsar.ATAMotoBMWGasTank = "BWM R80/7 - gastank",
+    ItemName_Autotsar.ATAMotoBMWSeat = "BWM R80/7 - serial seat",
+    ItemName_Autotsar.ATAMotoBMWSeatCustom = "BWM R80/7 - custom seat",
+    
+    ItemName_Autotsar.ATAMotoHarleyBag = "Xarley-Davitsan Sportstep - motobag",
+    ItemName_Autotsar.ATAMotoHarleyMuffler = "Xarley-Davitsan Sportstep - muffler",
+    ItemName_Autotsar.ATAMotoHarleyOldTire = "Xarley-Davitsan Sportstep - old tire",
+    ItemName_Autotsar.ATAMotoHarleyNormalTire = "Xarley-Davitsan Sportstep - normal tire",
+    ItemName_Autotsar.ATAMotoHarleyModernTire = "Xarley-Davitsan Sportstep - modern tire",
+    ItemName_Autotsar.ATAMotoHarleyGasTank = "Xarley-Davitsan Sportstep - gastank",
+    ItemName_Autotsar.ATAMotoHarleyHolster = "Xarley-Davitsan Sportstep - holster",
+    ItemName_Autotsar.ATAMotoHarleySeat = "Xarley-Davitsan Sportstep - seat",
+    
+    
 /************ Aquatsar Yacht Club ************/
+
     ItemName_Aquatsar.BoatPropeller = "Boat Propeller",
     ItemName_Aquatsar.ManualStarter = "Manual Starter",
     ItemName_Aquatsar.Sails = "Sails",
@@ -37,6 +62,7 @@ ItemName_EN = {
     ItemName_Base.BoatMotorName_Default_Item = "No name",
     ItemName_Base.BoatMotorName_Orianna_Item = "M/Y Orianna",
     ItemName_Base.BoatMotorName_NP_Item = "Nautilus P.",
+    
     
 /************ Autotsar Tuning Atelier - Bus ************/
 	
@@ -100,6 +126,7 @@ ItemName_EN = {
 	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - Rear Window Protection",
 	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - Roof Rack",
 	
+    
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
 	
 	ItemName_Autotsar.ATADodgeTuningMag = "Magazine «Autotsar Tuning Atelier - Dadge Steals RT»",
@@ -111,11 +138,15 @@ ItemName_EN = {
 	ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - Roof Rack",
 	ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - Rear Window Rack",
     
+    
 /************ True Music ************/
+
 	ItemName_Tsarcraft.TCBoombox = "Boombox 'Kazakhstan-102-stereo'",
     ItemName_Tsarcraft.TCVinylplayer = "Vinyl player 'Elektronika S1-01'",
 	
+    
 /************ ZuperCart ************/
+
 	ItemName_TMC.TrolleyContainer = "Trolley",
 	ItemName_TMC.TrolleyContainer2 = "Trolley",
 	ItemName_TMC.CartContainer = "Supermarket cart",
