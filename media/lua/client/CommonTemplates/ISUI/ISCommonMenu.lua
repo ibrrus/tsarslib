@@ -38,6 +38,11 @@ function ISCommonMenu.showRadialMenu(playerObj)
     if isPaused then return end
     local vehicle = playerObj:getVehicle()
     if vehicle then
+        local tclInfo = nil
+        if vehicle:getPartById("TCLConfig") then
+            tclInfo = vehicle:getPartById("TCLConfig"):getTable("TCLConfig")
+        end
+    
         local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
         local seat = string.sub(vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)):getId(), 5)
         local oven = vehicle:getPartById("Oven" .. seat)
@@ -62,7 +67,7 @@ function ISCommonMenu.showRadialMenu(playerObj)
             end
         end
         if inRoofTent then
-            menu:deleteMultiSliceTsar({getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Lock_Doors"), getText("ContextMenu_VehicleHeaterOn"), getText("ContextMenu_VehicleHeaterOff"), getText("ContextMenu_VehicleMechanics")})
+            menu:deleteMultiSliceTsar({getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Lock_Doors"), getText("ContextMenu_VehicleHeaterOn"), getText("ContextMenu_VehicleHeaterOff"), getText("ContextMenu_VehicleMechanics")})
             menu:updateSliceTsar(getText("IGUI_ExitVehicle"), getText("IGUI_ExitVehicleTent"), getTexture("media/ui/commonlibrary/tent_exit.png"))
             menu:updateSliceTsar(getText("ContextMenu_Close_window"), getText("ContextMenu_Close_window"), getTexture("media/ui/commonlibrary/UI_commonlib_close_tent_window.png"))
             menu:updateSliceTsar(getText("ContextMenu_Open_window"), getText("ContextMenu_Open_window"), getTexture("media/ui/commonlibrary/UI_commonlib_open_tent_window.png"))
@@ -146,6 +151,14 @@ function ISCommonMenu.showRadialMenu(playerObj)
             end
         end
         ISCommonMenu.doTowingMenu(playerObj, vehicle, menu)
+        if tclInfo then
+            if tclInfo.disableDoorLocker == "1" then
+                menu:deleteMultiSliceTsar({getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Lock_Doors")})
+            end
+            if tclInfo.disableSleep == "1" then
+                menu:deleteMultiSliceTsar({getText("IGUI_Sleep_NotTiredEnough"), getText("IGUI_PlayerText_CanNotSleepInMovingCar"), getText("ContextMenu_PainNoSleep"), getText("ContextMenu_PanicNoSleep"), getText("ContextMenu_NoSleepTooEarly"), getText("ContextMenu_Sleep")})
+            end
+        end
     end
 end
 

@@ -42,7 +42,9 @@ ItemName_RU = {
     ItemName_Autotsar.ATAMotoHarleyHolster = "Xarley-Davitsan Sportstep - мотокобура",
     ItemName_Autotsar.ATAMotoHarleySeat = "Xarley-Davitsan Sportstep - сиденье",
     
-    
+    ItemName_Autotsar.ATAMotoQuadSeat = "Suvzuki Quadruiner - сиденье",
+
+
 /************ Aquatsar Yacht Club ************/
 
     ItemName_Aquatsar.BoatPropeller = "Лодочный пропеллер",

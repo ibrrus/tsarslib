@@ -1,3 +1,21 @@
+v.1.26
+2022-03-13
+
+Исправлены ошибки связанные с защитой на окнах и выдвижными фарами, появившиеся после обновления игры до версии 41.66.
+Добавлен механизм сихнронизации по сети анимаций персонажа в транспорте.
+Изменена логика работы микроволновки (микроволновки и плиты всё еще не работает в мультиплеере).
+Добавлены шаблоны для 6-колесных автомобилей.
+Добавлены шаблоны и lua-код для мотоциклов.
+Добавлены новые переводы для будущих модов.
+
+Fixed errors related to the protection on the windows and retractable headlights, which appeared after updating the game to version 41.66.
+Added a mechanism to synchronize the network animations of the character in transport.
+Changed logic for microwaves (microwaves and stoves still do not work in multiplayer).
+Added templates for 6-wheeled vehicles.
+Added templates and lua code for motorcycles.
+Added new translations for future mods.
+
+
 v.1.25
 2022-02-04
 

@@ -19,7 +19,7 @@ end
 function ATAISAnimatedPartClose:start()
 	-- TODO: sync part animation + sound
 	self.vehicle:playPartAnim(self.part, "Close")
-	self.vehicle:playPartSound(self.part, "Close")
+	self.vehicle:playPartSound(self.part, self.character, "Close")
 	-- Set this here to negate the effects of injuries, negative moodles, etc.
 	self.action:setTime(4)
 end

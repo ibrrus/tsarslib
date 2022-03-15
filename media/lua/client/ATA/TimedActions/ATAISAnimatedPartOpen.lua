@@ -20,7 +20,7 @@ end
 function ATAISAnimatedPartOpen:start()
 	-- TODO: sync part animation + sound
 	self.vehicle:playPartAnim(self.part, "Open")
-	self.vehicle:playPartSound(self.part, "Open")
+	self.vehicle:playPartSound(self.part, self.character, "Open")
 	-- Set this here to negate the effects of injuries, negative moodles, etc.
 	self.action:setTime(5)
 end

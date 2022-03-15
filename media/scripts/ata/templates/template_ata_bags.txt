@@ -120,5 +120,13 @@ module Base
                 init = ATATuning.Init.DefaultModel,
             }
         }
+        part ATABagMoto*
+        {
+            container
+            {
+                conditionAffectsCapacity = false,
+                test = ATATuning.ContainerAccess.MotoBags,
+            }
+        }
     }
 }

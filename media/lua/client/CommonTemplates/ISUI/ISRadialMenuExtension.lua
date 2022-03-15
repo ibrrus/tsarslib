@@ -47,7 +47,7 @@ function ISRadialMenu:blockSliceTsar(oldtext)
 end
 
 
---menu:deleteMultiSliceTsar({text1, text2, text3})
+-- menu:deleteMultiSliceTsar({getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Lock_Doors"), getText("ContextMenu_VehicleHeaterOn"), getText("ContextMenu_VehicleHeaterOff"), getText("ContextMenu_VehicleMechanics")})
 function ISRadialMenu:deleteMultiSliceTsar(textTableForDelete)
 	if type(textTableForDelete) == "table" then
 		local textTableForDeleteSet = Set(textTableForDelete)
