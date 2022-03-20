@@ -62,7 +62,7 @@ module Base
             lua
             {
                 create = ATATuning.Create.DefaultModel,
-                init = ATATuning.Init.DefaultModel,
+                init = ATATuning.Init.Default,
                 update = ATATuning.Update.CommonProtection,
             }
         }

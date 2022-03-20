@@ -4,7 +4,7 @@ module Base
     {
         part ATAMotoTireFrontWheel
         {
-            area = TireRearRight,
+            area = TireFrontLeft,
             wheel = RearRight,
             table install
 			{
@@ -97,5 +97,24 @@ module Base
 				test = Vehicles.UninstallTest.Default,
 			}
         }
+    }
+    
+    template vehicle ATAMotoWheelsReady
+    {
+        template = Tire,
+        part Tire*
+        {
+            category = nodisplay,
+            model InflatedTirePlusWheel
+            {
+                file = TsarNullModel,
+            }
+            lua
+            {
+				update = ,
+			}
+        }
+        template = ATAMotoWheels/part/ATAMotoTireFrontWheel,
+        template = ATAMotoWheels/part/ATAMotoTireRearWheel,
     }
 }

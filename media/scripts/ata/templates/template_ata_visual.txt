@@ -102,7 +102,7 @@ module Base
             lua
             {
                 create = ATATuning.Create.Chance15,
-                init = ATATuning.Init.DefaultModel,
+                init = ATATuning.Init.Default,
             }
         }
     }

@@ -1,52 +1,51 @@
 IGUI_RU = {
-/* ATA 2022-03-12*/
+/* template_ata_6wheels.txt */
     IGUI_VehiclePartTireMiddleRight = "Задняя правая шина",
     IGUI_VehiclePartTireMiddleLeft = "Задняя левая шина",
     IGUI_VehiclePartSuspensionMiddleLeft = "Задняя левая подвеска",
     IGUI_VehiclePartSuspensionMiddleRight = "Задняя правая подвеска",
     IGUI_VehiclePartBrakeMiddleLeft = "Задний левый тормоз",
     IGUI_VehiclePartBrakeMiddleRight = "Задний правый тормоз",
-    IGUI_VehiclePartATAProtectionSideLeft = "Защита левая",
-    IGUI_VehiclePartATAProtectionSideRight = "Защита правая",
-    IGUI_VehiclePartATAProtectionSideFront = "Защита передняя",
-    IGUI_VehiclePartATAProtectionSideRoof = "Защита верхняя",
-    IGUI_VehiclePartATAInteractiveTrunkFront = "Багажник передний",
-    IGUI_VehiclePartATAInteractiveTrunkRear = "Багажник задний",
+    
+/* template_ata_bags.txt */
+    IGUI_VehiclePartATABagOnProtectionWindowFrontLeft = "Сумка на защите (левая)",
+    IGUI_VehiclePartATABagOnProtectionWindowFrontRight = "Сумка на защите (правая)",
     IGUI_VehiclePartATABagMotoLeft = "Мотосумка левая",
     IGUI_VehiclePartATABagMotoRight = "Мотосумка правая",
     IGUI_VehiclePartATABagMotoHolsterLeft = "Мотокобура левая",
     IGUI_VehiclePartATABagMotoHolsterRight = "Мотокобура правая",
+    
+/* template_ata_bampers.txt */
+    IGUI_VehiclePartATABumper = "Бампер",
+
+/* template_ata_bullbars.txt */
+    IGUI_VehiclePartATABullbar = "Кенгурятник",
+
+/* template_ata_headlights.txt */
+    IGUI_VehiclePartATAHeadlightsPopUP = "Фары выдвижные",
+
+/* template_ata_interactive_trunk.txt */
+    IGUI_VehiclePartATARoofBase = "Рейлинги",
+    IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Багажник на крыше",
+    IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Багажник над запасным колесом",
+    IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Багажник для заднего стекла",
+    IGUI_VehiclePartATAInteractiveTrunkFront = "Багажник передний",
+    IGUI_VehiclePartATAInteractiveTrunkRear = "Багажник задний",
+
+/* template_ata_lightbar.txt */
+    IGUI_VehiclePartATALightBar = "Мигалки",
+
+/* template_ata_moto_fake_wheels.txt */
     IGUI_VehiclePartATAMotoTireFrontWheel = "Колесо переднее",
     IGUI_VehiclePartATAMotoTireRearWheel = "Колесо заднее",
+
+/* template_ata_protection.txt */
+    IGUI_VehiclePartATAProtectionWheels = "Защита колес",
+    IGUI_VehiclePartATAProtectionWheelsFront = "Защита передних колес",
+    IGUI_VehiclePartATAProtectionWheelsRear = "Защита задних колес",
+    IGUI_VehiclePartATAProtectionFrontWheels = "Защита передних колес",
+    IGUI_VehiclePartATAProtectionRearWheels = "Защита задних колес",
     
-/* ATA 2022-02-04*/
-    IGUI_CloseHeadlightsPopUP = "Задвинуть фары",
-    IGUI_OpenHeadlightsPopUP = "Выдвинуть фары",
-    IGUI_VehiclePartATABagOnProtectionWindowFrontLeft = "Сумка на защите (левая)",
-    IGUI_VehiclePartATABagOnProtectionWindowFrontRight = "Сумка на защите (правая)",
-    
-/* ATA 20220118*/
-    IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Я не смогу разбить окно, пока на нем стоит защита.",
-    
-/* ATA 20211209*/
-    IGUI_VehiclePartATAVisualSpoilerFront = "Губа на передний бампер",
-    IGUI_VehiclePartATAVisualSpoilerRear = "Спойлер",
-    IGUI_VehiclePartATAVisualSkirtsSide = "Юбки боковых порогов",
-    IGUI_VehiclePartATAVisualFendersWide = "Широкие арки",
-    IGUI_VehiclePartATAVisualSnorkel = "Шноркель",
-    IGUI_ItemCat_Tuning = "Тюнинг",
-    
-/* ATA */
-    IGUI_VehiclePartATABullbar = "Кенгурятник",
-    IGUI_VehiclePartATARoofRack = "Багажник на крыше",
-    IGUI_VehiclePartATARoofRackToolbox = "Ящик для инструментов",
-    IGUI_VehiclePartDoorProtection = "Защита двери",
-    IGUI_VehiclePartDoorRearProtection = "Защита задних дверей",
-    IGUI_VehiclePartWheelsProtection = "Защита колес",
-    IGUI_VehiclePartWindowsFrontProtection = "Защита лобового стекла",
-    IGUI_VehiclePartWindowsLeftLiteProtection = "Защита левого бокового стекла",
-    IGUI_VehiclePartWindowsLeftFullProtection = "Защита левых боковых стекол",
-    IGUI_VehiclePartWindowsRightProtection = "Защита правых боковых стекол",
     IGUI_VehiclePartATAProtectionWindowFront = "Защита стекла лобового",
     IGUI_VehiclePartATAProtectionWindowRear = "Защита стекла заднего",
     IGUI_VehiclePartATAProtectionWindowFrontLeft = "Защита окна переднего левого",
@@ -55,17 +54,18 @@ IGUI_RU = {
     IGUI_VehiclePartATAProtectionWindowMiddleRight = "Защита окна среднего правого",
     IGUI_VehiclePartATAProtectionWindowRearLeft = "Защита окна заднего левого",
     IGUI_VehiclePartATAProtectionWindowRearRight = "Защита окна заднего правого",
-    IGUI_VehiclePartATAProtectionWheels = "Защита колес",
+    
+    IGUI_VehiclePartATAProtectionSideLeft = "Защита левая",
+    IGUI_VehiclePartATAProtectionSideRight = "Защита правая",
+    IGUI_VehiclePartATAProtectionSideFront = "Защита передняя",
+    IGUI_VehiclePartATAProtectionSideTop = "Защита верхняя",
+    
+    IGUI_VehiclePartATAProtectionSleeper = "Защита спальника",
+    IGUI_VehiclePartATAProtectionGasTank = "Защита бензобака",
     IGUI_VehiclePartATAProtectionHood = "Защита капота",
     IGUI_VehiclePartATAProtectionTrunk = "Защита багажника",
-    IGUI_VehiclePartATASpareWheel = "Запасное колесо",
-    IGUI_VehiclePartATABumper = "Бампер",
-    IGUI_VehiclePartATARoofBase = "Рейлинги",
-    IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Багажник на крыше",
-    IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Багажник над запасным колесом",
-    IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Багажник для заднего стекла",
-    IGUI_VehiclePartATARoofTent = "Палатка на крышу",
 
+/* template_ata_roof_lights.txt */
     IGUI_VehiclePartATARoofLightFront = "Фонари на крыше (передние)",
     IGUI_VehiclePartATARoofLightLeft = "Фонари на крыше (левые)",
     IGUI_VehiclePartATARoofLightRight = "Фонари на крыше (правые)",
@@ -75,6 +75,36 @@ IGUI_RU = {
     IGUI_VehiclePartATARoofLampLeft = "Лампочка для левых фонарей на крыше",
     IGUI_VehiclePartATARoofLampRight = "Лампочка для правых фонарей на крыше",
     IGUI_VehiclePartATARoofLampRear = "Лампочка для задних фонарей на крыше",
+
+/* template_ata_roof_tent.txt */
+    IGUI_VehiclePartATARoofTent = "Палатка на крышу",
+
+/* template_ata_spare_wheel.txt */
+    IGUI_VehiclePartATASpareWheel = "Запасное колесо",
+
+/* template_ata_visual.txt */
+    IGUI_VehiclePartATAVisualSpoilerFront = "Губа на передний бампер",
+    IGUI_VehiclePartATAVisualSpoilerRear = "Спойлер",
+    IGUI_VehiclePartATAVisualSkirtsSide = "Юбки боковых порогов",
+    IGUI_VehiclePartATAVisualFendersWide = "Широкие арки",
+    IGUI_VehiclePartATAVisualSnorkel = "Шноркель",
+
+/* ATA */
+    IGUI_CloseHeadlightsPopUP = "Задвинуть фары",
+    IGUI_OpenHeadlightsPopUP = "Выдвинуть фары",
+    IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Я не смогу разбить окно, пока на нем стоит защита.",
+    IGUI_ItemCat_Tuning = "Тюнинг",
+    
+/************ Autotsar Tuning Atelier - Bus ************/
+    IGUI_VehiclePartATARoofRack = "Багажник на крыше",
+    IGUI_VehiclePartATARoofRackToolbox = "Ящик для инструментов",
+    IGUI_VehiclePartDoorProtection = "Защита двери",
+    IGUI_VehiclePartDoorRearProtection = "Защита задних дверей",
+    IGUI_VehiclePartWheelsProtection = "Защита колес",
+    IGUI_VehiclePartWindowsFrontProtection = "Защита лобового стекла",
+    IGUI_VehiclePartWindowsLeftLiteProtection = "Защита левого бокового стекла",
+    IGUI_VehiclePartWindowsLeftFullProtection = "Защита левых боковых стекол",
+    IGUI_VehiclePartWindowsRightProtection = "Защита правых боковых стекол",
     
     IGUI_CraftCategory_Tuning = "Тюнинг",
     IGUI_VehiclePartCattuning = "Тюнинг",
@@ -160,7 +190,8 @@ IGUI_RU = {
     IGUI_SwimWord_Damage1 = "Если я не отдохну, я могу не доплыть.",
     IGUI_SwimWord_Damage2 = "У меня сводит ногу, мне нужно на берег!",
     IGUI_SwimWord_Damage3 = "Руку свело, срочно нужно на берег!",
-    IGUI_SwimWord_Damage4 = "...",
+    IGUI_SwimWord_Damage4 = "Убери руки от клавиатуры! Дай мне передохнуть!",
+    IGUI_SwimWord_Damage5 = "Помогите!!!",
 
     IGUI_SwimWord_LostItems1 = "Эх, потерял часть вещей",
     IGUI_SwimWord_LostItems2 = "Пришлось избавиться от лишнего груза",

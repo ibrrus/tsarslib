@@ -117,7 +117,7 @@ module Base
             lua
             {
                 create = ATATuning.Create.Chance0,
-                init = ATATuning.Init.DefaultModel,
+                init = ATATuning.Init.Default,
             }
         }
         part ATABagMoto*

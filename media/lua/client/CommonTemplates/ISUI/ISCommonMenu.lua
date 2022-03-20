@@ -42,16 +42,16 @@ function ISCommonMenu.showRadialMenu(playerObj)
         if vehicle:getPartById("TCLConfig") then
             tclInfo = vehicle:getPartById("TCLConfig"):getTable("TCLConfig")
         end
-    
         local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
-        local seat = string.sub(vehicle:getPartForSeatContainer(vehicle:getSeat(playerObj)):getId(), 5)
-        local oven = vehicle:getPartById("Oven" .. seat)
-        local fridge = vehicle:getPartById("Fridge" .. seat)
-        local freezer = vehicle:getPartById("Freezer" .. seat)
-        local microwave = vehicle:getPartById("Microwave" .. seat)
-        local inCabin = vehicle:getPartById("InCabin" .. seat)
-        local inRoofTent = vehicle:getPartById("InRoofTent" .. seat)
-        local mattress = vehicle:getPartById("Mattress" .. seat)
+        local seatNum = vehicle:getSeat(playerObj)
+        local seatName = string.sub(vehicle:getPartForSeatContainer(seatNum):getId(), 5)
+        local oven = vehicle:getPartById("Oven" .. seatName)
+        local fridge = vehicle:getPartById("Fridge" .. seatName)
+        local freezer = vehicle:getPartById("Freezer" .. seatName)
+        local microwave = vehicle:getPartById("Microwave" .. seatName)
+        local inCabin = vehicle:getPartById("InCabin" .. seatName)
+        local inRoofTent = vehicle:getPartById("InRoofTent" .. seatName)
+        local mattress = vehicle:getPartById("Mattress" .. seatName)
         local lightIsOn = true
         local timeHours = getGameTime():getHour()
         if inCabin then
@@ -150,13 +150,23 @@ function ISCommonMenu.showRadialMenu(playerObj)
                 end
             end
         end
-        ISCommonMenu.doTowingMenu(playerObj, vehicle, menu)
+        if seatNum == 0 and vehicle:getScript():getAttachmentById("trailerTruck") then
+            ISCommonMenu.doTowingMenu(playerObj, vehicle, menu)
+        end
         if tclInfo then
+            -- Отключает возможность открывать/закрывать двери в машине
             if tclInfo.disableDoorLocker == "1" then
                 menu:deleteMultiSliceTsar({getText("ContextMenu_Unlock_Doors"), getText("ContextMenu_Lock_Doors")})
             end
+            -- Отключает возможность спать в автомобиле.
             if tclInfo.disableSleep == "1" then
                 menu:deleteMultiSliceTsar({getText("IGUI_Sleep_NotTiredEnough"), getText("IGUI_PlayerText_CanNotSleepInMovingCar"), getText("ContextMenu_PainNoSleep"), getText("ContextMenu_PanicNoSleep"), getText("ContextMenu_NoSleepTooEarly"), getText("ContextMenu_Sleep")})
+            end
+            -- запрещает открывать окно, если установлена определенная запчасть
+            if tclInfo.disableOpenWindowParts and tclInfo.disableOpenWindowParts[seatName] then
+                if vehicle:getPartById(tclInfo.disableOpenWindowParts[seatName]) and vehicle:getPartById(tclInfo.disableOpenWindowParts[seatName]):getInventoryItem() then
+                    menu:deleteMultiSliceTsar({getText("ContextMenu_Open_window"),})
+                end
             end
         end
     end

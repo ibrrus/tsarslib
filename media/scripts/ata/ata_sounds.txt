@@ -1,26 +1,35 @@
 module ATA
 {
-	
-	imports
-	{
-		Base
-	}
+    
+    imports
+    {
+        Base
+    }
 
-	sound ATAHeadlightClose
-	{
-		category = Water,
-		clip
-		{
-			file = media/sound/ata/ATAHeadlightClose.ogg,
-		}
-	}
-	
-	sound ATAHeadlightOpen
-	{
-		category = Water,
-		clip
-		{
-			file = media/sound/ata/ATAHeadlightOpen.ogg,
-		}
-	}
+    sound ATAHeadlightClose
+    {
+        category = Water,
+        clip
+        {
+            file = media/sound/ata/ATAHeadlightClose.ogg,
+        }
+    }
+    
+    sound ATAHeadlightOpen
+    {
+        category = Water,
+        clip
+        {
+            file = media/sound/ata/ATAHeadlightOpen.ogg,
+        }
+    }
+    
+    sound ATAVehicleHornTruck
+    {
+        category = Vehicle,
+        clip
+        {
+            file = media/sound/ata/ATAVehicleHornTruck.ogg,
+        }        
+    }
 }

@@ -1,23 +1,23 @@
 ItemName_EN = {
-	ItemName_Base.TransportCounter = "Portable shelf",
-	ItemName_Base.TransportCupboard = "Portable cupboard",
-	ItemName_Base.TransportDrawer = "Portable drawer",
-	ItemName_Base.TransportFreezer = "Portable freezer",
-	ItemName_Base.TransportMedicine = "Wall medicine",
-	ItemName_Base.TransportMicrowave = "Portable microwave",
-	ItemName_Base.TransportOven = "Portable oven",
-	ItemName_Base.TransportSeatBoxWooden = "Wooden seat",
-	ItemName_Base.TransportShelve = "Portable shelve",
-	
-	ItemName_Base.500Tank1 = "Tank 500",
-	ItemName_Base.500Tank2 = "Tank 500",
-	ItemName_Base.500Tank3 = "Tank 500",
-	ItemName_Base.1000Tank1 = "Tank 1000",
-	ItemName_Base.1000Tank2 = "Tank 1000",
-	ItemName_Base.1000Tank3 = "Tank 1000",
-	
-	ItemName_Base.ATARoofLightItem = "Roof lights",
-	ItemName_Base.ATAProtectionWheelsChain = "Chain",
+    ItemName_Base.TransportCounter = "Portable shelf",
+    ItemName_Base.TransportCupboard = "Portable cupboard",
+    ItemName_Base.TransportDrawer = "Portable drawer",
+    ItemName_Base.TransportFreezer = "Portable freezer",
+    ItemName_Base.TransportMedicine = "Wall medicine",
+    ItemName_Base.TransportMicrowave = "Portable microwave",
+    ItemName_Base.TransportOven = "Portable oven",
+    ItemName_Base.TransportSeatBoxWooden = "Wooden seat",
+    ItemName_Base.TransportShelve = "Portable shelve",
+    
+    ItemName_Base.500Tank1 = "Tank 500",
+    ItemName_Base.500Tank2 = "Tank 500",
+    ItemName_Base.500Tank3 = "Tank 500",
+    ItemName_Base.1000Tank1 = "Tank 1000",
+    ItemName_Base.1000Tank2 = "Tank 1000",
+    ItemName_Base.1000Tank3 = "Tank 1000",
+    
+    ItemName_Base.ATARoofLightItem = "Roof lights",
+    ItemName_Base.ATAProtectionWheelsChain = "Chain",
     
     
 /************ Autotsar Motorclub ************/
@@ -67,90 +67,101 @@ ItemName_EN = {
     
     
 /************ Autotsar Tuning Atelier - Bus ************/
-	
-	ItemName_Autotsar.AtTuningMagBus = "Magazine «Autotsar Tuning Atelier - Bear Bus»",
-	ItemName_Autotsar.Bullbar2Blueprint = "Blueprint of an improved bullbar",
-	ItemName_Autotsar.Bullbar3Blueprint = "Blueprint of a spikes plow",
+    
+    ItemName_Autotsar.AtTuningMagBus = "Magazine «Autotsar Tuning Atelier - Bear Bus»",
+    ItemName_Autotsar.Bullbar2Blueprint = "Blueprint of an improved bullbar",
+    ItemName_Autotsar.Bullbar3Blueprint = "Blueprint of a spikes plow",
 
-	ItemName_Autotsar.ATA_Bus_Kengur_1_Item = "Bear Bus - Bullbar",
-	ItemName_Autotsar.ATA_Bus_Kengur_2_Item = "Bear Bus - Improved bullbar",
-	ItemName_Autotsar.ATA_Bus_Kengur_3_Item = "Bear Bus - Spiked plow",
-	
-	ItemName_Autotsar.ATA_Bus_Protection_door_Item = "Bear Bus - Protection for door",
-	ItemName_Autotsar.ATA_Bus_Protection_door_rear_Item = "Bear Bus - Protection for rear door",
-	ItemName_Autotsar.ATA_Bus_Protection_wheels_Item = "Bear Bus - Protection for wheels",
-	ItemName_Autotsar.ATA_Bus_Protection_windows_front_Item = "Bear Bus - Protection for windshield",
-	ItemName_Autotsar.ATA_Bus_Protection_windows_right_Item = "Bear Bus - Protection for right windows",
-	ItemName_Autotsar.ATA_Bus_Protection_windows_left_Item = "Bear Bus - Protection for left windows",
-	
-	ItemName_Autotsar.ATA_Bus_Roof_Rack = "Bear Bus - Roof Rack",
-	ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Toolbox",
-	
+    ItemName_Autotsar.ATA_Bus_Kengur_1_Item = "Bear Bus - Bullbar",
+    ItemName_Autotsar.ATA_Bus_Kengur_2_Item = "Bear Bus - Improved bullbar",
+    ItemName_Autotsar.ATA_Bus_Kengur_3_Item = "Bear Bus - Spiked plow",
+    
+    ItemName_Autotsar.ATA_Bus_Protection_door_Item = "Bear Bus - Protection for door",
+    ItemName_Autotsar.ATA_Bus_Protection_door_rear_Item = "Bear Bus - Protection for rear door",
+    ItemName_Autotsar.ATA_Bus_Protection_wheels_Item = "Bear Bus - Protection for wheels",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_front_Item = "Bear Bus - Protection for windshield",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_right_Item = "Bear Bus - Protection for right windows",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_left_Item = "Bear Bus - Protection for left windows",
+    
+    ItemName_Autotsar.ATA_Bus_Roof_Rack = "Bear Bus - Roof Rack",
+    ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Toolbox",
+    
 
 /************ Autotsar Tuning Atelier - Jaap Wrungel ************/
-	
-	ItemName_Autotsar.AtTuningMagJeep = "Magazine «Autotsar Tuning Atelier - Jaap Wrungel»",
-	
-	ItemName_Autotsar.ATAJeepBumper1Item = "Jaap Wrungel - Classic bumper",
-	ItemName_Autotsar.ATAJeepBumper2Item = "Jaap Wrungel - Winch bumper",
-	ItemName_Autotsar.ATAJeepBumper3Item = "Jaap Wrungel - Bullbar",
-	ItemName_Autotsar.ATAJeepBumper4Item = "Jaap Wrungel - Lethal bumper",
-	
-	ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jaap Wrungel - Side Windows Protection",
-	ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - Windshield Protection",
-	ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jaap Wrungel - Rear Window Protection",
-	
-	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jaap Wrungel - Congo cage",
-	ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - Roof Rack",
-	ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - Trunk over Spare Wheel",
+    
+    ItemName_Autotsar.AtTuningMagJeep = "Magazine «Autotsar Tuning Atelier - Jaap Wrungel»",
+    
+    ItemName_Autotsar.ATAJeepBumper1Item = "Jaap Wrungel - Classic bumper",
+    ItemName_Autotsar.ATAJeepBumper2Item = "Jaap Wrungel - Winch bumper",
+    ItemName_Autotsar.ATAJeepBumper3Item = "Jaap Wrungel - Bullbar",
+    ItemName_Autotsar.ATAJeepBumper4Item = "Jaap Wrungel - Lethal bumper",
+    
+    ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jaap Wrungel - Side Windows Protection",
+    ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - Windshield Protection",
+    ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jaap Wrungel - Rear Window Protection",
+    
+    ItemName_Autotsar.ATAJeepRoofBaseItem = "Jaap Wrungel - Congo cage",
+    ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - Roof Rack",
+    ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - Trunk over Spare Wheel",
 
-	ItemName_Autotsar.ATAJeepSnorkelItem = "Jaap Wrungel - Schnorkel",
-	ItemName_Autotsar.ATAJeepRoofTentItem = "Jaap Wrungel - Roof Tent",
-	
-	
+    ItemName_Autotsar.ATAJeepSnorkelItem = "Jaap Wrungel - Schnorkel",
+    ItemName_Autotsar.ATAJeepRoofTentItem = "Jaap Wrungel - Roof Tent",
+    
+    
 /************ Autotsar Tuning Atelier - Fjord Mustard ************/
-	
-	ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Fjord Mustard»",
-	ItemName_Autotsar.ATAMustangBullbar1Item = "Fjord Mustard - Standart Bullbar",
-	ItemName_Autotsar.ATAMustangBullbar2Item = "Fjord Mustard - Police Bullbar",
-	ItemName_Autotsar.ATAMustangBullbar3Item = "Fjord Mustard - Lethal Bullbar",
-	ItemName_Autotsar.ATAMustangFendersWideItem = "Fjord Mustard - Wide Fenders",
-	ItemName_Autotsar.ATAMustangSkirtsSideItem = "Fjord Mustard - Side Skirts",
-	ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Fjord Mustard - Spoiler Lip",
-	ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Fjord Mustard - Standart Spoiler",
-	ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Fjord Mustard - High Spoiler",
-	ItemName_Autotsar.ATAMustangHood2Item3 = "Fjord Mustard - Cowl Hood",
-	ItemName_Autotsar.ATAMustangHood3Item3 = "Fjord Mustard - Ram Air Hood",
-	ItemName_Autotsar.ATAMustangHood4Item3 = "Fjord Mustard - Mongoose Hood",
-	ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Fjord Mustard - Left Window Protection",
-	ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Fjord Mustard - Right Window Protection",
-	ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Windshield Protection",
-	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - Rear Window Protection",
-	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - Roof Rack",
-	
+    
+    ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Fjord Mustard»",
+    ItemName_Autotsar.ATAMustangBullbar1Item = "Fjord Mustard - Standart Bullbar",
+    ItemName_Autotsar.ATAMustangBullbar2Item = "Fjord Mustard - Police Bullbar",
+    ItemName_Autotsar.ATAMustangBullbar3Item = "Fjord Mustard - Lethal Bullbar",
+    ItemName_Autotsar.ATAMustangFendersWideItem = "Fjord Mustard - Wide Fenders",
+    ItemName_Autotsar.ATAMustangSkirtsSideItem = "Fjord Mustard - Side Skirts",
+    ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Fjord Mustard - Spoiler Lip",
+    ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Fjord Mustard - Standart Spoiler",
+    ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Fjord Mustard - High Spoiler",
+    ItemName_Autotsar.ATAMustangHood2Item3 = "Fjord Mustard - Cowl Hood",
+    ItemName_Autotsar.ATAMustangHood3Item3 = "Fjord Mustard - Ram Air Hood",
+    ItemName_Autotsar.ATAMustangHood4Item3 = "Fjord Mustard - Mongoose Hood",
+    ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Fjord Mustard - Left Window Protection",
+    ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Fjord Mustard - Right Window Protection",
+    ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Windshield Protection",
+    ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - Rear Window Protection",
+    ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - Roof Rack",
+    
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
-	
-	ItemName_Autotsar.ATADodgeTuningMag = "Magazine «Autotsar Tuning Atelier - Dadge Steals RT»",
-	ItemName_Autotsar.ATADodgeBullbar1Item = "Dadge Steals RT - Police Bullbar",
-	ItemName_Autotsar.ATADodgeBullbar2Item = "Dadge Steals RT - Homemade  Bullbar",
-	ItemName_Autotsar.ATADodgeBullbar3Item = "Dadge Steals RT - Lethal Bullbar",
-	ItemName_Autotsar.ATADodgeProtectionWindowSideItem = "Dadge Steals RT - Side Window Protection",
-	ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - Windshield Protection",
-	ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - Roof Rack",
-	ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - Rear Window Rack",
+    
+    ItemName_Autotsar.ATADodgeTuningMag = "Magazine «Autotsar Tuning Atelier - Dadge Steals RT»",
+    ItemName_Autotsar.ATADodgeBullbar1Item = "Dadge Steals RT - Police Bullbar",
+    ItemName_Autotsar.ATADodgeBullbar2Item = "Dadge Steals RT - Homemade  Bullbar",
+    ItemName_Autotsar.ATADodgeBullbar3Item = "Dadge Steals RT - Lethal Bullbar",
+    ItemName_Autotsar.ATADodgeProtectionWindowSideItem = "Dadge Steals RT - Side Window Protection",
+    ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - Windshield Protection",
+    ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - Roof Rack",
+    ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - Rear Window Rack",
+    
+    
+/************ Autotsar Tuning Atelier - Petyarbuilt 379 ************/
+    
+    ItemName_Autotsar.ATAPetyarbuiltTuningMag = "Magazine «Autotsar Tuning Atelier - Petyarbuilt 379»",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSleeperItem = "Petyarbuilt 379 - Sleeper Protection",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionRearWheelsItem = "Petyarbuilt 379 - Rear Tire Protection",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionGasTankItem = "Petyarbuilt 379 - Gas Tank Protection",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideItem = "Petyarbuilt 379 - Side Protection",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideFrontItem = "Petyarbuilt 379 - Front Protection",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideTopItem = "Petyarbuilt 379 - Top Protection",
     
     
 /************ True Music ************/
 
-	ItemName_Tsarcraft.TCBoombox = "Boombox 'Kazakhstan-102-stereo'",
+    ItemName_Tsarcraft.TCBoombox = "Boombox 'Kazakhstan-102-stereo'",
     ItemName_Tsarcraft.TCVinylplayer = "Vinyl player 'Elektronika S1-01'",
-	
+    
     
 /************ ZuperCart ************/
 
-	ItemName_TMC.TrolleyContainer = "Trolley",
-	ItemName_TMC.TrolleyContainer2 = "Trolley",
-	ItemName_TMC.CartContainer = "Supermarket cart",
-	ItemName_TMC.CartContainer2 = "Supermarket cart",
+    ItemName_TMC.TrolleyContainer = "Trolley",
+    ItemName_TMC.TrolleyContainer2 = "Trolley",
+    ItemName_TMC.CartContainer = "Supermarket cart",
+    ItemName_TMC.CartContainer2 = "Supermarket cart",
 }

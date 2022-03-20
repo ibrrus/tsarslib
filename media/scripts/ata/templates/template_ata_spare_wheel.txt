@@ -42,7 +42,7 @@ module Base
             lua
             {
                 create = ATATuning.Create.Chance45,
-                init = ATATuning.Init.DefaultModel,
+                init = ATATuning.Init.Default,
             }
         }
     }

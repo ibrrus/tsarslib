@@ -1,23 +1,23 @@
 ItemName_RU = {
-	ItemName_Base.TransportCounter = "Портативная полка",
-	ItemName_Base.TransportCupboard = "Портативный шкаф",
-	ItemName_Base.TransportDrawer = "Портативный шкаф",
-	ItemName_Base.TransportFreezer = "Портативный морозильник",
-	ItemName_Base.TransportMedicine = "Настенная аптечка",
-	ItemName_Base.TransportMicrowave = "Портативная микроволновка",
-	ItemName_Base.TransportOven = "Портативная плита",
-	ItemName_Base.TransportSeatBoxWooden = "Деревянное сиденье",
-	ItemName_Base.TransportShelve = "Портативная полка",
-	
-	ItemName_Base.500Tank1 = "Цистерна 500",
-	ItemName_Base.500Tank2 = "Цистерна 500",
-	ItemName_Base.500Tank3 = "Цистерна 500",
-	ItemName_Base.1000Tank1 = "Цистерна 1000",
-	ItemName_Base.1000Tank2 = "Цистерна 1000",
-	ItemName_Base.1000Tank3 = "Цистерна 1000",
-	
-	ItemName_Base.ATARoofLightItem = "Фонари для крыши",
-	ItemName_Base.ATAProtectionWheelsChain = "Цепь",
+    ItemName_Base.TransportCounter = "Портативная полка",
+    ItemName_Base.TransportCupboard = "Портативный шкаф",
+    ItemName_Base.TransportDrawer = "Портативный шкаф",
+    ItemName_Base.TransportFreezer = "Портативный морозильник",
+    ItemName_Base.TransportMedicine = "Настенная аптечка",
+    ItemName_Base.TransportMicrowave = "Портативная микроволновка",
+    ItemName_Base.TransportOven = "Портативная плита",
+    ItemName_Base.TransportSeatBoxWooden = "Деревянное сиденье",
+    ItemName_Base.TransportShelve = "Портативная полка",
+    
+    ItemName_Base.500Tank1 = "Цистерна 500",
+    ItemName_Base.500Tank2 = "Цистерна 500",
+    ItemName_Base.500Tank3 = "Цистерна 500",
+    ItemName_Base.1000Tank1 = "Цистерна 1000",
+    ItemName_Base.1000Tank2 = "Цистерна 1000",
+    ItemName_Base.1000Tank3 = "Цистерна 1000",
+    
+    ItemName_Base.ATARoofLightItem = "Фонари для крыши",
+    ItemName_Base.ATAProtectionWheelsChain = "Цепь",
 
 
 /************ Autotsar Motorclub ************/
@@ -64,93 +64,104 @@ ItemName_RU = {
     ItemName_Base.SailingYachtName_Sakharov_Item = "Akademik Sakharov",
     ItemName_Base.BoatMotorName_Orianna_Item = "M/Y Orianna",
     ItemName_Base.BoatMotorName_NP_Item = "Nautilus P.",
-	
+    
     
 /************ Autotsar Tuning Atelier - Bus ************/
-	
-	ItemName_Autotsar.AtTuningMagBus = "Журнал «Autotsar Tuning Atelier - Bear Bus»",
-	ItemName_Autotsar.Bullbar2Blueprint = "Чертеж улучшенного кенгурятника",
-	ItemName_Autotsar.Bullbar3Blueprint = "Чертеж плуга с шипами для авто",
-	
-	ItemName_Autotsar.ATA_Bus_Kengur_1_Item = "Bear Bus - Кенгурятник",
-	ItemName_Autotsar.ATA_Bus_Kengur_2_Item = "Bear Bus - Улучшенный кенгурятник",
-	ItemName_Autotsar.ATA_Bus_Kengur_3_Item = "Bear Bus - Плуг с шипами",
-	
-	ItemName_Autotsar.ATA_Bus_Protection_door_Item = "Bear Bus - Бронированная дверь",
-	ItemName_Autotsar.ATA_Bus_Protection_door_rear_Item = "Bear Bus - Бронированная задняя дверь",
-	ItemName_Autotsar.ATA_Bus_Protection_wheels_Item = "Bear Bus - Защита колес",
-	ItemName_Autotsar.ATA_Bus_Protection_windows_front_Item = "Bear Bus - Защита лобового стекла",
-	ItemName_Autotsar.ATA_Bus_Protection_windows_right_Item = "Bear Bus - Защита правых боковых стекол",
-	ItemName_Autotsar.ATA_Bus_Protection_windows_left_Item = "Bear Bus - Защита левых боковых стекол",
-	
-	ItemName_Autotsar.ATA_Bus_Roof_Rack = "Bear Bus - Багажник для крыши",
-	ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Ящик для инструментов",
+    
+    ItemName_Autotsar.AtTuningMagBus = "Журнал «Autotsar Tuning Atelier - Bear Bus»",
+    ItemName_Autotsar.Bullbar2Blueprint = "Чертеж улучшенного кенгурятника",
+    ItemName_Autotsar.Bullbar3Blueprint = "Чертеж плуга с шипами для авто",
+    
+    ItemName_Autotsar.ATA_Bus_Kengur_1_Item = "Bear Bus - Кенгурятник",
+    ItemName_Autotsar.ATA_Bus_Kengur_2_Item = "Bear Bus - Улучшенный кенгурятник",
+    ItemName_Autotsar.ATA_Bus_Kengur_3_Item = "Bear Bus - Плуг с шипами",
+    
+    ItemName_Autotsar.ATA_Bus_Protection_door_Item = "Bear Bus - Бронированная дверь",
+    ItemName_Autotsar.ATA_Bus_Protection_door_rear_Item = "Bear Bus - Бронированная задняя дверь",
+    ItemName_Autotsar.ATA_Bus_Protection_wheels_Item = "Bear Bus - Защита колес",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_front_Item = "Bear Bus - Защита лобового стекла",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_right_Item = "Bear Bus - Защита правых боковых стекол",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_left_Item = "Bear Bus - Защита левых боковых стекол",
+    
+    ItemName_Autotsar.ATA_Bus_Roof_Rack = "Bear Bus - Багажник для крыши",
+    ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - Ящик для инструментов",
 
 
 /************ Autotsar Tuning Atelier - Jeep ************/
 
-	ItemName_Autotsar.AtTuningMagJeep = "Журнал «Autotsar Tuning Atelier - Jaap Wrungel»",
-	
-	ItemName_Autotsar.ATAJeepBumper1Item = "Jaap Wrungel - классический бампер",
-	ItemName_Autotsar.ATAJeepBumper2Item = "Jaap Wrungel - бампер под лебедку",
-	ItemName_Autotsar.ATAJeepBumper3Item = "Jaap Wrungel - кенгурятник",
-	ItemName_Autotsar.ATAJeepBumper4Item = "Jaap Wrungel - смертоносный бампер",
-	
-	ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jaap Wrungel - защита для боковых стекол",
-	ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - защита для лобового стекла",
-	ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jaap Wrungel - защита для заднего стекла",
+    ItemName_Autotsar.AtTuningMagJeep = "Журнал «Autotsar Tuning Atelier - Jaap Wrungel»",
+    
+    ItemName_Autotsar.ATAJeepBumper1Item = "Jaap Wrungel - классический бампер",
+    ItemName_Autotsar.ATAJeepBumper2Item = "Jaap Wrungel - бампер под лебедку",
+    ItemName_Autotsar.ATAJeepBumper3Item = "Jaap Wrungel - кенгурятник",
+    ItemName_Autotsar.ATAJeepBumper4Item = "Jaap Wrungel - смертоносный бампер",
+    
+    ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jaap Wrungel - защита для боковых стекол",
+    ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - защита для лобового стекла",
+    ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jaap Wrungel - защита для заднего стекла",
 
-	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jaap Wrungel - рейлинги",
-	ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - багажник для крыши",
-	ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - багажник над запасным колесом",
-	
-	ItemName_Autotsar.ATAJeepSnorkelItem = "Jaap Wrungel - шноркель",
-	ItemName_Autotsar.ATAJeepRoofTentItem = "Jaap Wrungel - палатка для крыши",
-	
-	
+    ItemName_Autotsar.ATAJeepRoofBaseItem = "Jaap Wrungel - рейлинги",
+    ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - багажник для крыши",
+    ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - багажник над запасным колесом",
+    
+    ItemName_Autotsar.ATAJeepSnorkelItem = "Jaap Wrungel - шноркель",
+    ItemName_Autotsar.ATAJeepRoofTentItem = "Jaap Wrungel - палатка для крыши",
+    
+    
 /************ Autotsar Tuning Atelier - Mustang ************/
-	
-	ItemName_Autotsar.ATATuningFordMustang = "Журнал «Autotsar Tuning Atelier - Fjord Mustard»",
-	ItemName_Autotsar.ATAMustangBullbar1Item = "Fjord Mustard - кенгурятник стандартный",
-	ItemName_Autotsar.ATAMustangBullbar2Item = "Fjord Mustard - кенгурятник полицейский",
-	ItemName_Autotsar.ATAMustangBullbar3Item = "Fjord Mustard - кенгурятник смертоносный",
-	ItemName_Autotsar.ATAMustangFendersWideItem = "Fjord Mustard - широкие арки",
-	ItemName_Autotsar.ATAMustangSkirtsSideItem = "Fjord Mustard - юбки боковых порогов",
-	ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Fjord Mustard - губа переднего бампера",
-	ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Fjord Mustard - спойлер стандартный",
-	ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Fjord Mustard - спойлер высокий",
-	ItemName_Autotsar.ATAMustangHood2Item3 = "Fjord Mustard - капот дутый",
-	ItemName_Autotsar.ATAMustangHood3Item3 = "Fjord Mustard - капот с вентиляцией",
-	ItemName_Autotsar.ATAMustangHood4Item3 = "Fjord Mustard - капот «Мангуст»",
-	ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Fjord Mustard - защита левого стекла",
-	ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Fjord Mustard - защита правого стекла",
-	ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Fjord Mustard - защита лобового стекла",
-	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - защита заднего стекла",
-	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - багажник для крыши",
+    
+    ItemName_Autotsar.ATATuningFordMustang = "Журнал «Autotsar Tuning Atelier - Fjord Mustard»",
+    ItemName_Autotsar.ATAMustangBullbar1Item = "Fjord Mustard - кенгурятник стандартный",
+    ItemName_Autotsar.ATAMustangBullbar2Item = "Fjord Mustard - кенгурятник полицейский",
+    ItemName_Autotsar.ATAMustangBullbar3Item = "Fjord Mustard - кенгурятник смертоносный",
+    ItemName_Autotsar.ATAMustangFendersWideItem = "Fjord Mustard - широкие арки",
+    ItemName_Autotsar.ATAMustangSkirtsSideItem = "Fjord Mustard - юбки боковых порогов",
+    ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Fjord Mustard - губа переднего бампера",
+    ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Fjord Mustard - спойлер стандартный",
+    ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Fjord Mustard - спойлер высокий",
+    ItemName_Autotsar.ATAMustangHood2Item3 = "Fjord Mustard - капот дутый",
+    ItemName_Autotsar.ATAMustangHood3Item3 = "Fjord Mustard - капот с вентиляцией",
+    ItemName_Autotsar.ATAMustangHood4Item3 = "Fjord Mustard - капот «Мангуст»",
+    ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Fjord Mustard - защита левого стекла",
+    ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Fjord Mustard - защита правого стекла",
+    ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Fjord Mustard - защита лобового стекла",
+    ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - защита заднего стекла",
+    ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - багажник для крыши",
     
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
-	
-	ItemName_Autotsar.ATADodgeTuningMag = "Журнал «Autotsar Tuning Atelier - Dadge Steals RT»",
-	ItemName_Autotsar.ATADodgeBullbar1Item = "Dadge Steals RT - кенгурятник полицейский",
-	ItemName_Autotsar.ATADodgeBullbar2Item = "Dadge Steals RT - кенгурятник самодельный",
-	ItemName_Autotsar.ATADodgeBullbar3Item = "Dadge Steals RT - кенгурятник смертоносный",
-	ItemName_Autotsar.ATADodgeProtectionWindowSideItem = "Dadge Steals RT - защита бокового стекла",
-	ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - защита лобового стекла",
-	ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - багажник для крыши",
-	ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - багажник для для заднего стекла",
+    
+    ItemName_Autotsar.ATADodgeTuningMag = "Журнал «Autotsar Tuning Atelier - Dadge Steals RT»",
+    ItemName_Autotsar.ATADodgeBullbar1Item = "Dadge Steals RT - кенгурятник полицейский",
+    ItemName_Autotsar.ATADodgeBullbar2Item = "Dadge Steals RT - кенгурятник самодельный",
+    ItemName_Autotsar.ATADodgeBullbar3Item = "Dadge Steals RT - кенгурятник смертоносный",
+    ItemName_Autotsar.ATADodgeProtectionWindowSideItem = "Dadge Steals RT - защита бокового стекла",
+    ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - защита лобового стекла",
+    ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - багажник для крыши",
+    ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - багажник для для заднего стекла",
+
+
+/************ Autotsar Tuning Atelier - Petyarbuilt 379 ************/
+    
+    ItemName_Autotsar.ATAPetyarbuiltTuningMag = "Журнал «Autotsar Tuning Atelier - Petyarbuilt 379»",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSleeperItem = "Petyarbuilt 379 - защита спальника",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionRearWheelsItem = "Petyarbuilt 379 - защита задних колес",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionGasTankItem = "Petyarbuilt 379 - защита бензобака",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideItem = "Petyarbuilt 379 - боковая защита",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideFrontItem = "Petyarbuilt 379 - передняя защита",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideTopItem = "Petyarbuilt 379 - верхняя защита",
 
 
 /************ True Music ************/
 
-	ItemName_Tsarcraft.TCBoombox = "Бумбокс 'Kazakhstan-102-stereo'",
+    ItemName_Tsarcraft.TCBoombox = "Бумбокс 'Kazakhstan-102-stereo'",
     ItemName_Tsarcraft.TCVinylplayer = "Виниловый проигрыватель 'Elektronika S1-01'",
-	
+    
     
 /************ ZuperCart ************/
 
-	ItemName_TMC.TrolleyContainer = "Тележка",
-	ItemName_TMC.TrolleyContainer2 = "Тележка",
-	ItemName_TMC.CartContainer = "Тележка из супермаркета",
-	ItemName_TMC.CartContainer2 = "Тележка из супермаркета",
+    ItemName_TMC.TrolleyContainer = "Тележка",
+    ItemName_TMC.TrolleyContainer2 = "Тележка",
+    ItemName_TMC.CartContainer = "Тележка из супермаркета",
+    ItemName_TMC.CartContainer2 = "Тележка из супермаркета",
 }

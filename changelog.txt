@@ -1,3 +1,21 @@
+v.1.27
+2022-03-20
+
+Добавлен новые скрипты и функции для грузовиков.
+Добавлены новые зоны спавна для больших прицепов.
+Добавлены шаблоны функций для спавна лута в больших прицепах.
+Изменена логика работы колес мотоцикла.
+Обновлены переводы.
+Обновлены шаблоны защиты.
+
+Added new scripts and features for Trucks.
+Added new spawn zones for large trailers.
+Added function templates for loot spawning in large trailers.
+Changed motorcycle wheel logic.
+Updated translations.
+Updated protection templates.
+
+-------------------
 v.1.26
 2022-03-13
 
@@ -15,7 +33,7 @@ Added templates for 6-wheeled vehicles.
 Added templates and lua code for motorcycles.
 Added new translations for future mods.
 
-
+-------------------
 v.1.25
 2022-02-04
 
@@ -39,6 +57,7 @@ Added template for car bags.
 Added template for retractable headlights.
 Added template for trunk on the rear window.
 
+-------------------
 v.1.24
 2022-01-20
 

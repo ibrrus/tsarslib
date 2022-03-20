@@ -15,58 +15,51 @@ module Base
 
     template vehicle ATAProtection
     {
+        /* ATAProtectionWheels - 3д-модели защиты отображается на самих колесах */
         part ATAProtectionWheels
         {
             area = Engine,
-            category = protection,
-            specificItem = false,
-            itemType = Base.ATAProtectionWheelsChain,
-            mechanicRequireKey = false,
             table install
             {
                 requireInstalled = TireFrontLeft;TireFrontRight;TireRearLeft;TireRearRight,
-                items
-                {
-                    1
-                    {
-                        type = Base.Screwdriver,
-                        count = 1,
-                        keep = true,
-                        equip = primary,
-                    }
-                }
-                time = 2000,
-                skills = Mechanics:2,
-                recipes = Advanced Mechanics;Basic Tuning,
-                test = ATATuning.InstallTest.multiRequire,
-                complete = ATATuning.InstallComplete.WheelsProtection,
-            }
-            table uninstall
-            {
-                items
-                {
-                    1
-                    {
-                        type = Base.Screwdriver,
-                        count = 1,
-                        keep = true,
-                         equip = primary,
-                   }
-                }
-                time = 2000,
-                skills = Mechanics:2,
-                recipes = Advanced Mechanics;Basic Tuning,
-                test = ATATuning.UninstallTest.multiRequire,
-                complete = ATATuning.UninstallComplete.WheelsProtection,
-            }
-            lua
-            {
-                create = ATATuning.Create.Chance0,
-                init = ATATuning.Init.WheelsProtection,
-                update = ATATuning.Update.CommonProtection,
             }
         }
         
+        part ATAProtectionWheelsFront
+        {
+            area = Engine,
+            table install
+            {
+                requireInstalled = TireFrontLeft;TireFrontRight,
+            }
+        }
+        
+        part ATAProtectionWheelsRear
+        {
+            area = Engine,
+            table install
+            {
+                requireInstalled = TireMiddleLeft;TireMiddleRight;TireRearLeft;TireRearRight,
+            }
+        }
+        /* ATAProtection****Wheels - 3д-модели защиты закреплена на кузове */
+        part ATAProtectionFrontWheels
+        {
+            area = Engine,
+            table install
+            {
+                requireInstalled = TireFrontLeft;TireFrontRight,
+            }
+        }
+        part ATAProtectionRearWheels
+        {
+            area = Engine,
+            table install
+            {
+                requireInstalled = TireMiddleLeft;TireMiddleRight;TireRearLeft;TireRearRight,
+            }
+        }
+
         part ATAProtectionWindowFront
         {
             parent = Windshield,
@@ -158,56 +151,6 @@ module Base
             }
         }
         
-        part ATAProtectionWindow*
-        {
-            itemType = Base.LightBulb,
-            category = protection,
-            specificItem = false,
-            mechanicRequireKey = false,
-            table install
-            {
-                items
-                {
-                    1
-                    {
-                        type = Base.Screwdriver,
-                        count = 1,
-                        keep = true,
-                        equip = primary,
-                    }
-                }
-                skills = Mechanics:5,
-                time = 2000,
-                recipes = Advanced Mechanics;Basic Tuning,
-                test = ATATuning.InstallTest.multiRequire,
-                complete = ATATuning.InstallComplete.CommonProtection,
-            }
-            table uninstall
-            {
-                items
-                {
-                    1
-                    {
-                        type = Base.Screwdriver,
-                        count = 1,
-                        keep = true,
-                         equip = primary,
-                   }
-                }
-                skills = Mechanics:4,
-                time = 2000,
-                recipes = Advanced Mechanics;Basic Tuning,
-                test = ATATuning.UninstallTest.multiRequire,
-                complete = ATATuning.UninstallComplete.CommonProtection,
-            }
-            lua
-            {
-                create = ATATuning.Create.Chance0,
-                init = ATATuning.Init.DefaultModel,
-                update = ATATuning.Update.CommonProtection,
-            }
-        }
-        
         part ATAProtectionSideLeft
         {
             area = SeatFrontLeft,
@@ -218,125 +161,46 @@ module Base
         }
         part ATAProtectionSideFront
         {
-            area = SeatFrontLeft,
+            area = Engine,
         }
-        part ATAProtectionSideRoof
+        part ATAProtectionSideTop
+        {
+            area = Engine,
+        }
+        part ATAProtectionSleeper
         {
             area = SeatFrontRight,
         }
-        part ATAProtectionSideSleeper
+        part ATAProtectionGasTank
         {
-            area = SeatFrontRight,
-        }
-        
-        part ATAProtectionSide*
-        {
-            itemType = Base.LightBulb,
-            category = protection,
-            specificItem = false,
-            mechanicRequireKey = false,
+            area = GasTank,
+            parent = GasTank,
             table install
             {
-                items
-                {
-                    1
-                    {
-                        type = Base.Screwdriver,
-                        count = 1,
-                        keep = true,
-                        equip = primary,
-                    }
-                }
-                skills = Mechanics:5,
-                time = 2000,
-                recipes = Advanced Mechanics;Basic Tuning,
-                test = ATATuning.InstallTest.multiRequire,
-                complete = ATATuning.InstallComplete.CommonProtection,
-            }
-            table uninstall
-            {
-                items
-                {
-                    1
-                    {
-                        type = Base.Screwdriver,
-                        count = 1,
-                        keep = true,
-                         equip = primary,
-                   }
-                }
-                skills = Mechanics:4,
-                time = 2000,
-                recipes = Advanced Mechanics;Basic Tuning,
-                test = ATATuning.UninstallTest.multiRequire,
-                complete = ATATuning.UninstallComplete.CommonProtection,
-            }
-            lua
-            {
-                create = ATATuning.Create.Chance0,
-                init = ATATuning.Init.DefaultModel,
-                update = ATATuning.Update.CommonProtection,
+                requireInstalled = GasTank,
             }
         }
         
         part ATAProtectionHood
         {
-            itemType = Base.LightBulb,
-            category = protection,
             area = Engine,
             parent = EngineDoor,
-            specificItem = false,
-            mechanicRequireKey = false,
             table install
             {
-                items
-                {
-                    1
-                    {
-                        type = Base.Screwdriver,
-                        count = 1,
-                        keep = true,
-                        equip = primary,
-                    }
-                }
-                skills = Mechanics:5,
-                time = 2000,
-                recipes = Advanced Mechanics;Basic Tuning,
-                test = ATATuning.InstallTest.multiRequire,
-                complete = ATATuning.InstallComplete.CommonProtection,
-            }
-            table uninstall
-            {
-                items
-                {
-                    1
-                    {
-                        type = Base.Screwdriver,
-                        count = 1,
-                        keep = true,
-                         equip = primary,
-                   }
-                }
-                skills = Mechanics:4,
-                time = 2000,
-                recipes = Advanced Mechanics;Basic Tuning,
-                test = ATATuning.UninstallTest.multiRequire,
-                complete = ATATuning.UninstallComplete.CommonProtection,
-            }
-            lua
-            {
-                create = ATATuning.Create.Chance0,
-                init = ATATuning.Init.DefaultModel,
-                update = ATATuning.Update.CommonProtection,
+                requireInstalled = EngineDoor,
             }
         }
         
         part ATAProtectionTrunk
         {
-            itemType = Base.LightBulb,
-            category = protection,
             area = TruckBed,
+        }
+        
+        part ATAProtection*
+        {
+            category = protection,
             specificItem = false,
+            itemType = Base.LightBulb,
             mechanicRequireKey = false,
             table install
             {
@@ -377,7 +241,26 @@ module Base
             lua
             {
                 create = ATATuning.Create.Chance0,
-                init = ATATuning.Init.DefaultModel,
+                init = ATATuning.Init.Default,
+                update = ATATuning.Update.CommonProtection,
+            }
+        }
+        
+        part ATAProtectionWheels*
+        {
+            itemType = Base.ATAProtectionWheelsChain,
+            table install
+            {
+                complete = ATATuning.InstallComplete.WheelsProtection,
+            }
+            table uninstall
+            {
+                complete = ATATuning.UninstallComplete.WheelsProtection,
+            }
+            lua
+            {
+                create = ATATuning.Create.Chance0,
+                init = ATATuning.Init.WheelsProtection,
                 update = ATATuning.Update.CommonProtection,
             }
         }

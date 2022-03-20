@@ -17,6 +17,14 @@ Base.LugWrench - крестовидный ключ
 Base.Screwdriver - отвертка
 Base.Jack - домкрат
 
+Вес:
+MetalPipe - 1.5
+SheetMetal - 1.5
+SmallSheetMetal - 0.4
+SheetMetal - 1.5
+ScrapMetal - 0.1
+Screws - 0.01
+
 Шаблон рецепта для изготовления запчастей:
 recipe Make ATABusKengur1Item
 {

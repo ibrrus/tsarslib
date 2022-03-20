@@ -10,7 +10,7 @@ module Base
             category = nodisplay,
             lua
             {
-                init = ATATuning.Init.DefaultModel,
+                init = ATATuning.Init.Default,
             }
             anim Close
 			{
