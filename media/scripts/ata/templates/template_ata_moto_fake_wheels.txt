@@ -110,8 +110,10 @@ module Base
                 file = TsarNullModel,
             }
             lua
-            {
-				update = ,
+			{
+				create = Vehicles.Create.Tire,
+				init = Vehicles.Init.Tire,
+				checkOperate = Vehicles.CheckOperate.Tire,
 			}
         }
         template = ATAMotoWheels/part/ATAMotoTireFrontWheel,

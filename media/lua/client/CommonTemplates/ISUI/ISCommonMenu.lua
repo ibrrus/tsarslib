@@ -182,25 +182,41 @@ function TowMenu.isTrailer(vehicle)
     return string.contains(vehicle:getScriptName(), "Trailer")
 end
 
+function TowMenu.getTowableVehicleNear(square, ignoreVehicle, attachmentA, attachmentB)
+	for y=square:getY() - 10,square:getY()+10 do
+		for x=square:getX()-10,square:getX()+10 do
+			local square2 = getCell():getGridSquare(x, y, square:getZ())
+			if square2 then
+				for i=1,square2:getMovingObjects():size() do
+					local obj = square2:getMovingObjects():get(i-1)
+					if instanceof(obj, "BaseVehicle") and obj ~= ignoreVehicle and ignoreVehicle:canAttachTrailer(obj, attachmentA, attachmentB) then
+						return obj
+					end
+				end
+			end
+		end
+	end
+	return nil
+end
+
 function TowMenu.attachVehicleToOther(playerObj, vehicle, menu)
     local attachmentA, attachmentB = "trailerTruck", "trailerTruck"
-    local vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
+    local vehicleB = TowMenu.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
 
     if not vehicleB then
         attachmentA, attachmentB = "trailerTruck", "trailerTruck"
-        vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
+        vehicleB = TowMenu.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
     end
 
     if not vehicleB then
         attachmentA, attachmentB = "trailerTruck", "trailerTruck"
-        vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
+        vehicleB = TowMenu.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
     end
 
     if not vehicleB then
         attachmentA, attachmentB = "trailerTruck", "trailerTruck"
-        vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
+        vehicleB = TowMenu.getTowableVehicleNear(vehicle:getSquare(), vehicle, attachmentA, attachmentB)
     end
-
     if vehicleB then
         if TowMenu.isBurnt(vehicleB) then
             TowMenu.addOption(playerObj, menu, vehicle, vehicleB, attachmentA, attachmentB)
@@ -216,12 +232,11 @@ function TowMenu.addOption(playerObj, menu, vehicleA, vehicleB, attachmentA, att
     local aName = ISVehicleMenu.getVehicleDisplayName(vehicleA)
     local bName = ISVehicleMenu.getVehicleDisplayName(vehicleB)
     local text = getText("ContextMenu_Vehicle_AttachTrailer", bName, aName);
-    menu:addSlice(text, getTexture("media/ui/ZoomIn.png"), ISCommonMenu.onAttachTrailer, playerObj, vehicleA, attachmentA, attachmentB)
+    menu:addSlice(text, getTexture("media/ui/ZoomIn.png"), ISCommonMenu.onAttachTrailer, playerObj, vehicleA, vehicleB, attachmentA, attachmentB)
 end
 
-function ISCommonMenu.onAttachTrailer(playerObj, vehicle, attachmentA, attachmentB)
+function ISCommonMenu.onAttachTrailer(playerObj, vehicle, vehicleB, attachmentA, attachmentB)
     local square = vehicle:getCurrentSquare()
-    local vehicleB = ISVehicleTrailerUtils.getTowableVehicleNear(square, vehicle, attachmentA, attachmentB)
     if not vehicleB then return end
     local args = { vehicleA = vehicle:getId(), vehicleB = vehicleB:getId(), attachmentA = attachmentA, attachmentB = attachmentB }
     sendClientCommand(playerObj, 'vehicle', 'attachTrailer', args)

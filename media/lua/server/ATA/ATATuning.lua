@@ -812,14 +812,17 @@ end
 function ATATuning.InstallComplete.ATAMotoTireFrontWheel(vehicle, part)
     VehicleUtils.createPartInventoryItem(vehicle:getPartById("TireFrontLeft"))
     vehicle:getPartById("TireFrontLeft"):setCondition(part:getCondition());
+    vehicle:transmitPartItem(vehicle:getPartById("TireFrontLeft"))
     VehicleUtils.createPartInventoryItem(vehicle:getPartById("TireFrontRight"))
     vehicle:getPartById("TireFrontRight"):setCondition(part:getCondition());
+    vehicle:transmitPartItem(vehicle:getPartById("TireFrontRight"))
     Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireFrontLeft"))
     Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireFrontRight"))
     if vehicle:getPartById("ATAMotoTireRearWheel") and vehicle:getPartById("ATAMotoTireRearWheel"):getInventoryItem() then
         VehicleUtils.createPartInventoryItem(vehicle:getPartById("TireRearRight"))
         vehicle:getPartById("TireRearRight"):setCondition(part:getCondition());
         Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireRearRight"))
+        vehicle:transmitPartItem(vehicle:getPartById("TireRearRight"))
     end
 end
 
@@ -844,6 +847,10 @@ function ATATuning.Update.ATAMotoTireFrontWheel(vehicle, part, elapsedMinutes)
         if wPart1:getInventoryItem() then
             if wPart1:getContainerContentAmount() ~= part:getContainerContentAmount() then
                 wPart1:setContainerContentAmount(part:getContainerContentAmount())
+                local wheelIndex = wPart1:getWheelIndex()
+                -- TODO: sync inflation
+                vehicle:setTireInflation(wheelIndex, wPart1:getContainerContentAmount() / wPart1:getContainerCapacity())
+                vehicle:transmitPartModData(part)
             end
             if wPart1:getCondition() ~= part:getCondition() then
                 wPart1:setCondition(part:getCondition())
@@ -852,6 +859,10 @@ function ATATuning.Update.ATAMotoTireFrontWheel(vehicle, part, elapsedMinutes)
         if wPart2:getInventoryItem() then
             if wPart2:getContainerContentAmount() ~= part:getContainerContentAmount() then
                 wPart2:setContainerContentAmount(part:getContainerContentAmount())
+                local wheelIndex = wPart2:getWheelIndex()
+                -- TODO: sync inflation
+                vehicle:setTireInflation(wheelIndex, wPart2:getContainerContentAmount() / wPart2:getContainerCapacity())
+                vehicle:transmitPartModData(part)
             end
             if wPart2:getCondition() ~= part:getCondition() then
                 wPart2:setCondition(part:getCondition())
@@ -876,10 +887,12 @@ function ATATuning.InstallComplete.ATAMotoTireRearWheel(vehicle, part)
     VehicleUtils.createPartInventoryItem(vehicle:getPartById("TireRearLeft"))
     vehicle:getPartById("TireRearLeft"):setCondition(part:getCondition());
     Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireRearLeft"))
+    vehicle:transmitPartItem(vehicle:getPartById("TireRearLeft"))
     if vehicle:getPartById("ATAMotoTireFrontWheel") and vehicle:getPartById("ATAMotoTireFrontWheel"):getInventoryItem() then
         VehicleUtils.createPartInventoryItem(vehicle:getPartById("TireRearRight"))
         vehicle:getPartById("TireRearRight"):setCondition(part:getCondition());
         Vehicles.InstallComplete.Tire(vehicle, vehicle:getPartById("TireRearRight"))
+        vehicle:transmitPartItem(vehicle:getPartById("TireRearRight"))
     end
 end
 
@@ -900,6 +913,10 @@ function ATATuning.Update.ATAMotoTireRearWheel(vehicle, part, elapsedMinutes)
         if wPart1:getInventoryItem() then
             if wPart1:getContainerContentAmount() ~= part:getContainerContentAmount() then
                 wPart1:setContainerContentAmount(part:getContainerContentAmount())
+                local wheelIndex = wPart1:getWheelIndex()
+                -- TODO: sync inflation
+                vehicle:setTireInflation(wheelIndex, wPart1:getContainerContentAmount() / wPart1:getContainerCapacity())
+                vehicle:transmitPartModData(part)
             end
             if wPart1:getCondition() ~= part:getCondition() then
                 wPart1:setCondition(part:getCondition())
@@ -908,6 +925,10 @@ function ATATuning.Update.ATAMotoTireRearWheel(vehicle, part, elapsedMinutes)
         if wPart2:getInventoryItem() then
             if wPart2:getContainerContentAmount() ~= part:getContainerContentAmount() then
                 wPart2:setContainerContentAmount(part:getContainerContentAmount())
+                local wheelIndex = wPart2:getWheelIndex()
+                -- TODO: sync inflation
+                vehicle:setTireInflation(wheelIndex, wPart2:getContainerContentAmount() / wPart2:getContainerCapacity())
+                vehicle:transmitPartModData(part)
             end
             if wPart2:getCondition() ~= part:getCondition() then
                 wPart2:setCondition(part:getCondition())
