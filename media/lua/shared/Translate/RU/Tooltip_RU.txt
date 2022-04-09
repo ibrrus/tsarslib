@@ -28,10 +28,10 @@ Tooltip_RU = {
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
 	Tooltip_item_ATADodgeTuningMag = "Прочитав данный выпуск, вы получите базовые знания тюнинга и научитесь создавать<br>защиту, кенгурятники и багажники для Dadge Steals RT",
-    
-    
+
+
 /************ Autotsar Tuning Atelier - Petyarbuilt ************/
-	Tooltip_item_ATAPetyarbuiltTuningMag = "Прочитав данный выпуск, вы получите базовые знания тюнинга и научитесь создавать<br>защиту, кенгурятники и багажники для Petyarbuilt 379",
+	Tooltip_item_ATAPetyarbuiltTuningMag = "Прочитав данный выпуск, вы получите базовые знания тюнинга и научитесь создавать<br>защиту для Petyarbuilt 379",
 
 
 /************ True Music ************/

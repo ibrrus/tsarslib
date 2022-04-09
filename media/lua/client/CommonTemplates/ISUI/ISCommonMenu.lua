@@ -54,6 +54,10 @@ function ISCommonMenu.showRadialMenu(playerObj)
         local mattress = vehicle:getPartById("Mattress" .. seatName)
         local lightIsOn = true
         local timeHours = getGameTime():getHour()
+        local freespace1 = vehicle:getPartById("Freeplace1" .. seatName)
+        local freespace2 = vehicle:getPartById("Freeplace2" .. seatName)
+        local freespace3 = vehicle:getPartById("Freeplace3" .. seatName)
+        
         if inCabin then
             if vehicle:getPartById("HeadlightRearRight") and vehicle:getPartById("HeadlightRearRight"):getInventoryItem() then
                 menu:addSlice(getText("ContextMenu_BoatCabinelightsOff"), getTexture("media/ui/boats/boat_switch_off.png"), ISCommonMenu.offToggleCabinlights, playerObj)
@@ -75,19 +79,9 @@ function ISCommonMenu.showRadialMenu(playerObj)
         end
         
         if mattress and (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
-            local mattressTex = getTexture("media/ui/commonlibrary/mattress.png")
-            if inRoofTent then
-                mattressTex = getTexture("media/ui/commonlibrary/sleeping_bag.png")
-            end
-            if menu:updateSliceTsar(getText("IGUI_Sleep_NotTiredEnough"), nil, mattressTex, nil, playerObj, vehicle) or
-            menu:updateSliceTsar(getText("IGUI_PlayerText_CanNotSleepInMovingCar"), nil, mattressTex, nil, playerObj, vehicle) or
-            menu:updateSliceTsar(getText("ContextMenu_PainNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
-            menu:updateSliceTsar(getText("ContextMenu_PanicNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
-            menu:updateSliceTsar(getText("ContextMenu_NoSleepTooEarly"), nil, mattressTex, nil, playerObj, vehicle)  or
-            menu:updateSliceTsar(getText("ContextMenu_Sleep"), getText("ContextMenu_Sleep"), mattressTex, ISVehicleMenu.onSleep, playerObj, vehicle) then end
+            ISCommonMenu.doMattressMenu(menu, playerObj, vehicle, inRoofTent)
         end
 
-        
         if vehicle:getPartById("BatteryHeater") and lightIsOn and inCabin then
             -- print("BatteryHeater")
             local tex = getTexture("media/ui/commonlibrary/UI_temperatureHC.png")
@@ -169,8 +163,120 @@ function ISCommonMenu.showRadialMenu(playerObj)
                 end
             end
         end
+        
+        if freespace1 and freespace1:getInventoryItem() then
+            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace1:getInventoryItem(), menu)
+        end
+        if freespace2 and freespace2:getInventoryItem() then
+            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace2:getInventoryItem(), menu)
+        end
+        if freespace3 and freespace3:getInventoryItem() then
+            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace3:getInventoryItem(), menu)
+        end
     end
 end
+
+function ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespaceInv, menu)
+    -- print(freespaceInv:getType() == "TransportFreezer")
+    local itemName = freespaceInv:getType()
+    if itemName == "TransportFreezer" then
+        
+    elseif itemName == "TransportFridge" then
+        
+    elseif itemName == "Mattress" then
+        ISCommonMenu.doMattressMenu(menu, playerObj, vehicle)
+    elseif itemName == "TransportMicrowave" then
+        
+    elseif itemName == "TransportOven" then
+        
+    end
+end
+
+function ISCommonMenu.doMattressMenu(menu, playerObj, vehicle, inRoofTent)
+    if (not isClient() or getServerOptions():getBoolean("SleepAllowed")) then
+        local mattressTex = getTexture("media/ui/commonlibrary/mattress.png")
+        if inRoofTent then
+            mattressTex = getTexture("media/ui/commonlibrary/sleeping_bag.png")
+        end
+        if menu:updateSliceTsar(getText("IGUI_Sleep_NotTiredEnough"), nil, mattressTex, nil, playerObj, vehicle) or
+        menu:updateSliceTsar(getText("IGUI_PlayerText_CanNotSleepInMovingCar"), nil, mattressTex, nil, playerObj, vehicle) or
+        menu:updateSliceTsar(getText("ContextMenu_PainNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
+        menu:updateSliceTsar(getText("ContextMenu_PanicNoSleep"), nil, mattressTex, nil, playerObj, vehicle) or
+        menu:updateSliceTsar(getText("ContextMenu_NoSleepTooEarly"), nil, mattressTex, nil, playerObj, vehicle)  or
+        menu:updateSliceTsar(getText("ContextMenu_Sleep"), getText("ContextMenu_Sleep"), mattressTex, ISCommonMenu.onSleep, playerObj, vehicle) then end
+    end
+end
+
+function ISCommonMenu.onSleep(playerObj, vehicle)
+	-- if vehicle:getCurrentSpeedKmHour() > 1 or vehicle:getCurrentSpeedKmHour() < -1 then
+		-- playerObj:Say(getText("IGUI_PlayerText_CanNotSleepInMovingCar"))
+		-- return;
+	-- end
+	local playerNum = playerObj:getPlayerNum()
+	local modal = ISModalDialog:new(0,0, 250, 150, getText("IGUI_ConfirmSleep"), true, nil, ISCommonMenu.onConfirmSleep, playerNum, playerNum, nil);
+	modal:initialise()
+	modal:addToUIManager()
+	if JoypadState.players[playerNum+1] then
+		setJoypadFocus(playerNum, modal)
+	end
+end
+
+function ISCommonMenu.onConfirmSleep(this, button, player, bed)
+	if button.internal == "YES" then
+		ISCommonMenu.onSleepWalkToComplete(player, "RV")
+	end
+end
+
+function ISCommonMenu.onSleepWalkToComplete(player, bed)
+	local playerObj = getSpecificPlayer(player)
+	ISTimedActionQueue.clear(playerObj)
+	if isClient() and getServerOptions():getBoolean("SleepAllowed") then
+		playerObj:setAsleepTime(0.0)
+		playerObj:setAsleep(true)
+		UIManager.setFadeBeforeUI(player, true)
+		UIManager.FadeOut(player, 1)
+		return
+    end
+    playerObj:setBedType("goodBed")
+	local modal = nil;
+    local sleepFor = ZombRand(playerObj:getStats():getFatigue() * 10, playerObj:getStats():getFatigue() * 13);
+    
+    if playerObj:HasTrait("Insomniac") then
+        sleepFor = sleepFor * 0.5;
+    end
+    if playerObj:HasTrait("NeedsLessSleep") then
+        sleepFor = sleepFor * 0.75;
+    end
+    if playerObj:HasTrait("NeedsMoreSleep") then
+        sleepFor = sleepFor * 1.18;
+    end
+	
+    if sleepFor > 16 then sleepFor = 16; end
+    if sleepFor < 3 then sleepFor = 3; end
+    --    print("GONNA SLEEP " .. sleepHours .. " HOURS" .. " AND ITS " .. GameTime.getInstance():getTimeOfDay())
+    local sleepHours = sleepFor + GameTime.getInstance():getTimeOfDay()
+    if sleepHours >= 24 then
+        sleepHours = sleepHours - 24
+    end
+    playerObj:setForceWakeUpTime(tonumber(sleepHours))
+    playerObj:setAsleepTime(0.0)
+    playerObj:setAsleep(true)
+    getSleepingEvent():setPlayerFallAsleep(playerObj, sleepFor);
+
+    UIManager.setFadeBeforeUI(playerObj:getPlayerNum(), true)
+    UIManager.FadeOut(playerObj:getPlayerNum(), 1)
+
+    if IsoPlayer.allPlayersAsleep() then
+        UIManager.getSpeedControls():SetCurrentGameSpeed(3)
+        save(true)
+    end
+end
+
+
+
+
+
+
 
 local TowMenu = {}
 

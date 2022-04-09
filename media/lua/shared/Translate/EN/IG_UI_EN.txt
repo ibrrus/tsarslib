@@ -83,11 +83,33 @@ IGUI_EN = {
     IGUI_VehiclePartATASpareWheel = "Spare Wheel",
 
 /* template_ata_visual.txt */
+    IGUI_VehiclePartATAVisualLadder = "Ladder",
     IGUI_VehiclePartATAVisualSpoilerFront = "Spoiler Lip",
     IGUI_VehiclePartATAVisualSpoilerRear = "Spoiler",
     IGUI_VehiclePartATAVisualSkirtsSide = "Side Skirts",
     IGUI_VehiclePartATAVisualFendersWide = "Wide Fenders",
     IGUI_VehiclePartATAVisualSnorkel = "Snorkel",
+
+/* template_freeplace.txt */
+    IGUI_VehiclePart Freeplace1FrontLeft = "Free space (FL)",
+    IGUI_VehiclePart Freeplace2FrontLeft = "Free space (FL)",
+    IGUI_VehiclePart Freeplace3FrontLeft = "Free space (FL)",
+    IGUI_VehiclePart Freeplace1FrontRight = "Free space (FR)",
+    IGUI_VehiclePart Freeplace2FrontRight = "Free space (FR)",
+    IGUI_VehiclePart Freeplace3FrontRight = "Free space (FR)",
+    IGUI_VehiclePart Freeplace1MiddleLeft = "Free space (ML)",
+    IGUI_VehiclePart Freeplace2MiddleLeft = "Free space (ML)",
+    IGUI_VehiclePart Freeplace3MiddleLeft = "Free space (ML)",
+    IGUI_VehiclePart Freeplace1MiddleRight = "Free space (MR)",
+    IGUI_VehiclePart Freeplace2MiddleRight = "Free space (MR)",
+    IGUI_VehiclePart Freeplace3MiddleRight = "Free space (MR)",
+    IGUI_VehiclePart Freeplace1RearLeft = "Free space (RL)",
+    IGUI_VehiclePart Freeplace2RearLeft = "Free space (RL)",
+    IGUI_VehiclePart Freeplace3RearLeft = "Free space (RL)",
+    IGUI_VehiclePart Freeplace1RearRight = "Free space (RR)",
+    IGUI_VehiclePart Freeplace2RearRight = "Free space (RR)",
+    IGUI_VehiclePart Freeplace3RearRight = "Free space (RR)",
+    
     
 /* ATA */
     IGUI_CloseHeadlightsPopUP = "Down Headlights",
@@ -223,6 +245,7 @@ IGUI_EN = {
     IGUI_CantRepairSails = "Fabric, needle, thread and Tailoring level IV required for sailing repair.",
     
 /* Common Library */
+
     IGUI_VehiclePartshelves = "Shelves",
     IGUI_VehiclePartstove = "Stove",
     IGUI_VehiclePartfridge = "Fridge",

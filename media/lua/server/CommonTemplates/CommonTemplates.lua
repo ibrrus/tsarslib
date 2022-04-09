@@ -292,7 +292,7 @@ function CommonTemplates.Init.Oven(vehicle, part)
         part:getItemContainer():setCustomTemperature(1.0)
     end
 end
-a = 0
+
 function CommonTemplates.Update.Oven(vehicle, part, elapsedMinutes)
     -- print("CommonTemplates.Update.Oven")
     local currentTemp = part:getItemContainer():getTemprature()
@@ -706,4 +706,28 @@ end
 
 function CommonTemplates.ContainerAccess.False(transport, part, playerObj)
     return false
+end
+
+
+
+--***********************************************************
+--**                                                       **
+--**                       Free Space                      **
+--**                                                       **
+--***********************************************************
+
+function CommonTemplates.Create.Freeplace(vehicle, part)
+    
+end
+
+function CommonTemplates.Init.Freeplace(vehicle, part)
+    
+end
+
+function CommonTemplates.Update.Freeplace(trailer, part, elapsedMinutes)
+    
+end
+
+function CommonTemplates.ContainerAccess.Freeplace(transport, part, playerObj)
+    
 end

@@ -32,10 +32,8 @@ Tooltip_EN = {
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
 	Tooltip_item_ATADodgeTuningMag = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, bullbars and racks for Dadge Steals RT",
     
-    
-/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
-	Tooltip_item_ATADodgeTuningMag = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, bullbars and racks for Petyarbuilt 379",
-
+/************ Autotsar Tuning Atelier - Petyarbuilt ************/
+	Tooltip_item_ATAPetyarbuiltTuningMag = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection for Petyarbuilt 379",
 
 /************ True Music ************/
 	Tooltip_item_Boombox = "Foreign boombox. Doesn't get local radio,<br>but can play cassettes. Powered by batteries.",

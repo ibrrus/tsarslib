@@ -1,0 +1,132 @@
+module Base
+{
+    template vehicle Freeplace
+	{
+        part Freeplace1FrontLeft
+        {
+            area = SeatFrontLeft,
+        }
+        part Freeplace1FrontRight
+		{
+			area = SeatFrontRight,
+		}
+		part Freeplace1MiddleLeft
+		{
+			area = SeatMiddleLeft,
+		}
+		part Freeplace1MiddleRight
+		{
+			area = SeatMiddleRight,
+		}
+		part Freeplace1RearLeft
+		{
+			area = SeatRearLeft,
+		}
+		part Freeplace1RearRight
+		{
+			area = SeatRearRight,
+		}
+        
+        part Freeplace2FrontLeft
+        {
+            area = SeatFrontLeft,
+        }
+        part Freeplace2FrontRight
+		{
+			area = SeatFrontRight,
+		}
+		part Freeplace2MiddleLeft
+		{
+			area = SeatMiddleLeft,
+		}
+		part Freeplace2MiddleRight
+		{
+			area = SeatMiddleRight,
+		}
+		part Freeplace2RearLeft
+		{
+			area = SeatRearLeft,
+		}
+		part Freeplace2RearRight
+		{
+			area = SeatRearRight,
+		}
+        
+        part Freeplace3FrontLeft
+        {
+            area = SeatFrontLeft,
+        }
+        part Freeplace3FrontRight
+		{
+			area = SeatFrontRight,
+		}
+		part Freeplace3MiddleLeft
+		{
+			area = SeatMiddleLeft,
+		}
+		part Freeplace3MiddleRight
+		{
+			area = SeatMiddleRight,
+		}
+		part Freeplace3RearLeft
+		{
+			area = SeatRearLeft,
+		}
+		part Freeplace3RearRight
+		{
+			area = SeatRearRight,
+		}
+        part Freeplace*
+		{
+            category = bodywork,
+            specificItem = false,
+            itemType = Base.TransportCounter;Base.TransportCupboard;Base.TransportDrawer;Base.TransportFreezer;Base.TransportFridge;Base.Mattress;Base.TransportMedicine;Base.TransportMicrowave;Base.TransportOven;Base.TransportShelve,
+            
+            container
+			{
+				test = CommonTemplates.ContainerAccess.Freeplace,
+			}
+            
+            table install
+			{
+				items
+				{
+					1
+					{
+						type = Base.Screwdriver,
+						count = 1,
+						keep = true,
+						equip = primary,
+					}
+				}
+				time = 300,
+				skills = Mechanics:1,
+				recipes = Basic Mechanics,
+				test = ATATuning.InstallTest.multiRequire,
+			}
+			table uninstall
+			{
+				items
+				{
+					1
+					{
+					type = Base.Screwdriver,
+					count = 1,
+					keep = true,
+					equip = primary,
+					}
+				}
+				time = 300,
+				skills = Mechanics:1,
+				recipes = Basic Mechanics,
+				test = ATATuning.UninstallTest.multiRequire,
+			}
+            lua
+			{
+				create = CommonTemplates.Create.Freeplace,
+                init = CommonTemplates.Init.Freeplace,
+                update = CommonTemplates.Update.Freeplace,
+			}
+        }
+    }
+}

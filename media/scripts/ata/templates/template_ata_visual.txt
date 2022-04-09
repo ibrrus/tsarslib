@@ -24,6 +24,10 @@ module Base
 {
     template vehicle ata_visual
     {
+        part ATAVisualLadder
+        {
+            area = TruckBed,
+        }
         part ATAVisualSpoilerFront
         {
             area = Engine,
