@@ -85,12 +85,12 @@ function ISCommonMenu.showRadialMenu(playerObj)
         if vehicle:getPartById("BatteryHeater") and lightIsOn and inCabin then
             -- print("BatteryHeater")
             local tex = getTexture("media/ui/commonlibrary/UI_temperatureHC.png")
-            if (vehicle:getPartById("BatteryHeater"):getModData().temperature or 0) < 0 then
+            if (vehicle:getPartById("BatteryHeater"):getModData().tsarslib.temperature or 0) < 0 then
                 tex = getTexture("media/ui/vehicles/vehicle_temperatureCOLD.png")
-            elseif (vehicle:getPartById("BatteryHeater"):getModData().temperature or 0) > 0 then
+            elseif (vehicle:getPartById("BatteryHeater"):getModData().tsarslib.temperature or 0) > 0 then
                 tex = getTexture("media/ui/vehicles/vehicle_temperatureHOT.png")
             end        
-            if vehicle:getPartById("BatteryHeater"):getModData().active then
+            if vehicle:getPartById("BatteryHeater"):getModData().tsarslib.active then
                 menu:addSlice(getText("ContextMenu_AirCondOff"), tex, ISCommonMenu.onToggleHeater, playerObj )
             else
                 menu:addSlice(getText("ContextMenu_AirCondOn"), tex, ISCommonMenu.onToggleHeater, playerObj )
@@ -98,39 +98,19 @@ function ISCommonMenu.showRadialMenu(playerObj)
         end
 
         if oven and lightIsOn then
-            menu:addSlice(getText("IGUI_UseStove"), getTexture("media/ui/Container_Oven"), ISCommonMenu.onStoveSetting, playerObj, vehicle, oven)
-            -- if oven:getItemContainer():isActive() then
-                -- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
-            -- else
-                -- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
-            -- end
+            ISCommonMenu.doOvenMenu(menu, playerObj, vehicle, oven)
         end
         
         if microwave and lightIsOn then
-            menu:addSlice(getText("IGUI_UseMicrowave"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.onMicrowaveSetting, playerObj, vehicle, microwave)
-            -- if microwave:getItemContainer():isActive() then
-                -- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, false)
-            -- else
-                -- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.ToggleMicrowave, playerObj, vehicle, microwave, true)
-            -- end
+            ISCommonMenu.doMicrowaveMenu(menu, playerObj, vehicle, microwave)
         end
             
         if fridge and lightIsOn then
-            -- print(fridge:getModData().tsarslib)
-            -- print(fridge:getModData().tsarslib.active)
-            if fridge:getModData().tsarslib and fridge:getModData().tsarslib.active then
-                menu:addSlice(getText("IGUI_Turn_Fridge_Off"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
-            else
-                menu:addSlice(getText("IGUI_Turn_Fridge_On"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
-            end
+            ISCommonMenu.doFridgeMenu(menu, playerObj, vehicle, fridge)
         end
         
         if freezer and lightIsOn then
-            if freezer:getModData().tsarslib and freezer:getModData().tsarslib.active then
-                menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
-            else
-                menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
-            end
+            ISCommonMenu.doFreezerMenu(menu, playerObj, vehicle, freezer)
         end
         
         if vehicle:isDriver(playerObj) then
@@ -165,29 +145,32 @@ function ISCommonMenu.showRadialMenu(playerObj)
         end
         
         if freespace1 and freespace1:getInventoryItem() then
-            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace1:getInventoryItem(), menu)
+            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace1, menu)
         end
         if freespace2 and freespace2:getInventoryItem() then
-            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace2:getInventoryItem(), menu)
+            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace2, menu)
         end
         if freespace3 and freespace3:getInventoryItem() then
-            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace3:getInventoryItem(), menu)
+            ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace3, menu)
         end
     end
 end
 
-function ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespaceInv, menu)
+function ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace, menu)
     -- print(freespaceInv:getType() == "TransportFreezer")
-    local itemName = freespaceInv:getType()
-    if itemName == "TransportFreezer" then
-        
-    elseif itemName == "TransportFridge" then
-        
-    elseif itemName == "Mattress" then
+    local freespaceInv = freespace:getInventoryItem()
+    local invItemName = freespaceInv:getType()
+    if invItemName == "TransportFreezer" then
+        ISCommonMenu.doFreezerMenu(menu, playerObj, vehicle, freespace)
+    elseif invItemName == "TransportFridge" then
+        ISCommonMenu.doFridgeMenu(menu, playerObj, vehicle, freespace)
+    elseif invItemName == "Mattress" then
         ISCommonMenu.doMattressMenu(menu, playerObj, vehicle)
-    elseif itemName == "TransportMicrowave" then
-        
-    elseif itemName == "TransportOven" then
+    elseif invItemName == "TransportMicrowave" then
+        ISCommonMenu.doMicrowaveMenu(menu, playerObj, vehicle, freespace)
+    elseif invItemName == "TransportOven" then
+        ISCommonMenu.doOvenMenu(menu, playerObj, vehicle, freespace)
+    elseif invItemName == "TvAntique" or invItemName == "TvWideScreen" or invItemName == "TvBlack" then
         
     end
 end
@@ -207,38 +190,67 @@ function ISCommonMenu.doMattressMenu(menu, playerObj, vehicle, inRoofTent)
     end
 end
 
+function ISCommonMenu.doFridgeMenu(menu, playerObj, vehicle, fridge)
+    if fridge:getModData().tsarslib and fridge:getModData().tsarslib.active then
+        menu:addSlice(getText("IGUI_Turn_Fridge_Off"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
+    else
+        menu:addSlice(getText("IGUI_Turn_Fridge_On"), getTexture("media/ui/Container_Fridge"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, fridge)
+    end
+end
+
+function ISCommonMenu.doMicrowaveMenu(menu, playerObj, vehicle, microwave)
+    menu:addSlice(getText("IGUI_UseMicrowave"), getTexture("media/ui/Container_Microwave"), ISCommonMenu.onMicrowaveSetting, playerObj, vehicle, microwave)
+end
+
+function ISCommonMenu.doOvenMenu(menu, playerObj, vehicle, oven)
+    menu:addSlice(getText("IGUI_UseStove"), getTexture("media/ui/Container_Oven"), ISCommonMenu.onStoveSetting, playerObj, vehicle, oven)
+    -- if oven:getItemContainer():isActive() then
+        -- menu:addSlice(getText("IGUI_Turn_Oven_Off"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
+    -- else
+        -- menu:addSlice(getText("IGUI_Turn_Oven_On"), getTexture("media/ui/Container_Oven"), ISCommonMenu.ToggleDevice, playerObj, vehicle, oven)
+    -- end
+end
+
+function ISCommonMenu.doFreezerMenu(menu, playerObj, vehicle, freezer)
+    if freezer:getModData().tsarslib and freezer:getModData().tsarslib.active then
+        menu:addSlice(getText("IGUI_Turn_Freezer_Off"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
+    else
+        menu:addSlice(getText("IGUI_Turn_Freezer_On"), getTexture("media/ui/Container_Freezer"), ISCommonMenu.ToggleDeviceFridge, playerObj, vehicle, freezer)
+    end
+end
+
 function ISCommonMenu.onSleep(playerObj, vehicle)
-	-- if vehicle:getCurrentSpeedKmHour() > 1 or vehicle:getCurrentSpeedKmHour() < -1 then
-		-- playerObj:Say(getText("IGUI_PlayerText_CanNotSleepInMovingCar"))
-		-- return;
-	-- end
-	local playerNum = playerObj:getPlayerNum()
-	local modal = ISModalDialog:new(0,0, 250, 150, getText("IGUI_ConfirmSleep"), true, nil, ISCommonMenu.onConfirmSleep, playerNum, playerNum, nil);
-	modal:initialise()
-	modal:addToUIManager()
-	if JoypadState.players[playerNum+1] then
-		setJoypadFocus(playerNum, modal)
-	end
+    -- if vehicle:getCurrentSpeedKmHour() > 1 or vehicle:getCurrentSpeedKmHour() < -1 then
+        -- playerObj:Say(getText("IGUI_PlayerText_CanNotSleepInMovingCar"))
+        -- return;
+    -- end
+    local playerNum = playerObj:getPlayerNum()
+    local modal = ISModalDialog:new(0,0, 250, 150, getText("IGUI_ConfirmSleep"), true, nil, ISCommonMenu.onConfirmSleep, playerNum, playerNum, nil);
+    modal:initialise()
+    modal:addToUIManager()
+    if JoypadState.players[playerNum+1] then
+        setJoypadFocus(playerNum, modal)
+    end
 end
 
 function ISCommonMenu.onConfirmSleep(this, button, player, bed)
-	if button.internal == "YES" then
-		ISCommonMenu.onSleepWalkToComplete(player, "RV")
-	end
+    if button.internal == "YES" then
+        ISCommonMenu.onSleepWalkToComplete(player, "RV")
+    end
 end
 
 function ISCommonMenu.onSleepWalkToComplete(player, bed)
-	local playerObj = getSpecificPlayer(player)
-	ISTimedActionQueue.clear(playerObj)
-	if isClient() and getServerOptions():getBoolean("SleepAllowed") then
-		playerObj:setAsleepTime(0.0)
-		playerObj:setAsleep(true)
-		UIManager.setFadeBeforeUI(player, true)
-		UIManager.FadeOut(player, 1)
-		return
+    local playerObj = getSpecificPlayer(player)
+    ISTimedActionQueue.clear(playerObj)
+    if isClient() and getServerOptions():getBoolean("SleepAllowed") then
+        playerObj:setAsleepTime(0.0)
+        playerObj:setAsleep(true)
+        UIManager.setFadeBeforeUI(player, true)
+        UIManager.FadeOut(player, 1)
+        return
     end
     playerObj:setBedType("goodBed")
-	local modal = nil;
+    local modal = nil;
     local sleepFor = ZombRand(playerObj:getStats():getFatigue() * 10, playerObj:getStats():getFatigue() * 13);
     
     if playerObj:HasTrait("Insomniac") then
@@ -250,7 +262,7 @@ function ISCommonMenu.onSleepWalkToComplete(player, bed)
     if playerObj:HasTrait("NeedsMoreSleep") then
         sleepFor = sleepFor * 1.18;
     end
-	
+    
     if sleepFor > 16 then sleepFor = 16; end
     if sleepFor < 3 then sleepFor = 3; end
     --    print("GONNA SLEEP " .. sleepHours .. " HOURS" .. " AND ITS " .. GameTime.getInstance():getTimeOfDay())
@@ -289,20 +301,20 @@ function TowMenu.isTrailer(vehicle)
 end
 
 function TowMenu.getTowableVehicleNear(square, ignoreVehicle, attachmentA, attachmentB)
-	for y=square:getY() - 10,square:getY()+10 do
-		for x=square:getX()-10,square:getX()+10 do
-			local square2 = getCell():getGridSquare(x, y, square:getZ())
-			if square2 then
-				for i=1,square2:getMovingObjects():size() do
-					local obj = square2:getMovingObjects():get(i-1)
-					if instanceof(obj, "BaseVehicle") and obj ~= ignoreVehicle and ignoreVehicle:canAttachTrailer(obj, attachmentA, attachmentB) then
-						return obj
-					end
-				end
-			end
-		end
-	end
-	return nil
+    for y=square:getY() - 10,square:getY()+10 do
+        for x=square:getX()-10,square:getX()+10 do
+            local square2 = getCell():getGridSquare(x, y, square:getZ())
+            if square2 then
+                for i=1,square2:getMovingObjects():size() do
+                    local obj = square2:getMovingObjects():get(i-1)
+                    if instanceof(obj, "BaseVehicle") and obj ~= ignoreVehicle and ignoreVehicle:canAttachTrailer(obj, attachmentA, attachmentB) then
+                        return obj
+                    end
+                end
+            end
+        end
+    end
+    return nil
 end
 
 function TowMenu.attachVehicleToOther(playerObj, vehicle, menu)

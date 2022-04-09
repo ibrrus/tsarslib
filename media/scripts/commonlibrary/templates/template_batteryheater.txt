@@ -1,15 +1,16 @@
 module Base
 {
-	template vehicle BatteryHeater
-	{
-		part BatteryHeater
-		{
-			category = engine,
-			lua
-			{
-				create = CommonTemplates.Create.BatteryHeater,
-				update = CommonTemplates.Update.BatteryHeater,
-			}
-		}
-	}
+    template vehicle BatteryHeater
+    {
+        part BatteryHeater
+        {
+            category = engine,
+            lua
+            {
+                create = CommonTemplates.Create.BatteryHeater,
+                init = CommonTemplates.Init.BatteryHeater,
+                update = CommonTemplates.Update.BatteryHeater,
+            }
+        }
+    }
 }

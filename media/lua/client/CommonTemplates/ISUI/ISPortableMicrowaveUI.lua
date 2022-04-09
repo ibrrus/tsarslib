@@ -45,26 +45,26 @@ function ISPortableMicrowaveUI:initialise()
     
     self:addKnobValues();
     self:updateButtons();
-	
-	self:insertNewLineOfButtons(self.tempKnob, self.timerKnob, self.ok, self.close)
+    
+    self:insertNewLineOfButtons(self.tempKnob, self.timerKnob, self.ok, self.close)
 end
 
 function ISPortableMicrowaveUI:ChangeKnob()
-	self.oven:getModData().maxTemperature = self.tempKnob:getValue()
-	self.oven:getModData().timer = self.timerKnob:getValue()
-	self.vehicle:getEmitter():playSound("ToggleStove")
-    if self.oven:getModData().timer > 0 then
-        sendClientCommand(self.character, 'commonlib', 'usePortableMicrowave', {vehicle = self.vehicle:getId(), oven = self.oven:getId(), on = true, timer = self.oven:getModData().timer, maxTemperature = self.oven:getModData().maxTemperature})
+    self.oven:getModData().tsarslib.maxTemperature = self.tempKnob:getValue()
+    self.oven:getModData().tsarslib.timer = self.timerKnob:getValue()
+    self.vehicle:getEmitter():playSound("ToggleStove")
+    if self.oven:getModData().tsarslib.timer > 0 then
+        sendClientCommand(self.character, 'commonlib', 'usePortableMicrowave', {vehicle = self.vehicle:getId(), oven = self.oven:getId(), on = true, timer = self.oven:getModData().tsarslib.timer, maxTemperature = self.oven:getModData().tsarslib.maxTemperature})
         if not self.vehicle:getEmitter():isPlaying("MicrowaveRunning") then
-			self.vehicle:getEmitter():playSoundLooped("MicrowaveRunning")
-		end
-	else
-        sendClientCommand(self.character, 'commonlib', 'usePortableMicrowave', {vehicle = self.vehicle:getId(), oven = self.oven:getId(), on = false, timer = self.oven:getModData().timer, maxTemperature = self.oven:getModData().maxTemperature})
+            self.vehicle:getEmitter():playSoundLooped("MicrowaveRunning")
+        end
+    else
+        sendClientCommand(self.character, 'commonlib', 'usePortableMicrowave', {vehicle = self.vehicle:getId(), oven = self.oven:getId(), on = false, timer = self.oven:getModData().tsarslib.timer, maxTemperature = self.oven:getModData().tsarslib.maxTemperature})
         self.vehicle:getEmitter():stopSoundByName("MicrowaveRunning")
-        if self.oven:getModData().timePassed > 0 then
+        if self.oven:getModData().tsarslib.timePassed > 0 then
             self.vehicle:getEmitter():playSound("MicrowaveTimerExpired")
         end
-	end
+    end
 end
 
 function ISPortableMicrowaveUI:update()
@@ -77,14 +77,14 @@ end
 
 function ISPortableMicrowaveUI:updateButtons()
     if not self.timerKnob.dragging then
-        if self.oven:getModData().timePassed > 0 then
-            self.timerKnob:setKnobPosition(math.ceil((self.oven:getModData().timer - self.oven:getModData().timePassed)))
+        if self.oven:getModData().tsarslib.timePassed > 0 then
+            self.timerKnob:setKnobPosition(math.ceil((self.oven:getModData().tsarslib.timer - self.oven:getModData().tsarslib.timePassed)))
         else
-            self.timerKnob:setKnobPosition(self.oven:getModData().timer);
+            self.timerKnob:setKnobPosition(self.oven:getModData().tsarslib.timer);
         end
     end
     if not self.tempKnob.dragging then
-        self.tempKnob:setKnobPosition(self.oven:getModData().maxTemperature);
+        self.tempKnob:setKnobPosition(self.oven:getModData().tsarslib.maxTemperature);
     end
 end
 
@@ -127,7 +127,7 @@ function ISPortableMicrowaveUI:onClick(button)
     if button.internal == "CLOSE" then
         self:setVisible(false);
         self:removeFromUIManager();
-		local player = self.character:getPlayerNum()
+        local player = self.character:getPlayerNum()
         if JoypadState.players[player+1] then
             setJoypadFocus(player, self.prevFocus)
         end
@@ -166,7 +166,7 @@ function ISPortableMicrowaveUI:new(x, y, width, height, character, vehicle, part
     o = ISPanelJoypad:new(x, y, width, height);
     setmetatable(o, self)
     self.__index = self
-	local player = character:getPlayerNum()
+    local player = character:getPlayerNum()
     if y == 0 then
         o.y = getPlayerScreenTop(player) + (getPlayerScreenHeight(player) - height) / 2
         o:setY(o.y)
@@ -179,13 +179,13 @@ function ISPortableMicrowaveUI:new(x, y, width, height, character, vehicle, part
     o.width = width;
     o.height = height;
     
-	o.character = character;
-	o.vehicle = vehicle
-	o.seat = vehicle:getSeat(character)
+    o.character = character;
+    o.vehicle = vehicle
+    o.seat = vehicle:getSeat(character)
     o.oven = part;
-	
+    
     o.moveWithMouse = true;
-	o.anchorLeft = true;
+    o.anchorLeft = true;
     o.anchorRight = true;
     o.anchorTop = true;
     o.anchorBottom = true;

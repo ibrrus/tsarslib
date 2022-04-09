@@ -29,6 +29,80 @@ local MicrowaveBatteryChange = -0.000200
 
 --***********************************************************
 --**                                                       **
+--**      Multi Require Install and Uninstall table           **
+--**                                                       **
+--***********************************************************
+
+function CommonTemplates.InstallTest.multiRequire(vehicle, part, chr)
+    if ISVehicleMechanics.cheat then return true; end
+    local keyvalues = part:getTable("install")
+    if not keyvalues then return false end
+    if part:getInventoryItem() then return false end
+    if not part:getItemType() or part:getItemType():isEmpty() then return false end
+    local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
+    if keyvalues.requireInstalled then
+        local split = keyvalues.requireInstalled:split(";");
+        for i,v in ipairs(split) do
+            if not vehicle:getPartById(v) or not vehicle:getPartById(v):getInventoryItem() then return false; end
+        end
+    end
+    if keyvalues.requireUninstalled then
+        local split = keyvalues.requireUninstalled:split(";");
+        for i,v in ipairs(split) do
+            if vehicle:getPartById(v) and vehicle:getPartById(v):getInventoryItem() then return false; end
+        end
+    end
+    if not VehicleUtils.testProfession(chr, keyvalues.professions) then return false end
+    -- allow all perk, but calculate success/failure risk
+--    if not VehicleUtils.testPerks(chr, keyvalues.skills) then return false end
+    if not VehicleUtils.testRecipes(chr, keyvalues.recipes) then return false end
+    if not VehicleUtils.testTraits(chr, keyvalues.traits) then return false end
+    if not VehicleUtils.testItems(chr, keyvalues.items, typeToItem) then return false end
+    -- if doing mechanics on this part require key but player doesn't have it, we'll check that door or windows aren't unlocked also
+    if VehicleUtils.RequiredKeyNotFound(part, chr) then
+        return false;
+    end
+    return true
+end
+
+function CommonTemplates.UninstallTest.multiRequire(vehicle, part, chr)
+    if ISVehicleMechanics.cheat then return true; end
+    local keyvalues = part:getTable("uninstall")
+    if not keyvalues then return false end
+    if not part:getInventoryItem() then return false end
+    if not part:getItemType() or part:getItemType():isEmpty() then return false end
+    local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
+    if keyvalues.requireInstalled then
+        local split = keyvalues.requireInstalled:split(";");
+        for i,v in ipairs(split) do
+            if not vehicle:getPartById(v) or not vehicle:getPartById(v):getInventoryItem() then return false; end
+        end
+    end
+    if keyvalues.requireUninstalled then
+        local split = keyvalues.requireUninstalled:split(";");
+        for i,v in ipairs(split) do
+            if vehicle:getPartById(v) and vehicle:getPartById(v):getInventoryItem() then return false; end
+        end
+    end
+    if not VehicleUtils.testProfession(chr, keyvalues.professions) then return false end
+    -- allow all perk, but calculate success/failure risk
+--    if not VehicleUtils.testPerks(chr, keyvalues.skills) then return false end
+    if not VehicleUtils.testRecipes(chr, keyvalues.recipes) then return false end
+    if not VehicleUtils.testTraits(chr, keyvalues.traits) then return false end
+    if not VehicleUtils.testItems(chr, keyvalues.items, typeToItem) then return false end
+    if keyvalues.requireEmpty and round(part:getContainerContentAmount(), 3) > 0 then return false end
+    local seatNumber = part:getContainerSeatNumber()
+    local seatOccupied = (seatNumber ~= -1) and vehicle:isSeatOccupied(seatNumber)
+    if keyvalues.requireEmpty and seatOccupied then return false end
+    -- if doing mechanics on this part require key but player doesn't have it, we'll check that door or windows aren't unlocked also
+    if VehicleUtils.RequiredKeyNotFound(part, chr) then
+        return false
+    end
+    return true
+end
+
+--***********************************************************
+--**                                                       **
 --**                         Common                        **
 --**                                                       **
 --***********************************************************
@@ -65,11 +139,11 @@ function CommonTemplates.UninstallTest.PartNotInCabin(vehicle, part, playerObj)
     return Vehicles.UninstallTest.Default(vehicle, part, playerObj)
 end
 
-function CommonTemplates.ContainerAccess.ContainerByArea(transport, part, playerObj)
+function CommonTemplates.ContainerAccess.ContainerByArea(vehicle, part, playerObj)
     if not part:getInventoryItem() then return false; end
-    if playerObj:getVehicle() == transport then
-        local script = transport:getScript()
-        local seat = transport:getSeat(playerObj)
+    if playerObj:getVehicle() == vehicle then
+        local script = vehicle:getScript()
+        local seat = vehicle:getSeat(playerObj)
         local seatname = 'Seat'..script:getPassenger(seat):getId()
         return part:getArea() == seatname
     else
@@ -263,9 +337,10 @@ function CommonTemplates.Create.Oven(vehicle, part)
     if part:getInventoryItem() and part:getItemContainer() then
         part:getItemContainer():setType("stove")
     end
-    part:getModData().timer = 0
-    part:getModData().timePassed = 0
-    part:getModData().maxTemperature = 0
+    part:getModData().tsarslib = {}
+    part:getModData().tsarslib.timer = 0
+    part:getModData().tsarslib.timePassed = 0
+    part:getModData().tsarslib.maxTemperature = 0
     vehicle:transmitPartModData(part)
     CommonTemplates.createActivePart(part)
 end
@@ -274,7 +349,7 @@ function CommonTemplates.Use.DefaultDevice(vehicle, part, player)
     if part:getItemContainer():isActive() then
         part:getItemContainer():setActive(false)
         player:getEmitter():playSound("ToggleStove")
-        part:getModData().timePassed = 0
+        part:getModData().tsarslib.timePassed = 0
         vehicle:transmitPartModData(part)
     else
         part:getItemContainer():setActive(true)
@@ -284,7 +359,20 @@ function CommonTemplates.Use.DefaultDevice(vehicle, part, player)
 end
 
 function CommonTemplates.Init.Oven(vehicle, part)
-    part:setModelVisible("test", true)
+    -- part:setModelVisible("test", true)
+    if not part:getModData().tsarslib then
+        part:getModData().tsarslib = {}
+    end
+    if not part:getModData().tsarslib.timer then
+        part:getModData().tsarslib.timer = 0
+    end
+    if not part:getModData().tsarslib.timePassed then
+        part:getModData().tsarslib.timePassed = 0
+    end
+    if not part:getModData().tsarslib.maxTemperature then
+        part:getModData().tsarslib.maxTemperature = 0
+    end
+    
     if part:getInventoryItem() and part:getItemContainer() 
             and part:getItemContainer():isActive() and vehicle:getBatteryCharge() > 0.00200 then
         part:getItemContainer():setCustomTemperature(2.0)
@@ -298,7 +386,7 @@ function CommonTemplates.Update.Oven(vehicle, part, elapsedMinutes)
     local currentTemp = part:getItemContainer():getTemprature()
     -- print(currentTemp)
     local minTemp = 1.0
-    local maxTemp = (part:getModData().maxTemperature + 100) / 100
+    local maxTemp = (part:getModData().tsarslib.maxTemperature + 100) / 100
     local contType = part:getItemContainer():getType()
     local emi = vehicle:getEmitter()
     if part:getInventoryItem() and part:getItemContainer() then
@@ -309,17 +397,17 @@ function CommonTemplates.Update.Oven(vehicle, part, elapsedMinutes)
                 part:getItemContainer():setCustomTemperature(maxTemp)
             end
             VehicleUtils.chargeBattery(vehicle, OvenBatteryChange)
-            if part:getModData().timer > 0 then
-                if part:getModData().timePassed < part:getModData().timer then
-                    part:getModData().timePassed = part:getModData().timePassed + 1
+            if part:getModData().tsarslib.timer > 0 then
+                if part:getModData().tsarslib.timePassed < part:getModData().tsarslib.timer then
+                    part:getModData().tsarslib.timePassed = part:getModData().tsarslib.timePassed + 1
                 else 
                     emi:playSound("StoveTimerExpired")
-                    part:getModData().timer = 0
-                    part:getModData().timePassed = 0
+                    part:getModData().tsarslib.timer = 0
+                    part:getModData().tsarslib.timePassed = 0
                 end
             end
         else
-            part:getModData().timePassed = 0
+            part:getModData().tsarslib.timePassed = 0
             if currentTemp > minTemp then
                 part:getItemContainer():setCustomTemperature(currentTemp - 0.2)
             elseif currentTemp <= minTemp then
@@ -341,9 +429,10 @@ function CommonTemplates.Create.Microwave(vehicle, part)
     if part:getInventoryItem() and part:getItemContainer() then
         part:getItemContainer():setType("portablemicrowave")
     end
-    part:getModData().timer = 0
-    part:getModData().timePassed = 0
-    part:getModData().maxTemperature = 0
+    part:getModData().tsarslib = {}
+    part:getModData().tsarslib.timer = 0
+    part:getModData().tsarslib.timePassed = 0
+    part:getModData().tsarslib.maxTemperature = 0
     vehicle:transmitPartModData(part)
     CommonTemplates.createActivePart(part)
 end
@@ -353,10 +442,10 @@ end
         -- part:getItemContainer():setActive(false)
         -- vehicle:getEmitter():stopSoundByName("MicrowaveRunning")
         -- vehicle:getEmitter():playSound("MicrowaveTimerExpired")
-        -- part:getModData().timer = 0
-        -- part:getModData().timePassed = 0
-    -- elseif part:getModData().timer > 0 and on then
-        -- part:getModData().timePassed = 0.001
+        -- part:getModData().tsarslib.timer = 0
+        -- part:getModData().tsarslib.timePassed = 0
+    -- elseif part:getModData().tsarslib.timer > 0 and on then
+        -- part:getModData().tsarslib.timePassed = 0.001
         -- part:getItemContainer():setActive(true)
         -- part:setLightActive(true)
         -- vehicle:getEmitter():playSound("ToggleStove")
@@ -371,7 +460,7 @@ function CommonTemplates.Update.Microwave(vehicle, part, elapsedMinutes)
     -- print("CommonTemplates.Update.Microwave")
     local currentTemp = part:getItemContainer():getTemprature()
     local minTemp = 1.0
-    local maxTemp = (part:getModData().maxTemperature + 100) / 100
+    local maxTemp = (part:getModData().tsarslib.maxTemperature + 100) / 100
     if part:getInventoryItem() and part:getItemContainer() then
         if part:getItemContainer():isActive() and vehicle:getBatteryCharge() > 0.00200 then
             if isServer() then
@@ -384,26 +473,26 @@ function CommonTemplates.Update.Microwave(vehicle, part, elapsedMinutes)
                 end
             end
             VehicleUtils.chargeBattery(vehicle, MicrowaveBatteryChange)
-            if part:getModData().timer > 0 then
-                if part:getModData().timePassed < part:getModData().timer then
-                    part:getModData().timePassed = part:getModData().timePassed + 0.3
+            if part:getModData().tsarslib.timer > 0 then
+                if part:getModData().tsarslib.timePassed < part:getModData().tsarslib.timer then
+                    part:getModData().tsarslib.timePassed = part:getModData().tsarslib.timePassed + 0.3
                 else 
                     vehicle:getEmitter():stopSoundByName("MicrowaveRunning")
                     vehicle:getEmitter():playSound("MicrowaveTimerExpired")
                     part:getItemContainer():setActive(false)
-                    part:getModData().timer = 0
-                    part:getModData().timePassed = 0
+                    part:getModData().tsarslib.timer = 0
+                    part:getModData().tsarslib.timePassed = 0
                 end
             else
                 vehicle:getEmitter():stopSoundByName("MicrowaveRunning")
                 vehicle:getEmitter():playSound("MicrowaveTimerExpired")
                 part:getItemContainer():setActive(false)
-                part:getModData().timer = 0
-                part:getModData().timePassed = 0
+                part:getModData().tsarslib.timer = 0
+                part:getModData().tsarslib.timePassed = 0
             end
             vehicle:updateParts();
         else
-            part:getModData().timePassed = 0
+            part:getModData().tsarslib.timePassed = 0
             if currentTemp > minTemp then
                 part:getItemContainer():setCustomTemperature(currentTemp - 0.5)
             elseif currentTemp <= minTemp then
@@ -492,6 +581,16 @@ function CommonTemplates.Create.BatteryHeater(vehicle, part)
     -- print("CommonTemplates.Create.BatteryHeater")
     CommonTemplates.createActivePart(part)
     part:setLightActive(false)
+    if not part:getModData().tsarslib then
+        part:getModData().tsarslib = {}
+    end
+end
+
+function CommonTemplates.Init.BatteryHeater(vehicle, part)
+    -- print("CommonTemplates.Create.BatteryHeater")
+    if not part:getModData().tsarslib then
+        part:getModData().tsarslib = {}
+    end
 end
 
 function CommonTemplates.Use.BatteryHeater(vehicle, on, temp)
@@ -499,14 +598,14 @@ function CommonTemplates.Use.BatteryHeater(vehicle, on, temp)
     if on then
         vehicle:getEmitter():playSound("ToggleStove")
         part:setLightActive(true)
-        part:getModData().active = on;
-        part:getModData().temperature = temp;
+        part:getModData().tsarslib.active = on;
+        part:getModData().tsarslib.temperature = temp;
         vehicle:transmitPartModData(part)
     else
         vehicle:getEmitter():playSound("ToggleStove")
         -- part:setLightActive(false)
-        part:getModData().active = on;
-        part:getModData().temperature = 0;
+        part:getModData().tsarslib.active = on;
+        part:getModData().tsarslib.temperature = 0;
         vehicle:transmitPartModData(part)
     end
 end
@@ -524,13 +623,13 @@ function CommonTemplates.Update.BatteryHeater(vehicle, part, elapsedMinutes)
         pcData.temperature = 0.0
     end
     local partData = part:getModData()
-    if not tonumber(partData.temperature) then
-        partData.temperature = 0
+    if not tonumber(partData.tsarslib.temperature) then
+        partData.tsarslib.temperature = 0
     end
     
     if not battery:getInventoryItem() or 
             battery:getInventoryItem():getUsedDelta() < 0.01 then
-        part:getModData().active = false;
+        part:getModData().tsarslib.active = false;
         vehicle:transmitPartModData(part);
         -- part:setLightActive(false)
         return
@@ -642,11 +741,11 @@ end
 --**                                                       **
 --***********************************************************
 
-function CommonTemplates.ContainerAccess.ContainerByName(transport, part, playerObj)
+function CommonTemplates.ContainerAccess.ContainerByName(vehicle, part, playerObj)
     if not part:getInventoryItem() then return false; end
-    if playerObj:getVehicle() == transport then
-        local script = transport:getScript()
-        local seat = transport:getSeat(playerObj)
+    if playerObj:getVehicle() == vehicle then
+        local script = vehicle:getScript()
+        local seat = vehicle:getSeat(playerObj)
         local seatname = script:getPassenger(seat):getId()
         if string.match(part:getId(), seatname) then return true end
     else
@@ -704,7 +803,7 @@ function CommonTemplates.Create.CabinLock(vehicle, part)
 end
 
 
-function CommonTemplates.ContainerAccess.False(transport, part, playerObj)
+function CommonTemplates.ContainerAccess.False(vehicle, part, playerObj)
     return false
 end
 
@@ -717,17 +816,191 @@ end
 --***********************************************************
 
 function CommonTemplates.Create.Freeplace(vehicle, part)
-    
+    part:getModData().tsarslib = {}
+    CommonTemplates.createActivePart(part)
 end
 
 function CommonTemplates.Init.Freeplace(vehicle, part)
-    
+-- print("CommonTemplates.Init.Freeplace")
+    if not part:getModData().tsarslib then part:getModData().tsarslib = {} end
+    local invItem = part:getInventoryItem()
+    if not invItem then return end
+    local invItemName = invItem:getType()
+    if invItemName == "TransportFreezer" then
+        part:getItemContainer():setType("freezer")
+        CommonTemplates.Init.Freezer(vehicle, part)
+    elseif invItemName == "TransportFridge" then
+        part:getItemContainer():setType("fridge")
+        CommonTemplates.Init.Fridge(vehicle, part)
+    elseif invItemName == "TransportOven" then
+        part:getItemContainer():setType("stove")
+        CommonTemplates.Init.Oven(vehicle, part)
+    elseif invItemName == "TransportMicrowave" then
+        part:getItemContainer():setType("portablemicrowave")
+        CommonTemplates.Init.Oven(vehicle, part)
+    elseif invItemName == "TransportCounter" then
+        part:getItemContainer():setType("counter")
+    elseif invItemName == "TransportShelve" then
+        part:getItemContainer():setType("shelves")
+    elseif invItemName == "TransportDrawer" then
+        part:getItemContainer():setType("sidetable")
+    elseif invItemName == "TransportCupboard" then
+        part:getItemContainer():setType("wardrobe")
+    elseif invItemName == "TransportMedicine" then
+        part:getItemContainer():setType("medicine")
+    elseif invItemName == "TvAntique" or invItemName == "TvWideScreen" or invItemName == "TvBlack" then
+        local deviceData = part:getDeviceData()
+        if not deviceData then
+            deviceData = part:createSignalDevice()
+        end
+        deviceData:setIsTwoWay( invItem:getDeviceData():getIsTwoWay() )
+        deviceData:setBaseVolumeRange(10)
+        deviceData:setIsPortable(false)
+        deviceData:setIsTelevision(true)
+        deviceData:setIsBatteryPowered(false)
+        deviceData:setTransmitRange( invItem:getDeviceData():getTransmitRange() )
+        deviceData:setMicRange( invItem:getDeviceData():getMicRange() )
+        deviceData:setBaseVolumeRange( invItem:getDeviceData():getBaseVolumeRange() )
+        deviceData:setMinChannelRange( invItem:getDeviceData():getMinChannelRange() )
+        deviceData:setMaxChannelRange( invItem:getDeviceData():getMaxChannelRange() )
+        deviceData:generatePresets()
+        deviceData:setRandomChannel()
+    end
 end
 
-function CommonTemplates.Update.Freeplace(trailer, part, elapsedMinutes)
+function CommonTemplates.Update.Freeplace(vehicle, part, elapsedMinutes)
+    local invItem = part:getInventoryItem()
+    if not invItem then return end
+    local invItemName = invItem:getType()
+    if invItemName == "TransportFreezer" then
+        CommonTemplates.Update.Freezer(vehicle, part, elapsedMinutes)
+    elseif invItemName == "TransportFridge" then
+        CommonTemplates.Update.Fridge(vehicle, part, elapsedMinutes)
+    elseif invItemName == "TransportOven" then
+        CommonTemplates.Update.Oven(vehicle, part, elapsedMinutes)
+    elseif invItemName == "TransportMicrowave" then
+        CommonTemplates.Update.Microwave(vehicle, part, elapsedMinutes)
+        print("CommonTemplates.Update.Microwave")
+    elseif invItemName == "TvAntique" or invItemName == "TvWideScreen" or invItemName == "TvBlack" then
+        Vehicles.Update.Radio(vehicle, part, elapsedMinutes)
     
+        
+    -- elseif invItemName == "TransportCounter" then
+        
+    -- elseif invItemName == "TransportShelve" then
+        
+    -- elseif invItemName == "TransportDrawer" then
+        
+    -- elseif invItemName == "TransportCupboard" then
+        
+    -- elseif invItemName == "TransportMedicine" then
+    
+    end
 end
 
-function CommonTemplates.ContainerAccess.Freeplace(transport, part, playerObj)
-    
+function CommonTemplates.ContainerAccess.Freeplace(vehicle, part, playerObj)
+    local invItem = part:getInventoryItem()
+    if not invItem then return end
+    local invItemName = invItem:getType()
+    if playerObj:getVehicle() == vehicle then
+        if part:getItemContainer() and part:getContainerCapacity() > 0 then
+            local seat = vehicle:getSeat(playerObj)
+            local seatname = vehicle:getScript():getPassenger(seat):getId()
+            if string.match(part:getId(), seatname) then return true end
+        end
+        return false
+    else
+        return false
+    end
 end
+
+function CommonTemplates.InstallComplete.Freeplace(vehicle, part)
+    -- print("CommonTemplates.InstallComplete.Freeplace")
+    CommonTemplates.Init.Freeplace(vehicle, part)
+    local seatName = string.sub(part:getId(), 11)
+    local freestoragePart = vehicle:getPartById("Freestorage" .. seatName)
+    if freestoragePart then
+        local capacityCoef = 0
+        for i = 1, 3 do 
+            if vehicle:getPartById("Freeplace" .. i .. seatName) and vehicle:getPartById("Freeplace" .. i .. seatName):getInventoryItem()then
+                capacityCoef = capacityCoef + 0.33
+            end
+        end
+        if freestoragePart:getTable("container") then
+            freestoragePart:setContainerCapacity(tonumber(freestoragePart:getTable("container").capacity) - tonumber(freestoragePart:getTable("container").capacity) * capacityCoef)
+        else
+            freestoragePart:setContainerCapacity(99 - 100 * capacityCoef)
+        end
+    end
+end
+
+function CommonTemplates.UninstallComplete.Freeplace(vehicle, part, item)
+    -- print("CommonTemplates.UninstallComplete.Light")
+    part:getModData().tsarslib = {}
+    local seatName = string.sub(part:getId(), 11)
+    local freestoragePart = vehicle:getPartById("Freestorage" .. seatName)
+    if freestoragePart then
+        local capacityCoef = 0
+        for i = 1, 3 do 
+            if vehicle:getPartById("Freeplace" .. i .. seatName) and vehicle:getPartById("Freeplace" .. i .. seatName):getInventoryItem() then
+                capacityCoef = capacityCoef + 0.33
+            end
+        end      
+        if freestoragePart:getTable("container") then
+            freestoragePart:setContainerCapacity(tonumber(freestoragePart:getTable("container").capacity) - tonumber(freestoragePart:getTable("container").capacity) * capacityCoef)
+        else
+            freestoragePart:setContainerCapacity(99 - 100 * capacityCoef)
+        end
+    end
+end
+
+function CommonTemplates.Create.Freestorage(vehicle, part)
+    part:setCondition(100)
+    vehicle:transmitPartCondition(part);
+    vehicle:updatePartStats();
+    part:getItemContainer():setType("floor")
+end
+
+function CommonTemplates.Init.Freestorage(vehicle, part)
+-- print("CommonTemplates.Init.Freestorage")
+    part:getItemContainer():setType("floor")
+    local seatName = string.sub(part:getId(), 12)
+    local capacityCoef = 0
+    local freeplace1Part = vehicle:getPartById("Freeplace1" .. seatName)
+    for i = 1, 3 do 
+        -- print("Freeplace" .. i .. seatName)
+        -- print(vehicle:getPartById("Freeplace" .. i .. seatName):getInventoryItem())
+        if vehicle:getPartById("Freeplace" .. i .. seatName) and vehicle:getPartById("Freeplace" .. i .. seatName):getInventoryItem() then
+            -- print("+")
+            capacityCoef = capacityCoef + 0.33
+        end
+    end
+    -- print("capacityCoef ", capacityCoef)
+    if part:getTable("container") then
+        part:setContainerCapacity(tonumber(part:getTable("container").capacity) - tonumber(part:getTable("container").capacity) * capacityCoef)
+    else
+        part:setContainerCapacity(99 - 100 * capacityCoef)
+    end
+end
+
+function CommonTemplates.ContainerAccess.Freestorage(vehicle, part, playerObj)
+    if playerObj:getVehicle() == vehicle then
+        if part:getContainerCapacity() < 10 then
+            return false
+        end
+        local seat = vehicle:getSeat(playerObj)
+        local seatname = vehicle:getScript():getPassenger(seat):getId()
+        if string.match(part:getId(), seatname) then return true end
+    end
+    return false
+end
+
+
+-- function CommonTemplates.InstallTest.Freeplace(vehicle, part, playerObj)
+    
+    -- if CommonTemplates.InstallTest.multiRequire then return true else return false end
+-- end
+
+-- function CommonTemplates.UninstallTest.PartInCabin(vehicle, part, playerObj)
+    -- if CommonTemplates.UninstallTest.multiRequire then return true else return false end
+-- end

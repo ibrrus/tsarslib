@@ -1,6 +1,6 @@
 require "ISUI/ISPanelJoypad"
 --***********************************************************
---**              	  ROBERT JOHNSON                       **
+--**                    ROBERT JOHNSON                       **
 --***********************************************************
 
 ISPortableOvenUI = ISPanelJoypad:derive("ISPortableOvenUI");
@@ -65,8 +65,8 @@ function ISPortableOvenUI:initialise()
 
     self:addKnobValues();
     self:updateButtons();
-	
-	self:insertNewLineOfButtons(self.tempKnob, self.timerKnob, self.tempType)
+    
+    self:insertNewLineOfButtons(self.tempKnob, self.timerKnob, self.tempType)
     self:insertNewLineOfButtons(self.ok, self.close)
 end
 
@@ -88,33 +88,33 @@ function ISPortableOvenUI:changeTempType()
 end
 
 function ISPortableOvenUI:ChangeKnob()
-    self.oven:getModData().maxTemperature = self.tempKnob:getValue()
-    self.oven:getModData().timer = self.timerKnob:getValue()
-	self.oven:getModData().timePassed = 0
+    self.oven:getModData().tsarslib.maxTemperature = self.tempKnob:getValue()
+    self.oven:getModData().tsarslib.timer = self.timerKnob:getValue()
+    self.oven:getModData().tsarslib.timePassed = 0
     self.vehicle:transmitPartModData(self.oven)
 end
 
 function ISPortableOvenUI:update()
     self:updateButtons();
-	if not self.character:getVehicle() or not (self.vehicle:getSeat(self.character) == self.seat) then
+    if not self.character:getVehicle() or not (self.vehicle:getSeat(self.character) == self.seat) then
         self:setVisible(false);
         self:removeFromUIManager();
     end
 end
 
 function ISPortableOvenUI:updateButtons()
-    if not self.timerKnob.dragging then	
-        if self.oven:getModData().timePassed > 0 then
-            self.timerKnob:setKnobPosition(math.ceil((self.oven:getModData().timer - self.oven:getModData().timePassed)));
+    if not self.timerKnob.dragging then    
+        if self.oven:getModData().tsarslib.timePassed > 0 then
+            self.timerKnob:setKnobPosition(math.ceil((self.oven:getModData().tsarslib.timer - self.oven:getModData().tsarslib.timePassed)));
         else
-            self.timerKnob:setKnobPosition(self.oven:getModData().timer);
+            self.timerKnob:setKnobPosition(self.oven:getModData().tsarslib.timer);
         end
     end
     if not self.tempKnob.dragging then
-        self.tempKnob:setKnobPosition(self.oven:getModData().maxTemperature);
+        self.tempKnob:setKnobPosition(self.oven:getModData().tsarslib.maxTemperature);
     end
     if self.oven:getItemContainer():isActive() then
-		self.ok:setTitle(getText("ContextMenu_Turn_Off"))
+        self.ok:setTitle(getText("ContextMenu_Turn_Off"))
     else
         self.ok:setTitle(getText("ContextMenu_Turn_On"))
     end
@@ -161,16 +161,17 @@ function ISPortableOvenUI:onClick(button)
     if button.internal == "CLOSE" then
         self:setVisible(false);
         self:removeFromUIManager();
-		local player = self.character:getPlayerNum()
+        local player = self.character:getPlayerNum()
         if JoypadState.players[player+1] then
             setJoypadFocus(player, self.prevFocus)
         end
     end
     if button.internal == "OK" then
-        self.oven:getModData().maxTemperature = self.tempKnob:getValue()
-		self.oven:getModData().timer = self.timerKnob:getValue()
+        if not self.oven:getModData().tsarslib then self.oven:getModData().tsarslib = {} end
+        self.oven:getModData().tsarslib.maxTemperature = self.tempKnob:getValue()
+        self.oven:getModData().tsarslib.timer = self.timerKnob:getValue()
         self.vehicle:transmitPartModData(self.oven)
-		CommonTemplates.Use.DefaultDevice(self.vehicle, self.oven, self.character)
+        CommonTemplates.Use.DefaultDevice(self.vehicle, self.oven, self.character)
         -- self.oven:Toggle();
     end
 end
@@ -204,7 +205,7 @@ function ISPortableOvenUI:new(x, y, width, height, character, vehicle, part)
     o = ISPanelJoypad:new(x, y, width, height);
     setmetatable(o, self)
     self.__index = self
-	local player = character:getPlayerNum()
+    local player = character:getPlayerNum()
     if y == 0 then
         o.y = getPlayerScreenTop(player) + (getPlayerScreenHeight(player) - height) / 2
         o:setY(o.y)
@@ -216,12 +217,12 @@ function ISPortableOvenUI:new(x, y, width, height, character, vehicle, part)
     o.backgroundColor.a = 0.75
     o.width = width;
     o.height = height;
-	
+    
     o.character = character;
-	o.vehicle = vehicle
-	o.seat = vehicle:getSeat(character)
+    o.vehicle = vehicle
+    o.seat = vehicle:getSeat(character)
     o.oven = part;
-	
+    
     o.moveWithMouse = true;
     o.knobTex = getTexture("media/ui/Knobs/KnobDial.png");
     o.anchorLeft = true;
