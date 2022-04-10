@@ -1,3 +1,13 @@
+v.1.28
+2022-04-10
+
+Добавлены шаблоны модульной системы для домов на колесах. Теперь игрок может самостоятельно решать, какой предмет или прибор установить в автомобиль.
+Добавлены переводы для нового мода.
+
+Added modular system templates for RV. Now the player can decide for himself which item or device to install in the vehicle.
+Added translations for the new mod.
+
+-------------------
 v.1.27.1
 2022-03-21
 

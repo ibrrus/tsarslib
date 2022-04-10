@@ -32,6 +32,11 @@ Tooltip_RU = {
     Tooltip_item_ATAPetyarbuiltTuningMag = "Прочитав данный выпуск, вы получите базовые знания тюнинга и научитесь создавать<br>защиту для Petyarbuilt 379",
 
 
+/************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
+    
+    Tooltip_item_ATATuningMagLuton = "Прочитав данный выпуск, вы получите базовые знания тюнинга и научитесь создавать<br>защиту для MolksAgen Luton Van",
+    
+
 /************ True Music ************/
     Tooltip_item_Boombox = "Иностранный приемник. Не ловит местные радиостанции, но может<br>проигрывать кассеты. Работает на батарейках.",
     Tooltip_item_Vinyl = "Для работы необходимо электричество и подключенные колонки (громкоговорители).",

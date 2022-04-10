@@ -173,6 +173,7 @@ module Base
 
         part Freestorage*
         {
+            category = nodisplay,
             table container
             {
                 capacity = 300,

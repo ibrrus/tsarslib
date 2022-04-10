@@ -134,4 +134,21 @@ Recipe_EN = {
     Recipe_Cut_ATAPetyarbuiltProtectionSideFrontItem = "Petyarbuilt 379 - Cut Front Protection",
     Recipe_Make_ATAPetyarbuiltProtectionSideTopItem = "Petyarbuilt 379 - Make Top Protection",
     Recipe_Cut_ATAPetyarbuiltProtectionSideTopItem = "Petyarbuilt 379 - Cut Top Protection",
+    
+    
+/************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
+
+    Recipe_Make_ATALutonProtectionSideFrontItem = "MolksAgen Luton Van - Make Front Protection",
+    Recipe_Cut_ATALutonProtectionSideFrontItem = "MolksAgen Luton Van - Cut Front Protection",
+    Recipe_Make_ATALutonProtectionHoodItem = "MolksAgen Luton Van - Make Hood Protection",
+    Recipe_Cut_ATALutonProtectionHoodItem = "MolksAgen Luton Van - Cut Hood Protection",
+    Recipe_Make_ATALutonProtectionWindowFrontSideItem= "MolksAgen Luton Van - Make Side Window Protection",
+    Recipe_Cut_ATALutonProtectionWindowFrontSideItem = "MolksAgen Luton Van - Cut Side Window Protection",
+    Recipe_Make_ATALutonProtectionWindowFrontItem = "MolksAgen Luton Van - Make Windshield Protection",
+    Recipe_Cut_ATALutonProtectionWindowFrontItem = "MolksAgen Luton Van - Cut Windshield Protection",
+    Recipe_Make_ATALutonInteractiveTrunkRoofRackItem = "MolksAgen Luton Van - Make Roof Rack",
+    Recipe_Cut_ATALutonInteractiveTrunkRoofRackItem = "MolksAgen Luton Van - Cut Roof Rack",
+    Recipe_Make_ATALutonLadderItem = "MolksAgen Luton Van - Make Ladder",
+    Recipe_Cut_ATALutonLadderItem = "MolksAgen Luton Van - Cut Ladder",
+    
 }

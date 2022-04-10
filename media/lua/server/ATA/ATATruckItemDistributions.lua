@@ -41,10 +41,10 @@ ATATruckItemDistributions.HeavyMegaTruckBed = {
 }
 
 ATATruckItemDistributions.CorpseMegaTruckBed = {
-    rolls = 50,
+    rolls = 80,
     items = {
-        "CorpseFemale", 10,
-        "CorpseMale", 10,
+        "CorpseFemale", 20,
+        "CorpseMale", 20,
         "PopBottleEmpty", 0.01,
         "PopEmpty", 0.01,
         "WaterBottleEmpty", 0.01,
@@ -270,7 +270,7 @@ VehicleDistributions.GroceriesMegaTruckBed = {
 }
 
 ATATruckItemDistributions.FarmerMegaTruckBed = {
-    rolls = 40,
+    rolls = 100,
     items = {
         "BookFarming1", 0.01,
         "BookFarming2", 0.01,
@@ -614,39 +614,109 @@ VehicleDistributions.DoctorMegaTruckBed = {
 
 ATATruckItemDistributions.HeavyMegaTruck = {
     TruckBed = ATATruckItemDistributions.HeavyMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.HeavyMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.HeavyMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.HeavyMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.HeavyMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.HeavyMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.HeavyMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 
 ATATruckItemDistributions.GroceriesMegaTruck = {
     TruckBed = ATATruckItemDistributions.GroceriesMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.GroceriesMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.GroceriesMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.GroceriesMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.GroceriesMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.GroceriesMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.GroceriesMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 
 ATATruckItemDistributions.FarmerMegaTruck = {
     TruckBed = ATATruckItemDistributions.FarmerMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.FarmerMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.FarmerMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.FarmerMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.FarmerMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.FarmerMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.FarmerMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 ATATruckItemDistributions.CorpseMegaTruck = {
     TruckBed = ATATruckItemDistributions.CorpseMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.CorpseMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.CorpseMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.CorpseMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.CorpseMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.CorpseMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.CorpseMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 
 ATATruckItemDistributions.FurnitureMegaTruck = {
-    TruckBed = ATATruckItemDistributions.FarmerMegaTruckBed;
+    TruckBed = ATATruckItemDistributions.FurnitureMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.FurnitureMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.FurnitureMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.FurnitureMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.FurnitureMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.FurnitureMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.FurnitureMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 
 ATATruckItemDistributions.ClothingMegaTruck = {
     TruckBed = ATATruckItemDistributions.ClothingMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.ClothingMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.ClothingMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.ClothingMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.ClothingMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.ClothingMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.ClothingMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 
 ATATruckItemDistributions.CarpenterMegaTruck = {
     TruckBed = ATATruckItemDistributions.CarpenterMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.CarpenterMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.CarpenterMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.CarpenterMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.CarpenterMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.CarpenterMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.CarpenterMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 
 ATATruckItemDistributions.MetalWelderMegaTruck = {
     TruckBed = ATATruckItemDistributions.MetalWelderMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.MetalWelderMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.MetalWelderMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.MetalWelderMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.MetalWelderMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.MetalWelderMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.MetalWelderMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 
 ATATruckItemDistributions.DoctorMegaTruck = {
     TruckBed = ATATruckItemDistributions.DoctorMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.DoctorMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.DoctorMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.DoctorMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.DoctorMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.DoctorMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.DoctorMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }
 
 ATATruckItemDistributions.PoliceMegaTruck = {
     TruckBed = ATATruckItemDistributions.PoliceMegaTruckBed;
+    FreestorageFrontLeft = ATATruckItemDistributions.PoliceMegaTruckBed;
+    FreestorageFrontRight = ATATruckItemDistributions.PoliceMegaTruckBed;
+    FreestorageMiddleLeft = ATATruckItemDistributions.PoliceMegaTruckBed;
+    FreestorageMiddleRight = ATATruckItemDistributions.PoliceMegaTruckBed;
+    FreestorageRearLeft = ATATruckItemDistributions.PoliceMegaTruckBed;
+    FreestorageRearRight = ATATruckItemDistributions.PoliceMegaTruckBed;
+    GloveBox = VehicleDistributions.GloveBox;
 }

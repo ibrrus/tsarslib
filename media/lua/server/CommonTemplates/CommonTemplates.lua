@@ -968,14 +968,10 @@ function CommonTemplates.Init.Freestorage(vehicle, part)
     local capacityCoef = 0
     local freeplace1Part = vehicle:getPartById("Freeplace1" .. seatName)
     for i = 1, 3 do 
-        -- print("Freeplace" .. i .. seatName)
-        -- print(vehicle:getPartById("Freeplace" .. i .. seatName):getInventoryItem())
         if vehicle:getPartById("Freeplace" .. i .. seatName) and vehicle:getPartById("Freeplace" .. i .. seatName):getInventoryItem() then
-            -- print("+")
             capacityCoef = capacityCoef + 0.33
         end
     end
-    -- print("capacityCoef ", capacityCoef)
     if part:getTable("container") then
         part:setContainerCapacity(tonumber(part:getTable("container").capacity) - tonumber(part:getTable("container").capacity) * capacityCoef)
     else
@@ -994,13 +990,3 @@ function CommonTemplates.ContainerAccess.Freestorage(vehicle, part, playerObj)
     end
     return false
 end
-
-
--- function CommonTemplates.InstallTest.Freeplace(vehicle, part, playerObj)
-    
-    -- if CommonTemplates.InstallTest.multiRequire then return true else return false end
--- end
-
--- function CommonTemplates.UninstallTest.PartInCabin(vehicle, part, playerObj)
-    -- if CommonTemplates.UninstallTest.multiRequire then return true else return false end
--- end

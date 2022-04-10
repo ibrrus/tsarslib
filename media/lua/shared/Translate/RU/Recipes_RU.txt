@@ -133,4 +133,20 @@ Recipe_RU = {
     Recipe_Cut_ATAPetyarbuiltProtectionSideFrontItem = "Petyarbuilt 379 - разрезать Переднюю защиту",
     Recipe_Make_ATAPetyarbuiltProtectionSideTopItem = "Petyarbuilt 379 - создать Верхнюю защиту",
     Recipe_Cut_ATAPetyarbuiltProtectionSideTopItem = "Petyarbuilt 379 - разрезать Верхнюю защиту",
+
+    
+/************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
+
+    Recipe_Make_ATALutonProtectionSideFrontItem = "MolksAgen Luton Van - создать Переднюю защиту",
+    Recipe_Cut_ATALutonProtectionSideFrontItem = "MolksAgen Luton Van - разрезать Переднюю защиту",
+    Recipe_Make_ATALutonProtectionHoodItem = "MolksAgen Luton Van - создать Защиту капота",
+    Recipe_Cut_ATALutonProtectionHoodItem = "MolksAgen Luton Van - разрезать Защиту капота",
+    Recipe_Make_ATALutonProtectionWindowFrontSideItem= "MolksAgen Luton Van - создать Защиту бокового стекла",
+    Recipe_Cut_ATALutonProtectionWindowFrontSideItem = "MolksAgen Luton Van - разрезать Защиту бокового стекла",
+    Recipe_Make_ATALutonProtectionWindowFrontItem = "MolksAgen Luton Van - создать Защиту лобового стекла",
+    Recipe_Cut_ATALutonProtectionWindowFrontItem = "MolksAgen Luton Van - разрезать Защиту лобового стекла",
+    Recipe_Make_ATALutonInteractiveTrunkRoofRackItem = "MolksAgen Luton Van - создать Багажник для крыши",
+    Recipe_Cut_ATALutonInteractiveTrunkRoofRackItem = "MolksAgen Luton Van - разрезать Багажник для крыши",
+    Recipe_Make_ATALutonLadderItem = "MolksAgen Luton Van - создать Лестницу",
+    Recipe_Cut_ATALutonLadderItem = "MolksAgen Luton Van - разрезать Лестницу",
 }

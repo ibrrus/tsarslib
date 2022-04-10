@@ -157,6 +157,17 @@ ItemName_RU = {
     ItemName_Autotsar.ATAPetyarbuiltProtectionSideItem = "Petyarbuilt 379 - боковая защита",
     ItemName_Autotsar.ATAPetyarbuiltProtectionSideFrontItem = "Petyarbuilt 379 - передняя защита",
     ItemName_Autotsar.ATAPetyarbuiltProtectionSideTopItem = "Petyarbuilt 379 - верхняя защита",
+    
+    
+/************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
+    
+    ItemName_Autotsar.ATALutonTuningMag = "Журнал «Autotsar Tuning Atelier - MolksAgen Luton Van»",
+    ItemName_Autotsar.ATALutonProtectionSideFrontItem = "MolksAgen Luton Van - передняя защита",
+    ItemName_Autotsar.ATALutonProtectionHoodItem = "MolksAgen Luton Van - защита капота",
+    ItemName_Autotsar.ATALutonProtectionWindowFrontSideItem = "MolksAgen Luton Van - защита бокового стекла",
+    ItemName_Autotsar.ATALutonProtectionWindowFrontItem = "MolksAgen Luton Van - защита лобового стекла",
+    ItemName_Autotsar.ATALutonInteractiveTrunkRoofRackItem = "MolksAgen Luton Van - багажник для крыши",
+    ItemName_Autotsar.ATALutonLadderItem = "MolksAgen Luton Van - лестница",
 
 
 /************ True Music ************/
