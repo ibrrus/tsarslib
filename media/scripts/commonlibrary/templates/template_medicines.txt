@@ -1,16 +1,5 @@
 module Base
 {
-    item TransportMedicine
-    {
-        Weight    =    10.0,
-        Type    =    Normal,
-        DisplayName    =    TransportMedicine,
-        Icon    =    media/ui/Container_Medicine,
-        MaxCapacity = 10,
-        ConditionMax = 100,
-        MechanicsItem = TRUE,
-    }
-
     template vehicle Medicines
     {
         part MedicineFrontLeft

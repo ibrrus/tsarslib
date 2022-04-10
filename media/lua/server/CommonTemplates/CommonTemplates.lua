@@ -849,22 +849,24 @@ function CommonTemplates.Init.Freeplace(vehicle, part)
     elseif invItemName == "TransportMedicine" then
         part:getItemContainer():setType("medicine")
     elseif invItemName == "TvAntique" or invItemName == "TvWideScreen" or invItemName == "TvBlack" then
-        local deviceData = part:getDeviceData()
-        if not deviceData then
-            deviceData = part:createSignalDevice()
-        end
-        deviceData:setIsTwoWay( invItem:getDeviceData():getIsTwoWay() )
-        deviceData:setBaseVolumeRange(10)
-        deviceData:setIsPortable(false)
-        deviceData:setIsTelevision(true)
-        deviceData:setIsBatteryPowered(false)
-        deviceData:setTransmitRange( invItem:getDeviceData():getTransmitRange() )
-        deviceData:setMicRange( invItem:getDeviceData():getMicRange() )
-        deviceData:setBaseVolumeRange( invItem:getDeviceData():getBaseVolumeRange() )
-        deviceData:setMinChannelRange( invItem:getDeviceData():getMinChannelRange() )
-        deviceData:setMaxChannelRange( invItem:getDeviceData():getMaxChannelRange() )
-        deviceData:generatePresets()
-        deviceData:setRandomChannel()
+        -- TIS_TODO: Добавить возможность удалять DeviceData с частей авто
+        -- local deviceData = part:getDeviceData()
+        -- if not deviceData then
+            -- deviceData = part:createSignalDevice()
+        -- end
+        -- deviceData:setIsTwoWay( invItem:getDeviceData():getIsTwoWay() )
+        -- deviceData:setTransmitRange( invItem:getDeviceData():getTransmitRange() )
+        -- deviceData:setMicRange( invItem:getDeviceData():getMicRange() )
+        -- deviceData:setBaseVolumeRange( invItem:getDeviceData():getBaseVolumeRange() )
+        -- deviceData:setIsPortable(false)
+        -- deviceData:setIsTelevision( invItem:getDeviceData():getIsTelevision() )
+        -- deviceData:setMinChannelRange( invItem:getDeviceData():getMinChannelRange() )
+        -- deviceData:setMaxChannelRange( invItem:getDeviceData():getMaxChannelRange() )
+        -- deviceData:setIsBatteryPowered(false)
+        -- deviceData:setIsHighTier(false)
+        -- deviceData:setUseDelta(0.007)
+        -- deviceData:generatePresets()
+        -- deviceData:setRandomChannel()
     end
 end
 
@@ -880,7 +882,7 @@ function CommonTemplates.Update.Freeplace(vehicle, part, elapsedMinutes)
         CommonTemplates.Update.Oven(vehicle, part, elapsedMinutes)
     elseif invItemName == "TransportMicrowave" then
         CommonTemplates.Update.Microwave(vehicle, part, elapsedMinutes)
-        print("CommonTemplates.Update.Microwave")
+        -- print("CommonTemplates.Update.Microwave")
     elseif invItemName == "TvAntique" or invItemName == "TvWideScreen" or invItemName == "TvBlack" then
         Vehicles.Update.Radio(vehicle, part, elapsedMinutes)
     
@@ -941,11 +943,11 @@ function CommonTemplates.UninstallComplete.Freeplace(vehicle, part, item)
     local freestoragePart = vehicle:getPartById("Freestorage" .. seatName)
     if freestoragePart then
         local capacityCoef = 0
-        for i = 1, 3 do 
+        for i = 1, 3 do
             if vehicle:getPartById("Freeplace" .. i .. seatName) and vehicle:getPartById("Freeplace" .. i .. seatName):getInventoryItem() then
                 capacityCoef = capacityCoef + 0.33
             end
-        end      
+        end
         if freestoragePart:getTable("container") then
             freestoragePart:setContainerCapacity(tonumber(freestoragePart:getTable("container").capacity) - tonumber(freestoragePart:getTable("container").capacity) * capacityCoef)
         else
@@ -958,12 +960,10 @@ function CommonTemplates.Create.Freestorage(vehicle, part)
     part:setCondition(100)
     vehicle:transmitPartCondition(part);
     vehicle:updatePartStats();
-    part:getItemContainer():setType("floor")
 end
 
 function CommonTemplates.Init.Freestorage(vehicle, part)
 -- print("CommonTemplates.Init.Freestorage")
-    part:getItemContainer():setType("floor")
     local seatName = string.sub(part:getId(), 12)
     local capacityCoef = 0
     local freeplace1Part = vehicle:getPartById("Freeplace1" .. seatName)

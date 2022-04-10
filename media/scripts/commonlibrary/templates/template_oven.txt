@@ -1,159 +1,84 @@
 module Base
 {
-	item TransportOven
-	{
-		Weight	=	20.0,
-		Type	=	Normal,
-		DisplayName	= Compact Stove,
-		Tooltip = Tooltip_Compact_Oven,
-		Icon	=	media/ui/Container_Oven,
-		MaxCapacity = 10,
-		ConditionMax = 100,
-		MechanicsItem = TRUE,
-	}
-	
-	item MovGreenOven
-	{
-		Type			= Moveable,
-		Icon			= default,
-		Weight          	= 40,
-		DisplayName		= Moveable,
-		WorldObjectSprite	= appliances_cooking_01_1,
-	}
-	
-	item MovGreyOven
-	{
-		Type			= Moveable,
-		Icon			= default,
-		Weight          	= 40,
-		DisplayName		= Moveable,
-		WorldObjectSprite	= appliances_cooking_01_5,
-	}
-	
-	item MovRedOven
-	{
-		Type			= Moveable,
-		Icon			= default,
-		Weight          	= 40,
-		DisplayName		= Moveable,
-		WorldObjectSprite	= appliances_cooking_01_9,
-	}
-	
-	item MovModernOven
-	{
-		Type			= Moveable,
-		Icon			= default,
-		Weight          	= 40,
-		DisplayName		= Moveable,
-		WorldObjectSprite	= appliances_cooking_01_13,
-	}
-	
-	item MovIndustrialOven
-	{
-		Type			= Moveable,
-		Icon			= default,
-		Weight          	= 40,
-		DisplayName		= Moveable,
-		WorldObjectSprite	= appliances_cooking_01_21,
-	}
-	
-	/* recipe Make a compact stove
+    template vehicle Ovens
     {
-        MovGreenOven/MovGreyOven/MovRedOven/MovModernOven/MovIndustrialOven,
-		BlowTorch=5,
-		WeldingRods=5,
-        keep WeldingMask,
-		keep Hammer,
-		keep Saw,
-				
-		Result:TransportOven,
-		Time:1000.0,
-		Sound:BlowTorch,
-		Category:Welding,
-		SkillRequired:MetalWelding=3;Electricity=2,
-        OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
-		OnGiveXP:Recipe.OnGiveXP.DismantleElectronics,
+        part OvenFrontLeft
+        {
+            area = Common,
+        }
+        part OvenFrontRight
+        {
+            area = Common,
+        }
+        part OvenMiddleLeft
+        {
+            area = Common,
+        }
+        part OvenMiddleRight
+        {
+            area = Common,
+        }
+        part OvenRearLeft
+        {
+            area = Common,
+        }
+        part OvenRearRight
+        {
+            area = Common,
+        }
+        
+        part Oven*
+        {
+            category = nodisplay,
+            specificItem = false,
+            itemType = Base.TransportOven,
+            container
+            {
+                capacity = 10,
+                test = CommonTemplates.ContainerAccess.ContainerByName,
+            }
+            table install
+            {
+                items
+                {
+                        1
+                        {
+                            type = Base.Screwdriver,
+                            count = 1,
+                            keep = true,
+                            equip = primary,
+                        }
+                }
+                time = 300,
+                skills = Mechanics:1,
+                recipes = Basic Mechanics,
+                test = CommonTemplates.InstallTest.PartInCabin,
+            }
+            table uninstall
+            {
+                items
+                {
+                        1
+                        {
+                            type = Base.Screwdriver,
+                            count = 1,
+                            keep = true,
+                equip = primary,
+                        }
+                }
+                time = 300,
+                skills = Mechanics:1,
+                recipes = Basic Mechanics,
+                test = CommonTemplates.UninstallTest.PartInCabin,
+                requireEmpty = true,
+            }
+            lua
+            {
+                create = CommonTemplates.Create.Oven,
+                init = CommonTemplates.Init.Oven,
+                update = CommonTemplates.Update.Oven,
+            }
+        }
     }
-	*/
-	template vehicle Ovens
-	{
-		part OvenFrontLeft
-		{
-			area = Common,
-		}
-		part OvenFrontRight
-		{
-			area = Common,
-		}
-		part OvenMiddleLeft
-		{
-			area = Common,
-		}
-		part OvenMiddleRight
-		{
-			area = Common,
-		}
-		part OvenRearLeft
-		{
-			area = Common,
-		}
-		part OvenRearRight
-		{
-			area = Common,
-		}
-		
-		part Oven*
-		{
-			category = nodisplay,
-			specificItem = false,
-			itemType = Base.TransportOven,
-			container
-			{
-				capacity = 10,
-				test = CommonTemplates.ContainerAccess.ContainerByName,
-			}
-			table install
-			{
-				items
-				{
-						1
-						{
-							type = Base.Screwdriver,
-							count = 1,
-							keep = true,
-							equip = primary,
-						}
-				}
-				time = 300,
-				skills = Mechanics:1,
-				recipes = Basic Mechanics,
-				test = CommonTemplates.InstallTest.PartInCabin,
-			}
-			table uninstall
-			{
-				items
-				{
-						1
-						{
-							type = Base.Screwdriver,
-							count = 1,
-							keep = true,
-				equip = primary,
-						}
-				}
-				time = 300,
-				skills = Mechanics:1,
-				recipes = Basic Mechanics,
-				test = CommonTemplates.UninstallTest.PartInCabin,
-				requireEmpty = true,
-			}
-			lua
-			{
-				create = CommonTemplates.Create.Oven,
-				init = CommonTemplates.Init.Oven,
-				update = CommonTemplates.Update.Oven,
-			}
-		}
-	}
 }
 

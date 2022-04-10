@@ -1,11 +1,17 @@
 Recipe_RU = {
+
+/* transport_item.txt */
+    Recipe_Make_TransportCounter = "Смастерить портативную тумбочку",
+    Recipe_Make_TransportCupboard = "Смастерить портативный шкаф",
+    Recipe_Make_TransportShelve = "Смастерить портативную полку",
     Recipe_Make_a_compact_fridge = "Создать компактный холодильник",
     Recipe_Make_a_compact_stove = "Создать компактную плиту",
     Recipe_Make_a_compact_microwave = "Создать компактную микроволновку",
-
+    
+    
+/* ATA */
     Recipe_Make_ATAProtectionWheelsItem = "Создать Защиту колес",
     Recipe_Cut_ATAProtectionWheelsItem = "Разрезать Защиту колес",
-    
     Recipe_Basic_Tuning = "Базовый тюнинг",
     
     

@@ -117,6 +117,7 @@ IGUI_EN = {
     IGUI_VehiclePartFreestorageRearLeft = "Free space (RL)",
     IGUI_VehiclePartFreestorageRearRight = "Free space (RR)",
     IGUI_VehiclePartfloor = "Free space",
+    
 /* ATA */
     IGUI_CloseHeadlightsPopUP = "Down Headlights",
     IGUI_OpenHeadlightsPopUP = "Up Headlights",
@@ -313,7 +314,6 @@ IGUI_EN = {
     IGUI_VehiclePartBatteryChargerA = "Battery place",
     IGUI_VehiclePartBatteryChargerB = "Battery place",
     IGUI_VehiclePartBatteryChargerC = "Battery place",
-    
 
     
 /************ Autotsar Tuning Atelier - Bus ************/
@@ -335,9 +335,11 @@ IGUI_EN = {
     IGUI_VehicleNameATAMustangClassic = "Fjord Mustard",
     IGUI_VehicleNameATAMustangPolice = "Fjord Mustard",
     
+    
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
     
     IGUI_VehicleNameATADodge = "Dadge Steals RT Twin Turbo",
+
 
 /************ Autotsar Trailers ************/
     IGUI_VehicleNameTrailerFirst = "Autotsar GNV 250",

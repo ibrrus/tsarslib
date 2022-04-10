@@ -170,8 +170,8 @@ function ISCommonMenu.doFreespaceMenu(playerObj, vehicle, freespace, menu)
         ISCommonMenu.doMicrowaveMenu(menu, playerObj, vehicle, freespace)
     elseif invItemName == "TransportOven" then
         ISCommonMenu.doOvenMenu(menu, playerObj, vehicle, freespace)
-    elseif invItemName == "TvAntique" or invItemName == "TvWideScreen" or invItemName == "TvBlack" then
-        
+    -- elseif invItemName == "TvAntique" or invItemName == "TvWideScreen" or invItemName == "TvBlack" then
+        -- menu:addSlice(getText("IGUI_DeviceOptions"), getTexture("media/ui/commonlibrary/vehicle_TV.png"), ISVehicleMenu.onSignalDevice, playerObj, freespace)
     end
 end
 

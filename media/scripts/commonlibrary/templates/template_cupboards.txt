@@ -1,16 +1,5 @@
 module Base
 {
-    item TransportCupboard
-    {
-        Weight    =    10.0,
-        Type    =    Normal,
-        DisplayName    =    TransportCupboard,
-        Icon    =    media/ui/Container_Cabinet,
-        MaxCapacity = 30,
-        ConditionMax = 100,
-        MechanicsItem = TRUE,
-    }
-
     template vehicle Cupboards
     {
         part CupboardFrontLeft

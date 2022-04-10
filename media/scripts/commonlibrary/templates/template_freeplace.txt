@@ -96,8 +96,8 @@ module Base
         {
             category = bodywork,
             specificItem = false,
-            itemType = Base.TransportCounter;Base.TransportCupboard;Base.TransportDrawer;Base.TransportFreezer;Base.TransportFridge;Base.Mattress;Base.TransportMedicine;Base.TransportMicrowave;Base.TransportOven;Base.TransportShelve;Radio.TvAntique;Radio.TvWideScreen;Radio.TvBlack,
-            
+            itemType = Base.Mattress;Base.TransportCounter;Base.Drawer;Base.TransportFreezer;Base.TransportFridge;Base.TransportMedicine;Base.TransportMicrowave;Base.TransportOven;Base.TransportShelve,
+
             container
             {
                 test = CommonTemplates.ContainerAccess.Freeplace,
@@ -115,9 +115,9 @@ module Base
                         equip = primary,
                     }
                 }
-                time = 300,
-                skills = Mechanics:1,
-                recipes = Basic Mechanics,
+                time = 1000,
+                skills = Mechanics:4,
+                recipes = Advanced Mechanics;Basic Tuning,
                 test = ATATuning.InstallTest.multiRequire,
                 complete = CommonTemplates.InstallComplete.Freeplace,
             }
@@ -133,9 +133,9 @@ module Base
                     equip = primary,
                     }
                 }
-                time = 300,
-                skills = Mechanics:1,
-                recipes = Basic Mechanics,
+                time = 1000,
+                skills = Mechanics:4,
+                recipes = Advanced Mechanics;Basic Tuning,
                 test = ATATuning.UninstallTest.multiRequire,
                 complete = CommonTemplates.UninstallComplete.Freeplace,
             }

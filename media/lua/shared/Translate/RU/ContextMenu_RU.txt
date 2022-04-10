@@ -1,20 +1,22 @@
 ContextMenu_RU = {
-	ContextMenu_AirCondOff = "Выключить кондиционер",
-	ContextMenu_AirCondOn = "Включить кондиционер",
-	ContextMenu_Sleep_Mattress = "Спать на матрасе",
-	ContextMenu_PainNoSleep_Mattress = "Слишком сильная боль,<br>чтобы спать",
-	ContextMenu_PanicNoSleep_Mattress = "Слишком паникую,<br>чтобы спать",
-	ContextMenu_NoSleepTooEarly_Mattress = "Не могу снова заснуть на матрасе.<br>Попробую позднее",
-	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Залить бензин в цистерну",
-	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Слить бензин из цистерны",
-	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Заправить цистерну<br>от колонки",
-	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Заправить цистерну",
-	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Заправиться из цистерны",
-	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Нужна пустая канистра",
-	
-	ContextMenu_CloseTent = "Закрыть палатку",
-	ContextMenu_OpenTent = "Открыть палатку",
-	
+    ContextMenu_TCConvertAppliance = "Создать %1",
+
+    ContextMenu_AirCondOff = "Выключить кондиционер",
+    ContextMenu_AirCondOn = "Включить кондиционер",
+    ContextMenu_Sleep_Mattress = "Спать на матрасе",
+    ContextMenu_PainNoSleep_Mattress = "Слишком сильная боль,<br>чтобы спать",
+    ContextMenu_PanicNoSleep_Mattress = "Слишком паникую,<br>чтобы спать",
+    ContextMenu_NoSleepTooEarly_Mattress = "Не могу снова заснуть на матрасе.<br>Попробую позднее",
+    ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Залить бензин в цистерну",
+    ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Слить бензин из цистерны",
+    ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Заправить цистерну<br>от колонки",
+    ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Заправить цистерну",
+    ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Заправиться из цистерны",
+    ContextMenu_For_get_Gasoline_Need_Gas_Can = "Нужна пустая канистра",
+    
+    ContextMenu_CloseTent = "Закрыть палатку",
+    ContextMenu_OpenTent = "Открыть палатку",
+    
     ContextMenu_Vehicle_For_Smashwindow_Uninstall_Protection = "Чтобы разбить окно,<br>снимите защиту.",
     
 /************ Aquatsar Yacht Club ************/
@@ -55,26 +57,26 @@ ContextMenu_RU = {
     ContextMenu_cabinForceUnlock_tooUnhappy = "Я не в настроении<br>этим заниматься",
     
 /************ Autotsar Tuning Atelier - Bus ************/
-	ContextMenu_Vehicle_EGNH = "Написать «EGNH»",
+    ContextMenu_Vehicle_EGNH = "Написать «EGNH»",
 
 /************ Autotsar Trailers ************/
-	ContextMenu_Close_trunk = "Закрыть багажник",
-	ContextMenu_Open_trunk = "Открыть багажник",
-	ContextMenu_TrailerSpotlightOn = "Включить прожекторы",
-	ContextMenu_TrailerSpotlightOff = "Выключить прожекторы",
-	ContextMenu_Turn_On_Generator = "Запустить генератор",
-	
+    ContextMenu_Close_trunk = "Закрыть багажник",
+    ContextMenu_Open_trunk = "Открыть багажник",
+    ContextMenu_TrailerSpotlightOn = "Включить прожекторы",
+    ContextMenu_TrailerSpotlightOff = "Выключить прожекторы",
+    ContextMenu_Turn_On_Generator = "Запустить генератор",
+    
 /************ True Actions ************/
-	ContextMenu_Sit = "Сесть",
-	ContextMenu_Lie = "Прилечь",
-	ContextMenu_OnSleep = "Лечь",
-	
+    ContextMenu_Sit = "Сесть",
+    ContextMenu_Lie = "Прилечь",
+    ContextMenu_OnSleep = "Лечь",
+    
 /************ True Music ************/
-	ContextMenu_Stop_music = "Выключить музыку",
-	ContextMenu_Play_music = "Играть музыку",
+    ContextMenu_Stop_music = "Выключить музыку",
+    ContextMenu_Play_music = "Играть музыку",
     ContextMenu_Sound_carrier_not_install = "Носитель не установлен",
     ContextMenu_Song = "Петь",
-	
+    
 /************ ZuperCart ************/
-	ContextMenu_GrabTrolley = "Взять тележку",
+    ContextMenu_GrabTrolley = "Взять тележку",
 }

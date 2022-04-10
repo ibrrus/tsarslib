@@ -1,16 +1,5 @@
 module Base
 {
-    item TransportDrawer
-    {
-        Weight    =    10.0,
-        Type    =    Normal,
-        DisplayName    =    TransportDrawer,
-        Icon    =    media/ui/Container_Drawer,
-        MaxCapacity = 10,
-        ConditionMax = 100,
-        MechanicsItem = TRUE,
-    }
-
     template vehicle Drawers
     {
         part DrawerFrontLeft
@@ -42,7 +31,7 @@ module Base
         {
             category = nodisplay,
             specificItem = false,
-            itemType = Base.TransportDrawer,
+            itemType = Base.Drawer,
             container
             {
                 capacity = 10,

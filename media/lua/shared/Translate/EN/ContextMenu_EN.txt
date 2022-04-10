@@ -1,19 +1,21 @@
 ContextMenu_EN = {
-	ContextMenu_AirCondOn = "Heater control",
-	ContextMenu_AirCondOff = "Heater control",
-	ContextMenu_Sleep_Mattress = "Sleep on the mattress",
-	ContextMenu_PainNoSleep_Mattress = "Experiencing too much pain to sleep on the mattress",
-	ContextMenu_PanicNoSleep_Mattress = "Too panicked to sleep on the mattress",
-	ContextMenu_NoSleepTooEarly_Mattress = "Can't get back to sleep on the mattress.<br>Try again later",
-	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Pour gasoline into the tank",
-	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Drain gasoline from tank",
-	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Fill Gasoline Storage Tank From Pump",
-	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Fill Gasoline Storage Tank From Fuel Truck",
-	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Refuel from the tank",
-	ContextMenu_For_get_Gasoline_Need_Gas_Can = "Need a gas can",
-	
-	ContextMenu_CloseTent = "Close tent",
-	ContextMenu_OpenTent = "Open tent",
+    ContextMenu_TCConvertAppliance = "Make %1",
+
+    ContextMenu_AirCondOn = "Heater control",
+    ContextMenu_AirCondOff = "Heater control",
+    ContextMenu_Sleep_Mattress = "Sleep on the mattress",
+    ContextMenu_PainNoSleep_Mattress = "Experiencing too much pain to sleep on the mattress",
+    ContextMenu_PanicNoSleep_Mattress = "Too panicked to sleep on the mattress",
+    ContextMenu_NoSleepTooEarly_Mattress = "Can't get back to sleep on the mattress.<br>Try again later",
+    ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Pour gasoline into the tank",
+    ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Drain gasoline from tank",
+    ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Fill Gasoline Storage Tank From Pump",
+    ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Fill Gasoline Storage Tank From Fuel Truck",
+    ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Refuel from the tank",
+    ContextMenu_For_get_Gasoline_Need_Gas_Can = "Need a gas can",
+    
+    ContextMenu_CloseTent = "Close tent",
+    ContextMenu_OpenTent = "Open tent",
     
     ContextMenu_Vehicle_For_Smashwindow_Uninstall_Protection = "To break the window,<br>remove the protection.",
     
@@ -55,27 +57,27 @@ ContextMenu_EN = {
     ContextMenu_cabinForceUnlock_tooUnhappy = "I'm not in the mood<br>to do this",
 
 /************ Autotsar Tuning Atelier - Bus ************/
-	ContextMenu_Vehicle_EGNH = "Write «EGNH»",
-	
+    ContextMenu_Vehicle_EGNH = "Write «EGNH»",
+    
 /************ Autotsar Trailers ************/
-	ContextMenu_Close_trunk = "Close trunk",
-	ContextMenu_Open_trunk = "Open trunk",
-	ContextMenu_TrailerSpotlightOn = "Turn Spotlights on",
-	ContextMenu_TrailerSpotlightOff = "Turn Spotlights off",
-	ContextMenu_Turn_On_Generator = "Start generator",
-	
+    ContextMenu_Close_trunk = "Close trunk",
+    ContextMenu_Open_trunk = "Open trunk",
+    ContextMenu_TrailerSpotlightOn = "Turn Spotlights on",
+    ContextMenu_TrailerSpotlightOff = "Turn Spotlights off",
+    ContextMenu_Turn_On_Generator = "Start generator",
+    
 /************ True Actions ************/
-	ContextMenu_Sit = "Sit",
-	ContextMenu_Lie = "Lie",
-	ContextMenu_OnSleep = "Lie down",
-	
+    ContextMenu_Sit = "Sit",
+    ContextMenu_Lie = "Lie",
+    ContextMenu_OnSleep = "Lie down",
+    
 /************ True Music ************/
-	ContextMenu_Stop_music = "Stop music",
-	ContextMenu_Play_music = "Play music",
+    ContextMenu_Stop_music = "Stop music",
+    ContextMenu_Play_music = "Play music",
     ContextMenu_Sound_carrier_not_install = "Sound carrier not install",
     ContextMenu_Song = "Song",
-	
+    
 /************ ZuperCart ************/
-	ContextMenu_GrabTrolley = "Take trolley",
+    ContextMenu_GrabTrolley = "Take trolley",
 }
 

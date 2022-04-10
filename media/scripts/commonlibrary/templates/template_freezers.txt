@@ -1,17 +1,5 @@
 module Base
 {
-    item TransportFreezer
-    {
-        Weight    =    20.0,
-        Type    =    Normal,
-        DisplayName    = TransportFreezer,
-        Tooltip = Tooltip_Compact_Freezer,
-        Icon    =    media/ui/Container_Freezer,
-        MaxCapacity = 20,
-        ConditionMax = 100,
-        MechanicsItem = TRUE,
-    }
-    
     template vehicle Freezers
     {
         part FreezerFrontLeft

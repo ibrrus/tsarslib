@@ -1,14 +1,18 @@
 ItemName_EN = {
+
+/* transport_item.txt */
     ItemName_Base.TransportCounter = "Portable shelf",
     ItemName_Base.TransportCupboard = "Portable cupboard",
     ItemName_Base.TransportDrawer = "Portable drawer",
     ItemName_Base.TransportFreezer = "Portable freezer",
-    ItemName_Base.TransportMedicine = "Wall medicine",
+    ItemName_Base.TransportFridge = "Portable fridge",
+    ItemName_Base.TransportMedicine = "Portable medicine",
     ItemName_Base.TransportMicrowave = "Portable microwave",
     ItemName_Base.TransportOven = "Portable oven",
-    ItemName_Base.TransportSeatBoxWooden = "Wooden seat",
     ItemName_Base.TransportShelve = "Portable shelve",
+    ItemName_Base.TransportSeatBoxWooden = "Wooden seat",
     
+/* template_TruckTank.txt */
     ItemName_Base.500Tank1 = "Tank 500",
     ItemName_Base.500Tank2 = "Tank 500",
     ItemName_Base.500Tank3 = "Tank 500",
@@ -16,7 +20,10 @@ ItemName_EN = {
     ItemName_Base.1000Tank2 = "Tank 1000",
     ItemName_Base.1000Tank3 = "Tank 1000",
     
+/* template_ata_roof_lights.txt */
     ItemName_Base.ATARoofLightItem = "Roof lights",
+    
+/* template_ata_protection.txt */
     ItemName_Base.ATAProtectionWheelsChain = "Chain",
     
     
