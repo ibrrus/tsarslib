@@ -168,8 +168,24 @@ ItemName_EN = {
     ItemName_Autotsar.ATALutonProtectionWindowFrontItem = "MolksAgen Luton Van - Windshield Protection",
     ItemName_Autotsar.ATALutonInteractiveTrunkRoofRackItem = "MolksAgen Luton Van - Roof Rack",
     ItemName_Autotsar.ATALutonLadderItem = "MolksAgen Luton Van - Ladder",
+
+
+/************ Autotsar Tuning Atelier - DeRumba Van ************/
     
-    
+    ItemName_Autotsar.ATAVanDeRumbaTuningMag = "Magazine «Autotsar Tuning Atelier - DeRumba Van»",
+    ItemName_Autotsar.ATAVanDeRumbaBullbar1Item = "DeRumba Van - Bullbar",
+    ItemName_Autotsar.ATAVanDeRumbaBullbar2Item = "DeRumba Van - Homemade  Bullbar",
+    ItemName_Autotsar.ATAVanDeRumbaBullbar3Item = "DeRumba Van - Bullbar With Plow",
+    ItemName_Autotsar.ATAVanDeRumbaProtectionHoodItem = "DeRumba Van - Hood Protection",
+    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowFrontItem = "DeRumba Van - Windshield Protection",
+    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowFrontSideItem = "DeRumba Van - Side Window Protection",
+    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowRearItem = "DeRumba Van - Rear Window Protection",
+    ItemName_Autotsar.ATAVanDeRumbaInteractiveTrunkRoofRackItem = "DeRumba Van - Roof Rack",
+    ItemName_Autotsar.ATAVanDeRumbaLadderItem = "DeRumba Van - Ladder",
+    ItemName_Autotsar.ATAVanDeRumbaRoofBaseItem = "DeRumba Van - Roof rails",
+    ItemName_Autotsar.ATAVanDeRumbRoofBoxItem = "DeRumba Van - Toolbox",
+
+
 /************ True Music ************/
 
     ItemName_Tsarcraft.TCBoombox = "Boombox 'Kazakhstan-102-stereo'",

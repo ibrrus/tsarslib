@@ -2,6 +2,7 @@ require "Definitions/ContainerButtonIcons"
 
 ContainerButtonIcons = ContainerButtonIcons or {}
 ContainerButtonIcons.ATARoofTent = getTexture("media/ui/commonlibrary/Container_ATARoofTent.png")
+ContainerButtonIcons.ATARoofRackToolbox = getTexture("media/ui/commonlibrary/Container_ATARoofToolbox.png")
 ContainerButtonIcons.ATAInteractiveTrunkRoofRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkRoofRack.png")
 ContainerButtonIcons.ATAInteractiveTrunkWindowRearRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkWindowsRack.png")
 ContainerButtonIcons.ATAInteractiveTrunkWheelRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkWheelRack.png")

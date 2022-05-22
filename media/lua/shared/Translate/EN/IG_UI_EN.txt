@@ -25,7 +25,7 @@ IGUI_EN = {
     IGUI_VehiclePartATAHeadlightsPopUP = "Headlights Pop-Up",
 
 /* template_ata_interactive_trunk.txt */
-    IGUI_VehiclePartATARoofBase = "Congo cage",
+    IGUI_VehiclePartATARoofBase = "Roof rails",
     IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Roof rack",
     IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Spare wheel rack",
     IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Rear window rack",

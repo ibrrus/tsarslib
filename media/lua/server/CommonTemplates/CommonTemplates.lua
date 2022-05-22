@@ -629,7 +629,7 @@ function CommonTemplates.Update.BatteryHeater(vehicle, part, elapsedMinutes)
     
     if not battery:getInventoryItem() or 
             battery:getInventoryItem():getUsedDelta() < 0.01 then
-        part:getModData().tsarslib.active = false;
+        partData.active = false;
         vehicle:transmitPartModData(part);
         -- part:setLightActive(false)
         return

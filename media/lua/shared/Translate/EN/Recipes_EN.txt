@@ -16,12 +16,10 @@ Recipe_EN = {
     
     
 /************ Autotsar Motorclub ************/
-
     Recipe_Make_ATAMotoBMWCustomMuffler = "BWM R80/7 - make a custom muffler",
     
     
 /************ Aquatsar Yacht Club ************/
-
     Recipe_Extract_Tire_Tube = "Extract Tire Tube",
     Recipe_Flatten_Tire_Tube = "Flatten Tire Tube",
     Recipe_Inflate_Tire_Tube = "Inflate Tire Tube",
@@ -32,7 +30,6 @@ Recipe_EN = {
 
 
 /************ Autotsar Tuning Atelier - Bus ************/
-
     Recipe_Make_ATABusKengur1Item = "Bear Bus - Make Bullbar",
     Recipe_Make_ATABusKengur2Item = "Bear Bus - Make Improved bullbar",
     Recipe_Make_ATABusKengur3Item = "Bear Bus - Make Spiked plow",
@@ -47,18 +44,15 @@ Recipe_EN = {
     
 
 /************ Autotsar Tuning Atelier - Jaap Wrungel ************/
-    
     Recipe_Cut_ATAJeepBumper1Item = "Jaap Wrungel - Cut Bumper",
     Recipe_Cut_ATAJeepBumper2Item = "Jaap Wrungel - Cut Bumper",
     Recipe_Cut_ATAJeepBumper3Item = "Jaap Wrungel - Cut Bumper",
     Recipe_Cut_ATAJeepBumper4Item = "Jaap Wrungel - Cut Bumper",
     Recipe_Make_ATAJeepBumper4Item = "Jaap Wrungel - Make Lethal bumper",
-    
     Recipe_Make_ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - Make Roof rack",
     Recipe_Cut_ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - Cut Roof rack",
     Recipe_Make_ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - Make Trunk over spare wheel",
     Recipe_Cut_ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - Cut Trunk over spare wheel",
-
     Recipe_Make_ATAJeepProtectionWindowItem = "Jaap Wrungel - Make Window protection",
     Recipe_Cut_ATAJeepProtectionWindowItem = "Jaap Wrungel - Cut Window protection",
     Recipe_Make_ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - Make Windshield protection",
@@ -70,23 +64,19 @@ Recipe_EN = {
 
     
 /************ Autotsar Tuning Atelier - Fjord Mustard ************/
-    
     Recipe_Cut_ATAMustangBullbar1Item = "Fjord Mustard - Cut Bullbar",
     Recipe_Cut_ATAMustangBullbar2Item = "Fjord Mustard - Cut Bullbar",
     Recipe_Cut_ATAMustangBullbar3Item = "Fjord Mustard - Cut Bullbar",
     Recipe_Make_ATAMustangBullbar3Item = "Fjord Mustard - Make Bullbar",
-
     Recipe_Cut_ATAMustangHood2Item3 = "Fjord Mustard - Cut Hood",
     Recipe_Cut_ATAMustangHood3Item3 = "Fjord Mustard - Cut Hood",
     Recipe_Cut_ATAMustangHood4Item3 = "Fjord Mustard - Cut Hood",
     Recipe_Cut_ATAMustangHoodItem = "Fjord Mustard - Cut Hood",
-    
     Recipe_Cut_ATAMustangFendersWideItem = "Fjord Mustard - Cut Hood",
     Recipe_Cut_ATAMustangSkirtsSideItem = "Fjord Mustard - Cut Hood",
     Recipe_Cut_ATAMustangSpoilerFrontItem = "Fjord Mustard - Cut Spoiler",
     Recipe_Cut_ATAMustangSpoilerRear1Item = "Fjord Mustard - Cut Spoiler",
     Recipe_Cut_ATAMustangSpoilerRear2Item = "Fjord Mustard - Cut Spoiler",
-    
     Recipe_Make_ATAMustangProtectionWindowLeftItem = "Fjord Mustard - Make Protection for left window ",
     Recipe_Make_ATAMustangProtectionWindowRightItem = "Fjord Mustard - Make Protection for right window",
     Recipe_Make_ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Make Protection for windshield",
@@ -95,25 +85,20 @@ Recipe_EN = {
     Recipe_Cut_ATAMustangProtectionWindowRightItem = "Fjord Mustard - Cut Protection for right window",
     Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Cut Protection for windshield",
     Recipe_Cut_ATAMustangProtectionWindowRearItem = "Fjord Mustard - Cut Protection for rear window",
-    
     Recipe_Make_ATAMustangRoofRackItem = "Fjord Mustard - Make Roof Rack",
     Recipe_Cut_ATAMustangRoofRackItem = "Fjord Mustard - Cut Roof Rack",
     
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
-
     Recipe_Make_ATADodgeRoofRackItem = "Dadge Steals RT - Make Roof Rack",
     Recipe_Cut_ATADodgeRoofRackItem = "Dadge Steals RT - Cut Roof Rack",
     Recipe_Make_ATADodgeWindowRackItem = "Dadge Steals RT - Make Rear Window Rack",
     Recipe_Cut_ATADodgeWindowRackItem = "Dadge Steals RT - Cut Rear Window Rack",
-    
     Recipe_Cut_ATADodgeBullbar1Item = "Dadge Steals RT - Cut Bullbar",
     Recipe_Cut_ATADodgeBullbar2Item = "Dadge Steals RT - Cut Bullbar",
     Recipe_Cut_ATADodgeBullbar3Item = "Dadge Steals RT - Cut Bullbar",
-    
     Recipe_Make_ATADodgeBullbar2Item = "Dadge Steals RT - Make Bullbar",
     Recipe_Make_ATADodgeBullbar3Item = "Dadge Steals RT - Make Bullbar",
-    
     Recipe_Make_ATADodgeProtectionWindowSideItem = "Dadge Steals RT - Make Protection for side window ",
     Recipe_Cut_ATADodgeProtectionWindowSideItem = "Dadge Steals RT - Cut Protection for side window",
     Recipe_Make_ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - Make Protection for windshield",
@@ -121,7 +106,6 @@ Recipe_EN = {
 
 
 /************ Autotsar Tuning Atelier - Petyarbuilt 379 ************/
-
     Recipe_Make_ATAPetyarbuiltProtectionSleeperItem = "Petyarbuilt 379 - Make Sleeper Protection",
     Recipe_Cut_ATAPetyarbuiltProtectionSleeperItem = "Petyarbuilt 379 - Cut Sleeper Protection",
     Recipe_Make_ATAPetyarbuiltProtectionRearWheelsItem = "Petyarbuilt 379 - Make Rear Tire Protection",
@@ -137,7 +121,6 @@ Recipe_EN = {
     
     
 /************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
-
     Recipe_Make_ATALutonProtectionSideFrontItem = "MolksAgen Luton Van - Make Front Protection",
     Recipe_Cut_ATALutonProtectionSideFrontItem = "MolksAgen Luton Van - Cut Front Protection",
     Recipe_Make_ATALutonProtectionHoodItem = "MolksAgen Luton Van - Make Hood Protection",
@@ -151,4 +134,27 @@ Recipe_EN = {
     Recipe_Make_ATALutonLadderItem = "MolksAgen Luton Van - Make Ladder",
     Recipe_Cut_ATALutonLadderItem = "MolksAgen Luton Van - Cut Ladder",
     
+    
+/************ Autotsar Tuning Atelier - DeRumba Van ************/
+    Recipe_Cut_ATAVanDeRumbaBullbar1Item = "DeRumba Van - Cut Bullbar",
+    Recipe_Cut_ATAVanDeRumbaBullbar2Item = "DeRumba Van - Cut Bullbar",
+    Recipe_Make_ATAVanDeRumbaBullbar2Item = "DeRumba Van - Make Bullbar",
+    Recipe_Cut_ATAVanDeRumbaBullbar3Item = "DeRumba Van - Сut the plow to Bullbar",
+    Recipe_Make_ATAVanDeRumbaBullbar3Item = "DeRumba Van - Weld a plow to Bullbar",
+    Recipe_Make_ATAVanDeRumbaProtectionHoodItem = "DeRumba Van - Make Hood Protection",
+    Recipe_Cut_ATAVanDeRumbaProtectionHoodItem = "DeRumba Van - Cut Hood Protection",
+    Recipe_Make_ATAVanDeRumbaProtectionWindowFrontItem = "DeRumba Van - Make Windshield Protection",
+    Recipe_Cut_ATAVanDeRumbaProtectionWindowFrontItem = "DeRumba Van - Cut Windshield Protection",
+    Recipe_Make_ATAVanDeRumbaProtectionWindowFrontSideItem= "DeRumba Van - Make Side Window Protection",
+    Recipe_Cut_ATAVanDeRumbaProtectionWindowFrontSideItem = "DeRumba Van - Cut Side Window Protection",
+    Recipe_Make_ATAVanDeRumbaProtectionWindowRearItem = "DeRumba Van - Make Window Rear Protection",
+    Recipe_Cut_ATAVanDeRumbaProtectionWindowRearItem = "DeRumba Van - Cut Window Rear Protection",
+    Recipe_Make_ATAVanDeRumbaInteractiveTrunkRoofRackItem = "DeRumba Van - Make Roof Rack",
+    Recipe_Cut_ATAVanDeRumbaInteractiveTrunkRoofRackItem = "DeRumba Van - Cut Roof Rack",
+    Recipe_Make_ATAVanDeRumbaLadderItem = "DeRumba Van - Make Ladder",
+    Recipe_Cut_ATAVanDeRumbaLadderItem = "DeRumba Van - Cut Ladder",
+    Recipe_Make_ATAVanDeRumbaRoofBaseItem = "DeRumba Van - Make Roof Rails",
+    Recipe_Cut_ATAVanDeRumbaRoofBaseItem = "DeRumba Van - Cut Roof Rails",
+    Recipe_Make_ATAVanDeRumbRoofBoxItem = "DeRumba Van - Make Toolbox",
+    Recipe_Cut_ATAVanDeRumbRoofBoxItem = "DeRumba Van - Cut Toolbox",
 }

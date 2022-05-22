@@ -1,6 +1,5 @@
 Tooltip_EN = {
     Tooltip_Compact_Appliance = "Can be installed in some vehicles and trailers",
-    
     Tooltip_item_tuning = "Part for tuning",
     Tooltip_item_ATATuningMagUniversal = "After reading this issue, you will get basic tuning knowledge. You will learn<br>to create universal protection for windows, study the drawings of different types of trunks<br>and understand how to make the car bumper more lethal.",
     
@@ -19,7 +18,6 @@ Tooltip_EN = {
 
 
 /************ Autotsar Tuning Atelier - Jeep ************/
-
     Tooltip_item_AtTuningMagJeep = "After reading this issue you will get basic tuning knowledge and learn how to create protection, bumpers, roof rails and additional trunks for Jaap Wrungel",
 
 
@@ -30,14 +28,18 @@ Tooltip_EN = {
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
     Tooltip_item_ATADodgeTuningMag = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, bullbars and racks for Dadge Steals RT",
     
+    
 /************ Autotsar Tuning Atelier - Petyarbuilt ************/
     Tooltip_item_ATAPetyarbuiltTuningMag = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection for Petyarbuilt 379",
 
 
 /************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
-    
     Tooltip_item_ATATuningMagLuton = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection for MolksAgen Luton Van",
 
+    
+/************ Autotsar Tuning Atelier - MolksAgen DeRumba Van ************/
+    Tooltip_item_ATATuningMagDeRumba = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection for DeRumba Van",
+    
     
 /************ True Music ************/
     Tooltip_item_Boombox = "Foreign boombox. Doesn't get local radio,<br>but can play cassettes. Powered by batteries.",

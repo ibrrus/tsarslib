@@ -135,5 +135,59 @@ module Base
                 init = ATATuning.Init.ATAInteractiveTrunk,
             }
         }
+        part ATARoofRackToolbox
+        {
+            area = TruckBed,
+            category = tuning,
+            specificItem = false,
+            mechanicRequireKey = false,
+            repairMechanic = true,
+            container
+            {
+                conditionAffectsCapacity = false,
+                test = Vehicles.ContainerAccess.TruckBedOpen,
+            }
+            table install
+            {
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+                        equip = primary,
+                    }
+                }
+                time = 1000,
+                recipes = Basic Tuning,
+                requireInstalled = ATAInteractiveTrunkRoofRack,
+                test = Vehicles.InstallTest.Default,
+                complete = ATATuning.InstallComplete.DefaultModel,
+            }
+            table uninstall
+            {
+                requireEmpty = true,
+                items
+                {
+                    1
+                    {
+                        type = Base.Screwdriver,
+                        count = 1,
+                        keep = true,
+                         equip = primary,
+                   }
+                }
+                time = 1000,
+                recipes = Basic Tuning,
+                test = Vehicles.UninstallTest.Default,
+                complete = ATATuning.UninstallComplete.DefaultModel,
+            }
+            lua
+            {
+                create = ATATuning.Create.Chance0,
+                init = ATATuning.Init.DefaultModel,
+            }
+        }
     }
 }
