@@ -1,6 +1,6 @@
 ItemName_DE = {
-	ItemName_Base.ATAInteractiveTrunkRoofRackItem = "Dachträger",
-	ItemName_Base.ATAInteractiveTrunkWheelRackItem = "Träger über Reservereifen",
+	ItemName_Base.ATAInteractiveTrunkRoofRackItem = "DachtrÃ¤ger",
+	ItemName_Base.ATAInteractiveTrunkWheelRackItem = "TrÃ¤ger Ã¼ber Reservereifen",
 	ItemName_Base.ATARoofBaseItem = "Dachschienen",
 	
 	ItemName_Base.ATAProtectionWindowItem = "Scheibenschutz",

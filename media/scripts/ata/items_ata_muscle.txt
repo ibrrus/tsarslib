@@ -1,0 +1,294 @@
+module Autotsar
+{
+	imports
+	{
+		Base
+	}
+    
+	item ATATuningFordMustang /* Spawn */ 
+    {
+        Weight	=	0.1,
+        Type	=	Literature,
+        DisplayName	=	Autotsar Tuning - Ford Mustang,
+        Icon	=	ATATuningMagUniverseIcon,
+        TeachedRecipes  =   Basic Tuning;Make ATAMustangBullbar3Item;Make ATAMustangProtectionWindowLeftItem;Make ATAMustangProtectionWindowRightItem;Make ATAMustangProtectionWindowFrontItem;Make ATAMustangProtectionWindowRearItem;Make ATAMustangRoofRackItem,
+        ReplaceOnUse    =   ATATuningFordMustang,
+        Tooltip = Tooltip_item_ATATuningFordMustang,
+        StaticModel = Autotsar.ATATuningMagUniverse_Reading,
+        WorldStaticModel = Autotsar.ATATuningMagUniverse_Ground,
+    }
+/* Bullbars
+████──█─█─█───█───████──████─████─███
+█──██─█─█─█───█───█──██─█──█─█──█─█──
+████──█─█─█───█───████──████─████─███
+█──██─█─█─█───█───█──██─█──█─█─█────█
+████──███─███─███─████──█──█─█─█──███
+*/
+	model ATAMustangBullbar1World
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangBullbar1World,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	item ATAMustangBullbar1Item /* Vehicle */
+	{
+		DisplayCategory = Tuning,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	= ATAMustangBullbar1Item,
+        Icon	=	ATAMustangBullbar1Item,
+		ConditionMax = 100,
+		ChanceToSpawnDamaged = 25,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangBullbar1World,
+	}
+	model ATAMustangBullbar2World
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangBullbar2World,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	item ATAMustangBullbar2Item /* Vehicle */
+	{
+		DisplayCategory = Tuning,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	= ATAMustangBullbar2Item,
+        Icon	=	ATAMustangBullbar2Item,
+		ConditionMax = 100,
+		ChanceToSpawnDamaged = 25,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangBullbar2World,
+	}
+	model ATAMustangBullbar3World
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangBullbar3World,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	item ATAMustangBullbar3Item /* Craft */
+	{
+		DisplayCategory = Tuning,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	= ATAMustangBullbar3Item,
+        Icon	=	ATAMustangBullbar3Item,
+		ConditionMax = 100,
+		ChanceToSpawnDamaged = 95,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		ataProtection = EngineDoor;HeadlightLeft;HeadlightRight,
+		WorldStaticModel = Autotsar.ATAMustangBullbar3World,
+	}
+/* Window protection
+█───█─███─█──█─████──████─█───█────████─████─████─███─███─████─███─███─████─█──█
+█───█──█──██─█─█──██─█──█─█───█────█──█─█──█─█──█──█──█───█──█──█───█──█──█─██─█
+█─█─█──█──█─██─█──██─█──█─█─█─█────████─████─█──█──█──███─█─────█───█──█──█─█─██
+█████──█──█──█─█──██─█──█─█████────█────█─█──█──█──█──█───█──█──█───█──█──█─█──█
+─█─█──███─█──█─████──████──█─█─────█────█─█──████──█──███─████──█──███─████─█──█
+*/
+	model ATAMustangProtectionWindowLeftWorld
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangProtectionWindowWorld,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+		invertX = TRUE,
+	}
+	model ATAMustangProtectionWindowRightWorld
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangProtectionWindowWorld,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+
+	item ATAMustangProtectionWindowLeftItem /* Craft */ 
+	{
+		DisplayCategory = Tuning,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	ATAMustangProtectionWindowLeftItem,
+        Icon	=	ATAProtectionWindowItem,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangProtectionWindowLeftWorld,
+	}
+	item ATAMustangProtectionWindowRightItem /* Craft */ 
+	{
+		DisplayCategory = Tuning,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	ATAMustangProtectionWindowRightItem,
+        Icon	=	ATAProtectionWindowItem,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangProtectionWindowRightWorld,
+	}
+	
+	model ATAMustangProtectionWindowFrontItemWorld
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangProtectionWindowFrontItemWorld,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	
+	item ATAMustangProtectionWindowFrontItem /* Craft */ 
+	{
+		DisplayCategory = Tuning,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	ATAMustangProtectionWindowFrontItem,
+        Icon	=	ATAProtectionWindowFrontItem,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangProtectionWindowFrontItemWorld,
+	}
+	
+	model ATAMustangProtectionWindowRearItemWorld
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangProtectionWindowRearItemWorld,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	
+	item ATAMustangProtectionWindowRearItem /* Craft */ 
+	{
+		DisplayCategory = Tuning,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	ATAMustangProtectionWindowRearItem,
+        Icon	=	ATAProtectionWindowFrontItem,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangProtectionWindowRearItemWorld,
+	}
+/*
+████─█──█─████─███─█──█─███─████
+█──█─██─█─█──█──█──█──█─█───█──█
+████─█─██─█──█──█──████─███─████
+█──█─█──█─█──█──█──█──█─█───█─█─
+█──█─█──█─████──█──█──█─███─█─█─
+*/
+	model ATAMustangFendersWideWorld
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangFendersWideWorld,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	item ATAMustangFendersWideItem /* Spawn */
+	{
+		DisplayCategory = Tuning,
+		Weight	=	2.0,
+        Type	=	Normal,
+        DisplayName	= ATAMustangFendersWide,
+        Icon	=	ATAMustangFendersWide,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangFendersWideWorld,
+	}
+	model ATAMustangSkirtsSideWorld
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangSkirtsSideWorld,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	item ATAMustangSkirtsSideItem /* Spawn */
+	{
+		DisplayCategory = Tuning,
+		Weight	=	2.0,
+        Type	=	Normal,
+        DisplayName	= ATAMustangSkirtsSide,
+        Icon	=	ATAMustangSkirtsSide,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangSkirtsSideWorld,
+	}
+	model ATAMustangSpoilerFrontWorld
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangSpoilerFrontWorld,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	item ATAMustangSpoilerFrontItem /* Spawn + Vehicle */
+	{
+		DisplayCategory = Tuning,
+		Weight	=	2.0,
+        Type	=	Normal,
+        DisplayName	= ATAMustangSpoilerFront,
+        Icon	=	ATAMustangSpoilerFront,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangSpoilerFrontWorld,
+	}
+	model ATAMustangSpoilerRear1World
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangSpoilerRear1World,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	item ATAMustangSpoilerRear1Item /* Spawn + Vehicle */
+	{
+		DisplayCategory = Tuning,
+		Weight	=	2.0,
+        Type	=	Normal,
+        DisplayName	= ATAMustangSpoilerRear1,
+        Icon	=	ATAMustangSpoilerRear1,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangSpoilerRear1World,
+	}	
+	model ATAMustangSpoilerRear2World
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangSpoilerRear2World,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	item ATAMustangSpoilerRear2Item /* Spawn + Vehicle */
+	{
+		DisplayCategory = Tuning,
+		Weight	=	2.0,
+        Type	=	Normal,
+        DisplayName	= ATAMustangSpoilerRear2,
+        Icon	=	ATAMustangSpoilerRear2,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangSpoilerRear2World,
+	}
+    
+	model ATAMustangRoofRackWorld
+	{
+		mesh = WorldItems/ATA_Muscle_items|ATAMustangRoofRackWorld,
+		texture = Vehicles/ATA_Muscle_items,
+		scale = 0.014,
+	}
+	
+	item ATAMustangRoofRackItem /* Craft */ 
+	{
+		DisplayCategory = Tuning,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	ATAMustangRoofRack,
+        Icon	=	ATAMustangRoofRack,
+		MaxCapacity = 50,
+        ConditionAffectsCapacity = false,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+		Tooltip = Tooltip_item_tuning,
+		WorldStaticModel = Autotsar.ATAMustangRoofRackWorld,
+	}
+}

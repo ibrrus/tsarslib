@@ -1,3 +1,26 @@
+-------------------
+v.1.30
+2022-08-16
+
+Добавлен общий код для модов Mustard и Samara.
+Исправлена ошибка возникающая, при посадке на мотоцикл.
+Исправлена ошибка возникающая в любом транспортном средстве с электрическим обогревателем.
+Исправлена ошибка из-за которой в выдвижной ящик нельзя было класть вещи.
+Обновлен итальянский перевод.
+Добавлен японский перевод.
+Добавлен китайский перевод.
+Добавлены русский и английские переводы для нового мода.
+
+Fixed bug occurring when boarding a motorcycle.
+Fixed bug arising in any vehicle with electric heater.
+Fixed bug where the drawer could not be filled with items.
+Added common code for Mustard and Samara mods.
+Italian translation was updated.
+Added Japanese translation.
+Added Chinese translation.
+Added Russian and English translations for the new mod.
+
+-------------------
 v.1.29
 2022-05-22
 

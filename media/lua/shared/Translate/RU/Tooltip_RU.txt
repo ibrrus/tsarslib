@@ -22,7 +22,8 @@ Tooltip_RU = {
 
 
 /************ Autotsar Tuning Atelier - Mustang ************/
-    Tooltip_item_ATATuningFordMustang = "Прочитав данный выпуск, вы получите базовые знания тюнинга и научитесь создавать<br>защиту, кенгурятник и багажник для Fjord Mustard",
+/************ Autotsar Tuning Atelier - Samara ************/
+    Tooltip_item_ATATuningFordMustang = "Прочитав данный выпуск, вы получите базовые знания тюнинга и научитесь создавать<br>защиту, кенгурятник и багажник для Fjord Mustard и Chevalier Samara",
     
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/

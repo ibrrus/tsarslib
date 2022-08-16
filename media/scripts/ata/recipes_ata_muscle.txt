@@ -1,0 +1,275 @@
+module Autotsar
+{
+	imports
+	{
+		Base
+	}
+	
+	recipe Cut ATAMustangBullbar1Item
+    {
+		ATAMustangBullbar1Item=1,
+		BlowTorch=8,
+		keep WeldingMask,
+		Result:MetalPipe=4,
+		Time:350.0,
+		Category:Tuning,
+		SkillRequired:MetalWelding=2,
+		OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+		NeedToBeLearn:false,
+    }
+	recipe Cut ATAMustangBullbar2Item
+    {
+       ATAMustangBullbar2Item=1,
+       BlowTorch=12,
+       keep WeldingMask,
+       Result:MetalPipe=6,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
+
+	recipe Make ATAMustangBullbar3Item
+    {
+       MetalPipe=3,
+	   SheetMetal=6,
+	   MetalBar=6,
+       BlowTorch=30,
+       keep WeldingMask,
+       Result:ATAMustangBullbar3Item,
+       Time:650.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=8,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+       NeedToBeLearn:true,
+    }
+	recipe Cut ATAMustangBullbar3Item
+    {
+       ATAMustangBullbar3Item=1,
+       BlowTorch=14,
+       keep WeldingMask,
+       Result:SheetMetal=3,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAMustangBullbar3Item,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
+	
+	recipe Cut ATAMustangFendersWideItem
+	{
+	   ATAMustangFendersWideItem=1,
+       BlowTorch=8,
+       keep WeldingMask,
+       Result:UnusableMetal=4,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+	}
+	recipe Cut ATAMustangSkirtsSideItem
+	{
+	   ATAMustangSkirtsSideItem=1,
+       BlowTorch=8,
+       keep WeldingMask,
+       Result:UnusableMetal=4,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+	}
+	recipe Cut ATAMustangSpoilerFrontItem
+	{
+	   ATAMustangSpoilerFrontItem=1,
+       BlowTorch=8,
+       keep WeldingMask,
+       Result:UnusableMetal=4,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+	}
+	recipe Cut ATAMustangSpoilerRear1Item
+	{
+	   ATAMustangSpoilerRear1Item=1,
+       BlowTorch=8,
+       keep WeldingMask,
+       Result:SmallSheetMetal=4,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+	}
+	recipe Cut ATAMustangSpoilerRear2Item
+	{
+	   ATAMustangSpoilerRear2Item=1,
+       BlowTorch=10,
+       keep WeldingMask,
+       Result:SmallSheetMetal=5,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+	}
+	
+	recipe Make ATAMustangProtectionWindowLeftItem
+    {
+       SmallSheetMetal = 3,
+	   SheetMetal = 2,
+	   MetalBar=5,
+	   Screws=5,
+       BlowTorch=30,
+       keep WeldingMask,
+       Result:ATAMustangProtectionWindowLeftItem,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=4,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:true,
+    }
+	recipe Make ATAMustangProtectionWindowRightItem
+    {
+       SmallSheetMetal = 3,
+	   SheetMetal = 2,
+	   MetalBar=5,
+	   Screws=5,
+       BlowTorch=30,
+       keep WeldingMask,
+       Result:ATAMustangProtectionWindowRightItem,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=4,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:true,
+    }
+	recipe Cut ATAMustangProtectionWindowLeftItem
+    {
+       ATAMustangProtectionWindowLeftItem=1,
+       BlowTorch=14,
+       keep WeldingMask,
+       Result:MetalBar=3,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAMustangProtectionWindowSideItem,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
+	recipe Cut ATAMustangProtectionWindowRightItem
+    {
+       ATAMustangProtectionWindowRightItem=1,
+       BlowTorch=14,
+       keep WeldingMask,
+       Result:MetalBar=3,
+       Time:350.0,
+       Category:Tuning,
+       SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAMustangProtectionWindowSideItem,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
+	
+	recipe Make ATAMustangProtectionWindowFrontItem
+	{
+	   MetalPipe=9,
+	   SheetMetal=2,
+	   MetalBar=3,
+	   Screws=6,
+	   BlowTorch=24,
+	   keep WeldingMask,
+	   keep Screwdriver,
+	   Result:ATAMustangProtectionWindowFrontItem,
+	   Time:650.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=4,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+	   NeedToBeLearn:true,
+	}
+	recipe Cut ATAMustangProtectionWindowFrontItem
+	{
+	   ATAMustangProtectionWindowFrontItem=1,
+	   BlowTorch=14,
+	   keep WeldingMask,
+	   keep Screwdriver,
+	   Result:MetalPipe=4,
+	   Time:650.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAMustangProtectionWindowFrontItem,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	   NeedToBeLearn:false,
+	}
+	
+	recipe Make ATAMustangProtectionWindowRearItem
+	{
+	   MetalPipe=8,
+	   Screws=16,
+	   BlowTorch=16,
+	   keep WeldingMask,
+	   keep Screwdriver,
+	   Result:ATAMustangProtectionWindowRearItem,
+	   Time:650.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=4,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+	   NeedToBeLearn:true,
+	}
+	
+	recipe Cut ATAMustangProtectionWindowRearItem
+	{
+	   ATAMustangProtectionWindowRearItem=1,
+	   BlowTorch=10,
+	   keep WeldingMask,
+	   keep Screwdriver,
+	   Result:MetalPipe=5,
+	   Time:650.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAMustangProtectionWindowFrontItem,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	   NeedToBeLearn:false,
+	}
+	
+	recipe Make ATAMustangRoofRackItem
+	{
+	   MetalPipe=4,
+	   SheetMetal = 7,
+	   MetalBar=4,
+	   Screws=4,
+	   BlowTorch=30,
+	   keep WeldingMask,
+	   keep Screwdriver,
+	   Result:ATAMustangRoofRackItem,
+	   Time:650.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=5,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding25,
+	   NeedToBeLearn:true,
+	}
+	
+	recipe Cut ATAMustangRoofRackItem
+	{
+	   ATAMustangRoofRackItem=1,
+	   BlowTorch=10,
+	   keep WeldingMask,
+	   keep Screwdriver,
+	   Result:SheetMetal=4,
+	   Time:650.0,
+	   Category:Tuning,
+	   SkillRequired:MetalWelding=2,
+	   OnCreate:Recipe.OnCreate.CutATAMustangRoofRackItem,
+	   OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+	   NeedToBeLearn:false,
+	}
+}

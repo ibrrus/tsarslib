@@ -1,0 +1,106 @@
+Recipe_JP = {
+	Recipe_Make_a_compact_fridge = "コンパクトな冷蔵庫を作る",
+	Recipe_Make_a_compact_stove = "コンパクトなストーブを作る",
+	Recipe_Make_a_compact_microwave = "コンパクトな電子レンジを作る",
+	
+	Recipe_Make_ATAProtectionWheelsItem = "ホイール保護材を作る",
+	Recipe_Cut_ATAProtectionWheelsItem = "ホイールの保護材を切る",
+	
+	Recipe_Basic_Tuning = "基本的なチューニング",
+/************ Aquatsar Yacht Club ************/
+    Recipe_Extract_Tire_Tube = "タイヤチューブを取り出す (Yacht Club)",
+    Recipe_Flatten_Tire_Tube = "タイヤチューブを平らにする (Yacht Club)",
+    Recipe_Inflate_Tire_Tube = "タイヤチューブを膨らませる (Yacht Club)",
+    Recipe_Powerboats_Mechanics = "モーターボードの整備知識 (Yacht Club)",
+    Recipe_Sailboats_Mechanics = "帆船の整備知識 (Yacht Club)",
+    Recipe_Performance_Boat_Mechanics = "パフォーマンスボートの整備知識 (Yacht Club)",
+    Recipe_Swimming = "ベスト・スイミング技能 (Yacht Club)",
+
+/************ Autotsar Tuning Atelier - Bus ************/
+	
+    Recipe_Make_ATABusKengur1Item = "ブルバーを作る (Bear Bus)",
+	Recipe_Make_ATABusKengur2Item = "改良型ブルバーを作る (Bear Bus)",
+	Recipe_Make_ATABusKengur3Item = "改良型スパイクを作る (Bear Bus)",
+	Recipe_Make_ATABusRoofRack = "ルーフラックを作る (Bear Bus)",
+	Recipe_Make_ATABusProtectionDoorItem = "ドアの保護材を作る (Bear Bus)",
+	Recipe_Make_ATABusProtectionDoorRearItem = "リアドアの保護材を作る (Bear Bus)",
+	Recipe_Make_ATABusProtectionWheelsItem = "ホイールの保護材を作る (Bear Bus)",
+	Recipe_Make_ATABusProtectionWindowsFrontItem = "フロントウィンドウの保護材を作る (Bear Bus)",
+	Recipe_Make_ATABusProtectionWindowsRightItem = "右窓の保護材を作る (Bear Bus)",
+	Recipe_Make_ATABusProtectionWindowsLeftItem = "左窓の保護材を作る (Bear Bus)",
+	Recipe_Make_ATABusRoofBoxItem = "ルーフボックスを作る (Bear Bus)",
+	
+
+/************ Autotsar Tuning Atelier - Jaap Wrungel ************/
+	
+	Recipe_Cut_ATAJeepBumper1Item = "Cut Bumper (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepBumper2Item = "Cut Bumper (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepBumper3Item = "Cut Bumper (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepBumper4Item = "Cut Bumper (Jaap Wrungel)",
+	Recipe_Make_ATAJeepBumper4Item = "Make Lethal bumper (Jaap Wrungel)",
+	
+	Recipe_Make_ATAJeepInteractiveTrunkRoofRackItem = "Make Roof rack (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepInteractiveTrunkRoofRackItem = "Cut Roof rack (Jaap Wrungel)",
+	Recipe_Make_ATAJeepInteractiveTrunkWheelRackItem = "Make Trunk over spare wheel (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepInteractiveTrunkWheelRackItem = "Cut Trunk over spare wheel (Jaap Wrungel)",
+
+	Recipe_Make_ATAJeepProtectionWindowItem = "Make Window protection (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepProtectionWindowItem = "Cut Window protection (Jaap Wrungel)",
+	Recipe_Make_ATAJeepProtectionWindowFrontItem = "Make Windshield protection (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepProtectionWindowFrontItem = "Cut Windshield protection (Jaap Wrungel)",
+	Recipe_Make_ATAJeepProtectionWindowRearItem = "Make Window rear protection (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepProtectionWindowRearItem = "Cut Window rear protection (Jaap Wrungel)",
+	
+	Recipe_Make_ATAJeepRoofBaseItem = "Make Congo cage (Jaap Wrungel)",
+	Recipe_Cut_ATAJeepRoofBaseItem = "Cut Congo cage (Jaap Wrungel)",
+
+	
+/************ Autotsar Tuning Atelier - Fjord Mustard ************/
+	
+	Recipe_Cut_ATAMustangBullbar1Item = "Cut Bullbar (Fjord Mustard)",
+	Recipe_Cut_ATAMustangBullbar2Item = "Cut Bullbar (Fjord Mustard)",
+	Recipe_Cut_ATAMustangBullbar3Item = "Cut Bullbar (Fjord Mustard)",
+	Recipe_Make_ATAMustangBullbar3Item = "Make Bullbar (Fjord Mustard)",
+
+	Recipe_Cut_ATAMustangHood2Item3 = "Cut Hood (Fjord Mustard)",
+	Recipe_Cut_ATAMustangHood3Item3 = "Cut Hood (Fjord Mustard)",
+	Recipe_Cut_ATAMustangHood4Item3 = "Cut Hood (Fjord Mustard)",
+	Recipe_Cut_ATAMustangHoodItem = "Cut Hood (Fjord Mustard)",
+	
+	Recipe_Cut_ATAMustangFendersWideItem = "Cut Hood (Fjord Mustard)",
+	Recipe_Cut_ATAMustangSkirtsSideItem = "Cut Hood (Fjord Mustard)",
+	Recipe_Cut_ATAMustangSpoilerFrontItem = "Cut Spoiler (Fjord Mustard)",
+	Recipe_Cut_ATAMustangSpoilerRear1Item = "Cut Spoiler (Fjord Mustard)",
+	Recipe_Cut_ATAMustangSpoilerRear2Item = "Cut Spoiler (Fjord Mustard)",
+	
+	Recipe_Make_ATAMustangProtectionWindowLeftItem = "Make Protection for left window  (Fjord Mustard)",
+	Recipe_Make_ATAMustangProtectionWindowRightItem = "Make Protection for right window (Fjord Mustard)",
+	Recipe_Make_ATAMustangProtectionWindowFrontItem = "Make Protection for windshield (Fjord Mustard)",
+	Recipe_Make_ATAMustangProtectionWindowRearItem = "Make Protection for rear window (Fjord Mustard)",
+	Recipe_Cut_ATAMustangProtectionWindowLeftItem = "Cut Protection for left window (Fjord Mustard)",
+	Recipe_Cut_ATAMustangProtectionWindowRightItem = "Cut Protection for right window (Fjord Mustard)",
+	Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Cut Protection for windshield (Fjord Mustard)",
+	Recipe_Cut_ATAMustangProtectionWindowRearItem = "Cut Protection for rear window (Fjord Mustard)",
+	
+	Recipe_Make_ATAMustangRoofRackItem = "Make Roof Rack (Fjord Mustard)",
+	Recipe_Cut_ATAMustangRoofRackItem = "Cut Roof Rack (Fjord Mustard)",
+    
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+
+	Recipe_Make_ATADodgeRoofRackItem = "Make Roof Rack (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeRoofRackItem = "Cut Roof Rack (Dadge Steals RT)",
+    Recipe_Make_ATADodgeWindowRackItem = "Make Rear Window Rack (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeWindowRackItem = "Cut Rear Window Rack (Dadge Steals RT)",
+    
+	Recipe_Cut_ATADodgeBullbar1Item = "Cut Bullbar (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeBullbar2Item = "Cut Bullbar (Dadge Steals RT)",
+	Recipe_Cut_ATADodgeBullbar3Item = "Cut Bullbar (Dadge Steals RT)",
+    
+	Recipe_Make_ATADodgeBullbar2Item = "Make Bullbar (Dadge Steals RT)",
+	Recipe_Make_ATADodgeBullbar3Item = "Make Bullbar (Dadge Steals RT)",
+    
+	Recipe_Make_ATADodgeProtectionWindowSideItem = "Make Protection for side window  (Dadge Steals RT)",
+    Recipe_Cut_ATADodgeProtectionWindowSideItem = "Cut Protection for side window (Dadge Steals RT)",
+	Recipe_Make_ATADodgeProtectionWindowFrontItem = "Make Protection for windshield (Dadge Steals RT)",
+    Recipe_Cut_ATADodgeProtectionWindowFrontItem = "Cut Protection for windshield (Dadge Steals RT)",
+}

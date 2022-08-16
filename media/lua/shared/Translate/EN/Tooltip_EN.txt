@@ -22,7 +22,8 @@ Tooltip_EN = {
 
 
 /************ Autotsar Tuning Atelier - Mustang ************/
-    Tooltip_item_ATATuningFordMustang = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, a bullbar and a roof rack for Fjord Mustard",
+/************ Autotsar Tuning Atelier - Samara ************/
+    Tooltip_item_ATATuningFordMustang = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, a bullbar and a roof rack for Fjord Mustard and Chevalier Samara",
 
 
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/

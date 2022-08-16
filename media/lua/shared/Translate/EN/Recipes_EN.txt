@@ -64,29 +64,30 @@ Recipe_EN = {
 
     
 /************ Autotsar Tuning Atelier - Fjord Mustard ************/
-    Recipe_Cut_ATAMustangBullbar1Item = "Fjord Mustard - Cut Bullbar",
-    Recipe_Cut_ATAMustangBullbar2Item = "Fjord Mustard - Cut Bullbar",
-    Recipe_Cut_ATAMustangBullbar3Item = "Fjord Mustard - Cut Bullbar",
-    Recipe_Make_ATAMustangBullbar3Item = "Fjord Mustard - Make Bullbar",
-    Recipe_Cut_ATAMustangHood2Item3 = "Fjord Mustard - Cut Hood",
-    Recipe_Cut_ATAMustangHood3Item3 = "Fjord Mustard - Cut Hood",
-    Recipe_Cut_ATAMustangHood4Item3 = "Fjord Mustard - Cut Hood",
-    Recipe_Cut_ATAMustangHoodItem = "Fjord Mustard - Cut Hood",
-    Recipe_Cut_ATAMustangFendersWideItem = "Fjord Mustard - Cut Hood",
-    Recipe_Cut_ATAMustangSkirtsSideItem = "Fjord Mustard - Cut Hood",
-    Recipe_Cut_ATAMustangSpoilerFrontItem = "Fjord Mustard - Cut Spoiler",
-    Recipe_Cut_ATAMustangSpoilerRear1Item = "Fjord Mustard - Cut Spoiler",
-    Recipe_Cut_ATAMustangSpoilerRear2Item = "Fjord Mustard - Cut Spoiler",
-    Recipe_Make_ATAMustangProtectionWindowLeftItem = "Fjord Mustard - Make Protection for left window ",
-    Recipe_Make_ATAMustangProtectionWindowRightItem = "Fjord Mustard - Make Protection for right window",
-    Recipe_Make_ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Make Protection for windshield",
-    Recipe_Make_ATAMustangProtectionWindowRearItem = "Fjord Mustard - Make Protection for rear window",
-    Recipe_Cut_ATAMustangProtectionWindowLeftItem = "Fjord Mustard - Cut Protection for left window",
-    Recipe_Cut_ATAMustangProtectionWindowRightItem = "Fjord Mustard - Cut Protection for right window",
-    Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Cut Protection for windshield",
-    Recipe_Cut_ATAMustangProtectionWindowRearItem = "Fjord Mustard - Cut Protection for rear window",
-    Recipe_Make_ATAMustangRoofRackItem = "Fjord Mustard - Make Roof Rack",
-    Recipe_Cut_ATAMustangRoofRackItem = "Fjord Mustard - Cut Roof Rack",
+/************ Autotsar Tuning Atelier - Chevalier Samara ************/
+
+    Recipe_Cut_ATAMustangBullbar1Item = "Mustard/Samara - Cut Bullbar",
+    Recipe_Cut_ATAMustangBullbar2Item = "Mustard/Samara - Cut Bullbar",
+    Recipe_Cut_ATAMustangBullbar3Item = "Mustard/Samara - Cut Bullbar",
+    Recipe_Make_ATAMustangBullbar3Item = "Mustard/Samara - Make Bullbar",
+    Recipe_Cut_ATAMustangFendersWideItem = "Mustard/Samara - Cut Fenders",
+    Recipe_Cut_ATAMustangSkirtsSideItem = "Mustard/Samara - Cut Skirts",
+    Recipe_Cut_ATAMustangSpoilerFrontItem = "Mustard/Samara - Cut Spoiler",
+    Recipe_Cut_ATAMustangSpoilerRear1Item = "Mustard/Samara - Cut Spoiler",
+    Recipe_Cut_ATAMustangSpoilerRear2Item = "Mustard/Samara - Cut Spoiler",
+    Recipe_Make_ATAMustangProtectionWindowLeftItem = "Mustard/Samara - Make Protection for left window ",
+    Recipe_Make_ATAMustangProtectionWindowRightItem = "Mustard/Samara - Make Protection for right window",
+    Recipe_Make_ATAMustangProtectionWindowFrontItem = "Mustard/Samara - Make Protection for windshield",
+    Recipe_Make_ATAMustangProtectionWindowRearItem = "Mustard/Samara - Make Protection for rear window",
+    Recipe_Cut_ATAMustangProtectionWindowLeftItem = "Mustard/Samara - Cut Protection for left window",
+    Recipe_Cut_ATAMustangProtectionWindowRightItem = "Mustard/Samara - Cut Protection for right window",
+    Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Mustard/Samara - Cut Protection for windshield",
+    Recipe_Cut_ATAMustangProtectionWindowRearItem = "Mustard/Samara - Cut Protection for rear window",
+    Recipe_Make_ATAMustangRoofRackItem = "Mustard/Samara - Make Roof Rack",
+    Recipe_Cut_ATAMustangRoofRackItem = "Mustard/Samara - Cut Roof Rack",
+    
+    Recipe_Cut_ATAMustangHoodItem = "Mustard - Cut Hood",
+    Recipe_Cut_ATASamaraHoodItem = "Samara - Cut Hood",
     
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/

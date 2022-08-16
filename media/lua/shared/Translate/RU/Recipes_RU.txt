@@ -64,29 +64,30 @@ Recipe_RU = {
     
     
 /************ Autotsar Tuning Atelier - Fjord Mustard ************/
-    Recipe_Cut_ATAMustangBullbar1Item = "Fjord Mustard - разрезать Кенгурятник",
-    Recipe_Cut_ATAMustangBullbar2Item = "Fjord Mustard - разрезать Кенгурятник",
-    Recipe_Cut_ATAMustangBullbar3Item = "Fjord Mustard - разрезать Кенгурятник",
-    Recipe_Make_ATAMustangBullbar3Item = "Fjord Mustard - создать Кенгурятник",
-    Recipe_Cut_ATAMustangHood2Item3 = "Fjord Mustard - разрезать Капот",
-    Recipe_Cut_ATAMustangHood3Item3 = "Fjord Mustard - разрезать Капот",
-    Recipe_Cut_ATAMustangHood4Item3 = "Fjord Mustard - разрезать Капот",
-    Recipe_Cut_ATAMustangHoodItem = "Fjord Mustard - разрезать Капот",
-    Recipe_Cut_ATAMustangFendersWideItem = "Fjord Mustard - разрезать Капот",
-    Recipe_Cut_ATAMustangSkirtsSideItem = "Fjord Mustard - разрезать Капот",
-    Recipe_Cut_ATAMustangSpoilerFrontItem = "Fjord Mustard - разрезать Губу переднего бампера",
-    Recipe_Cut_ATAMustangSpoilerRear1Item = "Fjord Mustard - разрезать Спойлер",
-    Recipe_Cut_ATAMustangSpoilerRear2Item = "Fjord Mustard - разрезать Спойлер",
-    Recipe_Make_ATAMustangProtectionWindowLeftItem = "Fjord Mustard - создать Защиту левого стекла",
-    Recipe_Make_ATAMustangProtectionWindowRightItem = "Fjord Mustard - создать Защиту правого стекла",
-    Recipe_Make_ATAMustangProtectionWindowFrontItem = "Fjord Mustard - создать Защиту лобового стекла",
-    Recipe_Make_ATAMustangProtectionWindowRearItem = "Fjord Mustard - создать Защиту заднего стекла",
-    Recipe_Cut_ATAMustangProtectionWindowLeftItem = "Fjord Mustard - разрезать Защиту левого стекла",
-    Recipe_Cut_ATAMustangProtectionWindowRightItem = "Fjord Mustard - разрезать Защиту правого стекла",
-    Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Fjord Mustard - разрезать Защиту лобового стекла",
-    Recipe_Cut_ATAMustangProtectionWindowRearItem = "Fjord Mustard - разрезать Защиту заднего стекла",
-    Recipe_Make_ATAMustangRoofRackItem = "Fjord Mustard - создать Багажник для крыши",
-    Recipe_Cut_ATAMustangRoofRackItem = "Fjord Mustard - разрезать Багажник для крыши",
+/************ Autotsar Tuning Atelier - Chevalier Samara ************/
+
+    Recipe_Cut_ATAMustangBullbar1Item = "Mustard/Samara - разрезать Кенгурятник",
+    Recipe_Cut_ATAMustangBullbar2Item = "Mustard/Samara - разрезать Кенгурятник",
+    Recipe_Cut_ATAMustangBullbar3Item = "Mustard/Samara - разрезать Кенгурятник",
+    Recipe_Make_ATAMustangBullbar3Item = "Mustard/Samara - создать Кенгурятник",
+    Recipe_Cut_ATAMustangFendersWideItem = "Mustard/Samara - разрезать Капот",
+    Recipe_Cut_ATAMustangSkirtsSideItem = "Mustard/Samara - разрезать Капот",
+    Recipe_Cut_ATAMustangSpoilerFrontItem = "Mustard/Samara - разрезать Губу переднего бампера",
+    Recipe_Cut_ATAMustangSpoilerRear1Item = "Mustard/Samara - разрезать Спойлер",
+    Recipe_Cut_ATAMustangSpoilerRear2Item = "Mustard/Samara - разрезать Спойлер",
+    Recipe_Make_ATAMustangProtectionWindowLeftItem = "Mustard/Samara - создать Защиту левого стекла",
+    Recipe_Make_ATAMustangProtectionWindowRightItem = "Mustard/Samara - создать Защиту правого стекла",
+    Recipe_Make_ATAMustangProtectionWindowFrontItem = "Mustard/Samara - создать Защиту лобового стекла",
+    Recipe_Make_ATAMustangProtectionWindowRearItem = "Mustard/Samara - создать Защиту заднего стекла",
+    Recipe_Cut_ATAMustangProtectionWindowLeftItem = "Mustard/Samara - разрезать Защиту левого стекла",
+    Recipe_Cut_ATAMustangProtectionWindowRightItem = "Mustard/Samara - разрезать Защиту правого стекла",
+    Recipe_Cut_ATAMustangProtectionWindowFrontItem = "Mustard/Samara - разрезать Защиту лобового стекла",
+    Recipe_Cut_ATAMustangProtectionWindowRearItem = "Mustard/Samara - разрезать Защиту заднего стекла",
+    Recipe_Make_ATAMustangRoofRackItem = "Mustard/Samara - создать Багажник для крыши",
+    Recipe_Cut_ATAMustangRoofRackItem = "Mustard/Samara - разрезать Багажник для крыши",
+    
+    Recipe_Cut_ATAMustangHoodItem = "Mustard - разрезать Капот",
+    Recipe_Cut_ATASamaraHoodItem = "Samara - разрезать Капот",
     
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/

@@ -328,13 +328,7 @@ IGUI_EN = {
     IGUI_VehicleNameATAJeepClassic = "Jaap Wrungel Classic",
     IGUI_VehicleNameATAJeepRubicon = "Jaap Wrungel Rubicon",
     IGUI_VehicleNameATAJeepArcher = "Jaap Wrungel Archer",
-    
-    
-/************ Autotsar Tuning Atelier - Mustang ************/
-    
-    IGUI_VehicleNameATAMustangClassic = "Fjord Mustard",
-    IGUI_VehicleNameATAMustangPolice = "Fjord Mustard",
-    
+
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
     

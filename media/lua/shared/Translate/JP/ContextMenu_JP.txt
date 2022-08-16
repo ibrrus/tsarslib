@@ -1,0 +1,81 @@
+ContextMenu_JP = {
+	ContextMenu_AirCondOn = "ヒーター制御",
+	ContextMenu_AirCondOff = "ヒーター制御",
+	ContextMenu_Sleep_Mattress = "マットレスで眠る",
+	ContextMenu_PainNoSleep_Mattress = "マットレスで眠れないほどの痛みがある",
+	ContextMenu_PanicNoSleep_Mattress = "パニックのためマットレスで眠れない",
+	ContextMenu_NoSleepTooEarly_Mattress = "マットレスで眠れなくなったので、後でもう一度試してください。",
+	ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "タンクにガソリンを入れる",
+	ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "タンクからガソリンを排出する",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "ポンプからガソリンタンクに給油する",
+	ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "給油車からガソリン貯蔵タンクへの給油",
+	ContextMenu_Remove_Gasoline_From_Fuel_Truck = "タンクから給油する",
+	ContextMenu_For_get_Gasoline_Need_Gas_Can = "ガソリン携行缶が必要",
+	
+	ContextMenu_CloseTent = "テントを閉じる",
+	ContextMenu_OpenTent = "テントを開く",
+    
+    ContextMenu_Vehicle_For_Smashwindow_Uninstall_Protection = " 窓を割るには、保護具を外す必要がある。",
+    
+/************ Aquatsar Yacht Club ************/
+    ContextMenu_BoatAddGas = "ガス追加",
+    ContextMenu_BoatCabinelightsOff = "ライトを消す",
+    ContextMenu_BoatCabinelightsOn = "ライトを点灯させる",
+    
+    ContextMenu_BoatHeadlightsOff = "スポットライトを消す",
+    ContextMenu_BoatHeadlightsOn = "スポットライトを点灯する",
+    ContextMenu_BoatHotwireSkill = "直結を行うには、鍵または電気技師レベル1、車両整備レベル2が必要です。",
+    
+    ContextMenu_RemoveSail = "帆を取り外す", 
+    ContextMenu_SetLeftSail = "支索帆を左側にセットする",
+    ContextMenu_SetRightSail = "支索帆を右側にセットする",
+    ContextMenu_SwimToLand = "陸上まで泳ぐ",
+    
+    ContextMenu_LaunchBoat = "ボートを発進させる",
+    ContextMenu_CantLaunchBoat = "トレーラーを水上まで走らせる必要がある",
+    ContextMenu_LoadBoatOntoTrailer = "ボートをトレーラーに積み込む",
+    ContextMenu_CantLoadBoatOntoTrailer = "ボートとトレーラーは密着させなければならない",
+    ContextMenu_CantLoadBoatOntoTrailerMan = "ボートに人が乗っていてはいけない",
+    
+    ContextMenu_VehicleStartEngineManual = "エンジンを手動で始動する",
+    ContextMenu_VehicleManualStarterDamage = "リコイルスターターが装着されていない、または破損している",
+    ContextMenu_set_anchor_on = "アンカーを降ろす",
+    ContextMenu_set_anchor_off = "アンカーを上げる",
+    ContextMenu_bind_boat = "ボートを固定する",
+    ContextMenu_unbind_boat = "ボートの固定を解除する",
+    
+    ContextMenu_Wooden_Pantone = "木製の小船",
+    
+    ContextMenu_Open_Cabin = "キャビンのロックを解除する",
+    ContextMenu_Open_Cabin_Force = "キャビンのロックを解除する<br>(%1)",
+    ContextMenu_Open_Cabin_Force_Need_Crowbar = "キャビンのロックを解除する<br>(何らかの工具や鍵が必要)"
+    ContextMenu_Close_Cabin = "キャビンを閉じる",
+    ContextMenu_cabinForceUnlock_tooTired = "疲れているのでキャビンを開けられない",
+    ContextMenu_cabinForceUnlock_tooBored = "今はやりたくない",
+    ContextMenu_cabinForceUnlock_tooUnhappy = "こんなことする気分じゃない",
+
+/************ Autotsar Tuning Atelier - Bus ************/
+	ContextMenu_Vehicle_EGNH = "書く «EGNH»",
+	
+/************ Autotsar Trailers ************/
+	ContextMenu_Close_trunk = "トランクを閉じる",
+	ContextMenu_Open_trunk = "トランクを開ける",
+	ContextMenu_TrailerSpotlightOn = "スポットライトを点灯させる",
+	ContextMenu_TrailerSpotlightOff = "スポットライトを消す",
+	ContextMenu_Turn_On_Generator = "発電機を起動する",
+	
+/************ True Actions ************/
+	ContextMenu_Sit = "座る",
+	ContextMenu_Lie = "横たわる",
+	ContextMenu_OnSleep = "寝転がる",
+	
+/************ True Music ************/
+	ContextMenu_Stop_music = "音楽を止める",
+	ContextMenu_Play_music = "音楽をかける",
+    ContextMenu_Sound_carrier_not_install = "音声搬送波がインストールされない",
+    ContextMenu_Song = "曲",
+	
+/************ ZuperCart ************/
+	ContextMenu_GrabTrolley = "カートを押す",
+}
+

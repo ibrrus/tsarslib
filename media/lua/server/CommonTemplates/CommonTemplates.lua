@@ -622,9 +622,13 @@ function CommonTemplates.Update.BatteryHeater(vehicle, part, elapsedMinutes)
     if not tonumber(pcData.temperature) then
         pcData.temperature = 0.0
     end
-    local partData = part:getModData()
-    if not tonumber(partData.tsarslib.temperature) then
-        partData.tsarslib.temperature = 0
+    local partData = part:getModData().tsarslib
+    if not partData then 
+        part:getModData().tsarslib = {}
+        partData = part:getModData().tsarslib
+    end
+    if not tonumber(partData.temperature) then
+        partData.temperature = 0
     end
     
     if not battery:getInventoryItem() or 
@@ -842,7 +846,7 @@ function CommonTemplates.Init.Freeplace(vehicle, part)
         part:getItemContainer():setType("counter")
     elseif invItemName == "TransportShelve" then
         part:getItemContainer():setType("shelves")
-    elseif invItemName == "TransportDrawer" then
+    elseif invItemName == "Drawer" then
         part:getItemContainer():setType("sidetable")
     elseif invItemName == "TransportCupboard" then
         part:getItemContainer():setType("wardrobe")

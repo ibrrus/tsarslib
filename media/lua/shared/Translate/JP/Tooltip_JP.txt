@@ -1,0 +1,35 @@
+Tooltip_JP = {
+	Tooltip_Compact_Fridge = "一部の車種やトレーラーに搭載可能",
+	Tooltip_Compact_Oven = "一部の車種やトレーラーに搭載可能",
+	Tooltip_Compact_Microwave = "一部の車種やトレーラーに搭載可能",
+	
+	Tooltip_item_tuning = "チューニング用部品",
+	Tooltip_item_ATATuningMagUniversal = "この号を読むと、チューニングの基本的な知識が身につきます。<br>窓の普遍的な保護ができるようになります。<br>
+トランクの種類を図面化し、<br>車のバンパーを致命的な威力にする方法を理解することができます。",
+    
+/************ Aquatsar Yacht Club ************/
+    Tooltip_item_BoatMechanic = "ボートの種類",
+    Tooltip_BoatDashboard_SpeedValueButton = "測定単位を変更する",
+    Tooltip_Boat_LowBattery = "バッテリー残量低下",
+    Tooltip_item_BoatMag = "ボートの人気モデルの図解と一般的なメンテナンス作業を掲載した解説書。", 
+    Tooltip_item_SwimMag = "最も効果的な水泳方法についての雑誌。<br>国内最高のスイマーへのインタビュー。<br>水泳パンツ、キャップ、ゴーグルのレビュー。<br>", 
+
+/************ Autotsar Tuning Atelier - Bus ************/
+	Tooltip_item_AtTuningMagBus = "今号では、ゾンビによる終末に備えるため、<br>バスを準備する方法を学び、<br>窓やホイールの保護の作り方を学び、<br>効果的なグリルの作り方を理解し、<br>余裕のあるルーフラックの作り方を学ぶことができます。",
+	Tooltip_item_kengur	= "あなたは新しいタイプのブルウィップを考え出しました。<br>あとは、あなたの図面をもっとよく研究するのみです。",
+
+/************ Autotsar Tuning Atelier - Jeep ************/
+
+	Tooltip_item_AtTuningMagJeep = "この号を読んだ後、あなたは基本的なチューニングの知識を得て、Jaap Wrungelの保護、バンパー、ルーフレール、追加トランクを作成する方法を学ぶことができます。",
+
+
+/************ Autotsar Tuning Atelier - Mustang ************/
+	Tooltip_item_ATATuningFordMustang = "この号を読むと、基本的なチューニングの知識が得られ、<br>Fjord Mustard用のプロテクション、ブルバー、ルーフラックの作成方法がわかるようになります",
+
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+	Tooltip_item_ATADodgeTuningMag = "今号を読めば、チューニングの基礎知識が身につき、Dadge Steals RTのプロテクションやブルバー、ラックの作り方がわかるようになります。",
+
+/************ True Music ************/
+	Tooltip_item_Boombox = "ローカルラジオは入らないが、カセットテープを再生することができる。<br>電池で動く、外国製のラジカセ。",
+	Tooltip_item_Vinyl = "機能するためには、電気と接続されたスピーカーが必要です",
+}

@@ -133,7 +133,7 @@ function AMCTickControl.fallControl(playerObj, vehicle, fallDelta)
     if not playerObj:getModData()["mototsar"] then
         playerObj:getModData()["mototsar"] = {}
     end
-    local generalCondition = getClassFieldVal(vehicle, getClassField(vehicle, 61)) + getClassFieldVal(vehicle, getClassField(vehicle, 62))
+    local generalCondition = getClassFieldVal(vehicle, getClassField(vehicle, 56)) + getClassFieldVal(vehicle, getClassField(vehicle, 57))
     -- currentFrontEndDurability
     -- currentRearEndDurability
     

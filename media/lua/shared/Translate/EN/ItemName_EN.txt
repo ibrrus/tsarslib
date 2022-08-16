@@ -116,24 +116,29 @@ ItemName_EN = {
     
     
 /************ Autotsar Tuning Atelier - Fjord Mustard ************/
+/************ Autotsar Tuning Atelier - Chevalier Samara ************/
     
-    ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Fjord Mustard»",
-    ItemName_Autotsar.ATAMustangBullbar1Item = "Fjord Mustard - Standart Bullbar",
-    ItemName_Autotsar.ATAMustangBullbar2Item = "Fjord Mustard - Police Bullbar",
-    ItemName_Autotsar.ATAMustangBullbar3Item = "Fjord Mustard - Lethal Bullbar",
-    ItemName_Autotsar.ATAMustangFendersWideItem = "Fjord Mustard - Wide Fenders",
-    ItemName_Autotsar.ATAMustangSkirtsSideItem = "Fjord Mustard - Side Skirts",
-    ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Fjord Mustard - Spoiler Lip",
-    ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Fjord Mustard - Standart Spoiler",
-    ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Fjord Mustard - High Spoiler",
-    ItemName_Autotsar.ATAMustangHood2Item3 = "Fjord Mustard - Cowl Hood",
-    ItemName_Autotsar.ATAMustangHood3Item3 = "Fjord Mustard - Ram Air Hood",
-    ItemName_Autotsar.ATAMustangHood4Item3 = "Fjord Mustard - Mongoose Hood",
-    ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Fjord Mustard - Left Window Protection",
-    ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Fjord Mustard - Right Window Protection",
-    ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Windshield Protection",
-    ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - Rear Window Protection",
-    ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - Roof Rack",
+    ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Mustard & Samara»",
+    ItemName_Autotsar.ATAMustangBullbar1Item = "Mustard/Samara - Standart Bullbar",
+    ItemName_Autotsar.ATAMustangBullbar2Item = "Mustard/Samara - Police Bullbar",
+    ItemName_Autotsar.ATAMustangBullbar3Item = "Mustard/Samara - Lethal Bullbar",
+    ItemName_Autotsar.ATAMustangFendersWideItem = "Mustard/Samara - Wide Fenders",
+    ItemName_Autotsar.ATAMustangSkirtsSideItem = "Mustard/Samara - Side Skirts",
+    ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Mustard/Samara - Spoiler Lip",
+    ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Mustard/Samara - Standart Spoiler",
+    ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Mustard/Samara - High Spoiler",
+    ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Mustard/Samara - Left Window Protection",
+    ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Mustard/Samara - Right Window Protection",
+    ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Mustard/Samara - Windshield Protection",
+    ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Mustard/Samara - Rear Window Protection",
+    ItemName_Autotsar.ATAMustangRoofRackItem = "Mustard/Samara - Roof Rack",
+    
+    ItemName_Autotsar.ATAMustangHood2Item3 = "Mustard - Cowl Hood",
+    ItemName_Autotsar.ATAMustangHood3Item3 = "Mustard - Ram Air Hood",
+    ItemName_Autotsar.ATAMustangHood4Item3 = "Mustard - Mongoose Hood",
+    
+    ItemName_Autotsar.ATASamaraHood2Item3 = "Samara - Ram Air Hood",
+    ItemName_Autotsar.ATASamaraHood3Item3 = "Samara - Mongoose Hood",
     
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/

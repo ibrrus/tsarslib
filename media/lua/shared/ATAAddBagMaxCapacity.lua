@@ -16,6 +16,7 @@ local bagsMaxCapacity = {
     Bag_MoneyBag = 18,
     Bag_GolfBag = 18,
     Bag_Schoolbag = 15,
+    Drawer = 10,
 }
 
 local function OnGameBoot()

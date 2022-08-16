@@ -1,0 +1,123 @@
+ItemName_JP = {
+	ItemName_Base.TransportCounter = "可動型のカウンター",
+	ItemName_Base.TransportCupboard = "可動型の食器棚",
+	ItemName_Base.TransportDrawer = "可動型の引き出し",
+	ItemName_Base.TransportFreezer = "可動型の冷蔵庫",
+	ItemName_Base.TransportMedicine = "壁掛け薬棚",
+	ItemName_Base.TransportMicrowave = "可動型電子レンジ",
+	ItemName_Base.TransportOven = "可動型オーブン",
+	ItemName_Base.TransportSeatBoxWooden = "木製シート",
+	ItemName_Base.TransportShelve = "可動型の棚",
+	
+	ItemName_Base.500Tank1 = "Tank 500",
+	ItemName_Base.500Tank2 = "Tank 500",
+	ItemName_Base.500Tank3 = "Tank 500",
+	ItemName_Base.1000Tank1 = "Tank 1000",
+	ItemName_Base.1000Tank2 = "Tank 1000",
+	ItemName_Base.1000Tank3 = "Tank 1000",
+	
+	ItemName_Base.ATARoofLightItem = "ルーフライト",
+	ItemName_Base.ATAProtectionWheelsChain = "タイヤのチェーン",
+    
+/************ Aquatsar Yacht Club ************/
+    ItemName_Aquatsar.BoatPropeller = "ボート用プロペラ",
+    ItemName_Aquatsar.ManualStarter = "手動式スターター",
+    ItemName_Aquatsar.Sails = "帆",
+    ItemName_Aquatsar.BoatMag = "YC : Repair Your Boats Magazine",
+    ItemName_Aquatsar.SwimMag = "YC : Swimming Times Magazine",
+    ItemName_Aquatsar.Lifebuoy = "救命胴衣",
+    ItemName_Aquatsar.DivingMask = "潜水用マスク",
+    ItemName_Aquatsar.TaintedLiterature = "汚染された文献",
+    ItemName_Aquatsar.Compass = "コンパス",
+    ItemName_Aquatsar.DeflatedTireTube = "タイヤの空気抜き",
+    ItemName_Aquatsar.TireTube = "タイヤチューブ",
+    ItemName_Base.SailingYachtName_Default_Item = "No name",
+    ItemName_Base.SailingYachtName_La_Brigandine = "レ・ブリガンダイン",
+    ItemName_Base.SailingYachtName_Sakharov_Item = "アカデミック・サハロフ",
+    ItemName_Base.BoatMotorName_Default_Item = "No name",
+    ItemName_Base.BoatMotorName_Orianna_Item = "M/Y オリアンナ",
+    ItemName_Base.BoatMotorName_NP_Item = "ノーチラス P.",
+    
+/************ Autotsar Tuning Atelier - Bus ************/
+	
+	ItemName_Autotsar.AtTuningMagBus = "BUS : Magazine «Autotsar Tuning Atelier - Bear Bus»",
+	ItemName_Autotsar.Bullbar2Blueprint = "改良型ブルバーの設計図",
+	ItemName_Autotsar.Bullbar3Blueprint = "スパイクプラウの設計図",
+
+	ItemName_Autotsar.ATA_Bus_Kengur_1_Item = "Bear Bus - ブルバー",
+	ItemName_Autotsar.ATA_Bus_Kengur_2_Item = "Bear Bus - ブルバーの改良",
+	ItemName_Autotsar.ATA_Bus_Kengur_3_Item = "Bear Bus - スパイクプラウ",
+	
+	ItemName_Autotsar.ATA_Bus_Protection_door_Item = "Bear Bus - ドアの保護",
+	ItemName_Autotsar.ATA_Bus_Protection_door_rear_Item = "Bear Bus - リアドアの保護",
+	ItemName_Autotsar.ATA_Bus_Protection_wheels_Item = "Bear Bus - ホイールの保護",
+	ItemName_Autotsar.ATA_Bus_Protection_windows_front_Item = "Bear Bus - フロントガラスの保護",
+	ItemName_Autotsar.ATA_Bus_Protection_windows_right_Item = "Bear Bus - 右ウィンドウの保護",
+	ItemName_Autotsar.ATA_Bus_Protection_windows_left_Item = "Bear Bus - 左ウィンドウの保護",
+	
+	ItemName_Autotsar.ATA_Bus_Roof_Rack = "Bear Bus - ルーフラック",
+	ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Bear Bus - ルーフボックス",
+	
+
+/************ Autotsar Tuning Atelier - Jaap Wrungel ************/
+	
+	ItemName_Autotsar.AtTuningMagJeep = "Magazine «Autotsar Tuning Atelier - Jaap Wrungel»",
+	
+	ItemName_Autotsar.ATAJeepBumper1Item = "Jaap Wrungel - Classic bumper",
+	ItemName_Autotsar.ATAJeepBumper2Item = "Jaap Wrungel - Winch bumper",
+	ItemName_Autotsar.ATAJeepBumper3Item = "Jaap Wrungel - Bullbar",
+	ItemName_Autotsar.ATAJeepBumper4Item = "Jaap Wrungel - Lethal bumper",
+	
+	ItemName_Autotsar.ATAJeepProtectionWindowItem = "Jaap Wrungel - Side Windows Protection",
+	ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Jaap Wrungel - Windshield Protection",
+	ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Jaap Wrungel - Rear Window Protection",
+	
+	ItemName_Autotsar.ATAJeepRoofBaseItem = "Jaap Wrungel - Congo cage",
+	ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Jaap Wrungel - Roof Rack",
+	ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Jaap Wrungel - Trunk over Spare Wheel",
+
+	ItemName_Autotsar.ATAJeepSnorkelItem = "Jaap Wrungel - Schnorkel",
+	ItemName_Autotsar.ATAJeepRoofTentItem = "Jaap Wrungel - Roof Tent",
+	
+	
+/************ Autotsar Tuning Atelier - Fjord Mustard ************/
+	
+	ItemName_Autotsar.ATATuningFordMustang = "Magazine «Autotsar Tuning Atelier - Fjord Mustard»",
+	ItemName_Autotsar.ATAMustangBullbar1Item = "Fjord Mustard - Standart Bullbar",
+	ItemName_Autotsar.ATAMustangBullbar2Item = "Fjord Mustard - Police Bullbar",
+	ItemName_Autotsar.ATAMustangBullbar3Item = "Fjord Mustard - Lethal Bullbar",
+	ItemName_Autotsar.ATAMustangFendersWideItem = "Fjord Mustard - Wide Fenders",
+	ItemName_Autotsar.ATAMustangSkirtsSideItem = "Fjord Mustard - Side Skirts",
+	ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Fjord Mustard - Spoiler Lip",
+	ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Fjord Mustard - Standart Spoiler",
+	ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Fjord Mustard - High Spoiler",
+	ItemName_Autotsar.ATAMustangHood2Item3 = "Fjord Mustard - Cowl Hood",
+	ItemName_Autotsar.ATAMustangHood3Item3 = "Fjord Mustard - Ram Air Hood",
+	ItemName_Autotsar.ATAMustangHood4Item3 = "Fjord Mustard - Mongoose Hood",
+	ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Fjord Mustard - Left Window Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Fjord Mustard - Right Window Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Fjord Mustard - Windshield Protection",
+	ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Fjord Mustard - Rear Window Protection",
+	ItemName_Autotsar.ATAMustangRoofRackItem = "Fjord Mustard - Roof Rack",
+	
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+	
+	ItemName_Autotsar.ATADodgeTuningMag = "Magazine «Autotsar Tuning Atelier - Dadge Steals RT»",
+	ItemName_Autotsar.ATADodgeBullbar1Item = "Dadge Steals RT - Police Bullbar",
+	ItemName_Autotsar.ATADodgeBullbar2Item = "Dadge Steals RT - Homemade  Bullbar",
+	ItemName_Autotsar.ATADodgeBullbar3Item = "Dadge Steals RT - Lethal Bullbar",
+	ItemName_Autotsar.ATADodgeProtectionWindowSideItem = "Dadge Steals RT - Side Window Protection",
+	ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Dadge Steals RT - Windshield Protection",
+	ItemName_Autotsar.ATADodgeRoofRackItem = "Dadge Steals RT - Roof Rack",
+	ItemName_Autotsar.ATADodgeWindowRackItem = "Dadge Steals RT - Rear Window Rack",
+    
+/************ True Music ************/
+	ItemName_Tsarcraft.TCBoombox = "Boombox 'Kazakhstan-102-stereo'",
+    ItemName_Tsarcraft.TCVinylplayer = "Vinyl player 'Elektronika S1-01'",
+	
+/************ ZuperCart ************/
+	ItemName_TMC.TrolleyContainer = "手押し車",
+	ItemName_TMC.TrolleyContainer2 = "手押し車",
+	ItemName_TMC.CartContainer = "買い物カート",
+	ItemName_TMC.CartContainer2 = "買い物カート",
+}
