@@ -1,4 +1,9 @@
 ContextMenu_EN = {
+    ContextMenu_LaunchVehicle = "Unload from trailer",
+    ContextMenu_CantLaunchVehicle = "Can't unload.<br>Something is in the way",
+    ContextMenu_LoadVehicleOntoTrailer = "Load on trailer",
+    ContextMenu_CantLoadVehicleOntoTrailer = "The vehicle<br>and the trailer<br>must be<br>side by side",
+
     ContextMenu_TCConvertAppliance = "Make %1",
 
     ContextMenu_AirCondOn = "Heater control",

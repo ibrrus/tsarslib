@@ -157,7 +157,7 @@ module Base
     /* recipe Make a compact fridge
     {
         appliances_refrigeration_01_15/MovBlueFridge/MovSteelFridge/MovGreenFridge/MovPlainFridge/MovRedFridge,
-        BlowTorch=5,
+        BlowTorch=2,
         WeldingRods=5,
         keep WeldingMask,
         keep Hammer,
@@ -187,7 +187,7 @@ module Base
 	/* recipe Make a compact stove
     {
         MovGreenOven/MovGreyOven/MovRedOven/MovModernOven/MovIndustrialOven,
-		BlowTorch=5,
+		BlowTorch=2,
 		WeldingRods=5,
         keep WeldingMask,
 		keep Hammer,

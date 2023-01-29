@@ -32,4 +32,12 @@ module ATA
             file = media/sound/ata/ATAVehicleHornTruck.ogg,
         }        
     }
+    sound ATAVehicleWrecker
+    {
+        category = Vehicle,
+        clip
+        {
+            file = media/sound/ata/ATAVehicleWrecker.ogg,
+        }        
+    }
 }

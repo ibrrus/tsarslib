@@ -1,4 +1,9 @@
 ContextMenu_RU = {
+    ContextMenu_LaunchVehicle = "Разгрузить прицеп",
+    ContextMenu_CantLaunchVehicle = "Не могу разгрузить прицеп.<br>Что-то мешает",
+    ContextMenu_LoadVehicleOntoTrailer = "Загрузить в прицеп",
+    ContextMenu_CantLoadVehicleOntoTrailer = "Транспортное средство и<br>прицеп должны<br>быть рядом",
+    
     ContextMenu_TCConvertAppliance = "Создать %1",
 
     ContextMenu_AirCondOff = "Выключить кондиционер",

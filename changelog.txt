@@ -1,4 +1,18 @@
 -------------------
+v.1.31
+2023-01-29
+
+Код для управления анимациями перенесен в мод на мотоциклы. Он использовался только там и мог ухудшать производительность всех других модов.
+Если у вас есть вопрос: "А зачем же ты добавил его в эту библиотеку?", у меня будет для вас ответ: "Я планировал создать анимации для всех других автомобилей. Пока что я решил отказаться от этой затеи".
+Добавлен шаблон ATAVehicleWrecker, позволяющий создавать прицепы и автомобили для перевозки других транспортных средств.
+Уменьшено количество необходимого пропана для изготовления запчастей.
+
+The code to control the animations has been moved to the motorbike mod. It was only used there and could degrade the performance of all other mods.
+If you have the question, "So why did you add it to this library?", I have an answer for you: "I planned to create animations for all other vehicles. For now, I've decided to give up on that endeavour".
+Added ATAVehicleWrecker template, allowing you to create trailers and cars to transport other vehicles.
+The amount of propane needed to make parts has been reduced.
+
+-------------------
 v.1.30
 2022-08-16
 
