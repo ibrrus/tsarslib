@@ -1,0 +1,20 @@
+module ATA2
+{
+	imports
+	{
+		Base
+	}
+    
+    item ATA2Trunk35
+	{
+		DisplayCategory = TuningService,
+		Weight	=	10.0,
+        Type	=	Normal,
+        DisplayName	=	ATA2Trunk35,
+		MaxCapacity = 35,
+        ConditionAffectsCapacity = false,
+		ConditionMax = 100,
+        MechanicsItem = TRUE,
+	}
+    
+}

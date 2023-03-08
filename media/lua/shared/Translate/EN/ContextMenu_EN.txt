@@ -1,4 +1,8 @@
 ContextMenu_EN = {
+/************ Tuning 2.0 ************/
+    ContextMenu_OpenTuningMenu = "Modifications",
+
+
     ContextMenu_LaunchVehicle = "Unload from trailer",
     ContextMenu_CantLaunchVehicle = "Can't unload.<br>Something is in the way",
     ContextMenu_LoadVehicleOntoTrailer = "Load on trailer",

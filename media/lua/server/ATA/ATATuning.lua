@@ -536,9 +536,8 @@ function ATATuning.Update.CommonProtection(vehicle, part, elapsedMinutes)
     if not item then return; end
 
     local areaCenter = vehicle:getAreaCenter(part:getArea())
-    if not areaCenter then return nil end
-    local square = getCell():getGridSquare(areaCenter:getX(), areaCenter:getY(), vehicle:getZ())
-    if part:getCondition() == 0 then
+    if part:getCondition() == 0 and areaCenter then
+        local square = getCell():getGridSquare(areaCenter:getX(), areaCenter:getY(), vehicle:getZ())
         part:setInventoryItem(nil);
         vehicle:transmitPartItem(part)
         square:AddWorldInventoryItem(item, 0.5, 0.5, 0)

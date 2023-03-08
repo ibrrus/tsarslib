@@ -1,3 +1,5 @@
+require "ATA2TuningTable"
+
 if not ATA_ISVehicleMenu then ATA_ISVehicleMenu = {} end
 
 ATA_ISVehicleMenu.old_ISVehicleMenu_FillMenuOutsideVehicle = ISVehicleMenu.FillMenuOutsideVehicle
@@ -52,10 +54,26 @@ function ISVehicleMenu.showRadialMenuOutside(playerObj)
         part = vehicle:getPartById("ATAVehicleWrecker")
         if part and part:getTable("ATAVehicleWrecker") then
             if part:getInventoryItem() then
-                ATA_ISVehicleMenu.launchFromTrailerRadialMenu(playerObj, vehicle, part:getTable("ATAVehicleWrecker"))
+                -- print("ATA_ISVehicleMenu.launchFromTrailerRadialMenu")
+                if ATA_ISVehicleMenu.canLaunchVehicle(vehicle, wreckerinfo) then
+                    menu:addSlice(getText("ContextMenu_LaunchVehicle"), getTexture("media/ui/ata/ata_unload_from_trailer.png"), ATA_ISVehicleMenu.launchVehicle, playerObj, vehicle, wreckerinfo)
+                else
+                    menu:addSlice(getText("ContextMenu_CantLaunchVehicle"), getTexture("media/ui/commonlibrary/no.png"), nil)
+                end
             else
-                ATA_ISVehicleMenu.loadOntoTrailerRadialMenu(playerObj, vehicle, part:getTable("ATAVehicleWrecker"))
+                local vehicle2 = ATA_ISVehicleMenu.getVehicleAtRearOfTrailer(vehicle)
+                if vehicle2 then
+                    menu:addSlice(getText("ContextMenu_LoadVehicleOntoTrailer"), getTexture("media/ui/ata/ata_load_on_trailer.png"), ATA_ISVehicleMenu.loadOntoTrailer, playerObj, vehicle, vehicle2)
+                else
+                    menu:addSlice(getText("ContextMenu_CantLoadVehicleOntoTrailer"), getTexture("media/ui/commonlibrary/no.png"), nil)
+                end
+                
             end
+        end
+        
+        -- Добавление меню для тюнинга2.0
+        if ATA2TuningTable[vehicle:getScript():getName()] then
+            menu:addSlice(getText("ContextMenu_OpenTuningMenu"), getTexture("media/ui/tuning2/vehicle_tuning.png"), ATA_ISVehicleMenu.onTuning, playerObj, vehicle)
         end
     end
 end
@@ -83,22 +101,6 @@ function ISVehiclePartMenu.onSmashWindow(playerObj, part, open)
     ATA_ISVehicleMenu.old_ISVehiclePartMenu_onSmashWindow(playerObj, part, open)
 end
 
-
-function ATA_ISVehicleMenu.getVehicleAtRearForTrailer(vehicle)
-    -- Check line at rear of trailer
-    for i=0, 8, 0.5 do    
-        local point = vehicle:getWorldPos(0, 0, -vehicle:getScript():getPhysicsChassisShape():z()/2 - i, vec)
-        local sq = getCell():getGridSquare(point:x(), point:y(), 0)
-        
-        local boat = sq:getVehicleContainer()
-        if boat then
-            if AquaConfig.isBoat(boat) and AquaConfig.Trailers[vehicle:getScript():getName()].trailerWithBoatTable[boat:getScript():getName()] then
-                return boat
-            end
-        end
-    end
-end
-
 -------------------------
 -- Launch Vehicle
 -------------------------
@@ -120,17 +122,7 @@ function ATA_ISVehicleMenu.canLaunchVehicle(vehicle, wreckerinfo)
     return true
 end
 
-function ATA_ISVehicleMenu.launchFromTrailerRadialMenu(playerObj, vehicle, wreckerinfo)
--- print("ATA_ISVehicleMenu.launchFromTrailerRadialMenu")
-    local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
-    if ATA_ISVehicleMenu.canLaunchVehicle(vehicle, wreckerinfo) then
-        menu:addSlice(getText("ContextMenu_LaunchVehicle"), getTexture("media/ui/ata/ata_unload_from_trailer.png"), ATA_ISVehicleMenu.launchBoat, playerObj, vehicle, wreckerinfo)
-    else
-        menu:addSlice(getText("ContextMenu_CantLaunchVehicle"), getTexture("media/ui/commonlibrary/no.png"), nil)
-    end
-end
-
-function ATA_ISVehicleMenu.launchBoat(playerObj, vehicle, wreckerinfo)
+function ATA_ISVehicleMenu.launchVehicle(playerObj, vehicle, wreckerinfo)
     local point = vehicle:getWorldPos(0, 0, -vehicle:getScript():getPhysicsChassisShape():z()/2 - tonumber(wreckerinfo.spawnDist), vec)
     local sq = getCell():getGridSquare(point:x(), point:y(), 0)
     if sq == nil then return end
@@ -143,7 +135,7 @@ end
 -- Load on Trailer
 -------------------------
 
-function ATA_ISVehicleMenu.getBoatAtRearOfTrailer(trailer)
+function ATA_ISVehicleMenu.getVehicleAtRearOfTrailer(trailer)
     -- Check line at rear of trailer
     for i=0, 8, 0.5 do    
         local point = trailer:getWorldPos(0, 0, -trailer:getScript():getPhysicsChassisShape():z()/2 - i, vec)
@@ -158,18 +150,21 @@ function ATA_ISVehicleMenu.getBoatAtRearOfTrailer(trailer)
     end
 end
 
-function ATA_ISVehicleMenu.loadOntoTrailerRadialMenu(playerObj, trailer)
-    local menu = getPlayerRadialMenu(playerObj:getPlayerNum())
-    local vehicle = ATA_ISVehicleMenu.getBoatAtRearOfTrailer(trailer)
-    if vehicle then
-        menu:addSlice(getText("ContextMenu_LoadVehicleOntoTrailer"), getTexture("media/ui/ata/ata_load_on_trailer.png"), ATA_ISVehicleMenu.loadOntoTrailer, playerObj, trailer, vehicle)
-    else
-        menu:addSlice(getText("ContextMenu_CantLoadVehicleOntoTrailer"), getTexture("media/ui/commonlibrary/no.png"), nil)
-    end
-end
-
 function ATA_ISVehicleMenu.loadOntoTrailer(playerObj, trailer, vehicle)
     if luautils.walkAdj(playerObj, trailer:getSquare()) then
         ISTimedActionQueue.add(ATAISLoadVehicle:new(playerObj, trailer, vehicle));
     end
+end
+
+-------------------------
+-- Tuning 2.0
+-------------------------
+
+function ATA_ISVehicleMenu.onTuning(playerObj, vehicle)
+    local ui = getPlayerTuningUI(playerObj:getPlayerNum())
+    if ui:isReallyVisible() then
+        ui:close()
+        return
+    end
+    ISTimedActionQueue.add(ISOpenTuningUIAction:new(playerObj, vehicle))
 end

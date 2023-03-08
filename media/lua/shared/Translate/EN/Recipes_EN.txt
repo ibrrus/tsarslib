@@ -1,5 +1,6 @@
 Recipe_EN = {
-
+    Recipe_ATADodgeRecipes = "Dadge Tuning",
+    
 /* transport_item.txt */
     Recipe_Make_TransportCounter = "Build Portable shelf",
     Recipe_Make_TransportCupboard = "Build Portable cupboard",

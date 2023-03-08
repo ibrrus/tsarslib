@@ -1,4 +1,34 @@
 IGUI_EN = {
+/************ Tuning 2.0 ************/
+    IGUI_TuningCategory_General = "General",
+    IGUI_TuningCategory_Installed = "Installed",
+    IGUI_TuningCategory_ProtectionWindow = "Window Protection",
+    IGUI_TuningCategory_Bullbars = "Bullbars",
+    IGUI_TuningCategory_Bags = "Bags",
+    IGUI_TuningCategory_Another = "Another",
+    IGUI_TuningCategory_Trunks = "Trunks",
+    
+    IGUI_ATA2_Bullbar_Police = "Police Bullbar",
+    IGUI_ATA2_Bullbar_Handmade = "Handmade Bullbar",
+    IGUI_ATA2_Bullbar_Lethal = "Lethal Bullbar",
+
+    IGUI_TuningUI_Title = "Vehicle modifications",
+    IGUI_TuningUI_NeedBeEmpty = "Must be empty",
+    IGUI_TuningUI_Install = "Install",
+    IGUI_TuningUI_Uninstall = "Uninstall",
+    IGUI_TuningUI_AlreadyInstall = "Similar item has already been installed",
+    IGUI_TuningUI_NotInstall = "Not installed. I think someone cheated",
+    
+    IGUI_TuningUI_RequiredItems = "Items used:",
+    IGUI_TuningUI_RequiredTools = "Tools required:",
+    IGUI_TuningUI_Result = "Result:",
+    IGUI_TuningUI_RequiredInstalled = "Must be installed:",
+    IGUI_TuningUI_RequiredUninstalled = "Must be removed:",
+    IGUI_TuningUI_ProtectionFor = "Protection:",
+    IGUI_TuningUI_Condition = "Condition:",
+    IGUI_TuningUI_NotLearn = "Don't know the recipe",
+
+
 /* template_ata_6wheels.txt */
     IGUI_VehiclePartTireMiddleRight = "Rear Right Tire",
     IGUI_VehiclePartTireMiddleLeft = "Rear Left Tire",
@@ -14,15 +44,31 @@ IGUI_EN = {
     IGUI_VehiclePartATABagMotoRight = "Moto Bag Right",
     IGUI_VehiclePartATABagMotoHolsterLeft = "Moto Holster Left",
     IGUI_VehiclePartATABagMotoHolsterRight = "Moto Holster Right",
+
+    IGUI_VehiclePartATA2BagOnProtectionWindowFrontLeft = "Bag on protection (left)",
+    IGUI_VehiclePartATA2BagOnProtectionWindowFrontRight = "Bag on protection (right)",
+    IGUI_VehiclePartATA2BagMotoLeft = "Moto Bag Left",
+    IGUI_VehiclePartATA2BagMotoRight = "Moto Bag Right",
+    IGUI_VehiclePartATA2BagMotoHolsterLeft = "Moto Holster Left",
+    IGUI_VehiclePartATA2BagMotoHolsterRight = "Moto Holster Right",
     
 /* template_ata_bampers.txt */
     IGUI_VehiclePartATABumper = "Bumper",
+    
+    IGUI_VehiclePartATA2Bumper = "Bumper",
+
 
 /* template_ata_bullbars.txt */
     IGUI_VehiclePartATABullbar = "Bullbar",
+    
+    IGUI_VehiclePartATA2Bullbar = "Bullbar",
+
 
 /* template_ata_headlights.txt */
     IGUI_VehiclePartATAHeadlightsPopUP = "Headlights Pop-Up",
+    
+    IGUI_VehiclePartATA2HeadlightsPopUP = "Headlights Pop-Up",
+
 
 /* template_ata_interactive_trunk.txt */
     IGUI_VehiclePartATARoofBase = "Roof rails",
@@ -31,13 +77,25 @@ IGUI_EN = {
     IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Rear window rack",
     IGUI_VehiclePartATAInteractiveTrunkFront = "Front Trunk",
     IGUI_VehiclePartATAInteractiveTrunkRear = "Rear Trunk",
+    
+    IGUI_VehiclePartATA2RoofBase = "Roof rails",
+    IGUI_VehiclePartATA2InteractiveTrunkRoofRack = "Roof rack",
+    IGUI_VehiclePartATA2InteractiveTrunkWheelRack = "Spare wheel rack",
+    IGUI_VehiclePartATA2InteractiveTrunkWindowRearRack = "Rear window rack",
+    IGUI_VehiclePartATA2InteractiveTrunkFront = "Front Trunk",
+    IGUI_VehiclePartATA2InteractiveTrunkRear = "Rear Trunk",
+
 
 /* template_ata_lightbar.txt */
     IGUI_VehiclePartATALightBar = "Lightbar",
+    
+    IGUI_VehiclePartATA2LightBar = "Lightbar",
+
 
 /* template_ata_moto_fake_wheels.txt */
     IGUI_VehiclePartATAMotoTireFrontWheel = "Front Wheel",
     IGUI_VehiclePartATAMotoTireRearWheel = "Rear Wheel",
+
 
 /* template_ata_protection.txt */
     IGUI_VehiclePartATAProtectionWheels = "Protection for wheels",
@@ -65,6 +123,34 @@ IGUI_EN = {
     IGUI_VehiclePartATAProtectionHood = "Protection for hood",
     IGUI_VehiclePartATAProtectionTrunk = "Protection for trunk",
 
+
+    IGUI_VehiclePartATA2ProtectionWheels = "Wheels Protection",
+    IGUI_VehiclePartATA2ProtectionWheelsFront = "Front Wheels Protection",
+    IGUI_VehiclePartATA2ProtectionWheelsRear = "Rear Wheels Protection",
+    IGUI_VehiclePartATA2ProtectionFrontWheels = "Front Wheels Protection",
+    IGUI_VehiclePartATA2ProtectionRearWheels = "Rear Wheels Protection",
+    
+    IGUI_VehiclePartATA2ProtectionWindshield = "Windshield Protection",
+    IGUI_VehiclePartATA2ProtectionWindowFront = "Windshield Protection",
+    IGUI_VehiclePartATA2ProtectionWindowRear = "Rear window Protection",
+    IGUI_VehiclePartATA2ProtectionWindowFrontLeft = "Window Front Left Protection",
+    IGUI_VehiclePartATA2ProtectionWindowFrontRight = "Window Front Right Protection",
+    IGUI_VehiclePartATA2ProtectionWindowMiddleLeft = "Window Middle Left Protection",
+    IGUI_VehiclePartATA2ProtectionWindowMiddleRight = "Window Middle Right Protection",
+    IGUI_VehiclePartATA2ProtectionWindowRearLeft = "Window Rear Left Protection",
+    IGUI_VehiclePartATA2ProtectionWindowRearRight = "Window Rear Right Protection",
+    
+    IGUI_VehiclePartATA2ProtectionSideLeft = "Left Protection",
+    IGUI_VehiclePartATA2ProtectionSideRight = "Right Protection",
+    IGUI_VehiclePartATA2ProtectionSideFront = "Front Protection",
+    IGUI_VehiclePartATA2ProtectionSideRoof = "Top Protection",
+
+    IGUI_VehiclePartATA2ProtectionSleeper = "Sleeper Protection",
+    IGUI_VehiclePartATA2ProtectionGasTank = "Gastank Protection",
+    IGUI_VehiclePartATA2ProtectionHood = "Hood Protection",
+    IGUI_VehiclePartATA2ProtectionTrunk = "Trunk Protection",
+    
+
 /* template_ata_roof_lights.txt */
     IGUI_VehiclePartATARoofLightFront = "Roof lights (front)",
     IGUI_VehiclePartATARoofLightLeft = "Roof lights (left)",
@@ -75,9 +161,24 @@ IGUI_EN = {
     IGUI_VehiclePartATARoofLampLeft = "Bulb for Left roof lights",
     IGUI_VehiclePartATARoofLampRight = "Bulb for Right roof lights",
     IGUI_VehiclePartATARoofLampRear = "Bulb for Rear roof lights",
+    
+    
+    IGUI_VehiclePartATA2RoofLightFront = "Roof lights (front)",
+    IGUI_VehiclePartATA2RoofLightLeft = "Roof lights (left)",
+    IGUI_VehiclePartATA2RoofLightRight = "Roof lights (right)",
+    IGUI_VehiclePartATA2RoofLightRear = "Roof lights (rear)",
+    
+    IGUI_VehiclePartATA2RoofLampFront = "Bulb for Front roof lights",
+    IGUI_VehiclePartATA2RoofLampLeft = "Bulb for Left roof lights",
+    IGUI_VehiclePartATA2RoofLampRight = "Bulb for Right roof lights",
+    IGUI_VehiclePartATA2RoofLampRear = "Bulb for Rear roof lights",
+
+
 
 /* template_ata_roof_tent.txt */
     IGUI_VehiclePartATARoofTent = "Roof tent",
+    
+    IGUI_VehiclePartATA2RoofTent = "Roof tent",
 
 /* template_ata_spare_wheel.txt */
     IGUI_VehiclePartATASpareWheel = "Spare Wheel",
@@ -89,6 +190,14 @@ IGUI_EN = {
     IGUI_VehiclePartATAVisualSkirtsSide = "Side Skirts",
     IGUI_VehiclePartATAVisualFendersWide = "Wide Fenders",
     IGUI_VehiclePartATAVisualSnorkel = "Snorkel",
+
+    IGUI_VehiclePartATA2VisualLadder = "Ladder",
+    IGUI_VehiclePartATA2VisualSpoilerFront = "Spoiler Lip",
+    IGUI_VehiclePartATA2VisualSpoilerRear = "Spoiler",
+    IGUI_VehiclePartATA2VisualSkirtsSide = "Side Skirts",
+    IGUI_VehiclePartATA2VisualFendersWide = "Wide Fenders",
+    IGUI_VehiclePartATA2VisualSnorkel = "Snorkel",
+
 
 /* template_freeplace.txt */
     IGUI_VehiclePartFreeplace1FrontLeft = "Free space (FL)",
@@ -332,7 +441,10 @@ IGUI_EN = {
     
 /************ Autotsar Tuning Atelier - Dadge Steals RT ************/
     
-    IGUI_VehicleNameATADodge = "Dadge Steals RT Twin Turbo",
+    IGUI_VehicleNameATADodge = "!!!DO NOT USE THIS CAR. IT WILL BE REMOVED SOON!!!",
+    IGUI_VehicleNameATADodgePpg = "!!!DO NOT USE THIS CAR. IT WILL BE REMOVED SOON!!!",
+    IGUI_VehicleNameATA2Dodge = "Dadge Steals RT Twin Turbo",
+    IGUI_VehicleNameATA2DodgePpg = "Dadge Steals RT Twin Turbo PPG",
 
 
 /************ Autotsar Trailers ************/

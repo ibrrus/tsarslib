@@ -1,6 +1,6 @@
-name=Tsar's Common Library v.1.31 TEST
+name=Tsar's Common Library v.2.00pre TEST
 poster=poster.png
 id=tsarslib_test
-versionMin=41.73
+versionMin=41.78
 description=Common library for tsar's companies.
 url=

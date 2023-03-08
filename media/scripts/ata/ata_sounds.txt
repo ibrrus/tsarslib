@@ -8,7 +8,7 @@ module ATA
 
     sound ATAHeadlightClose
     {
-        category = Water,
+        category = ATA,
         clip
         {
             file = media/sound/ata/ATAHeadlightClose.ogg,
@@ -17,7 +17,7 @@ module ATA
     
     sound ATAHeadlightOpen
     {
-        category = Water,
+        category = ATA,
         clip
         {
             file = media/sound/ata/ATAHeadlightOpen.ogg,
@@ -26,7 +26,7 @@ module ATA
     
     sound ATAVehicleHornTruck
     {
-        category = Vehicle,
+        category = ATA,
         clip
         {
             file = media/sound/ata/ATAVehicleHornTruck.ogg,
@@ -34,7 +34,7 @@ module ATA
     }
     sound ATAVehicleWrecker
     {
-        category = Vehicle,
+        category = ATA,
         clip
         {
             file = media/sound/ata/ATAVehicleWrecker.ogg,

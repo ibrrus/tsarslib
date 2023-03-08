@@ -111,6 +111,44 @@ function Commands.bulbSmash(playerObj, args)
     end
 end
 
+-- sendClientCommand(playerObj, 'commonlib', 'installTuning', {vehicle = vehicle:getId(), part = self.part:getId(),})
+function Commands.installTuning(playerObj, args)
+    if args.vehicle then
+        local vehicle = getVehicleById(args.vehicle)
+        local part = vehicle:getPartById(args.part)
+        local item = InventoryItemFactory.CreateItem("Base.LightBulb")
+        if part then
+            part:setInventoryItem(item)
+            part:getModData().tuning2 = {}
+            part:getModData().tuning2.model = args.model
+            vehicle:transmitPartModData(part)
+            local tbl = part:getTable("install")
+			if tbl and tbl.complete then
+				VehicleUtils.callLua(tbl.complete, vehicle, part, nil)
+			end
+            vehicle:transmitPartItem(part)
+        end
+    end
+end
+
+-- sendClientCommand(playerObj, 'commonlib', 'uninstallTuning', {vehicle = vehicle:getId(), part = self.part:getId(),})
+function Commands.uninstallTuning(playerObj, args)
+    if args.vehicle then
+        local vehicle = getVehicleById(args.vehicle)
+        local part = vehicle:getPartById(args.part)
+        if part and part:getInventoryItem() then
+            part:setInventoryItem(nil)
+            local tbl = part:getTable("uninstall")
+            part:getModData().tuning2 = {}
+            vehicle:transmitPartModData(part)
+			if tbl and tbl.complete then
+				VehicleUtils.callLua(tbl.complete, vehicle, part, nil)
+			end
+            vehicle:transmitPartItem(part)
+        end
+    end
+end
+
 -- sendClientCommand(playerObj, 'commonlib', 'cabinlightsOn', {vehicle = vehicle:getId(),})
 function Commands.cabinlightsOn(playerObj, args)
     if args.vehicle then
