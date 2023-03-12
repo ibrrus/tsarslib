@@ -5,19 +5,34 @@ local shaderValues = {
     vehicle = true,
 }
 
-ATA2TuningAutoUninstallList = {
-    MetalPipe = true,
-    MetalBar = true,
-    SheetMetal = true,
-    Screws = true,
-    SmallSheetMetal = true,
-    ScrapMetal = true,
-    UnusableMetal = true,
+ATA2TuningItemList = {
+    MetalPipe = 1.5,
+    MetalBar = 1.5,
+    SheetMetal = 1.5,
+    Screws = 0.003,
+    SmallSheetMetal = 0.4,
+    ScrapMetal = 0.1,
+    UnusableMetal = 1,
 }
+local writeFile = nil
+if getDebug() then
+    writeFile = getFileWriter("console_ata2tuning.txt", true, false)
+    Events.OnGameStart.Add(function()
+        writeFile:close()
+    end)
+end
+
+local function logprint(str)
+    print(str)
+    if writeFile then
+        print("WRITE")
+        writeFile:write(str .. "\n");
+    end
+end
 
 local function incorrectType (fieldName, field, correctType)
     if type(field) ~= correctType then
-        print("---------- ATA2Tuning ERROR|Wrong field: ".. fieldName .. " = ".. tostring(field) .. ". Type must be " .. correctType)
+        logprint("---------- ATA2Tuning ERROR|Wrong field: ".. fieldName .. " = ".. tostring(field) .. ". Type must be " .. correctType)
         return true
     end
     return false
@@ -30,27 +45,27 @@ function ATA2Tuning_AddNewCars(carsTable)
         local scriptManager = getScriptManager()
         local vehileScript = nil
         if scriptManager:getVehicle(vehicleName) then
-            print("ATA2Tuning|" ..vehicleName .. " is vehicle.")
+            logprint("ATA2Tuning|" ..vehicleName .. " is vehicle.")
             vehileScript = scriptManager:getVehicle(vehicleName)
         elseif scriptManager:getVehicleTemplate(vehicleName) then
-            print("ATA2Tuning|" ..vehicleName .. " is vehicle template.")
+            logprint("ATA2Tuning|" ..vehicleName .. " is vehicle template.")
             -- vehileScript = scriptManager:getVehicleTemplate(vehicleName):getScript()
         else
-            print("---------- ATA2Tuning ERROR|" ..vehicleName .. " script not found.")
+            logprint("---------- ATA2Tuning ERROR|" ..vehicleName .. " script not found.")
             haveError = true
         end
         for partName, partTable in pairs(carTable.parts) do
             if vehileScript then
                 if vehileScript:getPartById(partName) then
-                    print("ATA2Tuning|" ..vehicleName .. "|part " .. partName .. " is found.")
+                    logprint("ATA2Tuning|" ..vehicleName .. "|part " .. partName .. " is found.")
                 else
-                    print("---------- ATA2Tuning WARNING|Part not found: ".. partName)
+                    logprint("---------- ATA2Tuning WARNING|Part not found: ".. partName)
                 end
             end
             for modelName, modelTable in pairs(partTable) do
                 -- проверка, что шейдер выбран из доступных
                 if modelTable.shader and not shaderValues[modelTable.shader] then
-                    print("---------- ATA2Tuning ERROR|Wrong field: shader = " .. tostring(modelTable.shader) .. ". Only available: vehiclewheel, vehicle")
+                    logprint("---------- ATA2Tuning ERROR|Wrong field: shader = " .. tostring(modelTable.shader) .. ". Only available: vehiclewheel, vehicle")
                     haveError = true
                 end
                 -- проверка, что спавн задан числом в диапазоне от 0 до 100
@@ -59,7 +74,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                     haveError = haveError and err
                     if not err then
                         if modelTable.spawnChance < 0 or modelTable.spawnChance > 100 then
-                            print("---------- ATA2Tuning ERROR|spawnChance must have values between 0 and 100")
+                            logprint("---------- ATA2Tuning ERROR|spawnChance must have values between 0 and 100")
                             haveError = true
                         end
                     end
@@ -74,7 +89,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                     haveError = haveError and err
                     -- проверка, что иконка существует
                     if not err and getTexture(modelTable.icon) == nil then
-                        print("---------- ATA2Tuning ERROR|Icon not found: ".. tostring(modelTable.icon))
+                        logprint("---------- ATA2Tuning ERROR|Icon not found: ".. tostring(modelTable.icon))
                         haveError = true
                     end
                 end
@@ -89,6 +104,15 @@ function ATA2Tuning_AddNewCars(carsTable)
                 -- проверка, что параметр задан строкой
                 if modelTable.category then
                     haveError = haveError and incorrectType("category", modelTable.category, "string")
+                end
+                
+                if modelTable.containerCapacity then
+                    local err = incorrectType("install.containerCapacity", modelTable.containerCapacity, "number")
+                    haveError = haveError and err
+                    if not err and (modelTable.containerCapacity < 1) then
+                        logprint("---------- ATA2Tuning ERROR|modelTable.containerCapacity < 1")
+                        haveError = true
+                    end
                 end
                 -- проверяем параметры интерактивного багажника
                 if modelTable.interactiveTrunk then
@@ -108,27 +132,41 @@ function ATA2Tuning_AddNewCars(carsTable)
                                         if interItemsTable.itemTypes then
                                             haveError = haveError and incorrectType("interactiveTrunk.items.itemTypes", interItemsTable.itemTypes, "table")
                                         else
-                                            print("---------- ATA2Tuning ERROR|no obligatory table is specified: interactiveTrunk.items.itemTypes")
+                                            logprint("---------- ATA2Tuning ERROR|no obligatory table is specified: interactiveTrunk.items.itemTypes")
                                             haveError = true
                                         end
                                         if interItemsTable.modelNameByCount then
                                             haveError = haveError and incorrectType("interactiveTrunk.items.modelNameByCount", interItemsTable.modelNameByCount, "table")
                                         else
-                                            print("---------- ATA2Tuning ERROR|no obligatory table is specified: interactiveTrunk.items.modelNameByCount")
+                                            logprint("---------- ATA2Tuning ERROR|no obligatory table is specified: interactiveTrunk.items.modelNameByCount")
                                             haveError = true
                                         end
                                     end
                                 end
                             else
-                                print("---------- ATA2Tuning WARNING|interactiveTrunk has an unknown table: " .. tostring(interType))
+                                logprint("---------- ATA2Tuning WARNING|interactiveTrunk has an unknown table: " .. tostring(interType))
                             end
                         end
                     end
                 end
+                
                 -- проверка, что для параметра существует обязательная таблица
                 if modelTable.protectionModel and not modelTable.protection then
-                     print("---------- ATA2Tuning WARNING|protectionModel will not work because there is no 'protection' table")
+                     logprint("---------- ATA2Tuning WARNING|protectionModel will not work because there is no 'protection' table")
                 end 
+                
+                -- проверка параметра для задания блокировки открытия окна
+                if modelTable.disableOpenWindowForSeat then
+                    local err = incorrectType("disableOpenWindowForSeat", modelTable.disableOpenWindowForSeat, "string")
+                    haveError = haveError and err
+                    -- проверяем, что такая запчасть существует в скрипте
+                    if not err and vehileScript then
+                        if not vehileScript:getPartById(modelTable.disableOpenWindowForSeat) then
+                            logprint("---------- ATA2Tuning WARNING|disableOpenWindowForSeat: part not found: " .. modelTable.disableOpenWindowForSeat)
+                        end
+                    end
+                end
+                
                 -- проверка, что параметр задан таблицей
                 if modelTable.protection then
                     local err = incorrectType("protection", modelTable.protection, "table")
@@ -137,7 +175,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                         -- проверяем, что список защищаемых элементов есть в скрипте
                         for _, partNameProtection in ipairs(modelTable.protection) do
                             if not vehileScript:getPartById(partNameProtection) then
-                                print("---------- ATA2Tuning WARNING|protection: part not found: " .. partNameProtection)
+                                logprint("---------- ATA2Tuning WARNING|protection: part not found: " .. partNameProtection)
                             end
                         end
                     end
@@ -148,7 +186,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                     haveError = haveError and err
                     if not err and modelTable.protectionHealthDelta < 0 then
                         haveError = true
-                        print("---------- ATA2Tuning ERROR|protectionHealthDelta cannot be negative")
+                        logprint("---------- ATA2Tuning ERROR|protectionHealthDelta cannot be negative")
                     end
                 end
                 -- проверка, что параметр задан числом в диапазоне 
@@ -157,7 +195,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                     haveError = haveError and err
                     if not err and (modelTable.protectionTriger < 20 and modelTable.protectionTriger > 80) then
                         haveError = true
-                        print("---------- ATA2Tuning ERROR|protectionTriger should be between 20 and 80")
+                        logprint("---------- ATA2Tuning ERROR|protectionTriger should be between 20 and 80")
                     end
                 end
                 -- проверка, что параметр задан логическим типом
@@ -176,7 +214,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                             haveError = haveError and err2
                             if not err2 and vehileScript then
                                 if not vehileScript:getAreaById(installTable.area) then
-                                    print("---------- ATA2Tuning ERROR|install AREA not found in vehicle script.")
+                                    logprint("---------- ATA2Tuning ERROR|install AREA not found in vehicle script.")
                                     haveError = true
                                 end
                             end
@@ -188,10 +226,30 @@ function ATA2Tuning_AddNewCars(carsTable)
                             haveError = haveError and incorrectType("install.animation", installTable.animation, "string")
                         end
                         if installTable.use then
-                            haveError = haveError and incorrectType("install.use", installTable.use, "table")
+                            local err2 = incorrectType("install.use", installTable.use, "table")
+                            haveError = haveError and err2
+                            if not err2 then
+                                for itemName,_ in pairs(installTable.use) do
+                                    itemName = itemName:gsub("__", ".")
+                                    local item = InventoryItemFactory.CreateItem(itemName)
+                                    if not item then
+                                        logprint("---------- ATA2Tuning WARNING|install.use: item not found " .. tostring(itemName))
+                                    end
+                                end
+                            end
                         end
                         if installTable.tools then
-                            haveError = haveError and incorrectType("install.tools", installTable.tools, "table")
+                            local err2 = incorrectType("install.tools", installTable.tools, "table")
+                            haveError = haveError and err2
+                            if not err2 then
+                                for _,itemName in pairs(installTable.tools) do
+                                    itemName = itemName:gsub("__", ".")
+                                    local item = InventoryItemFactory.CreateItem(itemName)
+                                    if not item then
+                                        logprint("---------- ATA2Tuning WARNING|install.tools: item not found " .. tostring(itemName))
+                                    end
+                                end
+                            end
                         end
                         if installTable.skills then
                             haveError = haveError and incorrectType("install.skills", installTable.skills, "table")
@@ -208,10 +266,21 @@ function ATA2Tuning_AddNewCars(carsTable)
                         if installTable.time then
                             haveError = haveError and incorrectType("install.time", installTable.time, "number")
                         end
+                        if installTable.weight == "auto" and installTable.use then
+                            local weight = 0
+                            for itemName, count in pairs(modelTable.install.use) do
+                                if ATA2TuningItemList[itemName] then
+                                    weight = weight + ATA2TuningItemList[itemName] * count
+                                end
+                            end
+                            installTable.weight = weight / 2
+                        else
+                            haveError = haveError and incorrectType("installTable.weight", installTable.weight, "number")
+                        end
                     end
                 else
                     haveError = true
-                    print("---------- ATA2Tuning ERROR|modelTable.install mandatory")
+                    logprint("---------- ATA2Tuning ERROR|modelTable.install mandatory")
                 end
                 
                 -- проверки и обработка таблицы снятия
@@ -225,7 +294,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                             haveError = haveError and err2
                             if not err2 and vehileScript then
                                 if not vehileScript:getAreaById(uninstallTable.area) then
-                                    print("---------- ATA2Tuning ERROR|uninstall AREA not found in vehicle script.")
+                                    logprint("---------- ATA2Tuning ERROR|uninstall AREA not found in vehicle script.")
                                     haveError = true
                                 end
                             end
@@ -237,10 +306,30 @@ function ATA2Tuning_AddNewCars(carsTable)
                             haveError = haveError and incorrectType("uninstall.animation", uninstallTable.animation, "string")
                         end
                         if uninstallTable.use then
-                            haveError = haveError and incorrectType("uninstall.use", uninstallTable.use, "table")
+                            local err2 = incorrectType("uninstall.use", uninstallTable.use, "table")
+                            haveError = haveError and err2
+                            if not err2 then
+                                for itemName,_ in pairs(uninstallTable.use) do
+                                    itemName = itemName:gsub("__", ".")
+                                    local item = InventoryItemFactory.CreateItem(itemName)
+                                    if not item then
+                                        logprint("---------- ATA2Tuning WARNING|uninstall.use: item not found " .. tostring(itemName))
+                                    end
+                                end
+                            end
                         end
                         if uninstallTable.tools then
-                            haveError = haveError and incorrectType("uninstall.tools", uninstallTable.tools, "table")
+                            local err2 = incorrectType("uninstall.tools", uninstallTable.tools, "table")
+                            haveError = haveError and err2
+                            if not err2 then
+                                for _,itemName in pairs(uninstallTable.tools) do
+                                    itemName = itemName:gsub("__", ".")
+                                    local item = InventoryItemFactory.CreateItem(itemName)
+                                    if not item then
+                                        logprint("---------- ATA2Tuning WARNING|uninstall.tools: item not found " .. tostring(itemName))
+                                    end
+                                end
+                            end
                         end
                         if uninstallTable.skills then
                             haveError = haveError and incorrectType("uninstall.skills", uninstallTable.skills, "table")
@@ -263,7 +352,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                                 local newUninstallTable = {}
                                 local unusableMetal = 0
                                 for itemName, count in pairs(modelTable.install.use) do
-                                    if ATA2TuningAutoUninstallList[itemName] then
+                                    if ATA2TuningItemList[itemName] then
                                         if math.floor(count/2) > 0 then newUninstallTable[itemName] = math.floor(count/2) end
                                         unusableMetal = unusableMetal + count/2
                                     end
@@ -272,21 +361,31 @@ function ATA2Tuning_AddNewCars(carsTable)
                                 if unusableMetal > 0 and not newUninstallTable["UnusableMetal"] then newUninstallTable["UnusableMetal"] = unusableMetal end
                                 uninstallTable.result = newUninstallTable
                             else
-                                haveError = haveError and incorrectType("uninstall.result", uninstallTable.result, "number")
+                                local err2 = incorrectType("uninstall.result", uninstallTable.result, "table")
+                                haveError = haveError and err2
+                                if not err2 then
+                                    for itemName,_ in pairs(uninstallTable.result) do
+                                        itemName = itemName:gsub("__", ".")
+                                        local item = InventoryItemFactory.CreateItem(itemName)
+                                        if not item then
+                                            logprint("---------- ATA2Tuning WARNING|uninstall.result: item not found" .. tostring(itemName))
+                                        end
+                                    end
+                                end
                             end
                         end
                     end
                 else
                     haveError = true
-                    print("---------- ATA2Tuning ERROR|modelTable.uninstall mandatory!")
+                    logprint("---------- ATA2Tuning ERROR|modelTable.uninstall mandatory!")
                 end
             end
         end
         if not haveError then
             ATA2TuningTable[vehicleName] = carTable
-            print("ATA2Tuning|" ..vehicleName .. " added successfully.")
+            logprint("ATA2Tuning|" ..vehicleName .. " added successfully.")
         else
-            print("---------- ATA2Tuning ERROR|" ..vehicleName .. " fix the configuration errors!!!")
+            logprint("---------- ATA2Tuning ERROR|" ..vehicleName .. " fix the configuration errors!!!")
             error("Fix the configuration errors")
         end
     end
@@ -298,9 +397,10 @@ ATA2TuningTableTemplate = {}
 ATA2TuningTableTemplate.Bags = {
     Bag_ShotgunDblSawnoffBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBagWhite",
+        icon = "Item_DuffelBagWhite",
         secondModel = "DuffelBagWhite",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_ShotgunDblSawnoffBag = 1,
@@ -316,9 +416,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_ShotgunDblBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBagWhite",
+        icon = "Item_DuffelBagWhite",
         secondModel = "DuffelBagWhite",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_ShotgunDblBag = 1,
@@ -334,9 +435,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_ShotgunBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBagWhite",
+        icon = "Item_DuffelBagWhite",
         secondModel = "DuffelBagWhite",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_ShotgunBag = 1,
@@ -352,9 +454,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_ShotgunSawnoffBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBagWhite",
+        icon = "Item_DuffelBagWhite",
         secondModel = "DuffelBagWhite",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_ShotgunSawnoffBag = 1,
@@ -370,9 +473,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_SurvivorBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_AliceBag",
+        icon = "Item_AliceBag",
         secondModel = "ALICEpack",
         category = "Another",
+        containerCapacity = 27,
         install = {
             use = {
                 Bag_SurvivorBag = 1,
@@ -388,9 +492,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_ALICEpack = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_AliceBag",
+        icon = "Item_AliceBag",
         secondModel = "ALICEpack",
         category = "Another",
+        containerCapacity = 27,
         install = {
             use = {
                 Bag_ALICEpack = 1,
@@ -406,9 +511,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_ALICEpack_Army = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_AliceBag_Camo",
+        icon = "Item_AliceBag_Camo",
         secondModel = "ALICEpack_Army",
         category = "Another",
+        containerCapacity = 28,
         install = {
             use = {
                 Bag_ALICEpack_Army = 1,
@@ -424,9 +530,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_BigHikingBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_BigHiking_Green",
+        icon = "Item_BigHiking_Green",
         secondModel = "BigHikingBag",
         category = "Another",
+        containerCapacity = 22,
         install = {
             use = {
                 Bag_BigHikingBag = 1,
@@ -442,9 +549,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_NormalHikingBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_Hiking_Blue",
+        icon = "Item_Hiking_Blue",
         secondModel = "NormalHikingBag",
         category = "Another",
+        containerCapacity = 20,
         install = {
             use = {
                 Bag_NormalHikingBag = 1,
@@ -460,9 +568,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_DuffelBagTINT = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBag_Grey",
+        icon = "Item_DuffelBag_Grey",
         secondModel = "DuffelBagGrey",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_DuffelBagTINT = 1,
@@ -478,9 +587,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_InmateEscapedBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBag_Green",
+        icon = "Item_DuffelBag_Green",
         secondModel = "DuffelBagGreen",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_InmateEscapedBag = 1,
@@ -496,9 +606,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_WorkerBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBagWhite",
+        icon = "Item_DuffelBagWhite",
         secondModel = "DuffelBagBlue",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_WorkerBag = 1,
@@ -514,9 +625,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_WeaponBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBag_Green",
+        icon = "Item_DuffelBag_Green",
         secondModel = "DuffelBagGreen",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_WeaponBag = 1,
@@ -532,9 +644,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_DuffelBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBag_Grey",
+        icon = "Item_DuffelBag_Grey",
         secondModel = "DuffelBagGrey",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_DuffelBag = 1,
@@ -550,9 +663,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_MoneyBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_DuffelBagWhite",
+        icon = "Item_DuffelBagWhite",
         secondModel = "DuffelBagBlue",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_MoneyBag = 1,
@@ -568,9 +682,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_GolfBag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_GolfBag_Red",
+        icon = "Item_GolfBag_Red",
         secondModel = "GolfBag",
         category = "Another",
+        containerCapacity = 18,
         install = {
             use = {
                 Bag_GolfBag = 1,
@@ -586,9 +701,10 @@ ATA2TuningTableTemplate.Bags = {
     },
     Bag_Schoolbag = {
         hideIfNotValid = hideBagIfNotValid,
-        texture = "Item_Backpack_Spiffo",
+        icon = "Item_Backpack_Spiffo",
         secondModel = "Schoolbag",
         category = "Another",
+        containerCapacity = 15,
         install = {
             use = {
                 Bag_Schoolbag = 1,

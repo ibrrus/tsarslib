@@ -69,12 +69,18 @@ module Base
         {
             area = TruckBed,
         }
-        part ATA2ProtectionsWindowLeft
+        part ATA2ProtectionWindowsLeft
         {
+            door
+            {
+            }
             area = SeatFrontLeft,
         }
-        part ATA2ProtectionsWindowRight
+        part ATA2ProtectionWindowsRight
         {
+            door
+            {
+            }
             area = SeatFrontRight,
         }
         part ATA2ProtectionWindowFrontLeft

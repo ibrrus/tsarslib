@@ -1,6 +1,9 @@
 Recipe_EN = {
     Recipe_ATADodgeRecipes = "Dadge Tuning",
-    
+    Recipe_ATABusRecipes = "Bus Tuning",
+    Recipe_ATAJeepRecipes = "Jaap Tuning",
+    Recipe_ATABMWe36Recipes = "BMW 36E Tuning",
+
 /* transport_item.txt */
     Recipe_Make_TransportCounter = "Build Portable shelf",
     Recipe_Make_TransportCupboard = "Build Portable cupboard",
@@ -8,7 +11,6 @@ Recipe_EN = {
     Recipe_Make_a_compact_fridge = "Make a compact fridge",
     Recipe_Make_a_compact_stove = "Make a compact stove",
     Recipe_Make_a_compact_microwave = "Make a compact microwave",
-    
     
 /* ATA */
     Recipe_Make_ATAProtectionWheelsItem = "Make Wheel protection",

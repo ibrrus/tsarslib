@@ -9,6 +9,7 @@ module Base
             specificItem = false,
             mechanicRequireKey = false,
             repairMechanic = true,
+            itemType = Base.LightBulb,
             table install
             {
                 test = ATATuning2.InstallTest.Tuning,
@@ -54,7 +55,7 @@ module Base
         {
             area = TruckBed,
             category = nodisplay,
-            itemType = ATA2.ATA2Trunk35,
+            itemType = ATA2.ATA2ItemContainer,
             specificItem = false,
             mechanicRequireKey = false,
             container
@@ -81,7 +82,7 @@ module Base
         part ATA2RoofRackToolbox
         {
             area = TruckBed,
-            itemType = ATA2.ATA2Trunk35,
+            itemType = ATA2.ATA2ItemContainer,
             category = nodisplay,
             specificItem = false,
             mechanicRequireKey = false,

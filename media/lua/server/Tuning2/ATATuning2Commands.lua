@@ -8,24 +8,39 @@ function Commands.installTuning(playerObj, args)
     if args.vehicle then
         local vehicle = getVehicleById(args.vehicle)
         local part = vehicle:getPartById(args.partName)
-        local item = VehicleUtils.createPartInventoryItem(part)
+        local item = VehicleUtils.createPartInventoryItem(part);
         if part and item then
             -- part:setInventoryItem(item)
             local vehicleName = vehicle:getScript():getName()
-            if args.condition and ATA2TuningTable[vehicleName] and 
-                    ATA2TuningTable[vehicleName].parts[args.partName] and 
-                    ATA2TuningTable[vehicleName].parts[args.partName][args.modelName].install.transmitFirstItemCondition and
-                    ATA2TuningTable[vehicleName].parts[args.partName][args.modelName].install.use then
-                part:setCondition(args.condition)
+            if ATA2TuningTable[vehicleName]
+                    and ATA2TuningTable[vehicleName].parts[args.partName] 
+                    and ATA2TuningTable[vehicleName].parts[args.partName][args.modelName] then
+                local modelTable = ATA2TuningTable[vehicleName].parts[args.partName][args.modelName]
+                if modelTable.containerCapacity then
+                    item:setMaxCapacity(modelTable.containerCapacity)
+                end
+                if modelTable.install.weight then
+                    item:setWeight(modelTable.install.weight)
+                end
+                if args.condition 
+                        and modelTable.install.transmitFirstItemCondition 
+                        and modelTable.install.use then
+                    item:setCondition(args.condition);
+                    part:setCondition(args.condition)
+                else
+                    item:setCondition(100);
+                    part:setCondition(100)
+                end
             end
+            part:setInventoryItem(item)
             part:getModData().tuning2 = {}
             part:getModData().tuning2.model = args.modelName
             vehicle:transmitPartModData(part)
+            vehicle:transmitPartItem(part)
             local tbl = part:getTable("install")
 			if tbl and tbl.complete then
 				VehicleUtils.callLua(tbl.complete, vehicle, part, nil)
 			end
-            vehicle:transmitPartItem(part)
         end
     end
 end

@@ -1,5 +1,7 @@
 IGUI_EN = {
 /************ Tuning 2.0 ************/
+    IGUI_InfoPanel_Tuning = "<CENTRE> <SIZE:medium> Vehicle modification panel <LINE> <LINE> <LEFT> <SIZE:small> Or tuning panel. Here you see a list of available recipes for modifying your vehicle.<LINE> <LINE> Normally, all available recipes are always shown in this panel, but there are also recipes that do not appear here unless you fulfil some conditions. Conditions can be: you have a skill, a certain item is available, you have reached the required character level. <LINE> <LINE> Resources in your inventory are used to create items. In addition, the character takes resources from nearby containers - including from the floor. <LINE> <LINE> At this point, parts installed through the tuning menu cannot be repaired without removal, and most parts will be disassembled into parts when removed.",
+    
     IGUI_TuningCategory_General = "General",
     IGUI_TuningCategory_Installed = "Installed",
     IGUI_TuningCategory_ProtectionWindow = "Window Protection",
@@ -7,10 +9,27 @@ IGUI_EN = {
     IGUI_TuningCategory_Bags = "Bags",
     IGUI_TuningCategory_Another = "Another",
     IGUI_TuningCategory_Trunks = "Trunks",
+    IGUI_TuningCategory_Protection = "Protection",
+    IGUI_TuningCategory_Storage = "Storage",
+    IGUI_TuningCategory_Bumpers = "Bumpers",
+    IGUI_TuningCategory_Visual = "Decor",
     
+    IGUI_ATA2_Bullbar = "Bullbar",
     IGUI_ATA2_Bullbar_Police = "Police Bullbar",
     IGUI_ATA2_Bullbar_Handmade = "Handmade Bullbar",
     IGUI_ATA2_Bullbar_Lethal = "Lethal Bullbar",
+    IGUI_ATA2_Bullbar_Enhanced = "Improved  Bullbar",
+    IGUI_ATA2_Bullbar_Spiked_Plough = "Spiked Plough",
+
+    IGUI_ATA2_Bumper = "Bumper",
+    IGUI_ATA2_Bumper_Classic = "Classic Bumper",
+    IGUI_ATA2_Bumper_Winch = "Winch Bumper",
+    IGUI_ATA2_Bumper_Lethal = "Lethal Bumper",
+
+    IGUI_ATA2_Spoiler = "Spoiler",
+    IGUI_ATA2_Spoiler_Low = "Low Spoiler",
+    IGUI_ATA2_Spoiler_Middle = "Middle Spoiler",
+    IGUI_ATA2_Spoiler_High = "High Spoiler",
 
     IGUI_TuningUI_Title = "Vehicle modifications",
     IGUI_TuningUI_NeedBeEmpty = "Must be empty",
@@ -98,12 +117,49 @@ IGUI_EN = {
 
 
 /* template_ata_protection.txt */
+    IGUI_VehiclePartATA2ProtectionWheels = "Wheels Protection",
+    IGUI_VehiclePartATA2ProtectionWheelsFront = "Front Wheels Protection",
+    IGUI_VehiclePartATA2ProtectionWheelsRear = "Rear Wheels Protection",
+    IGUI_VehiclePartATA2ProtectionFrontWheels = "Front Wheels Protection",
+    IGUI_VehiclePartATA2ProtectionRearWheels = "Rear Wheels Protection",
+    
+    IGUI_VehiclePartATA2ProtectionDoorFrontLeft = "Front left door protection",
+    IGUI_VehiclePartATA2ProtectionDoorFrontRight = "Front right door protection",
+    IGUI_VehiclePartATA2ProtectionDoorMiddleLeft = "Middle left door protection",
+    IGUI_VehiclePartATA2ProtectionDoorMiddleRight = "Middle right door protection",
+    IGUI_VehiclePartATA2ProtectionDoorRearLeft = "Rear left door protection",
+    IGUI_VehiclePartATA2ProtectionDoorRearRight = "Rear right door protection",
+    IGUI_VehiclePartATA2ProtectionDoorsRear = "Rear door protection",
+    
+    IGUI_VehiclePartATA2ProtectionWindshield = "Windshield Protection",
+    IGUI_VehiclePartATA2ProtectionWindowFront = "Windshield Protection",
+    IGUI_VehiclePartATA2ProtectionWindowsLeft = "Left window protection",
+    IGUI_VehiclePartATA2ProtectionWindowsRight = "Right window protection",
+    IGUI_VehiclePartATA2ProtectionWindowRear = "Rear window Protection",
+    IGUI_VehiclePartATA2ProtectionWindowFrontLeft = "Window Front Left Protection",
+    IGUI_VehiclePartATA2ProtectionWindowFrontRight = "Window Front Right Protection",
+    IGUI_VehiclePartATA2ProtectionWindowMiddleLeft = "Window Middle Left Protection",
+    IGUI_VehiclePartATA2ProtectionWindowMiddleRight = "Window Middle Right Protection",
+    IGUI_VehiclePartATA2ProtectionWindowRearLeft = "Window Rear Left Protection",
+    IGUI_VehiclePartATA2ProtectionWindowRearRight = "Window Rear Right Protection",
+    
+    IGUI_VehiclePartATA2ProtectionSideLeft = "Left Protection",
+    IGUI_VehiclePartATA2ProtectionSideRight = "Right Protection",
+    IGUI_VehiclePartATA2ProtectionSideFront = "Front Protection",
+    IGUI_VehiclePartATA2ProtectionSideRoof = "Top Protection",
+
+    IGUI_VehiclePartATA2ProtectionSleeper = "Sleeper Protection",
+    IGUI_VehiclePartATA2ProtectionGasTank = "Gastank Protection",
+    IGUI_VehiclePartATA2ProtectionHood = "Hood Protection",
+    IGUI_VehiclePartATA2ProtectionTrunk = "Trunk Protection",
+
+
     IGUI_VehiclePartATAProtectionWheels = "Protection for wheels",
     IGUI_VehiclePartATAProtectionWheelsFront = "Protection for front wheels",
     IGUI_VehiclePartATAProtectionWheelsRear = "Protection for rear wheels",
     IGUI_VehiclePartATAProtectionFrontWheels = "Protection for front wheels",
     IGUI_VehiclePartATAProtectionRearWheels = "Protection for rear wheels",
-    
+
     IGUI_VehiclePartATAProtectionWindowFront = "Protection for windshield",
     IGUI_VehiclePartATAProtectionWindowRear = "Protection for rear window",
     IGUI_VehiclePartATAProtectionWindowFrontLeft = "Protection for front left window",
@@ -122,34 +178,6 @@ IGUI_EN = {
     IGUI_VehiclePartATAProtectionGasTank = "Protection for gastank",
     IGUI_VehiclePartATAProtectionHood = "Protection for hood",
     IGUI_VehiclePartATAProtectionTrunk = "Protection for trunk",
-
-
-    IGUI_VehiclePartATA2ProtectionWheels = "Wheels Protection",
-    IGUI_VehiclePartATA2ProtectionWheelsFront = "Front Wheels Protection",
-    IGUI_VehiclePartATA2ProtectionWheelsRear = "Rear Wheels Protection",
-    IGUI_VehiclePartATA2ProtectionFrontWheels = "Front Wheels Protection",
-    IGUI_VehiclePartATA2ProtectionRearWheels = "Rear Wheels Protection",
-    
-    IGUI_VehiclePartATA2ProtectionWindshield = "Windshield Protection",
-    IGUI_VehiclePartATA2ProtectionWindowFront = "Windshield Protection",
-    IGUI_VehiclePartATA2ProtectionWindowRear = "Rear window Protection",
-    IGUI_VehiclePartATA2ProtectionWindowFrontLeft = "Window Front Left Protection",
-    IGUI_VehiclePartATA2ProtectionWindowFrontRight = "Window Front Right Protection",
-    IGUI_VehiclePartATA2ProtectionWindowMiddleLeft = "Window Middle Left Protection",
-    IGUI_VehiclePartATA2ProtectionWindowMiddleRight = "Window Middle Right Protection",
-    IGUI_VehiclePartATA2ProtectionWindowRearLeft = "Window Rear Left Protection",
-    IGUI_VehiclePartATA2ProtectionWindowRearRight = "Window Rear Right Protection",
-    
-    IGUI_VehiclePartATA2ProtectionSideLeft = "Left Protection",
-    IGUI_VehiclePartATA2ProtectionSideRight = "Right Protection",
-    IGUI_VehiclePartATA2ProtectionSideFront = "Front Protection",
-    IGUI_VehiclePartATA2ProtectionSideRoof = "Top Protection",
-
-    IGUI_VehiclePartATA2ProtectionSleeper = "Sleeper Protection",
-    IGUI_VehiclePartATA2ProtectionGasTank = "Gastank Protection",
-    IGUI_VehiclePartATA2ProtectionHood = "Hood Protection",
-    IGUI_VehiclePartATA2ProtectionTrunk = "Trunk Protection",
-    
 
 /* template_ata_roof_lights.txt */
     IGUI_VehiclePartATARoofLightFront = "Roof lights (front)",
@@ -479,4 +507,8 @@ IGUI_EN = {
     IGUI_TC_connect_speaker = "Connect speaker",
     IGUI_PlayerText_TC_need_speaker = "The speaker should be next to the turntable.",
     IGUI_MusicOptionsCar = "Cassette player",
+    
+/************ Bumer 36E ************/
+    IGUI_VehicleNameATABMWe36 = "Bumer 36E",
+    IGUI_VehicleNameATABMWe36M3 = "Bumer 36E M3",
 }

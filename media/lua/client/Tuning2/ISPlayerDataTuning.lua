@@ -31,7 +31,7 @@ function ISPlayerDataObject:createInventoryInterface()
     end
     
     
-    self.tuningUI = ISVehicleTuning2:new(0,0, 800, 600, playerObj);
+    self.tuningUI = ISVehicleTuning2:new(0,0, 800, 700, playerObj);
     self.tuningUI:initialise();
     self.tuningUI:setVisible(false);
     self.tuningUI:setEnabled(false);

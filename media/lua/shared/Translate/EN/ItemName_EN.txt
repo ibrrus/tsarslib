@@ -1,5 +1,7 @@
 ItemName_EN = {
 
+    ItemName_ATA2.ATABullbarPoliceItem1 = "Police Bullbar",
+
 /* transport_item.txt */
     ItemName_Base.TransportCounter = "Portable shelf",
     ItemName_Base.TransportCupboard = "Portable cupboard",
@@ -203,4 +205,11 @@ ItemName_EN = {
     ItemName_TMC.TrolleyContainer2 = "Trolley",
     ItemName_TMC.CartContainer = "Supermarket cart",
     ItemName_TMC.CartContainer2 = "Supermarket cart",
+    
+/************ Autotsar Tuning Atelier - Bumer 36E ************/
+    
+    ItemName_Autotsar.ATABMWe36TuningMag = "Magazine «Autotsar Tuning Atelier - Bumer 36E»",
+    ItemName_Autotsar.ATABMWe36SpoilerRear1Item = "Bumer 36E - low spoiler",
+    ItemName_Autotsar.ATABMWe36SpoilerRear2Item = "Bumer 36E - middle spoiler",
+    ItemName_Autotsar.ATABMWe36SpoilerRear3Item = "Bumer 36E - high spoiler",
 }

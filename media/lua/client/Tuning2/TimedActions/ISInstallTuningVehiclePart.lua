@@ -37,7 +37,7 @@ function ISInstallTuningVehiclePart:start()
 end
 
 function ISInstallTuningVehiclePart:stop()
-print("ISInstallTuningVehiclePart:stop")
+-- print("ISInstallTuningVehiclePart:stop")
     self.vehicle:getEmitter():stopSoundByName(self.sound)
     ISBaseTimedAction.stop(self)
 end
@@ -69,8 +69,7 @@ function ISInstallTuningVehiclePart:perform()
         for itemName, num in pairs(self.use) do
             itemName = itemName:gsub("__", ".")
             local item = inventory:getBestCondition(itemName)
-            print(itemName)
-            if not firstCondition then
+            if not firstCondition and item then
                 firstCondition = item:getCondition()
             end
             if item:IsDrainable() then

@@ -1,5 +1,3 @@
-require "ATA2TuningTable"
-
 if not ATA_ISVehicleMenu then ATA_ISVehicleMenu = {} end
 
 ATA_ISVehicleMenu.old_ISVehicleMenu_FillMenuOutsideVehicle = ISVehicleMenu.FillMenuOutsideVehicle
@@ -39,6 +37,7 @@ function ISVehicleMenu.showRadialMenuOutside(playerObj)
     end
     local vehicle = ISVehicleMenu.getVehicleToInteractWith(playerObj)
     if vehicle then
+        -- Функционал палатки
         local part = vehicle:getPartById("ATARoofTent");
         if part and part:getInventoryItem() then
             if part:getModData()["atatuning"] then
@@ -67,13 +66,7 @@ function ISVehicleMenu.showRadialMenuOutside(playerObj)
                 else
                     menu:addSlice(getText("ContextMenu_CantLoadVehicleOntoTrailer"), getTexture("media/ui/commonlibrary/no.png"), nil)
                 end
-                
             end
-        end
-        
-        -- Добавление меню для тюнинга2.0
-        if ATA2TuningTable[vehicle:getScript():getName()] then
-            menu:addSlice(getText("ContextMenu_OpenTuningMenu"), getTexture("media/ui/tuning2/vehicle_tuning.png"), ATA_ISVehicleMenu.onTuning, playerObj, vehicle)
         end
     end
 end
@@ -154,17 +147,4 @@ function ATA_ISVehicleMenu.loadOntoTrailer(playerObj, trailer, vehicle)
     if luautils.walkAdj(playerObj, trailer:getSquare()) then
         ISTimedActionQueue.add(ATAISLoadVehicle:new(playerObj, trailer, vehicle));
     end
-end
-
--------------------------
--- Tuning 2.0
--------------------------
-
-function ATA_ISVehicleMenu.onTuning(playerObj, vehicle)
-    local ui = getPlayerTuningUI(playerObj:getPlayerNum())
-    if ui:isReallyVisible() then
-        ui:close()
-        return
-    end
-    ISTimedActionQueue.add(ISOpenTuningUIAction:new(playerObj, vehicle))
 end

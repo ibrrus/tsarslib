@@ -1,5 +1,7 @@
 IGUI_RU = {
 /************ Tuning 2.0 ************/
+    IGUI_InfoPanel_Tuning = "<CENTRE> <SIZE:medium> Панель модификации авто <LINE> <LINE> <LEFT> <SIZE:small> Или панель тюнинга. Здесь вы видите список доступных рецептов для модификации вашего транспортного средства. <LINE> <LINE> Обычно, все доступные рецепты всегда отображаются в данной панели, но также бывают рецепты, которые не появятся здесь, пока вы не выполните ряд условий. Такими условиями могут быть: наличие навыка, доступность определенного предмета, достижение необходимого уровня персонажа. <LINE> <LINE> Для создания предметов используются ресурсы, находящиеся в вашем инвентаре. Кроме того, персонаж берёт ресурсы из ближайших контейнеров - в том числе и с пола. <LINE> <LINE> В данный момент детали, установленные через меню тюнинга, невозможно ремонтировать без снятия, а большинство деталей при демонтаже будут разбираться на части.",
+    
     IGUI_TuningCategory_General = "Общее",
     IGUI_TuningCategory_Installed = "Установлено",
     IGUI_TuningCategory_ProtectionWindow = "Защита окон",
@@ -10,19 +12,24 @@ IGUI_RU = {
     IGUI_TuningCategory_Protection = "Защита",
     IGUI_TuningCategory_Storage = "Хранилище",
     IGUI_TuningCategory_Bumpers = "Бамперы",
+    IGUI_TuningCategory_Visual = "Декор",
 
     IGUI_ATA2_Bullbar = "Кенгурятник",
     IGUI_ATA2_Bullbar_Police = "Кенгурятник полицейский",
     IGUI_ATA2_Bullbar_Handmade = "Кенгурятник самодельный",
     IGUI_ATA2_Bullbar_Lethal = "Кенгурятник смертоносный",
-    IGUI_ATA2_Bullbar_Lethal = "Кенгурятник смертоносный",
     IGUI_ATA2_Bullbar_Enhanced = "Кенгурятник улучшенный",
-    IGUI_ATA2_Bullbar_Spiked_Plough = "Кенгурятник улучшенный",
+    IGUI_ATA2_Bullbar_Spiked_Plough = "Плуг с шипами",
 
     IGUI_ATA2_Bumper = "Бампер",
     IGUI_ATA2_Bumper_Classic = "Классический бампер",
     IGUI_ATA2_Bumper_Winch = "Бампер под лебедку",
     IGUI_ATA2_Bumper_Lethal = "Смертоносный бампер",
+
+    IGUI_ATA2_Spoiler = "Спойлер",
+    IGUI_ATA2_Spoiler_Low = "Низкий спойлер",
+    IGUI_ATA2_Spoiler_Middle = "Средний спойлер",
+    IGUI_ATA2_Spoiler_High = "Высокий спойлер",
 
     IGUI_TuningUI_Title = "Модификации авто",
     IGUI_TuningUI_NeedBeEmpty = "Должен быть пустым",
@@ -446,6 +453,17 @@ IGUI_RU = {
     IGUI_VehiclePartBatteryChargerB = "Место под аккумулятор",
     IGUI_VehiclePartBatteryChargerC = "Место под аккумулятор",
     
+    /************ Autotsar Motorclub ************/
+    IGUI_VehicleNameAMC_bmw_classic = "BWM R80/7 Classic",
+	IGUI_VehicleNameAMC_bmw_custom = "BWM R80/7 Custom",
+	IGUI_VehicleNameAMC_harley = "Xarley-Davitsan Sportstep '86",
+	IGUI_VehicleNameAMC_quad = "Suvzuki Quadruiner",
+	IGUI_VehicleNameAMC_Waverunner = "Yamama Waveruiner 650TL",
+	IGUI_VehicleNameAMC_Waverunner_Ground = "Yamama Waveruiner 650TL",
+	IGUI_VehicleNameTrailerAMC = "Autotsar Mototrailer-2M",
+	IGUI_VehicleNameTrailerAMCWaverunner = "Autotsar Watertrailer-3M",
+	IGUI_VehicleNameTrailerAMCWaverunnerWithBody = "Yamama Waveruiner 650TL",
+    
     /************ Autotsar Trailers ************/
     IGUI_VehiclePartCatGenerator = "Генератор",
     IGUI_VehiclePartEarthingOn = "Заземление",
@@ -470,4 +488,7 @@ IGUI_RU = {
     IGUI_TC_connect_speaker = "Подключить колонку",
     IGUI_PlayerText_TC_need_speaker = "Колонка должна стоять рядом с проигрывателем.",
     IGUI_MusicOptionsCar = "Магнитола",
+    
+    IGUI_VehicleNameATABMWe36 = "Bumer 36E",
+	IGUI_VehicleNameATABMWe36M3 = "Bumer 36E M3",
 }

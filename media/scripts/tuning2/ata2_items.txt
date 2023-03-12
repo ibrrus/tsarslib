@@ -1,20 +1,50 @@
 module ATA2
 {
-	imports
-	{
-		Base
-	}
+    imports
+    {
+        Base
+    }
     
-    item ATA2Trunk35
-	{
-		DisplayCategory = TuningService,
-		Weight	=	10.0,
-        Type	=	Normal,
-        DisplayName	=	ATA2Trunk35,
-		MaxCapacity = 35,
+    item ATA2ItemContainer
+    {
+        DisplayCategory = TuningService,
+        Weight    =    1.0,
+        Type    =    Normal,
+        DisplayName    =    ATA2ItemContainer,
+        MaxCapacity = 35,
         ConditionAffectsCapacity = false,
-		ConditionMax = 100,
+        ConditionMax = 100,
         MechanicsItem = TRUE,
-	}
+    }
     
+    model ATABullbar1World
+    {
+        mesh = WorldItems/ATA_BullbarPolice_1,
+        texture = Vehicles/ATA_Dodge_items,
+        scale = 0.014,
+    }
+    
+    item ATABullbarPoliceItem1 /* Vehicle */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    10.0,
+        Type    =    Normal,
+        DisplayName    = ATABullbarPoliceItem1,
+        Icon    =    ATABullbarPoliceItem1,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 25,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATABullbar1World,
+    }
+    
+    fixing Fix ATABullbarPoliceItem1
+    {
+        Require : ATABullbarPoliceItem1,
+        GlobalItem : BlowTorch=2,
+        ConditionModifier : 1.2,
+
+        Fixer : MetalBar=2; MetalWelding=3;Mechanics=2,
+        Fixer : MetalPipe=2; MetalWelding=3;Mechanics=2,
+    }
 }

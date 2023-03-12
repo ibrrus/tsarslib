@@ -43,7 +43,7 @@ module Base
                 
         part ATA2BagOn*
         {
-            itemType = Base.Bag_ShotgunDblSawnoffBag;Base.Bag_ShotgunDblBag;Base.Bag_ShotgunBag;Base.Bag_ShotgunSawnoffBag;Base.Bag_SurvivorBag;Base.Bag_ALICEpack_Army;Base.Bag_ALICEpack;Base.Bag_BigHikingBag;Base.Bag_NormalHikingBag;Base.Bag_DuffelBagTINT;Base.Bag_InmateEscapedBag;Base.Bag_WorkerBag;Base.Bag_WeaponBag;Base.Bag_DuffelBag;Base.Bag_MoneyBag;Base.Bag_GolfBag;Base.Bag_Schoolbag,
+            itemType = ATA2.ATA2ItemContainer,
         }
         
         part ATA2Bag*

@@ -47,5 +47,5 @@ void main()
 
 	col = vec3(col.x * lighting.x * TintColourNew.x, col.y * lighting.y * TintColourNew.y, col.z * lighting.z * TintColourNew.z);
 
-	gl_FragColor = vec4(col.xyz, 0.5);
+	gl_FragColor = vec4(col.xyz, 0.7);
 }

@@ -41,8 +41,12 @@ Tooltip_EN = {
 /************ Autotsar Tuning Atelier - MolksAgen DeRumba Van ************/
     Tooltip_item_ATATuningMagDeRumba = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection for DeRumba Van",
     
+
     
 /************ True Music ************/
     Tooltip_item_Boombox = "Foreign boombox. Doesn't get local radio,<br>but can play cassettes. Powered by batteries.",
     Tooltip_item_Vinyl = "It needs electricity and connected speakers to function.",
+    
+/************ Autotsar Tuning Atelier - BWM 36E ************/
+    Tooltip_item_ATADodgeTuningMag = "After reading this issue, you will get basic tuning knowledge and learn how to<br>create protection, bullbars and racks for BWM 36E",
 }

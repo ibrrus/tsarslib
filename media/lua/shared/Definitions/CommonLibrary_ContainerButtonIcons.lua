@@ -27,17 +27,11 @@ ContainerButtonIcons.FreestorageRearRight = getTexture("media/ui/commonlibrary/C
 
 ContainerButtonIcons.ATA2BagOnProtectionWindowFrontLeft = getTexture("media/ui/commonlibrary/Container_Duffelbag.png")
 ContainerButtonIcons.ATA2BagOnProtectionWindowFrontRight = getTexture("media/ui/commonlibrary/Container_Duffelbag.png")
-ContainerButtonIcons.ATA2RoofRackToolbox = getTexture("media/ui/commonlibrary/Container_ATARoofToolbox.png")
-ContainerButtonIcons.ATA2InteractiveTrunkRoofRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkRoofRack.png")
-ContainerButtonIcons.ATA2InteractiveTrunkWindowRearRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkWindowsRack.png")
-ContainerButtonIcons.ATA2InteractiveTrunkWheelRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkWheelRack.png")
 
 ContainerButtonIcons.ATA2RoofTent = getTexture("media/ui/commonlibrary/Container_ATARoofTent.png")
 ContainerButtonIcons.ATA2RoofRackToolbox = getTexture("media/ui/commonlibrary/Container_ATARoofToolbox.png")
 ContainerButtonIcons.ATA2InteractiveTrunkRoofRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkRoofRack.png")
 ContainerButtonIcons.ATA2InteractiveTrunkWindowRearRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkWindowsRack.png")
-ContainerButtonIcons.ATA2InteractiveTrunkWheelRack = getTexture("media/ui/commonlibrary/Container_ATAInteractiveTrunkWheelRack.png")
-ContainerButtonIcons.ATA2BagOnProtectionWindowFrontLeft = getTexture("media/ui/commonlibrary/Container_Duffelbag.png")
-ContainerButtonIcons.ATA2BagOnProtectionWindowFrontRight = getTexture("media/ui/commonlibrary/Container_Duffelbag.png")
+ContainerButtonIcons.ATA2InteractiveTrunkWheelRack = getTexture("media/ui/tuning2/wheel_rack_1.png")
 ContainerButtonIcons.ATA2InteractiveTrunkFront = getTexture("media/ui/commonlibrary/Container_quad_front.png")
 ContainerButtonIcons.ATA2InteractiveTrunkRear = getTexture("media/ui/commonlibrary/Container_quad_back.png")

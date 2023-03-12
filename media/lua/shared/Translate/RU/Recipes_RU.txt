@@ -2,6 +2,7 @@ Recipe_RU = {
     Recipe_ATADodgeRecipes = "Тюнинг Dadge",
     Recipe_ATABusRecipes = "Тюнинг Bus",
     Recipe_ATAJeepRecipes = "Тюнинг Jaap",
+    Recipe_ATABMWe36Recipes = "Тюнинг BMW 36E",
     
 /* transport_item.txt */
     Recipe_Make_TransportCounter = "Смастерить портативную тумбочку",

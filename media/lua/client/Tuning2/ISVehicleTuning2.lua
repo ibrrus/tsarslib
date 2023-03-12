@@ -34,7 +34,8 @@ function ISVehicleTuning2:new (x, y, width, height, character, vehicle)
 
     o.LabelDash = "-"
     o.LabelDashWidth = getTextManager():MeasureStringX(UIFont.Small, o.LabelDash)
-    o.LabelCraftOne = getText("IGUI_TuningUI_Install")
+    o.LabelInstall = getText("IGUI_TuningUI_Install")
+    o.LabelUninstall = getText("IGUI_TuningUI_Uninstall")
     o.LabelAddIngredient = getText("IGUI_CraftUI_ButtonAddIngredient")
     o.LabelClose = getText("IGUI_CraftUI_Close")
     
@@ -57,6 +58,9 @@ function ISVehicleTuning2:new (x, y, width, height, character, vehicle)
     o.craftInProgress = false;
     o.selectedIndex = {}
     o.recipeListHasFocus = true
+    o.ingredientPanelHasFocus = false
+    o.toolsPanelHasFocus = false
+    o.resultPanelHasFocus = false
     o.TreeExpanded = getTexture("media/ui/TreeExpanded.png")
     o.PoisonTexture = getTexture("media/ui/SkullPoison.png")
     o:setWantKeyEvents(true);
@@ -68,7 +72,7 @@ function ISVehicleTuning2:initialise()
     ISCollapsableWindow.initialise(self);
 end
 
-function ISVehicleTuning2:setVisible(bVisible)
+function ISVehicleTuning2:setVisible(bVisible, joypadData)
 -- print("ISVehicleTuning2:setVisible")
     if self.javaObject == nil then
         self:instantiate();
@@ -88,6 +92,12 @@ function ISVehicleTuning2:setVisible(bVisible)
     if bVisible and self.recipesList then
         self:refresh();
     end
+    
+    if bVisible and joypadData then
+		joypadData.focus = self
+		updateJoypadFocus(joypadData)
+	end
+    
     -- load saved selected index
     if bVisible then
         for i,v in ipairs(self.categories) do
@@ -135,7 +145,7 @@ function ISVehicleTuning2:createChildren()
        cat1:setAnchorBottom(true)
        local catName = getTextOrNull("IGUI_CraftCategory_"..i) or i
        self.panel:addView(catName, cat1);
-       cat1.infoText = getText("UI_CraftingUI");
+       cat1.infoText = getText("IGUI_InfoPanel_Tuning");
        cat1.parent = self;
        cat1.category = i;
        for s,d in ipairs(l) do
@@ -316,7 +326,16 @@ function ISVehicleTuning2:IsRecipeValid(RecipeItem)
             RecipeItem.error = nil
         end
     end
-    
+    -- проверка скиллов
+    if RecipeItem.skills then
+        for perkName, perkLevel in pairs(RecipeItem.skills) do
+            local perk = Perks.FromString(perkName)
+            local playerLevel = self.character and self.character:getPerkLevel(perk) or 0
+            if self.character and (playerLevel < perkLevel) then
+                return false 
+            end
+        end
+    end
     -- проверяет, что игрок имеет всё нужно для рецепта
     if not self:HasAllRequiredItems(RecipeItem) then 
         -- print("IsRecipeValid: not HasAllRequiredItems")
@@ -468,9 +487,9 @@ function ISVehicleTuning2:populateRecipesList()
             if part and part:getInventoryItem() then
                 local partTuningInfo = {}
                 local modelName = "Default"
-                if part:getModData().tuning and part:getModData().tuning.model and infoTable[part:getModData().tuning.model] then
-                    modelName = infoTable[part:getModData().tuning.model]
-                    partTuningInfo = infoTable[part:getModData().tuning.model]
+                if part:getModData().tuning2 and part:getModData().tuning2.model and infoTable[part:getModData().tuning2.model] then
+                    modelName = part:getModData().tuning2.model
+                    partTuningInfo = infoTable[part:getModData().tuning2.model]
                 else
                     for k,v in pairs (infoTable) do 
                         modelName = k
@@ -576,7 +595,7 @@ function ISVehicleTuning2:refresh()
             cat1:initialise();
             local catName = getTextOrNull("IGUI_CraftCategory_"..tuningCategory) or tuningCategory
             self.panel:addView(catName, cat1);
-            cat1.infoText = getText("UI_CraftingUI");
+            cat1.infoText = getText("IGUI_InfoPanel_Tuning");
             cat1.parent = self;
             cat1.category = tuningCategory;
             for num, RecipeItem in ipairs(recipesListTable) do
@@ -791,14 +810,24 @@ function ISVehicleTuning2:render()
     local buttonSpace = 8
     local buttonY = self:getHeight() - rh - ISVehicleTuning2.bottomInfoHeight + (ISVehicleTuning2.bottomInfoHeight - buttonSize) / 2
     local spacing = 32 
+    
+    local recipeListBox = self:getRecipeListBox()
+    local RecipeItem = recipeListBox.items[recipeListBox.selected].item;
+    
     if self.drawJoypadFocus then
-        local width1 = buttonSize + buttonSpace + getTextManager():MeasureStringX(UIFont.Small, self.LabelCraftOne)
+        local width1 = buttonSize + buttonSpace + getTextManager():MeasureStringX(UIFont.Small, self.LabelUninstall)
         local width4 = buttonSize + buttonSpace + getTextManager():MeasureStringX(UIFont.Small, self.LabelClose)
         local totalWidth = width1 + width4 + spacing * 3 -- + width2 + width3
         local left = (self.width - totalWidth) / 2
 
         self:drawTextureScaled(Joypad.Texture.AButton, left, buttonY, buttonSize, buttonSize, 1, 1, 1, 1)
-        self:drawText(self.LabelCraftOne, left + buttonSize + buttonSpace, textY, 1, 1, 1, 1, UIFont.Small)
+        
+        if RecipeItem.type == "install" then
+            self:drawText(self.LabelInstall, left + buttonSize + buttonSpace, textY, 1, 1, 1, 1, UIFont.Small)
+        else
+            self:drawText(self.LabelUninstall, left + buttonSize + buttonSpace, textY, 1, 1, 1, 1, UIFont.Small)
+        end
+        
         left = left + width1 + spacing
 
         self:drawTextureScaled(Joypad.Texture.BButton, left, buttonY, buttonSize, buttonSize, 1, 1, 1, 1)
@@ -831,7 +860,7 @@ function ISVehicleTuning2:render()
         self.noteRichText:render(noteX, noteY, self)
     end
 
-    local recipeListBox = self:getRecipeListBox()
+    
     if not recipeListBox.items or #recipeListBox.items == 0 or not recipeListBox.items[recipeListBox.selected] then
         self.craftOneButton:setVisible(false);
         -- self.craftAllButton:setVisible(false);
@@ -845,7 +874,7 @@ function ISVehicleTuning2:render()
     -- Информация о крафте
     local x = self:getWidth()/3 + 80;
     local y = 40;
-    local RecipeItem = recipeListBox.items[recipeListBox.selected].item;
+
 
     local now = getTimestampMs()
     if not self.refreshTypesAvailableMS or (self.refreshTypesAvailableMS + 500 < now) then
@@ -966,8 +995,8 @@ function ISVehicleTuning2:render()
         for perkName, perkLevel in pairs(RecipeItem.skills) do
             local perk = Perks.FromString(perkName)
             local playerLevel = self.character and self.character:getPerkLevel(perk) or 0
-            local perkName = perk and perk:getName() or skill:getPerk():name()
-            local text = " - " .. perkName .. ": " .. tostring(playerLevel) .. " / " .. tostring(perkLevel);
+            local perkNameLand = perk and perk:getName()
+            local text = " - " .. perkNameLand .. ": " .. tostring(playerLevel) .. " / " .. tostring(perkLevel);
             local r,g,b = 1,1,1
             if self.character and (playerLevel < perkLevel) then
                 g = 0;
@@ -1026,9 +1055,9 @@ function ISVehicleTuning2:render()
         self.craftOneButton.enable = RecipeItem.available;
     end
     if RecipeItem.type == "install" then
-        self.craftOneButton:setTitle(getText("IGUI_TuningUI_Install"))
+        self.craftOneButton:setTitle(self.LabelInstall)
     else
-        self.craftOneButton:setTitle(getText("IGUI_TuningUI_Uninstall"))
+        self.craftOneButton:setTitle(self.LabelUninstall)
     end
 
     self.debugGiveIngredientsButton:setX(self.craftOneButton:getX() + 5 + self.craftOneButton:getWidth())
@@ -1062,15 +1091,15 @@ function ISVehicleTuning2:render()
         end
         self:drawRectBorder(ui:getX(), dy + ui:getY(), ui:getWidth(), ui:getHeight(), 0.4, 0.2, 1.0, 1.0);
         self:drawRectBorder(ui:getX()+1, dy + ui:getY()+1, ui:getWidth()-2, ui:getHeight()-2, 0.4, 0.2, 1.0, 1.0);
-    elseif self.drawJoypadFocus and self.ingredientPanel:getIsVisible() then
+    elseif self.drawJoypadFocus and self.ingredientPanelHasFocus then
         local ui = self.ingredientPanel
         self:drawRectBorder(ui:getX(), ui:getY(), ui:getWidth(), ui:getHeight(), 0.4, 0.2, 1.0, 1.0);
         self:drawRectBorder(ui:getX()+1, ui:getY()+1, ui:getWidth()-2, ui:getHeight()-2, 0.4, 0.2, 1.0, 1.0);
-    elseif self.drawJoypadFocus and self.toolsPanel:getIsVisible() then
+    elseif self.drawJoypadFocus and self.toolsPanelHasFocus then
         local ui = self.toolsPanel
         self:drawRectBorder(ui:getX(), ui:getY(), ui:getWidth(), ui:getHeight(), 0.4, 0.2, 1.0, 1.0);
         self:drawRectBorder(ui:getX()+1, ui:getY()+1, ui:getWidth()-2, ui:getHeight()-2, 0.4, 0.2, 1.0, 1.0);
-    elseif self.drawJoypadFocus and self.resultPanel:getIsVisible() then
+    elseif self.drawJoypadFocus and self.resultPanelHasFocus then
         local ui = self.resultPanel
         self:drawRectBorder(ui:getX(), ui:getY(), ui:getWidth(), ui:getHeight(), 0.4, 0.2, 1.0, 1.0);
         self:drawRectBorder(ui:getX()+1, ui:getY()+1, ui:getWidth()-2, ui:getHeight()-2, 0.4, 0.2, 1.0, 1.0);
@@ -1331,6 +1360,7 @@ end
 --***********************************************************
 
 function ISVehicleTuning2:onGainJoypadFocus(joypadData)
+	ISPanel.onGainJoypadFocus(self, joypadData)
     self.drawJoypadFocus = true
 end
 
@@ -1374,11 +1404,11 @@ end
 function ISVehicleTuning2:onJoypadDirUp()
     if self.recipeListHasFocus then
         self:getRecipeListBox():onJoypadDirUp()
-    elseif self.ingredientPanel:getIsVisible() then
+    elseif self.ingredientPanelHasFocus then
         self.ingredientPanel:onJoypadDirUp()
-    elseif self.toolsPanel:getIsVisible() then
+    elseif self.toolsPanelHasFocus then
         self.toolsPanel:onJoypadDirUp()
-    elseif self.resultPanel:getIsVisible() then
+    elseif self.resultPanelHasFocus then
         self.resultPanel:onJoypadDirUp()
     end
 end
@@ -1386,26 +1416,90 @@ end
 function ISVehicleTuning2:onJoypadDirDown()
     if self.recipeListHasFocus then
         self:getRecipeListBox():onJoypadDirDown()
-    elseif self.ingredientPanel:getIsVisible() then
+    elseif self.ingredientPanelHasFocus then
         self.ingredientPanel:onJoypadDirDown()
-    elseif self.toolsPanel:getIsVisible() then
+    elseif self.toolsPanelHasFocus then
         self.toolsPanel:onJoypadDirDown()
-    elseif self.resultPanel:getIsVisible() then
+    elseif self.resultPanelHasFocus then
         self.resultPanel:onJoypadDirDown()
     end
 end
 
 function ISVehicleTuning2:onJoypadDirLeft()
-    self.recipeListHasFocus = true
+    if self.resultPanelHasFocus then
+        if self.toolsPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = false
+            self.toolsPanelHasFocus = true
+            self.resultPanelHasFocus = false
+        elseif self.ingredientPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = true
+            self.toolsPanelHasFocus = false
+            self.resultPanelHasFocus = false
+        else
+            self.recipeListHasFocus = true
+            self.ingredientPanelHasFocus = false
+            self.toolsPanelHasFocus = false
+            self.resultPanelHasFocus = false
+        end
+    elseif self.toolsPanelHasFocus then
+        if self.ingredientPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = true
+            self.toolsPanelHasFocus = false
+            self.resultPanelHasFocus = false
+        else
+            self.recipeListHasFocus = true
+            self.ingredientPanelHasFocus = false
+            self.toolsPanelHasFocus = false
+            self.resultPanelHasFocus = false
+        end
+    elseif self.ingredientPanelHasFocus then
+        self.recipeListHasFocus = true
+        self.ingredientPanelHasFocus = false
+        self.toolsPanelHasFocus = false
+        self.resultPanelHasFocus = false
+    end
 end
 
 function ISVehicleTuning2:onJoypadDirRight()
-    if self.recipeListHasFocus and self.ingredientPanel:getIsVisible() then
-        self.recipeListHasFocus = false
-    elseif self.recipeListHasFocus and self.toolsPanel:getIsVisible() then
-        self.recipeListHasFocus = false
-    elseif self.recipeListHasFocus and self.resultPanel:getIsVisible() then
-        self.recipeListHasFocus = false
+    if self.recipeListHasFocus then
+        if self.ingredientPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = true
+            self.toolsPanelHasFocus = false
+            self.resultPanelHasFocus = false
+        elseif self.toolsPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = false
+            self.toolsPanelHasFocus = true
+            self.resultPanelHasFocus = false
+        elseif self.resultPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = false
+            self.toolsPanelHasFocus = false
+            self.resultPanelHasFocus = true
+        end
+    elseif self.ingredientPanelHasFocus then
+        if self.toolsPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = false
+            self.toolsPanelHasFocus = true
+            self.resultPanelHasFocus = false
+        elseif self.resultPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = false
+            self.toolsPanelHasFocus = false
+            self.resultPanelHasFocus = true
+        end
+    elseif self.toolsPanelHasFocus then
+        if self.resultPanel:getIsVisible() then
+            self.recipeListHasFocus = false
+            self.ingredientPanelHasFocus = false
+            self.toolsPanelHasFocus = false
+            self.resultPanelHasFocus = true
+        end
     end
 end
 
@@ -1466,6 +1560,13 @@ function ISVehicleTuning2:debugGiveIngredients()
         for _,itemInList in pairs(RecipeItem.tools) do
             for i=self.character:getInventory():FindAll(itemInList.fullType):size(),itemInList.count do
                 self.character:getInventory():AddItem(itemInList.fullType)
+            end
+        end
+    end
+    if RecipeItem.recipes then
+        for _,recipeName in pairs(RecipeItem.recipes) do
+            if not self.character:isRecipeKnown(recipeName) then
+                self.character:getKnownRecipes():add(recipeName);
             end
         end
     end

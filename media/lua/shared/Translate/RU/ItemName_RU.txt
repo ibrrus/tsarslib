@@ -1,5 +1,7 @@
 ItemName_RU = {
 
+    ItemName_ATA2.ATABullbarPoliceItem1 = "Кенгурятник полицейский",
+
 /* transport_item.txt */
     ItemName_Base.TransportCounter = "Портативная тумбочка",
     ItemName_Base.TransportDrawer = "Портативный выдвижной ящик",
@@ -126,7 +128,7 @@ ItemName_RU = {
     ItemName_Autotsar.ATAMustangSkirtsSideItem = "Mustard/Samara - юбки боковых порогов",
     ItemName_Autotsar.ATAMustangSpoilerFrontItem = "Mustard/Samara - губа переднего бампера",
     ItemName_Autotsar.ATAMustangSpoilerRear1Item = "Mustard/Samara - спойлер стандартный",
-    ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Mustard/Samara - спойлер высокий",  
+    ItemName_Autotsar.ATAMustangSpoilerRear2Item = "Mustard/Samara - спойлер высокий",
     ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Mustard/Samara - защита левого стекла",
     ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Mustard/Samara - защита правого стекла",
     ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Mustard/Samara - защита лобового стекла",
@@ -203,4 +205,11 @@ ItemName_RU = {
     ItemName_TMC.TrolleyContainer2 = "Тележка",
     ItemName_TMC.CartContainer = "Тележка из супермаркета",
     ItemName_TMC.CartContainer2 = "Тележка из супермаркета",
+    
+/************ Autotsar Tuning Atelier - Bumer 36E ************/
+    
+    ItemName_Autotsar.ATABMWe36TuningMag = "Журнал «Autotsar Tuning Atelier - Bumer 36E»",
+    ItemName_Autotsar.ATABMWe36SpoilerRear1Item = "Bumer 36E - спойлер низкий",
+    ItemName_Autotsar.ATABMWe36SpoilerRear2Item = "Bumer 36E - спойлер средний",
+    ItemName_Autotsar.ATABMWe36SpoilerRear3Item = "Bumer 36E - спойлер высокий",
 }

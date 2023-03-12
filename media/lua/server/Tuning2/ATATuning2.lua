@@ -132,108 +132,6 @@ function ATATuning2.UninstallComplete.Tire(vehicle, part, item)
     ATATuning2.ModelByItemName(vehicle, part)
 end
 
---***********************************************************
---**                                                       **
---**                        Roof Tent                           **
---**                                                       **
---***********************************************************
-
-function ATATuning2.Create.RoofTent(vehicle, part)
-    ATATuning2.Create.Chance0(vehicle, part)
-    part:setModelVisible("Close", false)
-    part:setModelVisible("Open", false)
-    part:getModData()["atatuning"] = {}
-    part:getModData()["atatuning"].status = "close"
-    vehicle:transmitPartModData(part)
-end
-
-function ATATuning2.ContainerAccess.RoofTent(vehicle, part, chr)
-    if chr:getVehicle() == vehicle then
-        local seat = vehicle:getSeat(chr)
-        return seat == 2 or seat == 3;
-    else
-        return false
-    end
-end
-
-function ATATuning2.Init.RoofTent(vehicle, part)
-    -- print("ATATuning2.Init.DefaultModel")
-    if part:getInventoryItem() then
-        -- print("ATATuning2.Init.DefaultModel: VISIBLE")
-        part:setModelVisible("Default", true)
-        if part:getModData()["atatuning"].status == "open" then
-            part:setModelVisible("Close", false)
-            part:setModelVisible("Open", true)
-        else
-            part:setModelVisible("Close", true)
-            part:setModelVisible("Open", false)
-        end
-    end
-end
-
-function ATATuning2.InstallComplete.RoofTent(vehicle, part)
-    local item = part:getInventoryItem()
-    if not item then return end
-    part:setModelVisible("Default", true)
-    part:setModelVisible("Close", true)
-    part:setModelVisible("Open", false)
-    part:getModData()["atatuning"].status = "close"
-    vehicle:transmitPartModData(part)
-    vehicle:doDamageOverlay()
-end
-
-function ATATuning2.UninstallComplete.RoofTent(vehicle, part, item)
-    if not item then return end
-    part:setModelVisible("Default", false)
-    part:setModelVisible("Close", false)
-    part:setModelVisible("Open", false)
-    part:getModData()["atatuning"] = {}
-    vehicle:transmitPartModData(part)
-    vehicle:doDamageOverlay()
-end
-
-function ATATuning2.UninstallTest.RoofTent(vehicle, part, chr)
-    if ATATuning2.UninstallTest.multiRequire(vehicle, part, chr) then
-        return ATATuning2.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleLeft"), chr) and
-        ATATuning2.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleRight"), chr)
-    else
-        return false
-    end
-end
-
-function ATATuning2.Use.RoofTent(vehicle, part, open)
-    if open then
-        part:setModelVisible("Close", false)
-        part:setModelVisible("Open", true)
-        part:getModData()["atatuning"].status = "open"
-        vehicle:transmitPartModData(part)
-        VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleLeft"))
-        vehicle:getPartById("SeatMiddleLeft"):setContainerContentAmount(0)
-        VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleRight"))
-        vehicle:getPartById("SeatMiddleRight"):setContainerContentAmount(0)
-    else
-        part:setModelVisible("Close", true)
-        part:setModelVisible("Open", false)
-        vehicle:getPartById("SeatMiddleLeft"):setInventoryItem(nil) -- + vehicle:transmitPartItem(part)
-        vehicle:getPartById("SeatMiddleRight"):setInventoryItem(nil) -- + vehicle:transmitPartItem(part)
-        vehicle:transmitPartItem(vehicle:getPartById("SeatMiddleLeft"))
-        vehicle:transmitPartItem(vehicle:getPartById("SeatMiddleRight"))
-        part:getModData()["atatuning"].status = "close"
-        vehicle:transmitPartModData(part)
-    end
-end
-
-function ATATuning2.UninstallTest.RoofClose(vehicle, part, chr)
-    -- if not part:getInventoryItem() then return false end
-    -- if not part:getItemType() or part:getItemType():isEmpty() then return false end
-    -- local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
-    if round(part:getContainerContentAmount(), 3) > 0 then return false end
-    local seatNumber = part:getContainerSeatNumber()
-    local seatOccupied = (seatNumber ~= -1) and vehicle:isSeatOccupied(seatNumber)
-    if seatOccupied then return false end
-    return true
-end
-
 --************************************************************
 --**                                                           **
 --**                       Engine Door                             **
@@ -553,25 +451,27 @@ function ATATuning2.Create.Tuning(vehicle, part)
     local vehicleName = vehicle:getScript():getName()
     local partName = part:getId()
     local item = nil
+    part:getModData().tuning2 = {}
     if ATA2TuningTable[vehicleName] 
             and ATA2TuningTable[vehicleName].parts[partName] then
         -- обходим таблицу доступных моделей и проверяем их шанс спавна
         for modelName, tableInfo in pairs(ATA2TuningTable[vehicleName].parts[partName]) do
             if tableInfo.spawnChance and tableInfo.spawnChance > ZombRand(100) then
                 item = ATATuning2Utils.createPartInventoryItem(part)
-                part:getModData().tuning2 = {}
                 part:getModData().tuning2.model = modelName
-                vehicle:transmitPartModData(part)
                 break;
             end
         end
     end
+    vehicle:transmitPartModData(part)
     ATATuning2.ModelByModData(vehicle, part, item)
 end
 
 function ATATuning2.Init.Tuning(vehicle, part)
     ATATuning2.ModelByModData(vehicle, part, part:getInventoryItem())
-    -- vehicle:doDamageOverlay()
+    if part:isContainer() then
+        part:setContainerContentAmount(part:getItemContainer():getCapacityWeight());
+    end
 end
 
 function ATATuning2.InstallTest.Tuning(vehicle, part, chr)
@@ -582,6 +482,7 @@ function ATATuning2.InstallTest.Tuning(vehicle, part, chr)
     return true
 end
 
+-- функция обязательна для всех запчастей из Tuning2
 function ATATuning2.InstallComplete.Tuning(vehicle, part)
 -- print("ATATuning2.InstallComplete.Tuning")
     local item = part:getInventoryItem();
@@ -595,6 +496,22 @@ function ATATuning2.InstallComplete.Tuning(vehicle, part)
                 and ATA2TuningTable[vehicleName].parts[partName] 
                 and ATA2TuningTable[vehicleName].parts[partName][modelName] then 
             local modelInfo = ATA2TuningTable[vehicleName].parts[partName][modelName]
+            
+            -- отключение функции открытия окна
+            if modelInfo.disableOpenWindowFromSeat then
+                local seatPart = vehicle:getPartById(modelInfo.disableOpenWindowFromSeat)
+                if seatPart then
+                    seatPart:getModData().t2disableOpenWindow = true
+                    vehicle:transmitPartModData(seatPart)
+                end
+                part:getModData().tuning2.disableOpenWindowFromSeat = modelInfo.disableOpenWindowFromSeat
+                -- закрытие окна
+                local windowPart = vehicle:getPartById("Window" .. string.sub(modelInfo.disableOpenWindowFromSeat, 5))
+                if windowPart and windowPart:getWindow() then
+                    windowPart:getWindow():setOpen(false)
+                    vehicle:transmitPartWindow(windowPart)
+                end
+            end
             
             -- активация защиты (сохранение состояний предметов)
             if modelInfo.protection then
@@ -616,14 +533,17 @@ function ATATuning2.InstallComplete.Tuning(vehicle, part)
                     end
                 end
             end
-            
             -- активация защиты (сохранение состояний предметов)
             if modelInfo.removeIfBroken then
                 part:getModData().tuning2.removeIfBroken = modelInfo.removeIfBroken
             end
-            vehicle:transmitPartModData(part)
+            
         end
     end
+    if part:isContainer() then
+        part:setContainerContentAmount(part:getItemContainer():getCapacityWeight());
+    end
+    vehicle:transmitPartModData(part)
     vehicle:doDamageOverlay()
 end
 
@@ -636,27 +556,45 @@ function ATATuning2.UninstallTest.Tuning(vehicle, part, chr)
     return true
 end
 
+-- функция обязательна для всех запчастей из Tuning2
+-- в ней мы больше не можем обращаться к ATA2TuningTable, т.к. Имя_модели == nil
 function ATATuning2.UninstallComplete.Tuning(vehicle, part, item)
 -- print("ATATuning2.UninstallComplete.Tuning")
     ATATuning2.ModelByModData(vehicle, part)
     local vehicleName = vehicle:getScript():getName()
     local partName = part:getId()
-    if part:getModData().tuning2 and part:getModData().tuning2.protection then
-        for _, protectionPartName in ipairs(part:getModData().tuning2.protection) do
-            if protectionPartName ~= "Engine" then -- защита кода от "защиты двигателя"
-                local savePart = vehicle:getPartById(protectionPartName)
-                if savePart then
-                    if savePart:getModData().tuning2 and savePart:getModData().tuning2.health then 
-                        savePart:setCondition(savePart:getModData().tuning2.health) -- transmit
-                        vehicle:transmitPartCondition(savePart)
-                        
-                        savePart:getModData().tuning2.health = nil -- transmit
-                        vehicle:transmitPartModData(savePart)
+    if part:getModData().tuning2 then
+        -- восстановление функции открытия окна
+        if part:getModData().tuning2.disableOpenWindowFromSeat then
+            local seatPart = vehicle:getPartById(part:getModData().tuning2.disableOpenWindowFromSeat)
+            if seatPart then
+                seatPart:getModData().t2disableOpenWindow = nil
+                vehicle:transmitPartModData(seatPart)
+            end
+            part:getModData().tuning2.disableOpenWindowFromSeat = nil
+        end
+        -- отключение защиты
+        if part:getModData().tuning2.protection then
+            for _, protectionPartName in ipairs(part:getModData().tuning2.protection) do
+                if protectionPartName ~= "Engine" then -- защита кода от "защиты двигателя"
+                    local savePart = vehicle:getPartById(protectionPartName)
+                    if savePart then
+                        if savePart:getModData().tuning2 and savePart:getModData().tuning2.health then 
+                            savePart:setCondition(savePart:getModData().tuning2.health) -- transmit
+                            vehicle:transmitPartCondition(savePart)
+                            
+                            savePart:getModData().tuning2.health = nil -- transmit
+                            vehicle:transmitPartModData(savePart)
+                        end
                     end
                 end
             end
         end
     end
+    if part:isContainer() then
+        part:setContainerContentAmount(part:getItemContainer():getCapacityWeight());
+    end
+    vehicle:transmitPartModData(part)
     vehicle:doDamageOverlay()
 end
 
@@ -771,4 +709,98 @@ function ATATuning2.UninstallComplete.TireNotAllModelsVisible(vehicle, part, ite
 	local wheelIndex = part:getWheelIndex()
 	vehicle:setTireRemoved(wheelIndex, true)
     part:setModelVisible("InflatedTirePlusWheel", false)
+end
+
+
+--***********************************************************
+--**                                                       **
+--**                        Roof Tent                           **
+--**                                                       **
+--***********************************************************
+
+function ATATuning2.ContainerAccess.RoofTent(vehicle, part, chr)
+    if chr:getVehicle() == vehicle then
+        local seat = vehicle:getSeat(chr)
+        return seat == 2 or seat == 3;
+    else
+        return false
+    end
+end
+
+function ATATuning2.Init.RoofTent(vehicle, part)
+    -- print("ATATuning2.Init.DefaultModel")
+    if part:getInventoryItem() then
+        -- print("ATATuning2.Init.DefaultModel: VISIBLE")
+        part:setModelVisible("Default", true)
+        if part:getModData().tuning2.status == "open" then
+            part:setModelVisible("Close", false)
+            part:setModelVisible("Open", true)
+        else
+            part:setModelVisible("Close", true)
+            part:setModelVisible("Open", false)
+        end
+    end
+end
+
+function ATATuning2.InstallComplete.RoofTent(vehicle, part)
+    local item = part:getInventoryItem()
+    if not item then return end
+    part:setModelVisible("Default", true)
+    part:setModelVisible("Close", true)
+    part:setModelVisible("Open", false)
+    part:getModData().tuning2.status = "close"
+    vehicle:transmitPartModData(part)
+    vehicle:doDamageOverlay()
+end
+
+function ATATuning2.UninstallComplete.RoofTent(vehicle, part, item)
+    if not item then return end
+    part:setModelVisible("Default", false)
+    part:setModelVisible("Close", false)
+    part:setModelVisible("Open", false)
+    part:getModData().tuning2 = {}
+    vehicle:transmitPartModData(part)
+    vehicle:doDamageOverlay()
+end
+
+function ATATuning2.UninstallTest.RoofTent(vehicle, part, chr)
+    if ATATuning2.UninstallTest.Tuning(vehicle, part, chr) then
+        return ATATuning2.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleLeft"), chr) and
+        ATATuning2.UninstallTest.RoofClose(vehicle, vehicle:getPartById("SeatMiddleRight"), chr)
+    else
+        return false
+    end
+end
+
+function ATATuning2.Use.RoofTent(vehicle, part, open)
+    if open then
+        part:setModelVisible("Close", false)
+        part:setModelVisible("Open", true)
+        part:getModData().tuning2.status = "open"
+        vehicle:transmitPartModData(part)
+        VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleLeft"))
+        vehicle:getPartById("SeatMiddleLeft"):setContainerContentAmount(0)
+        VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleRight"))
+        vehicle:getPartById("SeatMiddleRight"):setContainerContentAmount(0)
+    else
+        part:setModelVisible("Close", true)
+        part:setModelVisible("Open", false)
+        vehicle:getPartById("SeatMiddleLeft"):setInventoryItem(nil) -- + vehicle:transmitPartItem(part)
+        vehicle:getPartById("SeatMiddleRight"):setInventoryItem(nil) -- + vehicle:transmitPartItem(part)
+        vehicle:transmitPartItem(vehicle:getPartById("SeatMiddleLeft"))
+        vehicle:transmitPartItem(vehicle:getPartById("SeatMiddleRight"))
+        part:getModData().tuning2.status = "close"
+        vehicle:transmitPartModData(part)
+    end
+end
+
+function ATATuning2.UninstallTest.RoofClose(vehicle, part, chr)
+    -- if not part:getInventoryItem() then return false end
+    -- if not part:getItemType() or part:getItemType():isEmpty() then return false end
+    -- local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
+    if round(part:getContainerContentAmount(), 3) > 0 then return false end
+    local seatNumber = part:getContainerSeatNumber()
+    local seatOccupied = (seatNumber ~= -1) and vehicle:isSeatOccupied(seatNumber)
+    if seatOccupied then return false end
+    return true
 end
