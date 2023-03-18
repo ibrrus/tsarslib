@@ -1,7 +1,7 @@
 IGUI_RU = {
 /************ Tuning 2.0 ************/
     IGUI_InfoPanel_Tuning = "<CENTRE> <SIZE:medium> Панель модификации авто <LINE> <LINE> <LEFT> <SIZE:small> Или панель тюнинга. Здесь вы видите список доступных рецептов для модификации вашего транспортного средства. <LINE> <LINE> Обычно, все доступные рецепты всегда отображаются в данной панели, но также бывают рецепты, которые не появятся здесь, пока вы не выполните ряд условий. Такими условиями могут быть: наличие навыка, доступность определенного предмета, достижение необходимого уровня персонажа. <LINE> <LINE> Для создания предметов используются ресурсы, находящиеся в вашем инвентаре. Кроме того, персонаж берёт ресурсы из ближайших контейнеров - в том числе и с пола. <LINE> <LINE> В данный момент детали, установленные через меню тюнинга, невозможно ремонтировать без снятия, а большинство деталей при демонтаже будут разбираться на части.",
-    
+
     IGUI_TuningCategory_General = "Общее",
     IGUI_TuningCategory_Installed = "Установлено",
     IGUI_TuningCategory_ProtectionWindow = "Защита окон",
@@ -37,7 +37,7 @@ IGUI_RU = {
     IGUI_TuningUI_Uninstall = "Демонтировать",
     IGUI_TuningUI_AlreadyInstall = "Уже установлен аналогичный предмет",
     IGUI_TuningUI_NotInstall = "Не установлено. Кажется, кто-то читерил",
-    
+
     IGUI_TuningUI_RequiredItems = "Используемые предметы:",
     IGUI_TuningUI_RequiredTools = "Требуемый инструмент:",
     IGUI_TuningUI_Result = "Результат:",
@@ -46,6 +46,13 @@ IGUI_RU = {
     IGUI_TuningUI_ProtectionFor = "Защищает:",
     IGUI_TuningUI_Condition = "Состояние:",
     IGUI_TuningUI_NotLearn = "Не знаю рецепты:",
+
+    IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник",
+
+    IGUI_CraftCategory_Tuning = "Тюнинг",
+    IGUI_VehiclePartCattuning = "Тюнинг",
+    IGUI_VehiclePartCatprotection = "Защита",
+    IGUI_ExitVehicleTent = "Выйти из палатки",
 
 
 /* template_ata_6wheels.txt */
@@ -86,6 +93,7 @@ IGUI_RU = {
 
 
 /* template_ata_headlights.txt */
+    IGUI_VehiclePartATA2HeadlightsPopUP = "Фары выдвижные",
     IGUI_VehiclePartATAHeadlightsPopUP = "Фары выдвижные",
 
 
@@ -105,10 +113,10 @@ IGUI_RU = {
     IGUI_VehiclePartATAInteractiveTrunkFront = "Багажник передний",
     IGUI_VehiclePartATAInteractiveTrunkRear = "Багажник задний",
 
+
 /* template_ata_lightbar.txt */
-    IGUI_VehiclePartATALightBar = "Мигалки",
-    
     IGUI_VehiclePartATA2LightBar = "Мигалки",
+    IGUI_VehiclePartATALightBar = "Мигалки",
 
 
 /* template_ata_moto_fake_wheels.txt */
@@ -122,7 +130,11 @@ IGUI_RU = {
     IGUI_VehiclePartATA2ProtectionWheelsRear = "Защита задних колес",
     IGUI_VehiclePartATA2ProtectionFrontWheels = "Защита передних колес",
     IGUI_VehiclePartATA2ProtectionRearWheels = "Защита задних колес",
-
+    IGUI_VehiclePartATA2ProtectionFrontLeftWheel = "Защита переднего левого колеса",
+    IGUI_VehiclePartATA2ProtectionFrontRightWheel = "Защита переднего правого колеса",
+    IGUI_VehiclePartATA2ProtectionRearLeftWheel = "Защита заднего левого колеса",
+    IGUI_VehiclePartATA2ProtectionRearRightWheel = "Защита заднего правого колеса",
+    
     IGUI_VehiclePartATA2ProtectionDoorFrontLeft = "Защита двери передней левой",
     IGUI_VehiclePartATA2ProtectionDoorFrontRight = "Защита двери передней правой",
     IGUI_VehiclePartATA2ProtectionDoorMiddleLeft = "Защита двери средней левой",
@@ -135,7 +147,6 @@ IGUI_RU = {
     IGUI_VehiclePartATA2ProtectionWindshieldRear = "Защита заднего стекла",
     IGUI_VehiclePartATA2ProtectionWindowsLeft = "Защита левых окон",
     IGUI_VehiclePartATA2ProtectionWindowsRight = "Защита правых окон",
-    IGUI_VehiclePartATA2ProtectionWindowFront = "Защита стекла лобового",
     IGUI_VehiclePartATA2ProtectionWindowRear = "Защита стекла заднего",
     IGUI_VehiclePartATA2ProtectionWindowFrontLeft = "Защита стекла переднего левого",
     IGUI_VehiclePartATA2ProtectionWindowFrontRight = "Защита стекла переднего правого",
@@ -196,7 +207,7 @@ IGUI_RU = {
     IGUI_VehiclePartATARoofLightLeft = "Фонари на крыше (левые)",
     IGUI_VehiclePartATARoofLightRight = "Фонари на крыше (правые)",
     IGUI_VehiclePartATARoofLightRear = "Фонари на крыше (задние)",
-    
+
     IGUI_VehiclePartATARoofLampFront = "Лампочка для передних фонарей на крыше",
     IGUI_VehiclePartATARoofLampLeft = "Лампочка для левых фонарей на крыше",
     IGUI_VehiclePartATARoofLampRight = "Лампочка для правых фонарей на крыше",
@@ -205,11 +216,13 @@ IGUI_RU = {
 
 /* template_ata_roof_tent.txt */
     IGUI_VehiclePartATA2RoofTent = "Палатка на крышу",
-
+    IGUI_PlayerText_ATA_TentDontOpen = "Палатка должна быть пустая",
     IGUI_VehiclePartATARoofTent = "Палатка на крышу",
+
 
 /* template_ata_spare_wheel.txt */
     IGUI_VehiclePartATASpareWheel = "Запасное колесо",
+
 
 /* template_ata_visual.txt */
     IGUI_VehiclePartATA2VisualLadder = "Лестница",
@@ -225,6 +238,7 @@ IGUI_RU = {
     IGUI_VehiclePartATAVisualSkirtsSide = "Юбки боковых порогов",
     IGUI_VehiclePartATAVisualFendersWide = "Широкие арки",
     IGUI_VehiclePartATAVisualSnorkel = "Шноркель",
+
 
 /* template_freeplace.txt */
     IGUI_VehiclePartFreeplace1FrontLeft = "Свободное место (ПЛ)",
@@ -245,7 +259,7 @@ IGUI_RU = {
     IGUI_VehiclePartFreeplace1RearRight = "Свободное место (ЗП)",
     IGUI_VehiclePartFreeplace2RearRight = "Свободное место (ЗП)",
     IGUI_VehiclePartFreeplace3RearRight = "Свободное место (ЗП)",
-    
+
     IGUI_VehiclePartFreestorageFrontLeft = "Свободное место (ПЛ)",
     IGUI_VehiclePartFreestorageFrontRight = "Свободное место (ПП)",
     IGUI_VehiclePartFreestorageMiddleLeft = "Свободное место (СЛ)",
@@ -254,31 +268,14 @@ IGUI_RU = {
     IGUI_VehiclePartFreestorageRearRight = "Свободное место (ЗП)",
     IGUI_VehiclePartfloor = "Свободное место",
 
+
 /* ATA */
     IGUI_CloseHeadlightsPopUP = "Задвинуть фары",
     IGUI_OpenHeadlightsPopUP = "Выдвинуть фары",
     IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Я не смогу разбить окно, пока на нем стоит защита.",
     IGUI_ItemCat_Tuning = "Тюнинг",
-    
-/************ Autotsar Tuning Atelier - Bus ************/
-    IGUI_VehiclePartATARoofRack = "Багажник на крыше",
-    IGUI_VehiclePartATARoofRackToolbox = "Ящик для инструментов",
-    IGUI_VehiclePartDoorProtection = "Защита двери",
-    IGUI_VehiclePartDoorRearProtection = "Защита задних дверей",
-    IGUI_VehiclePartWheelsProtection = "Защита колес",
-    IGUI_VehiclePartWindowsFrontProtection = "Защита лобового стекла",
-    IGUI_VehiclePartWindowsLeftLiteProtection = "Защита левого бокового стекла",
-    IGUI_VehiclePartWindowsLeftFullProtection = "Защита левых боковых стекол",
-    IGUI_VehiclePartWindowsRightProtection = "Защита правых боковых стекол",
-    
-    IGUI_CraftCategory_Tuning = "Тюнинг",
-    IGUI_VehiclePartCattuning = "Тюнинг",
-    IGUI_VehiclePartCatprotection = "Защита",
-    IGUI_ExitVehicleTent = "Выйти из палатки",
-    
-    IGUI_PlayerText_ATA_TentDontOpen = "Палатка должна быть пустая",
-    IGUI_PlayerText_ATA_Engine = "Не могу добраться до двигателя.<br>Cперва нужно снять кенгурятник",
-    
+
+
 /************ Aquatsar Yacht Club ************/
     IGUI_VehicleNameBoatSailingYacht = "Парусная яхта",
     IGUI_VehicleNameBoatSailingYacht_Ground = "Парусная яхта",
@@ -374,7 +371,7 @@ IGUI_RU = {
     IGUI_Wind_Strong = "сильный",
     IGUI_Wind_VeryStrong = "очень сильный",
     IGUI_Wind_Storm = "штормовой",
-    
+
     IGUI_Wind_N = "северном",
     IGUI_Wind_NW = "северо-западном",
     IGUI_Wind_W = "западном",
@@ -383,15 +380,19 @@ IGUI_RU = {
     IGUI_Wind_SE = "юго-восточном",
     IGUI_Wind_E = "восточном",
     IGUI_Wind_NE = "северо-восточном",
-    
+
     IGUI_RepairSail = "Зашить парус",
     IGUI_CantRepairSails = "Для ремонта паруса необходимы иголка, нитки, тряпки и IV уровень шитья",
+
 
 /* Common Library */
     IGUI_VehiclePartshelves = "Полки",
     IGUI_VehiclePartstove = "Плита",
+    IGUI_VehiclePartOven = "Плита",
     IGUI_VehiclePartfridge = "Холодильник",
+    IGUI_VehiclePartFridge = "Холодильник",
     IGUI_VehiclePartcounter = "Тумба",
+    IGUI_VehiclePartCounter = "Тумба",
     IGUI_VehiclePartportablemicrowave = "Микроволновка",
     IGUI_VehiclePartmicrowave = "Микроволновка",
     IGUI_VehiclePartfreezer = "Холодильник",
@@ -423,24 +424,16 @@ IGUI_RU = {
     IGUI_VehiclePartMicrowaveMiddleRight = "Микроволновка",
     IGUI_VehiclePartMicrowaveRearLeft = "Микроволновка",
     IGUI_VehiclePartMicrowaveRearRight = "Микроволновка",
-    IGUI_VehiclePartBatteryHeater = "Печь",
-    IGUI_VehiclePartCatBatteryCharger = "Зарядное устройство",
-    IGUI_VehiclePartBatteryChargerA = "Место для аккумулятора",
-    IGUI_VehiclePartBatteryChargerB = "Место для аккумулятора",
-    IGUI_VehiclePartBatteryChargerC = "Место для аккумулятора",    
-    IGUI_VehiclePartCounter = "Контейнер",
-    IGUI_VehiclePartFridge = "Холодильник",
-    IGUI_VehiclePartOven = "Плита",
-    IGUI_VehiclePartfridge = "Холодильник",
-    IGUI_VehiclePartstove = "Плита",
-    IGUI_VehiclePartRoofrack = "Багажник для крыши",
-    IGUI_VehiclePartTV = "Телевизор",
     IGUI_VehiclePartMattressFrontLeft = "Матрас",
     IGUI_VehiclePartMattressFrontLeft = "Матрас",
     IGUI_VehiclePartMattressMiddleLeft = "Матрас",
     IGUI_VehiclePartMattressMiddleRight = "Матрас",
     IGUI_VehiclePartMattressRearLeft = "Матрас",
     IGUI_VehiclePartMattressRearRight = "Матрас",
+    IGUI_VehiclePartBatteryHeater = "Обогреватель",
+    IGUI_VehiclePartRoofrack = "Багажник для крыши",
+    IGUI_VehiclePartTV = "Телевизор",
+    IGUI_VehiclePartMattress = "Матрас",
     IGUI_VehiclePartGunRack = "Оружейная стойка",
     IGUI_VehiclePart500FuelTank = "Цистерна бензина",
     IGUI_VehiclePart1000FuelTank = "Цистерна бензина",
@@ -449,27 +442,30 @@ IGUI_RU = {
     IGUI_Turn_Oven_On = "Включить плиту", 
     IGUI_Turn_Oven_Off = "Выключить плиту",
     IGUI_VehiclePartCatBatteryCharger = "Зарядное устройство",
-    IGUI_VehiclePartBatteryChargerA = "Место под аккумулятор",
-    IGUI_VehiclePartBatteryChargerB = "Место под аккумулятор",
-    IGUI_VehiclePartBatteryChargerC = "Место под аккумулятор",
-    
-    /************ Autotsar Motorclub ************/
+    IGUI_VehiclePartBatteryChargerA = "Место для аккумулятора",
+    IGUI_VehiclePartBatteryChargerB = "Место для аккумулятора",
+    IGUI_VehiclePartBatteryChargerC = "Место для аккумулятора",    
+
+
+/************ Autotsar Motorclub ************/
     IGUI_VehicleNameAMC_bmw_classic = "BWM R80/7 Classic",
-	IGUI_VehicleNameAMC_bmw_custom = "BWM R80/7 Custom",
-	IGUI_VehicleNameAMC_harley = "Xarley-Davitsan Sportstep '86",
-	IGUI_VehicleNameAMC_quad = "Suvzuki Quadruiner",
-	IGUI_VehicleNameAMC_Waverunner = "Yamama Waveruiner 650TL",
-	IGUI_VehicleNameAMC_Waverunner_Ground = "Yamama Waveruiner 650TL",
-	IGUI_VehicleNameTrailerAMC = "Autotsar Mototrailer-2M",
-	IGUI_VehicleNameTrailerAMCWaverunner = "Autotsar Watertrailer-3M",
-	IGUI_VehicleNameTrailerAMCWaverunnerWithBody = "Yamama Waveruiner 650TL",
-    
-    /************ Autotsar Trailers ************/
+    IGUI_VehicleNameAMC_bmw_custom = "BWM R80/7 Custom",
+    IGUI_VehicleNameAMC_harley = "Xarley-Davitsan Sportstep '86",
+    IGUI_VehicleNameAMC_quad = "Suvzuki Quadruiner",
+    IGUI_VehicleNameAMC_Waverunner = "Yamama Waveruiner 650TL",
+    IGUI_VehicleNameAMC_Waverunner_Ground = "Yamama Waveruiner 650TL",
+    IGUI_VehicleNameTrailerAMC = "Autotsar Mototrailer-2M",
+    IGUI_VehicleNameTrailerAMCWaverunner = "Autotsar Watertrailer-3M",
+    IGUI_VehicleNameTrailerAMCWaverunnerWithBody = "Yamama Waveruiner 650TL",
+
+
+/************ Autotsar Trailers ************/
     IGUI_VehiclePartCatGenerator = "Генератор",
     IGUI_VehiclePartEarthingOn = "Заземление",
     IGUI_VehiclePartEarthingOff = "отключенный питающий провод",
-    
-    /************ True Actions ************/
+
+
+/************ True Actions ************/
     IGUI_PlayerText_TRUEA_cant_lie = "Сейчас опасно ложиться.",
     IGUI_PlayerText_TRUEA_cant_sit = "Сейчас опасно садиться.",
     IGUI_PlayerText_TRUEA_need_come_closer = "Нужно подойти ближе.",
@@ -481,14 +477,43 @@ IGUI_RU = {
     IGUI_PlayerText_TRUEA_dont_push_1 = "Зачем ты толкаешься?",
     IGUI_PlayerText_TRUEA_dont_push_2 = "Не толкайся!",
     IGUI_PlayerText_TRUEA_dont_push_3 = "Дай мне отдохнуть!",
-    
-    /************ True Music ************/
+
+
+/************ True Music ************/
     IGUI_media_dragCassette = "Вставьте кассету",
     IGUI_media_dragVinyl = "Вставьте винил",
     IGUI_TC_connect_speaker = "Подключить колонку",
     IGUI_PlayerText_TC_need_speaker = "Колонка должна стоять рядом с проигрывателем.",
     IGUI_MusicOptionsCar = "Магнитола",
-    
+
+
+/************ Autotsar Tuning Atelier - Bus ************/
+    IGUI_VehiclePartATARoofRack = "Багажник на крыше",
+    IGUI_VehiclePartATARoofRackToolbox = "Ящик для инструментов",
+    IGUI_VehiclePartDoorProtection = "Защита двери",
+    IGUI_VehiclePartDoorRearProtection = "Защита задних дверей",
+    IGUI_VehiclePartWheelsProtection = "Защита колес",
+    IGUI_VehiclePartWindowsFrontProtection = "Защита лобового стекла",
+    IGUI_VehiclePartWindowsLeftLiteProtection = "Защита левого бокового стекла",
+    IGUI_VehiclePartWindowsLeftFullProtection = "Защита левых боковых стекол",
+    IGUI_VehiclePartWindowsRightProtection = "Защита правых боковых стекол",
+
+/************ Autotsar Vehicle Names ************/
+    IGUI_VehicleNameTrailerFirst = "Autotsar GNV 250",
+    IGUI_VehicleNameTrailerSecond = "Autotsar GNV 500",
+    IGUI_VehicleNameTrailerHome = "Autotsar iLYA-1990",
+    IGUI_VehicleNameTrailerHomeHartman = "Autotsar iLYA-1990 «Hartman»",
+    IGUI_VehicleNameTrailerHomeExplorer = "Autotsar iLYA-1990 «Explorer»",
+    IGUI_VehicleNameTrailerKbac = "Autotsar KBAC",
+    IGUI_VehicleNameTrailerGenerator = "Autotsar GENA-220",
+    IGUI_VehicleNameATAArmyBus = "Bear Bus - Army Edition",
+    IGUI_VehicleNameATASchoolBus = "Bear Bus - School Edition",
+    IGUI_VehicleNameATAPrisonBus = "Bear Bus - Prison Edition",
     IGUI_VehicleNameATABMWe36 = "Bumer 36E",
-	IGUI_VehicleNameATABMWe36M3 = "Bumer 36E M3",
+    IGUI_VehicleNameATABMWe36M3 = "Bumer 36E M3",
+    IGUI_VehicleNameATAJeepClassic = "Jaap Wrungel Classic",
+    IGUI_VehicleNameATAJeepRubicon = "Jaap Wrungel Rubicon",
+    IGUI_VehicleNameATAJeepArcher = "Jaap Wrungel Archer",
+    IGUI_VehicleNameATADodge = "Dadge Steals RT Twin Turbo",
+    IGUI_VehicleNameATADodgePpg = "Dadge Steals RT Twin Turbo PPG",
 }

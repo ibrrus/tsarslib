@@ -1,8 +1,8 @@
 module Base
 {
-    template vehicle ATAHeadlights
+    template vehicle ATA2Headlights
     {
-        part ATAHeadlightsPopUP
+        part ATA2HeadlightsPopUP
         {
             door
             {

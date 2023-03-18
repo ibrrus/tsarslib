@@ -82,14 +82,13 @@ module Base
         part ATA2RoofRackToolbox
         {
             area = TruckBed,
-            itemType = ATA2.ATA2ItemContainer,
             category = nodisplay,
+            itemType = ATA2.ATA2ItemContainer,
             specificItem = false,
             mechanicRequireKey = false,
-            repairMechanic = true,
             container
             {
-                conditionAffectsCapacity = false,
+                conditionAffectsCapacity = true,
                 test = Vehicles.ContainerAccess.TruckBedOpen,
             }
             table install
@@ -99,7 +98,7 @@ module Base
             }
             table uninstall
             {
-                test = ATATuning2.InstallTest.Tuning,
+                test = ATATuning2.UninstallTest.Tuning,
                 complete = ATATuning2.UninstallComplete.Tuning,
             }
             lua

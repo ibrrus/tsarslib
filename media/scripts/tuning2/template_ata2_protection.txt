@@ -25,7 +25,22 @@ module Base
         {
             area = Engine,
         }
-        
+        part ATA2ProtectionFrontLeftWheel
+        {
+            area = TireFrontLeft,
+        }
+        part ATA2ProtectionFrontRightWheel
+        {
+            area = TireFrontRight,
+        }
+        part ATA2ProtectionRearLeftWheel
+        {
+            area = TireRearLeft,
+        }
+        part ATA2ProtectionRearRightWheel
+        {
+            area = TireRearRight,
+        }
         
         part ATA2ProtectionDoorFrontLeft
         {

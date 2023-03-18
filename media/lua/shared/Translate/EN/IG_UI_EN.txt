@@ -1,7 +1,7 @@
 IGUI_EN = {
 /************ Tuning 2.0 ************/
     IGUI_InfoPanel_Tuning = "<CENTRE> <SIZE:medium> Vehicle modification panel <LINE> <LINE> <LEFT> <SIZE:small> Or tuning panel. Here you see a list of available recipes for modifying your vehicle.<LINE> <LINE> Normally, all available recipes are always shown in this panel, but there are also recipes that do not appear here unless you fulfil some conditions. Conditions can be: you have a skill, a certain item is available, you have reached the required character level. <LINE> <LINE> Resources in your inventory are used to create items. In addition, the character takes resources from nearby containers - including from the floor. <LINE> <LINE> At this point, parts installed through the tuning menu cannot be repaired without removal, and most parts will be disassembled into parts when removed.",
-    
+
     IGUI_TuningCategory_General = "General",
     IGUI_TuningCategory_Installed = "Installed",
     IGUI_TuningCategory_ProtectionWindow = "Window Protection",
@@ -13,7 +13,7 @@ IGUI_EN = {
     IGUI_TuningCategory_Storage = "Storage",
     IGUI_TuningCategory_Bumpers = "Bumpers",
     IGUI_TuningCategory_Visual = "Decor",
-    
+
     IGUI_ATA2_Bullbar = "Bullbar",
     IGUI_ATA2_Bullbar_Police = "Police Bullbar",
     IGUI_ATA2_Bullbar_Handmade = "Handmade Bullbar",
@@ -47,6 +47,13 @@ IGUI_EN = {
     IGUI_TuningUI_Condition = "Condition:",
     IGUI_TuningUI_NotLearn = "Don't know the recipe",
 
+    IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first",
+
+    IGUI_CraftCategory_Tuning = "Tuning",
+    IGUI_VehiclePartCattuning = "Tuning",
+    IGUI_VehiclePartCatprotection = "Protection",
+    IGUI_ExitVehicleTent = "Exit Tent",
+
 
 /* template_ata_6wheels.txt */
     IGUI_VehiclePartTireMiddleRight = "Rear Right Tire",
@@ -55,7 +62,8 @@ IGUI_EN = {
     IGUI_VehiclePartSuspensionMiddleRight = "Rear Right Suspension",
     IGUI_VehiclePartBrakeMiddleLeft = "Rear Left Brake",
     IGUI_VehiclePartBrakeMiddleRight = "Rear Right Brake",
-    
+
+
 /* template_ata_bags.txt */
     IGUI_VehiclePartATABagOnProtectionWindowFrontLeft = "Bag on protection (left)",
     IGUI_VehiclePartATABagOnProtectionWindowFrontRight = "Bag on protection (right)",
@@ -70,33 +78,26 @@ IGUI_EN = {
     IGUI_VehiclePartATA2BagMotoRight = "Moto Bag Right",
     IGUI_VehiclePartATA2BagMotoHolsterLeft = "Moto Holster Left",
     IGUI_VehiclePartATA2BagMotoHolsterRight = "Moto Holster Right",
-    
+
+
 /* template_ata_bampers.txt */
     IGUI_VehiclePartATABumper = "Bumper",
-    
+
     IGUI_VehiclePartATA2Bumper = "Bumper",
 
 
 /* template_ata_bullbars.txt */
-    IGUI_VehiclePartATABullbar = "Bullbar",
-    
     IGUI_VehiclePartATA2Bullbar = "Bullbar",
+
+    IGUI_VehiclePartATABullbar = "Bullbar",
 
 
 /* template_ata_headlights.txt */
-    IGUI_VehiclePartATAHeadlightsPopUP = "Headlights Pop-Up",
-    
     IGUI_VehiclePartATA2HeadlightsPopUP = "Headlights Pop-Up",
+    IGUI_VehiclePartATAHeadlightsPopUP = "Headlights Pop-Up",
 
 
 /* template_ata_interactive_trunk.txt */
-    IGUI_VehiclePartATARoofBase = "Roof rails",
-    IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Roof rack",
-    IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Spare wheel rack",
-    IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Rear window rack",
-    IGUI_VehiclePartATAInteractiveTrunkFront = "Front Trunk",
-    IGUI_VehiclePartATAInteractiveTrunkRear = "Rear Trunk",
-    
     IGUI_VehiclePartATA2RoofBase = "Roof rails",
     IGUI_VehiclePartATA2InteractiveTrunkRoofRack = "Roof rack",
     IGUI_VehiclePartATA2InteractiveTrunkWheelRack = "Spare wheel rack",
@@ -104,11 +105,18 @@ IGUI_EN = {
     IGUI_VehiclePartATA2InteractiveTrunkFront = "Front Trunk",
     IGUI_VehiclePartATA2InteractiveTrunkRear = "Rear Trunk",
 
+    IGUI_VehiclePartATARoofBase = "Roof Rails",
+    IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Roof Rack",
+    IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Spare Wheel Rack",
+    IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Rear Window Rack",
+    IGUI_VehiclePartATAInteractiveTrunkFront = "Front Trunk",
+    IGUI_VehiclePartATAInteractiveTrunkRear = "Rear Trunk",
+    IGUI_VehiclePartATA2RoofRackToolbox = "Roof Toolbox",
+
 
 /* template_ata_lightbar.txt */
-    IGUI_VehiclePartATALightBar = "Lightbar",
-    
     IGUI_VehiclePartATA2LightBar = "Lightbar",
+    IGUI_VehiclePartATALightBar = "Lightbar",
 
 
 /* template_ata_moto_fake_wheels.txt */
@@ -122,7 +130,11 @@ IGUI_EN = {
     IGUI_VehiclePartATA2ProtectionWheelsRear = "Rear Wheels Protection",
     IGUI_VehiclePartATA2ProtectionFrontWheels = "Front Wheels Protection",
     IGUI_VehiclePartATA2ProtectionRearWheels = "Rear Wheels Protection",
-    
+    IGUI_VehiclePartATA2ProtectionFrontLeftWheel = "Front Left Wheel Protection",
+    IGUI_VehiclePartATA2ProtectionFrontRightWheel = "Front Right Wheel Protection",
+    IGUI_VehiclePartATA2ProtectionRearLeftWheel = "Rear Left Wheel Protection",
+    IGUI_VehiclePartATA2ProtectionRearRightWheel = "Rear Right Wheel Protection",
+
     IGUI_VehiclePartATA2ProtectionDoorFrontLeft = "Front left door protection",
     IGUI_VehiclePartATA2ProtectionDoorFrontRight = "Front right door protection",
     IGUI_VehiclePartATA2ProtectionDoorMiddleLeft = "Middle left door protection",
@@ -130,9 +142,9 @@ IGUI_EN = {
     IGUI_VehiclePartATA2ProtectionDoorRearLeft = "Rear left door protection",
     IGUI_VehiclePartATA2ProtectionDoorRearRight = "Rear right door protection",
     IGUI_VehiclePartATA2ProtectionDoorsRear = "Rear door protection",
-    
+
     IGUI_VehiclePartATA2ProtectionWindshield = "Windshield Protection",
-    IGUI_VehiclePartATA2ProtectionWindowFront = "Windshield Protection",
+    IGUI_VehiclePartATA2ProtectionWindshieldRear = "Rear Windshield Protection",
     IGUI_VehiclePartATA2ProtectionWindowsLeft = "Left window protection",
     IGUI_VehiclePartATA2ProtectionWindowsRight = "Right window protection",
     IGUI_VehiclePartATA2ProtectionWindowRear = "Rear window Protection",
@@ -142,7 +154,7 @@ IGUI_EN = {
     IGUI_VehiclePartATA2ProtectionWindowMiddleRight = "Window Middle Right Protection",
     IGUI_VehiclePartATA2ProtectionWindowRearLeft = "Window Rear Left Protection",
     IGUI_VehiclePartATA2ProtectionWindowRearRight = "Window Rear Right Protection",
-    
+
     IGUI_VehiclePartATA2ProtectionSideLeft = "Left Protection",
     IGUI_VehiclePartATA2ProtectionSideRight = "Right Protection",
     IGUI_VehiclePartATA2ProtectionSideFront = "Front Protection",
@@ -168,7 +180,7 @@ IGUI_EN = {
     IGUI_VehiclePartATAProtectionWindowMiddleRight = "Protection for middle right window",
     IGUI_VehiclePartATAProtectionWindowRearLeft = "Protection for rear left window",
     IGUI_VehiclePartATAProtectionWindowRearRight = "Protection for rear right window",
-    
+
     IGUI_VehiclePartATAProtectionSideLeft = "Left Protection",
     IGUI_VehiclePartATAProtectionSideRight = "Right Protection",
     IGUI_VehiclePartATAProtectionSideFront = "Front Protection",
@@ -179,52 +191,53 @@ IGUI_EN = {
     IGUI_VehiclePartATAProtectionHood = "Protection for hood",
     IGUI_VehiclePartATAProtectionTrunk = "Protection for trunk",
 
+
 /* template_ata_roof_lights.txt */
     IGUI_VehiclePartATARoofLightFront = "Roof lights (front)",
     IGUI_VehiclePartATARoofLightLeft = "Roof lights (left)",
     IGUI_VehiclePartATARoofLightRight = "Roof lights (right)",
     IGUI_VehiclePartATARoofLightRear = "Roof lights (rear)",
-    
+
     IGUI_VehiclePartATARoofLampFront = "Bulb for Front roof lights",
     IGUI_VehiclePartATARoofLampLeft = "Bulb for Left roof lights",
     IGUI_VehiclePartATARoofLampRight = "Bulb for Right roof lights",
     IGUI_VehiclePartATARoofLampRear = "Bulb for Rear roof lights",
-    
-    
+
     IGUI_VehiclePartATA2RoofLightFront = "Roof lights (front)",
     IGUI_VehiclePartATA2RoofLightLeft = "Roof lights (left)",
     IGUI_VehiclePartATA2RoofLightRight = "Roof lights (right)",
     IGUI_VehiclePartATA2RoofLightRear = "Roof lights (rear)",
-    
+
     IGUI_VehiclePartATA2RoofLampFront = "Bulb for Front roof lights",
     IGUI_VehiclePartATA2RoofLampLeft = "Bulb for Left roof lights",
     IGUI_VehiclePartATA2RoofLampRight = "Bulb for Right roof lights",
     IGUI_VehiclePartATA2RoofLampRear = "Bulb for Rear roof lights",
 
 
-
 /* template_ata_roof_tent.txt */
     IGUI_VehiclePartATARoofTent = "Roof tent",
-    
+    IGUI_PlayerText_ATA_TentDontOpen = "Tent must be empty",
     IGUI_VehiclePartATA2RoofTent = "Roof tent",
+
 
 /* template_ata_spare_wheel.txt */
     IGUI_VehiclePartATASpareWheel = "Spare Wheel",
 
-/* template_ata_visual.txt */
-    IGUI_VehiclePartATAVisualLadder = "Ladder",
-    IGUI_VehiclePartATAVisualSpoilerFront = "Spoiler Lip",
-    IGUI_VehiclePartATAVisualSpoilerRear = "Spoiler",
-    IGUI_VehiclePartATAVisualSkirtsSide = "Side Skirts",
-    IGUI_VehiclePartATAVisualFendersWide = "Wide Fenders",
-    IGUI_VehiclePartATAVisualSnorkel = "Snorkel",
 
+/* template_ata_visual.txt */
     IGUI_VehiclePartATA2VisualLadder = "Ladder",
     IGUI_VehiclePartATA2VisualSpoilerFront = "Spoiler Lip",
     IGUI_VehiclePartATA2VisualSpoilerRear = "Spoiler",
     IGUI_VehiclePartATA2VisualSkirtsSide = "Side Skirts",
     IGUI_VehiclePartATA2VisualFendersWide = "Wide Fenders",
     IGUI_VehiclePartATA2VisualSnorkel = "Snorkel",
+
+    IGUI_VehiclePartATAVisualLadder = "Ladder",
+    IGUI_VehiclePartATAVisualSpoilerFront = "Spoiler Lip",
+    IGUI_VehiclePartATAVisualSpoilerRear = "Spoiler",
+    IGUI_VehiclePartATAVisualSkirtsSide = "Side Skirts",
+    IGUI_VehiclePartATAVisualFendersWide = "Wide Fenders",
+    IGUI_VehiclePartATAVisualSnorkel = "Snorkel",
 
 
 /* template_freeplace.txt */
@@ -246,7 +259,7 @@ IGUI_EN = {
     IGUI_VehiclePartFreeplace1RearRight = "Free space (RR)",
     IGUI_VehiclePartFreeplace2RearRight = "Free space (RR)",
     IGUI_VehiclePartFreeplace3RearRight = "Free space (RR)",
-    
+
     IGUI_VehiclePartFreestorageFrontLeft = "Free space (FL)",
     IGUI_VehiclePartFreestorageFrontRight = "Free space (FR)",
     IGUI_VehiclePartFreestorageMiddleLeft = "Free space (ML)",
@@ -254,31 +267,14 @@ IGUI_EN = {
     IGUI_VehiclePartFreestorageRearLeft = "Free space (RL)",
     IGUI_VehiclePartFreestorageRearRight = "Free space (RR)",
     IGUI_VehiclePartfloor = "Free space",
-    
+
+
 /* ATA */
     IGUI_CloseHeadlightsPopUP = "Down Headlights",
     IGUI_OpenHeadlightsPopUP = "Up Headlights",
     IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "I can't break a window as long as it's protected.",
     IGUI_ItemCat_Tuning = "Tuning",
-    
-/************ Autotsar Tuning Atelier - Bus ************/
-    IGUI_VehiclePartATARoofRack = "Roof rack",
-    IGUI_VehiclePartATARoofRackToolbox = "Roof toolbox",
-    IGUI_VehiclePartDoorProtection = "Protection for door",
-    IGUI_VehiclePartDoorRearProtection = "Protection for rear door",
-    IGUI_VehiclePartWheelsProtection = "Protection for wheel",
-    IGUI_VehiclePartWindowsFrontProtection = "Protection for windshield",
-    IGUI_VehiclePartWindowsLeftLiteProtection = "Protection for left window",
-    IGUI_VehiclePartWindowsLeftFullProtection = "Protection for left windows",
-    IGUI_VehiclePartWindowsRightProtection = "Protection for right windows",
 
-    IGUI_CraftCategory_Tuning = "Tuning",
-    IGUI_VehiclePartCattuning = "Tuning",
-    IGUI_VehiclePartCatprotection = "Protection",
-    IGUI_ExitVehicleTent = "Exit Tent",
-    
-    IGUI_PlayerText_ATA_TentDontOpen = "Tent must be empty",
-    IGUI_PlayerText_ATA_Engine = "I can't get to the engine.<br>I need to remove the bullbar first",
 
 /************ Aquatsar Yacht Club ************/
     IGUI_VehicleNameBoatSailingYacht = "Sailing yacht",
@@ -375,7 +371,7 @@ IGUI_EN = {
     IGUI_Wind_Strong = "strong",
     IGUI_Wind_VeryStrong = "very strong",
     IGUI_Wind_Storm = "stormy",
-    
+
     IGUI_Wind_N = "north",
     IGUI_Wind_NW = "northwest",
     IGUI_Wind_W = "west",dwds
@@ -384,16 +380,19 @@ IGUI_EN = {
     IGUI_Wind_SE = "southeast",
     IGUI_Wind_E = "east",
     IGUI_Wind_NE = "northeast",
-    
+
     IGUI_RepairSail = "Sew up the sail",
     IGUI_CantRepairSails = "Fabric, needle, thread and Tailoring level IV required for sailing repair.",
-    
-/* Common Library */
 
+
+/* Common Library */
     IGUI_VehiclePartshelves = "Shelves",
     IGUI_VehiclePartstove = "Stove",
+    IGUI_VehiclePartOven = "Oven",
     IGUI_VehiclePartfridge = "Fridge",
+    IGUI_VehiclePartFridge = "Fridge",
     IGUI_VehiclePartcounter = "Counter",
+    IGUI_VehiclePartCounter = "Counter",
     IGUI_VehiclePartportablemicrowave = "Microwave",
     IGUI_VehiclePartmicrowave = "Microwave",
     IGUI_VehiclePartfreezer = "Freezer",
@@ -432,17 +431,12 @@ IGUI_EN = {
     IGUI_VehiclePartMattressRearLeft = "Mattress",
     IGUI_VehiclePartMattressRearRight = "Mattress",
     IGUI_VehiclePartBatteryHeater = "Heater",
-    IGUI_VehiclePart500FuelTank = "Fuel Tank",
-    IGUI_VehiclePart1000FuelTank = "Fuel Tank",
-    IGUI_VehiclePartCounter = "Counter",
-    IGUI_VehiclePartFridge = "Fridge",
-    IGUI_VehiclePartOven = "Oven",
-    IGUI_VehiclePartfridge = "Fridge",
-    IGUI_VehiclePartstove = "Oven",
     IGUI_VehiclePartRoofrack = "Roof Rack",
     IGUI_VehiclePartTV = "Television",
     IGUI_VehiclePartMattress = "Mattress",
     IGUI_VehiclePartGunRack = "Gun Rack",
+    IGUI_VehiclePart500FuelTank = "Fuel Tank",
+    IGUI_VehiclePart1000FuelTank = "Fuel Tank",
     IGUI_PlayerText_CanNotSleepInMovingCar_Mattress = "Stop the car first<br>to sleep in the mattress.",
     IGUI_Sleep_NotTiredEnough_Mattress = "Not tired enough to sleep<br>in the mattress yet.",
     IGUI_Turn_Oven_On = "Turn Oven On", 
@@ -452,42 +446,25 @@ IGUI_EN = {
     IGUI_VehiclePartBatteryChargerB = "Battery place",
     IGUI_VehiclePartBatteryChargerC = "Battery place",
 
-    
-/************ Autotsar Tuning Atelier - Bus ************/
-    
-    IGUI_VehicleNameATAArmyBus = "Bear Bus - Army Edition",
-    IGUI_VehicleNameATASchoolBus = "Bear Bus - School Edition",
-    IGUI_VehicleNameATAPrisonBus = "Bear Bus - Prison Edition",
 
-    
-/************ Autotsar Tuning Atelier - Jeep ************/
-    
-    IGUI_VehicleNameATAJeepClassic = "Jaap Wrungel Classic",
-    IGUI_VehicleNameATAJeepRubicon = "Jaap Wrungel Rubicon",
-    IGUI_VehicleNameATAJeepArcher = "Jaap Wrungel Archer",
-
-    
-/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
-    
-    IGUI_VehicleNameATADodge = "!!!DO NOT USE THIS CAR. IT WILL BE REMOVED SOON!!!",
-    IGUI_VehicleNameATADodgePpg = "!!!DO NOT USE THIS CAR. IT WILL BE REMOVED SOON!!!",
-    IGUI_VehicleNameATA2Dodge = "Dadge Steals RT Twin Turbo",
-    IGUI_VehicleNameATA2DodgePpg = "Dadge Steals RT Twin Turbo PPG",
+/************ Autotsar Motorclub ************/
+    IGUI_VehicleNameAMC_bmw_classic = "BWM R80/7 Classic",
+    IGUI_VehicleNameAMC_bmw_custom = "BWM R80/7 Custom",
+    IGUI_VehicleNameAMC_harley = "Xarley-Davitsan Sportstep '86",
+    IGUI_VehicleNameAMC_quad = "Suvzuki Quadruiner",
+    IGUI_VehicleNameAMC_Waverunner = "Yamama Waveruiner 650TL",
+    IGUI_VehicleNameAMC_Waverunner_Ground = "Yamama Waveruiner 650TL",
+    IGUI_VehicleNameTrailerAMC = "Autotsar Mototrailer-2M",
+    IGUI_VehicleNameTrailerAMCWaverunner = "Autotsar Watertrailer-3M",
+    IGUI_VehicleNameTrailerAMCWaverunnerWithBody = "Yamama Waveruiner 650TL",
 
 
 /************ Autotsar Trailers ************/
-    IGUI_VehicleNameTrailerFirst = "Autotsar GNV 250",
-    IGUI_VehicleNameTrailerSecond = "Autotsar GNV 500",
-    IGUI_VehicleNameTrailerHome = "Autotsar iLYA-1990",
-    IGUI_VehicleNameTrailerHomeHartman = "Autotsar iLYA-1990 «Hartman»",
-    IGUI_VehicleNameTrailerHomeExplorer = "Autotsar iLYA-1990 «Explorer»",
-    IGUI_VehicleNameTrailerKbac = "Autotsar KBAC",
-    IGUI_VehicleNameTrailerGenerator = "Autotsar GENA-220",
-
     IGUI_VehiclePartCatGenerator = "Generator",
     IGUI_VehiclePartEarthingOn = "Earthing",
     IGUI_VehiclePartEarthingOff = "disconnected power cable",
-    
+
+
 /************ True Actions ************/
     IGUI_PlayerText_TRUEA_cant_lie = "It's dangerous to lie down now.",
     IGUI_PlayerText_TRUEA_cant_sit = "It's dangerous to sit now.",
@@ -500,15 +477,43 @@ IGUI_EN = {
     IGUI_PlayerText_TRUEA_dont_push_1 = "Why are you pushing?",
     IGUI_PlayerText_TRUEA_dont_push_2 = "Don't push!",
     IGUI_PlayerText_TRUEA_dont_push_3 = "Let me rest!",
-    
+
+
 /************ True Music ************/
     IGUI_media_dragCassette = "Insert cassette",
     IGUI_media_dragVinyl = "Insert vinyl",
     IGUI_TC_connect_speaker = "Connect speaker",
     IGUI_PlayerText_TC_need_speaker = "The speaker should be next to the turntable.",
     IGUI_MusicOptionsCar = "Cassette player",
-    
-/************ Bumer 36E ************/
+
+
+/************ Autotsar Tuning Atelier - Bus ************/
+    IGUI_VehiclePartATARoofRack = "Roof rack",
+    IGUI_VehiclePartATARoofRackToolbox = "Roof toolbox",
+    IGUI_VehiclePartDoorProtection = "Protection for door",
+    IGUI_VehiclePartDoorRearProtection = "Protection for rear door",
+    IGUI_VehiclePartWheelsProtection = "Protection for wheel",
+    IGUI_VehiclePartWindowsFrontProtection = "Protection for windshield",
+    IGUI_VehiclePartWindowsLeftLiteProtection = "Protection for left window",
+    IGUI_VehiclePartWindowsLeftFullProtection = "Protection for left windows",
+    IGUI_VehiclePartWindowsRightProtection = "Protection for right windows",
+
+/************ Autotsar Vehicle Names ************/
+    IGUI_VehicleNameTrailerFirst = "Autotsar GNV 250",
+    IGUI_VehicleNameTrailerSecond = "Autotsar GNV 500",
+    IGUI_VehicleNameTrailerHome = "Autotsar iLYA-1990",
+    IGUI_VehicleNameTrailerHomeHartman = "Autotsar iLYA-1990 «Hartman»",
+    IGUI_VehicleNameTrailerHomeExplorer = "Autotsar iLYA-1990 «Explorer»",
+    IGUI_VehicleNameTrailerKbac = "Autotsar KBAC",
+    IGUI_VehicleNameTrailerGenerator = "Autotsar GENA-220",
+    IGUI_VehicleNameATAArmyBus = "Bear Bus - Army Edition",
+    IGUI_VehicleNameATASchoolBus = "Bear Bus - School Edition",
+    IGUI_VehicleNameATAPrisonBus = "Bear Bus - Prison Edition",
     IGUI_VehicleNameATABMWe36 = "Bumer 36E",
     IGUI_VehicleNameATABMWe36M3 = "Bumer 36E M3",
+    IGUI_VehicleNameATAJeepClassic = "Jaap Wrungel Classic",
+    IGUI_VehicleNameATAJeepRubicon = "Jaap Wrungel Rubicon",
+    IGUI_VehicleNameATAJeepArcher = "Jaap Wrungel Archer",
+    IGUI_VehicleNameATADodge = "Dadge Steals RT Twin Turbo",
+    IGUI_VehicleNameATADodgePpg = "Dadge Steals RT Twin Turbo PPG",
 }

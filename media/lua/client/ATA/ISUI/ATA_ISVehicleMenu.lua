@@ -54,8 +54,8 @@ function ISVehicleMenu.showRadialMenuOutside(playerObj)
         if part and part:getTable("ATAVehicleWrecker") then
             if part:getInventoryItem() then
                 -- print("ATA_ISVehicleMenu.launchFromTrailerRadialMenu")
-                if ATA_ISVehicleMenu.canLaunchVehicle(vehicle, wreckerinfo) then
-                    menu:addSlice(getText("ContextMenu_LaunchVehicle"), getTexture("media/ui/ata/ata_unload_from_trailer.png"), ATA_ISVehicleMenu.launchVehicle, playerObj, vehicle, wreckerinfo)
+                if ATA_ISVehicleMenu.canLaunchVehicle(vehicle, part:getTable("ATAVehicleWrecker")) then
+                    menu:addSlice(getText("ContextMenu_LaunchVehicle"), getTexture("media/ui/ata/ata_unload_from_trailer.png"), ATA_ISVehicleMenu.launchVehicle, playerObj, vehicle, part:getTable("ATAVehicleWrecker"))
                 else
                     menu:addSlice(getText("ContextMenu_CantLaunchVehicle"), getTexture("media/ui/commonlibrary/no.png"), nil)
                 end
