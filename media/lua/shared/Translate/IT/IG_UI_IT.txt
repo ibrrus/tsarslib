@@ -1,6 +1,6 @@
 IG_UI_IT = {
 /************ Tuning 2.0 ************/
-    IGUI_InfoPanel_Tuning = "<CENTRE> <SIZE:medium> Pannello di modifica del veicolo <LINE> <LINE> <LEFT> <SIZE:small> O pannello della messa a punto. Qui e' riportato un elenco di ricette disponibili per la modifica del veicolo.<LINE> <LINE> Normalmente, tutte le ricette disponibili sono sempre visualizzate in questo pannello, ma ci sono anche ricette che non appaiono se non si soddisfano alcune condizioni. Le condizioni possono essere: si possiede un'abilita'; e' disponibile un determinato oggetto; e' stato raggiunto il livello di personaggio richiesto. <LINE> <LINE> Le risorse presenti nell'inventario vengono utilizzate per creare oggetti. Inoltre, il personaggio prende le risorse dai contenitori vicini, compreso il pavimento. <LINE> <LINE> A questo punto, le parti installate tramite il menu di messa a punto non possono essere riparate senza essere rimosse e la maggior parte di esse si smontera' in parti una volta rimosse.",
+    IGUI_InfoPanel_Tuning = "<CENTRE> <SIZE:medium> Pannello di modifica del veicolo <LINE> <LINE> <LEFT> <SIZE:small> O pannello della messa a punto. Qui è riportato un elenco di ricette disponibili per la modifica del veicolo.<LINE> <LINE> Normalmente, tutte le ricette disponibili sono sempre visualizzate in questo pannello, ma ci sono anche ricette che non appaiono se non si soddisfano alcune condizioni. Le condizioni possono essere: si possiede un'abilità; è disponibile un determinato oggetto; è stato raggiunto il livello di personaggio richiesto. <LINE> <LINE> Le risorse presenti nell'inventario vengono utilizzate per creare oggetti. Inoltre, il personaggio prende le risorse dai contenitori vicini, compreso il pavimento. <LINE> <LINE> A questo punto, le parti installate tramite il menu di messa a punto non possono essere riparate senza essere rimosse e la maggior parte di esse si smonterà in parti una volta rimosse.",
 
     IGUI_TuningCategory_General = "Generale",
     IGUI_TuningCategory_Installed = "Installato",
@@ -17,6 +17,7 @@ IG_UI_IT = {
     IGUI_ATA2_Bullbar = "Paraurti tubolare",
     IGUI_ATA2_Bullbar_Police = "Paraurti tubolare della Polizia",
     IGUI_ATA2_Bullbar_Handmade = "Paraurti tubolare fatto a mano",
+    IGUI_ATA2_Bullbar_Plow = "Paraurti tubolare con aratro",
     IGUI_ATA2_Bullbar_Lethal = "Paraurti tubolare letale",
     IGUI_ATA2_Bullbar_Enhanced = "Paraurti tubolare migliorato",
     IGUI_ATA2_Bullbar_Spiked_Plough = "Aratro chiodato",
@@ -31,11 +32,13 @@ IG_UI_IT = {
     IGUI_ATA2_Spoiler_Middle = "Alettone centrale",
     IGUI_ATA2_Spoiler_High = "Alettone alto",
 
+    IGUI_ATA2_Caption_People_Inside = "Protezione del cofano 'Persone all'interno'",
+
     IGUI_TuningUI_Title = "Modifiche del veicolo",
     IGUI_TuningUI_NeedBeEmpty = "Deve essere vuoto",
     IGUI_TuningUI_Install = "Installa",
     IGUI_TuningUI_Uninstall = "Disinstalla",
-    IGUI_TuningUI_AlreadyInstall = "Un oggetto simile e' gia' stato installato",
+    IGUI_TuningUI_AlreadyInstall = "Un oggetto simile è già stato installato",
     IGUI_TuningUI_NotInstall = "Non installato. Credo che qualcuno abbia fregato",
     
     IGUI_TuningUI_RequiredItems = "Oggetti utilizzati:",
@@ -63,7 +66,8 @@ IG_UI_IT = {
     IGUI_VehiclePartBrakeMiddleLeft = "Freno posteriore sinistro",
     IGUI_VehiclePartBrakeMiddleRight = "Freno posteriore destro",
 
-    /* template_ata_bags.txt */
+
+/* template_ata_bags.txt */
     IGUI_VehiclePartATABagOnProtectionWindowFrontLeft = "Borsa su protezione sinistra",
     IGUI_VehiclePartATABagOnProtectionWindowFrontRight = "Borsa su protezione destra",
     IGUI_VehiclePartATABagMotoLeft = "Borsa da moto sinistra",
@@ -271,7 +275,7 @@ IG_UI_IT = {
 /* ATA */
     IGUI_CloseHeadlightsPopUP = "Abbassa i fari",
     IGUI_OpenHeadlightsPopUP = "Alza i fari",
-    IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Non posso rompere una finestra finchÃ© c'e' una protezione.",
+    IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Non posso rompere una finestra finché c'è una protezione.",
     IGUI_ItemCat_Tuning = "Messa a punto",
 
 
@@ -306,15 +310,15 @@ IG_UI_IT = {
     IGUI_PlayerText_CanNotSwim = "Non so nuotare",
     IGUI_PlayerText_CabinlightDoNotWork = "Sembra che la luce non funzioni",
     IGUI_PlayerText_FloodlightsDoNotWork = "I faretti non funzionano",
-    IGUI_PlayerText_PontoonNeeded = "Qui e' necessario un pontone",
+    IGUI_PlayerText_PontoonNeeded = "Qui è necessario un pontone",
     IGUI_PlayerText_CanNotSleepInMovingBoat = "Devo rallentare l'imbarcazione", 
-    IGUI_PlayerText_NoPower = "Non c'e' energia.",
-    IGUI_PlayerText_CabinIsLocked = "La porta della cabina e' chiusa",
+    IGUI_PlayerText_NoPower = "Non c'è energia.",
+    IGUI_PlayerText_CabinIsLocked = "La porta della cabina è chiusa",
     IGUI_PlayerText_BoatSeatBlock = "Non si riesce ad entrare",
     
     IGUI_SwitchPlace = "Vai verso..",
     IGUI_BoatSeat_Self = "Sei gia' qui",
-    IGUI_BoatSeat_Person = "C'e' una persona qui",
+    IGUI_BoatSeat_Person = "C'è una persona qui",
     IGUI_BoatSeat_Items = "Ci sono degli oggetti nel corridoio",
     IGUI_BoatSeat_MoveItems = "Gli oggetti del corridoio saranno<br>spostati in un'altra posizione.",
     IGUI_BoatSeat_ExitToSwitch = "Devo scendere dalla barca",
@@ -326,14 +330,14 @@ IG_UI_IT = {
     IGUI_BoatSeatMiddleRight = "Vai qui",
     IGUI_BoatSeatMiddleLeft = "Vai qui",
     
-    IGUI_chance = "Possibilita'",
+    IGUI_chance = "Possibilità",
     IGUI_EAST = "Est",
     IGUI_SOUTH = "Sud",
     IGUI_WEST = "Ovest",
     IGUI_NORTH = "Nord",
     IGUI_SwimUI_Title = "Galleggia via",
-    IGUI_playerCanSwim = "Si puÃ² nuotare.",
-    IGUI_playerCantSwim = "Non si puÃ² nuotare.",
+    IGUI_playerCanSwim = "Si può nuotare.",
+    IGUI_playerCantSwim = "Non si può nuotare.",
 
     IGUI_DropToWater = "Getta in acqua",
     IGUI_SwimToPoint = "Nuota",
@@ -343,9 +347,9 @@ IG_UI_IT = {
     IGUI_JumpInWater = "Salta in acqua",
 
     IGUI_SwimWord_Endurance1 = "Sono stanco, ho bisogno di riposare",
-    IGUI_SwimWord_Endurance2 = "E' bello prendersi una pausa",
+    IGUI_SwimWord_Endurance2 = "È bello prendersi una pausa",
     IGUI_SwimWord_Endurance3 = "Meglio nuotare verso la riva",
-    IGUI_SwimWord_Endurance4 = "Risparmiero' le forze nuotando piu' lentamente",
+    IGUI_SwimWord_Endurance4 = "Risparmierò le forze nuotando piu' lentamente",
     IGUI_SwimWord_Endurance5 = "...",
 
     IGUI_SwimWord_Damage1 = "Sto iniziando ad affogare. Ho bisogno di riposare.",
@@ -359,10 +363,10 @@ IG_UI_IT = {
     IGUI_SwimWord_LostItems3 = "Alcune cose sono finite sul fondale",
     
     IGUI_sayWindInfo = "Rileva la direzione del vento",
-    IGUI_needBeOutside_tosayWindInfo = "Non Ã¨ possibile rilevare il vento al chiuso",
-    IGUI_Wind = "Il vento e'",
-    IGUI_Wind_in = "nella",
-    IGUI_Wind_direction = "direzione",
+    IGUI_needBeOutside_tosayWindInfo = "Non è possibile rilevare il vento al chiuso",
+    IGUI_Wind = "Il vento è",
+    IGUI_Wind_in = "in direzione",
+    IGUI_Wind_direction = "",
     IGUI_Wind_NoWind = "Assolutamente calmo.",
     IGUI_Wind_VeryLight = "molto leggero",
     IGUI_Wind_Light = "leggero",
@@ -483,15 +487,15 @@ IG_UI_IT = {
 
 
 /************ True Actions ************/
-    IGUI_PlayerText_TRUEA_cant_lie = "E' pericoloso sdraiarsi ora.",
-    IGUI_PlayerText_TRUEA_cant_sit = "E' pericoloso sedersi ora.",
-    IGUI_PlayerText_TRUEA_need_come_closer = "Occorre avvicinarsi di piu'.",
-    IGUI_PlayerText_TRUEA_bed_away_wall = "E' necessario liberare il passaggio verso il letto.",
+    IGUI_PlayerText_TRUEA_cant_lie = "È pericoloso sdraiarsi ora.",
+    IGUI_PlayerText_TRUEA_cant_sit = "È pericoloso sedersi ora.",
+    IGUI_PlayerText_TRUEA_need_come_closer = "Occorre avvicinarsi di più.",
+    IGUI_PlayerText_TRUEA_bed_away_wall = "È necessario liberare il passaggio verso il letto.",
     IGUI_PlayerText_TRUEA_OccupiedPhrases_Sit_1 = "Sei in pausa caffe'?",
-    IGUI_PlayerText_TRUEA_OccupiedPhrases_Lie_1 = "PerchÃ© stai riposando in questo modo?",
+    IGUI_PlayerText_TRUEA_OccupiedPhrases_Lie_1 = "Perché stai riposando in questo modo?",
     IGUI_PlayerText_TRUEA_OccupiedPhrases_2 = "Ti sei riposato? Ora tocca a me.",
     IGUI_PlayerText_TRUEA_OccupiedPhrases_3 = "Dammi il posto, per favore.",
-    IGUI_PlayerText_TRUEA_dont_push_1 = "Perche' stai spingendo?",
+    IGUI_PlayerText_TRUEA_dont_push_1 = "Perché stai spingendo?",
     IGUI_PlayerText_TRUEA_dont_push_2 = "Non spingere!",
     IGUI_PlayerText_TRUEA_dont_push_3 = "Lasciami riposare!",
 
@@ -500,9 +504,9 @@ IG_UI_IT = {
     IGUI_media_dragCassette = "Inserisci cassetta",
     IGUI_media_dragVinyl = "Inserisci vinile",
     IGUI_TC_connect_speaker = "Collega l'altoparlante",
+    IGUI_TC_connect_headphones = "Servono le cuffie",
     IGUI_PlayerText_TC_need_speaker = "L'altoparlante deve trovarsi accanto al giradischi.",
     IGUI_MusicOptionsCar = "Lettore di cassette",
-    IGUI_TC_connect_headphones = "Servono le cuffie",
 
 
 /************ Autotsar Tuning Atelier - Bus ************/
@@ -520,8 +524,8 @@ IG_UI_IT = {
     IGUI_VehicleNameTrailerFirst = "Autotsar GNV 250",
     IGUI_VehicleNameTrailerSecond = "Autotsar GNV 500",
     IGUI_VehicleNameTrailerHome = "Autotsar iLYA-1990",
-    IGUI_VehicleNameTrailerHomeHartman = "Autotsar iLYA-1990 Â«HartmanÂ»",
-    IGUI_VehicleNameTrailerHomeExplorer = "Autotsar iLYA-1990 Â«EsploratoreÂ»",
+    IGUI_VehicleNameTrailerHomeHartman = "Autotsar iLYA-1990 «Hartman»",
+    IGUI_VehicleNameTrailerHomeExplorer = "Autotsar iLYA-1990 «Esploratore»",
     IGUI_VehicleNameTrailerKbac = "Autotsar KBAC",
     IGUI_VehicleNameTrailerGenerator = "Autotsar GENA-220",
     IGUI_VehicleNameATAPetyarbuilt = "Petyarbuilt 379",

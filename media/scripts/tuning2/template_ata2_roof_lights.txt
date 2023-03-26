@@ -20,27 +20,27 @@ module Base
         WorldStaticModel = ATARoofLightWorld,
     }
     
-    template vehicle ATARoofLights
+    template vehicle ATA2RoofLights
     {
-        part ATARoofLightFront
+        part ATA2RoofLightFront
         {
             area = Engine,
             table uninstall
             {
-                requireUninstalled = ATARoofLampFront,
+                requireUninstalled = ATA2RoofLampFront,
             }
         }
         
-        part ATARoofLightLeft
+        part ATA2RoofLightLeft
         {
             area = SeatFrontLeft,
             table uninstall
             {
-                requireUninstalled = ATARoofLampLeft,
+                requireUninstalled = ATA2RoofLampLeft,
             }
         }
 
-        part ATARoofLightRight
+        part ATA2RoofLightRight
         {
             area = SeatFrontRight,
             table uninstall
@@ -49,7 +49,7 @@ module Base
             }
         }
 
-        part ATARoofLightRear
+        part ATA2RoofLightRear
         {
             area = TruckBed,
             table uninstall
@@ -58,7 +58,7 @@ module Base
             }
         }
 
-        part ATARoofLight*
+        part ATA2RoofLight*
         {
             category = lights,
             specificItem = false,
@@ -101,43 +101,43 @@ module Base
             }
         }
         
-        part ATARoofLampFront
+        part ATA2RoofLampFront
         {
             area = Engine,
             table install
             {
-                requireInstalled = ATARoofLightFront,
+                requireInstalled = ATA2RoofLightFront,
             }
         }
         
-        part ATARoofLampLeft
+        part ATA2RoofLampLeft
         {
             area = SeatFrontLeft,
             table install
             {
-                requireInstalled = ATARoofLightLeft,
+                requireInstalled = ATA2RoofLightLeft,
             }
         }
 
-        part ATARoofLampRight
+        part ATA2RoofLampRight
         {
             area = SeatFrontRight,
             table install
             {
-                requireInstalled = ATARoofLightRight,
+                requireInstalled = ATA2RoofLightRight,
             }
         }
 
-        part ATARoofLampRear
+        part ATA2RoofLampRear
         {
             area = TruckBed,
             table install
             {
-                requireInstalled = ATARoofLightRear,
+                requireInstalled = ATA2RoofLightRear,
             }
         }
 
-        part ATARoofLamp*
+        part ATA2RoofLamp*
         {
             category = lights,
             specificItem = false,

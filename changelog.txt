@@ -1,3 +1,13 @@
+v.2.03
+2023-03-26
+
+Обновлен итальянский перевод (спасибо Lollo11).
+Исправлена ошибка связанная с бесконечными болтами.
+
+Updated Italian translation (thanks to Lollo11).
+Fixed a bug with infinite screws.
+
+-------------------
 v.2.02
 2023-03-25
 

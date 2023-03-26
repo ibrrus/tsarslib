@@ -4,7 +4,7 @@ ContextMenu_IT = {
 
 
     ContextMenu_LaunchVehicle = "Scarica dal rimorchio",
-    ContextMenu_CantLaunchVehicle = "Non e' possibile scaricare.<br>C'e' qualcosa in mezzo",
+    ContextMenu_CantLaunchVehicle = "Non è possibile scaricare.<br>C'è qualcosa in mezzo",
     ContextMenu_LoadVehicleOntoTrailer = "Carica sul rimorchio",
     ContextMenu_CantLoadVehicleOntoTrailer = "Il veicolo<br>deve trovarsi dietro<br>il rimorchio",
 
@@ -15,7 +15,7 @@ ContextMenu_IT = {
     ContextMenu_Sleep_Mattress = "Dormi sul materasso.",
     ContextMenu_PainNoSleep_Mattress = "Senti troppo dolore per dormire sul materasso. "
     ContextMenu_PanicNoSleep_Mattress = "Troppo panico per dormire sul materasso."
-    ContextMenu_NoSleepTooEarly_Mattress = "Non e' possibile riaddormentarsi sul materasso.<br>Riprova piu' tardi.",
+    ContextMenu_NoSleepTooEarly_Mattress = "Non è possibile riaddormentarsi sul materasso.<br>Riprova più tardi.",
     ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Versa benzina nel serbatoio",
     ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Estrai benzina dal serbatoio",
     ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Riempi il serbatoio con il carburante della pompa",
@@ -43,7 +43,7 @@ ContextMenu_IT = {
     ContextMenu_SwimToLand = "Nuota verso terra",
 
     ContextMenu_LaunchBoat = "Vara la barca",
-    ContextMenu_CantLaunchBoat = "E' necessario guidare<br>il rimorchio fino all'acqua",
+    ContextMenu_CantLaunchBoat = "È necessario guidare<br>il rimorchio fino all'acqua",
     ContextMenu_LoadBoatOntoTrailer = "Carica l'imbarcazione sul rimorchio",
     ContextMenu_CantLoadBoatOntoTrailer = "L'imbarcazione e il rimorchio<br>devono essere vicini",
     ContextMenu_CantLoadBoatOntoTrailerMan = "Non deve esserci nessuna persona<br>sulla barca",
@@ -59,7 +59,7 @@ ContextMenu_IT = {
 
     ContextMenu_Open_Cabin = "Sblocca la cabina",
     ContextMenu_Open_Cabin_Force = "Sblocca la cabina<br>(con %1)",
-    ContextMenu_Open_Cabin_Force_Need_Crowbar = "Sblocca la cabina<br> (e' necessario un attrezzo o una chiave)"
+    ContextMenu_Open_Cabin_Force_Need_Crowbar = "Sblocca la cabina<br> (è necessario un attrezzo o una chiave)"
     ContextMenu_Close_Cabin = "Chiudi la cabina",
     ContextMenu_cabinForceUnlock_tooTired = "Sono troppo stanco<br>per aprire la cabina",
     ContextMenu_cabinForceUnlock_tooBored = "Non voglio<br>farlo adesso",
@@ -83,7 +83,7 @@ ContextMenu_IT = {
 /************ True Music ************/
     ContextMenu_Stop_music = "Ferma la musica",
     ContextMenu_Play_music = "Riproduci la musica",
-    ContextMenu_Sound_carrier_not_install = "Il supporto audio non e' installato",
+    ContextMenu_Sound_carrier_not_install = "Il supporto audio non è installato",
     ContextMenu_Song = "Brano",
     
 /************ ZuperCart ************/

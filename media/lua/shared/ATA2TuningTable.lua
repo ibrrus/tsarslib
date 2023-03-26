@@ -5,15 +5,22 @@ local shaderValues = {
     vehicle = true,
 }
 
-ATA2TuningItemList = {
+-- список металлических предметов для высчитывания веса и добавления "ScrapMetal"
+local ATA2TuningItemWeightList = {
     MetalPipe = 1.5,
     MetalBar = 1.5,
     SheetMetal = 1.5,
-    Screws = 0.003,
     SmallSheetMetal = 0.4,
     ScrapMetal = 0.1,
     UnusableMetal = 1,
 }
+
+-- список предметов с необычным спавном (болты спавнятся по 5 штук)
+ATA2TuningSpecialSpawnCount = {}
+ATA2TuningSpecialSpawnCount["Screws"] = 5
+ATA2TuningSpecialSpawnCount["Base.Screws"] = 5
+
+
 local writeFile = nil
 if getDebug() then
     writeFile = getFileWriter("console_ata2tuning.txt", true, false)
@@ -245,11 +252,15 @@ function ATA2Tuning_AddNewCars(carsTable)
                             local err2 = incorrectType("install.use", installTable.use, "table")
                             haveError = haveError and err2
                             if not err2 then
-                                for itemName,_ in pairs(installTable.use) do
+                                for itemName,count in pairs(installTable.use) do
                                     itemName = itemName:gsub("__", ".")
                                     local item = InventoryItemFactory.CreateItem(itemName)
                                     if not item then
                                         logprint("---------- ATA2Tuning WARNING|install.use: item not found " .. tostring(itemName))
+                                    end
+                                    -- количество предметов кратно числу спавна
+                                    if ATA2TuningSpecialSpawnCount[itemName] then
+                                        installTable.use[itemName] = math.ceil(count/ATA2TuningSpecialSpawnCount[itemName]) * ATA2TuningSpecialSpawnCount[itemName]
                                     end
                                 end
                             end
@@ -304,8 +315,8 @@ function ATA2Tuning_AddNewCars(carsTable)
                         if installTable.weight == "auto" and installTable.use then
                             local weight = 0
                             for itemName, count in pairs(modelTable.install.use) do
-                                if ATA2TuningItemList[itemName] then
-                                    weight = weight + ATA2TuningItemList[itemName] * count
+                                if ATA2TuningItemWeightList[itemName] then
+                                    weight = weight + ATA2TuningItemWeightList[itemName] * count
                                 end
                             end
                             installTable.weight = weight / 2
@@ -344,11 +355,15 @@ function ATA2Tuning_AddNewCars(carsTable)
                             local err2 = incorrectType("uninstall.use", uninstallTable.use, "table")
                             haveError = haveError and err2
                             if not err2 then
-                                for itemName,_ in pairs(uninstallTable.use) do
+                                for itemName,count in pairs(uninstallTable.use) do
                                     itemName = itemName:gsub("__", ".")
                                     local item = InventoryItemFactory.CreateItem(itemName)
                                     if not item then
                                         logprint("---------- ATA2Tuning WARNING|uninstall.use: item not found " .. tostring(itemName))
+                                    end
+                                    -- количество предметов кратно числу спавна
+                                    if ATA2TuningSpecialSpawnCount[itemName] then
+                                        uninstallTable.use[itemName] = math.ceil(count/ATA2TuningSpecialSpawnCount[itemName]) * ATA2TuningSpecialSpawnCount[itemName]
                                     end
                                 end
                             end
@@ -392,8 +407,14 @@ function ATA2Tuning_AddNewCars(carsTable)
                                 local newUninstallTable = {}
                                 local unusableMetal = 0
                                 for itemName, count in pairs(modelTable.install.use) do
-                                    if ATA2TuningItemList[itemName] then
-                                        if math.floor(count/2) > 0 then newUninstallTable[itemName] = math.floor(count/2) end
+                                    if ATA2TuningItemWeightList[itemName] then
+                                        if math.floor(count/2) > 0 then 
+                                            newUninstallTable[itemName] = math.floor(count/2) 
+                                            -- количество предметов разделено на число спавна
+                                            if ATA2TuningSpecialSpawnCount[itemName] then
+                                                newUninstallTable[itemName] = math.ceil(newUninstallTable[itemName]/ATA2TuningSpecialSpawnCount[itemName])
+                                            end
+                                        end
                                         unusableMetal = unusableMetal + count/2
                                     end
                                 end
@@ -404,11 +425,15 @@ function ATA2Tuning_AddNewCars(carsTable)
                                 local err2 = incorrectType("uninstall.result", uninstallTable.result, "table")
                                 haveError = haveError and err2
                                 if not err2 then
-                                    for itemName,_ in pairs(uninstallTable.result) do
+                                    for itemName,count in pairs(uninstallTable.result) do
                                         itemName = itemName:gsub("__", ".")
                                         local item = InventoryItemFactory.CreateItem(itemName)
                                         if not item then
                                             logprint("---------- ATA2Tuning WARNING|uninstall.result: item not found" .. tostring(itemName))
+                                        end
+                                        -- количество предметов разделено на число спавна
+                                        if ATA2TuningSpecialSpawnCount[itemName] then
+                                            uninstallTable.result[itemName] = math.ceil(count/ATA2TuningSpecialSpawnCount[itemName])
                                         end
                                     end
                                 end

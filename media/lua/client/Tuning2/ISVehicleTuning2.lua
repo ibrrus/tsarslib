@@ -1,21 +1,18 @@
---***********************************************************
---**                    ROBERT JOHNSON                     **
---***********************************************************
-
 require "ISUI/ISCollapsableWindow"
+require "ATA2TuningTable"
 
 ISVehicleTuning2 = ISCollapsableWindow:derive("ISVehicleTuning2");
-ISVehicleTuning2.instance = nil;
+ISVehicleTuning2.instance = nil
 ISVehicleTuning2.largeFontHeight = getTextManager():getFontHeight(UIFont.Large)
 ISVehicleTuning2.mediumFontHeight = getTextManager():getFontHeight(UIFont.Medium)
 ISVehicleTuning2.smallFontHeight = getTextManager():getFontHeight(UIFont.Small)
 ISVehicleTuning2.bottomInfoHeight = ISVehicleTuning2.smallFontHeight * 2
-ISVehicleTuning2.qwertyConfiguration = true;
+ISVehicleTuning2.qwertyConfiguration = true
 ISVehicleTuning2.bottomTextSpace = "     ";
-ISVehicleTuning2.leftCategory = Keyboard.KEY_LEFT;
-ISVehicleTuning2.rightCategory = Keyboard.KEY_RIGHT;
-ISVehicleTuning2.upArrow = Keyboard.KEY_UP;
-ISVehicleTuning2.downArrow = Keyboard.KEY_DOWN;
+ISVehicleTuning2.leftCategory = Keyboard.KEY_LEFT
+ISVehicleTuning2.rightCategory = Keyboard.KEY_RIGHT
+ISVehicleTuning2.upArrow = Keyboard.KEY_UP
+ISVehicleTuning2.downArrow = Keyboard.KEY_DOWN
 
 -- Создание объекта для тюнинг-меню
 function ISVehicleTuning2:new (x, y, width, height, character, vehicle)
@@ -29,7 +26,7 @@ function ISVehicleTuning2:new (x, y, width, height, character, vehicle)
     o.minimumHeight = 700
     setmetatable(o, self);
     if getCore():getKey("Forward") ~= 44 then -- hack, seriously, need a way to detect qwert/azerty keyboard :(
-        ISVehicleTuning2.qwertyConfiguration = false;
+        ISVehicleTuning2.qwertyConfiguration = false
     end
 
     o.LabelDash = "-"
@@ -48,14 +45,14 @@ function ISVehicleTuning2:new (x, y, width, height, character, vehicle)
         getKeyName(ISVehicleTuning2.leftCategory), getKeyName(ISVehicleTuning2.rightCategory));
 
     o.title = getText("IGUI_TuningUI_Title");
-    self.__index = self;
-    o.character = character;
-    o.vehicle = vehicle;
+    self.__index = self
+    o.character = character
+    o.vehicle = vehicle
     o.playerNum = character and character:getPlayerNum() or -1
     o:setResizable(true);
-    o.lineH = 10;
+    o.lineH = 10
     o.fgBar = {r=0, g=0.6, b=0, a=0.7 }
-    o.craftInProgress = false;
+    o.craftInProgress = false
     o.selectedIndex = {}
     o.recipeListHasFocus = true
     o.ingredientPanelHasFocus = false
@@ -64,7 +61,7 @@ function ISVehicleTuning2:new (x, y, width, height, character, vehicle)
     o.TreeExpanded = getTexture("media/ui/TreeExpanded.png")
     o.PoisonTexture = getTexture("media/ui/SkullPoison.png")
     o:setWantKeyEvents(true);
-    return o;
+    return o
 end
 
 
@@ -83,7 +80,7 @@ function ISVehicleTuning2:setVisible(bVisible, joypadData)
     if not bVisible then -- save the selected index
         self.selectedIndex = {};
         for i,v in ipairs(self.categories) do
-            self.selectedIndex[v.category] = v.recipes.selected;
+            self.selectedIndex[v.category] = v.recipes.selected
         end
     end
 --    if getPlayer() then
@@ -107,7 +104,7 @@ function ISVehicleTuning2:setVisible(bVisible, joypadData)
         end
     end
 
-    self.craftInProgress = false;
+    self.craftInProgress = false
     local recipeListBox = self:getRecipeListBox()
     recipeListBox:ensureVisible(recipeListBox.selected);
 end
@@ -123,8 +120,8 @@ function ISVehicleTuning2:createChildren()
     self.panel:setAnchorRight(true)
     self.panel:setAnchorBottom(true)
     self.panel.borderColor = { r = 0, g = 0, b = 0, a = 0};
-    self.panel.onActivateView = ISVehicleTuning2.onActivateView;
-    self.panel.target = self;
+    self.panel.onActivateView = ISVehicleTuning2.onActivateView
+    self.panel.target = self
     self.panel:setEqualTabWidth(false)
     self:addChild(self.panel);
 --    self.panel:setOnTabTornOff(self, ISVehicleTuning2.onTabTornOff)
@@ -146,8 +143,8 @@ function ISVehicleTuning2:createChildren()
        local catName = getTextOrNull("IGUI_CraftCategory_"..i) or i
        self.panel:addView(catName, cat1);
        cat1.infoText = getText("IGUI_InfoPanel_Tuning");
-       cat1.parent = self;
-       cat1.category = i;
+       cat1.parent = self
+       cat1.category = i
        for s,d in ipairs(l) do
           cat1.recipes:addItem(s,d);
        end
@@ -253,7 +250,7 @@ function ISVehicleTuning2:getAvailableItemsType(RecipeItem)
             end
         end
     end
-    return result;
+    return result
 end
 
 -- определяет достаточно ли предметов для крафта
@@ -288,7 +285,7 @@ function ISVehicleTuning2:GetNotLearnRecipes(RecipeItem)
             recipeNotLearn = recipeNotLearn .. getRecipeDisplayName(recipeName)
             if string.len(recipeNotLearn) > 40 then
                 recipeNotLearn = string.sub(recipeNotLearn,1,40) .. "..."
-                break;
+                break
             end
         end
     end
@@ -411,11 +408,11 @@ function ISVehicleTuning2:createRecipeItemFor(infoTable, partName, partTuningInf
             item = self:GetItemInstance(tool);
             if item then
                 local toolInList = {};
-                toolInList.count = 1;
+                toolInList.count = 1
                 toolInList.icon = item:getTex();
                 toolInList.name = item:getDisplayName()
                 toolInList.fullType = item:getFullType()
-                RecipeItem.tools[useType] = toolInList;
+                RecipeItem.tools[useType] = toolInList
                 filled = true
             end
         end
@@ -436,7 +433,7 @@ function ISVehicleTuning2:createRecipeItemFor(infoTable, partName, partTuningInf
                 itemInList.icon = item:getTex()
                 itemInList.name = item:getDisplayName()
                 itemInList.fullType = item:getFullType()
-                RecipeItem.use[#RecipeItem.use+1] = itemInList;
+                RecipeItem.use[#RecipeItem.use+1] = itemInList
                 filled = true
             end
         end
@@ -450,25 +447,29 @@ function ISVehicleTuning2:createRecipeItemFor(infoTable, partName, partTuningInf
         for itemName, count in pairs(partTuningInfo[actionType].result) do
             local item = nil
             itemName = itemName:gsub("__", ".")
-            item = self:GetItemInstance(itemName);
+            item = self:GetItemInstance(itemName)
             if item then
-                local itemInList = {};
-                itemInList.count = count;
-                itemInList.result = true;
-                itemInList.icon = item:getTex();
+                local itemInList = {}
+                if ATA2TuningSpecialSpawnCount[itemName] then
+                    itemInList.count = count * ATA2TuningSpecialSpawnCount[itemName]
+                else
+                    itemInList.count = count
+                end
+                itemInList.result = true
+                itemInList.icon = item:getTex()
                 itemInList.name = item:getDisplayName()
                 itemInList.fullType = item:getFullType()
                 RecipeItem.resultTable[item:getFullType()] = count
-                RecipeItem.result[#RecipeItem.result+1] = itemInList;
+                RecipeItem.result[#RecipeItem.result+1] = itemInList
                 filled = true
             end
         end
         if not filled then RecipeItem.result = nil end
     end
     
-    RecipeItem.skills = partTuningInfo[actionType].skills;
-    RecipeItem.requireInstalled = partTuningInfo[actionType].requireInstalled;
-    RecipeItem.requireUninstalled = partTuningInfo[actionType].requireUninstalled;
+    RecipeItem.skills = partTuningInfo[actionType].skills
+    RecipeItem.requireInstalled = partTuningInfo[actionType].requireInstalled
+    RecipeItem.requireUninstalled = partTuningInfo[actionType].requireUninstalled
     
     if self.character then
         RecipeItem.available = self:IsRecipeValid(RecipeItem)
@@ -555,7 +556,7 @@ function ISVehicleTuning2:populateRecipesList()
     local haveList = false
     for _,list in pairs(self.recipesList) do
         haveList = true
-        break;
+        break
     end
     
     if not haveList then
@@ -564,7 +565,7 @@ function ISVehicleTuning2:populateRecipesList()
         table.insert(self.recipesList[FakeRecipeItem.category], FakeRecipeItem);
         table.insert(self.allRecipesList, FakeRecipeItem);
     end
---    if #self.recipesList["Favorite"] == 0 then self.recipesList["Favorite"] = nil; end
+--    if #self.recipesList["Favorite"] == 0 then self.recipesList["Favorite"] = nil end
 end
 
 -- возвращает список рецептов
@@ -577,7 +578,7 @@ end
 function ISVehicleTuning2:refresh()
     -- print("ISVehicleTuning2:refresh")
     local recipeListBox = self:getRecipeListBox()
-    local selectedView = self.panel.activeView.name;
+    local selectedView = self.panel.activeView.name
     self:getContainers();
     self:populateRecipesList();
     for i=#self.categories,1,-1 do
@@ -593,11 +594,11 @@ function ISVehicleTuning2:refresh()
         local tuningCategory = self.recipesListH[k]
         local recipesListTable = self.recipesList[tuningCategory] -- таблица {Item, Item, Item}
     --for tuningCategory,recipesListTable in pairs(self.recipesList) do
-        local found = false;
+        local found = false
         for k,l in ipairs(self.categories) do
             if tuningCategory == l.category then
-                found = true;
-                break;
+                found = true
+                break
             end
         end
         if not found then
@@ -606,8 +607,8 @@ function ISVehicleTuning2:refresh()
             local catName = getTextOrNull("IGUI_CraftCategory_"..tuningCategory) or tuningCategory
             self.panel:addView(catName, cat1);
             cat1.infoText = getText("IGUI_InfoPanel_Tuning");
-            cat1.parent = self;
-            cat1.category = tuningCategory;
+            cat1.parent = self
+            cat1.category = tuningCategory
             for num, RecipeItem in ipairs(recipesListTable) do
                 cat1.recipes:addItem(num, RecipeItem);
             end
@@ -679,11 +680,11 @@ function ISVehicleTuning2:drawNonEvolvedIngredient(y, item, alt)
         local r2,g2,b2,a2
         local typesAvailable = item.item.RecipeItem.typesAvailable
         if typesAvailable and (not typesAvailable[item.item.fullType] or typesAvailable[item.item.fullType] < item.item.count) and not item.item.result then
-            r,g,b = 0.54,0.54,0.54;
-            r2,g2,b2,a2 = 1,1,1,0.3;
+            r,g,b = 0.54,0.54,0.54
+            r2,g2,b2,a2 = 1,1,1,0.3
         else
-            r,g,b = 1,1,1;
-            r2,g2,b2,a2 = 1,1,1,0.9;
+            r,g,b = 1,1,1
+            r2,g2,b2,a2 = 1,1,1,0.9
         end
 
         local imgW = 20
@@ -699,7 +700,7 @@ function ISVehicleTuning2:drawNonEvolvedIngredient(y, item, alt)
         end
     -- end
 
-    return y + self.itemheight;
+    return y + self.itemheight
 end
 
 function ISVehicleTuning2:refreshIngredientPanel()
@@ -713,7 +714,7 @@ function ISVehicleTuning2:refreshIngredientPanel()
 
     local recipeListbox = self:getRecipeListBox()
     if not recipeListbox.items or #recipeListbox.items == 0 or not recipeListbox.items[recipeListbox.selected] then return end
-    local RecipeItem = recipeListbox.items[recipeListbox.selected].item;
+    local RecipeItem = recipeListbox.items[recipeListbox.selected].item
     if not RecipeItem then return end
 
     RecipeItem.typesAvailable = self:getAvailableItemsType()
@@ -785,11 +786,11 @@ end
 
 local function tableSize(table1)
     if not table1 then return 0 end
-    local count = 0;
+    local count = 0
     for _,v in pairs(table1) do
-        count = count + 1;
+        count = count + 1
     end
-    return count;
+    return count
 end
 
 local function areTablesDifferent(table1, table2)
@@ -822,7 +823,7 @@ function ISVehicleTuning2:render()
     local spacing = 32 
     
     local recipeListBox = self:getRecipeListBox()
-    local RecipeItem = recipeListBox.items[recipeListBox.selected].item;
+    local RecipeItem = recipeListBox.items[recipeListBox.selected].item
     
     if self.drawJoypadFocus then
         local width1 = buttonSize + buttonSpace + getTextManager():MeasureStringX(UIFont.Small, self.LabelUninstall)
@@ -882,8 +883,8 @@ function ISVehicleTuning2:render()
     end
     
     -- Информация о крафте
-    local x = self:getWidth()/3 + 80;
-    local y = 40;
+    local x = self:getWidth()/3 + 80
+    local y = 40
 
 
     local now = getTimestampMs()
@@ -891,7 +892,7 @@ function ISVehicleTuning2:render()
         self.refreshTypesAvailableMS = now
         local typesAvailable = self:getAvailableItemsType();
         self.needRefreshIngredientPanel = self.needRefreshIngredientPanel or areTablesDifferent(RecipeItem.typesAvailable, typesAvailable);
-        RecipeItem.typesAvailable = typesAvailable;
+        RecipeItem.typesAvailable = typesAvailable
     end
     self:getContainers();
     if RecipeItem.type ~= "fake" then
@@ -905,8 +906,8 @@ function ISVehicleTuning2:render()
     self:drawRectBorder(x, y, 32 + 10, 32 + 10, 1.0, 1.0, 1.0, 1.0);
     if RecipeItem.icon then
         if RecipeItem.icon:getWidth() <= 32 and RecipeItem.icon:getHeight() <= 32 then
-            local newX = (32 - RecipeItem.icon:getWidthOrig()) / 2;
-            local newY = (32 - RecipeItem.icon:getHeightOrig()) / 2;
+            local newX = (32 - RecipeItem.icon:getWidthOrig()) / 2
+            local newY = (32 - RecipeItem.icon:getHeightOrig()) / 2
             self:drawTexture(RecipeItem.icon,x+5 + newX,y+5 + newY,1,1,1,1);
         else
             self:drawTextureScaledAspect(RecipeItem.icon,x+5,y+5,32,32,1,1,1,1);
@@ -929,27 +930,27 @@ function ISVehicleTuning2:render()
     -- self:drawText(name, x + 32 + 15, y + ISVehicleTuning2.largeFontHeight, 1,1,1,1, UIFont.Small);
     
     y = y + math.max(45, ISVehicleTuning2.largeFontHeight + ISVehicleTuning2.smallFontHeight);
-    -- local imgW = 20;
-    -- local imgH = 20;
-    -- local imgPadX = 4;
-    -- local dyText = (imgH - ISVehicleTuning2.smallFontHeight) / 2;
+    -- local imgW = 20
+    -- local imgH = 20
+    -- local imgPadX = 4
+    -- local dyText = (imgH - ISVehicleTuning2.smallFontHeight) / 2
     
     -- Информация о элементах, которым предоставляется защита
     if RecipeItem.protection and #RecipeItem.protection > 0 then
         self:drawText(getText("IGUI_TuningUI_ProtectionFor"), x, y, 1,1,1,1, UIFont.Medium);
-        y = y + ISVehicleTuning2.mediumFontHeight;
+        y = y + ISVehicleTuning2.mediumFontHeight
         for _, partName in pairs(RecipeItem.protection) do
             local text = " - " .. getText("IGUI_VehiclePart" .. partName)
             self:drawText(text, x + 15, y, 1,1,1,1, UIFont.Small);
-            y = y + ISVehicleTuning2.smallFontHeight;
+            y = y + ISVehicleTuning2.smallFontHeight
         end
-        y = y + 4;
+        y = y + 4
     end
     
     if RecipeItem.use and #RecipeItem.use > 0 then
         self:drawText(getText("IGUI_TuningUI_RequiredItems"), x, y + 3, 1,1,1,1, UIFont.Medium);
 
-        y = y + ISVehicleTuning2.mediumFontHeight + 6;
+        y = y + ISVehicleTuning2.mediumFontHeight + 6
 
         self.ingredientPanel:setX(x + 15)
         self.ingredientPanel:setY(y)
@@ -963,7 +964,7 @@ function ISVehicleTuning2:render()
     -- print(RecipeItem.tools)
     if RecipeItem.tools then
         self:drawText(getText("IGUI_TuningUI_RequiredTools"), x, y + 3, 1,1,1,1, UIFont.Medium);
-        y = y + ISVehicleTuning2.mediumFontHeight + 6;
+        y = y + ISVehicleTuning2.mediumFontHeight + 6
         self.toolsPanel:setX(x + 15)
         self.toolsPanel:setY(y)
         self.toolsPanel:setHeight(self.toolsPanel.itemheight * 3) -- количество строк для инструментов
@@ -976,7 +977,7 @@ function ISVehicleTuning2:render()
     if RecipeItem.result and #RecipeItem.result > 0 then
         self:drawText(getText("IGUI_TuningUI_Result"), x, y + 5, 1,1,1,1, UIFont.Medium);
 
-        y = y + ISVehicleTuning2.mediumFontHeight + 7;
+        y = y + ISVehicleTuning2.mediumFontHeight + 7
 
         self.resultPanel:setX(x + 15)
         self.resultPanel:setY(y)
@@ -992,7 +993,7 @@ function ISVehicleTuning2:render()
         self.selectedRecipeItem = RecipeItem
     end
 
-    y = y + 4;
+    y = y + 4
     
     -- проверяет выучил ли персонаж рецепты при открытом меню тюнинга
     if RecipeItem.recipes and #RecipeItem.recipes > 0 then
@@ -1001,7 +1002,7 @@ function ISVehicleTuning2:render()
     
     if RecipeItem.skills then
         self:drawText(getText("IGUI_CraftUI_RequiredSkills"), x, y, 1,1,1,1, UIFont.Medium);
-        y = y + ISVehicleTuning2.mediumFontHeight;
+        y = y + ISVehicleTuning2.mediumFontHeight
         for perkName, perkLevel in pairs(RecipeItem.skills) do
             local perk = Perks.FromString(perkName)
             local playerLevel = self.character and self.character:getPerkLevel(perk) or 0
@@ -1009,13 +1010,13 @@ function ISVehicleTuning2:render()
             local text = " - " .. perkNameLand .. ": " .. tostring(playerLevel) .. " / " .. tostring(perkLevel);
             local r,g,b = 1,1,1
             if self.character and (playerLevel < perkLevel) then
-                g = 0;
-                b = 0;
+                g = 0
+                b = 0
             end
             self:drawText(text, x + 15, y, r,g,b,1, UIFont.Small);
-            y = y + ISVehicleTuning2.smallFontHeight;
+            y = y + ISVehicleTuning2.smallFontHeight
         end
-        y = y + 4;
+        y = y + 4
     end
     
     local requireUnInstalled = false
@@ -1026,11 +1027,11 @@ function ISVehicleTuning2:render()
                 if part and not part:getInventoryItem() then
                     if not requireUnInstalled then
                         self:drawText(getText("IGUI_TuningUI_RequiredInstalled"), x, y, 1,1,1,1, UIFont.Medium);
-                        y = y + ISVehicleTuning2.mediumFontHeight;
+                        y = y + ISVehicleTuning2.mediumFontHeight
                         requireUnInstalled = true
                     end
                     self:drawText(" - " .. getText("IGUI_VehiclePart" .. partName), x + 15, y, 1,0,0,1, UIFont.Small);
-                    y = y + ISVehicleTuning2.smallFontHeight;
+                    y = y + ISVehicleTuning2.smallFontHeight
                 end
             end
         end
@@ -1041,11 +1042,11 @@ function ISVehicleTuning2:render()
                     and vehiclePart:getModData().tuning2.model ~= RecipeItem.requireModel then 
                 if not requireUnInstalled then
                     self:drawText(getText("IGUI_TuningUI_RequiredInstalled"), x, y, 1,1,1,1, UIFont.Medium);
-                    y = y + ISVehicleTuning2.mediumFontHeight;
+                    y = y + ISVehicleTuning2.mediumFontHeight
                     requireUnInstalled = true
                 end
                 self:drawText(" - " .. getText(RecipeItem.requireModelName), x + 15, y, 1,0,0,1, UIFont.Small);
-                y = y + ISVehicleTuning2.smallFontHeight;
+                y = y + ISVehicleTuning2.smallFontHeight
             end
         end
         if RecipeItem.requireUninstalled then
@@ -1054,29 +1055,29 @@ function ISVehicleTuning2:render()
                 if part and part:getInventoryItem() then
                     if not requireUnInstalled then
                         self:drawText(getText("IGUI_TuningUI_RequiredUninstalled"), x, y, 1,1,1,1, UIFont.Medium);
-                        y = y + ISVehicleTuning2.mediumFontHeight;
+                        y = y + ISVehicleTuning2.mediumFontHeight
                         requireUnInstalled = true
                     end
                     self:drawText(" - " .. getText("IGUI_VehiclePart" .. partName), x + 15, y, 1,0,0,1, UIFont.Small);
-                    y = y + ISVehicleTuning2.smallFontHeight;
+                    y = y + ISVehicleTuning2.smallFontHeight
                 end
             end
         end
-        y = y + 4;
+        y = y + 4
     end
     
     if RecipeItem.time and RecipeItem.time > 0 then
         self:drawText(getText("IGUI_CraftUI_RequiredTime", RecipeItem.time), x, y, 1,1,1,1, UIFont.Medium);
-        y = y + ISVehicleTuning2.mediumFontHeight;
+        y = y + ISVehicleTuning2.mediumFontHeight
     end
     
     y = y + 10
     self.craftOneButton:setX(x);
     self.craftOneButton:setY(y);
     if requireUnInstalled then
-        self.craftOneButton.enable = false;
+        self.craftOneButton.enable = false
     else
-        self.craftOneButton.enable = RecipeItem.available;
+        self.craftOneButton.enable = RecipeItem.available
     end
     if RecipeItem.type == "install" then
         self.craftOneButton:setTitle(self.LabelInstall)
@@ -1087,14 +1088,14 @@ function ISVehicleTuning2:render()
     self.debugGiveIngredientsButton:setX(self.craftOneButton:getX() + 5 + self.craftOneButton:getWidth())
     self.debugGiveIngredientsButton:setY(y);
 
-        -- y = y + self.craftAllButton:getHeight() + 10;
+        -- y = y + self.craftAllButton:getHeight() + 10
     
     -- stop allowing crafting while driving
-    self.craftOneButton.tooltip = nil;
-    -- self.craftAllButton.tooltip = nil;
+    self.craftOneButton.tooltip = nil
+    -- self.craftAllButton.tooltip = nil
     if self.character:isDriving() then
-        -- self.craftAllButton.enable = false;
-        self.craftOneButton.enable = false;
+        -- self.craftAllButton.enable = false
+        self.craftOneButton.enable = false
         self.craftOneButton.tooltip = getText("Tooltip_CantCraftDriving");
         -- self.craftAllButton.tooltip = getText("Tooltip_CantCraftDriving");
     end
@@ -1161,25 +1162,25 @@ end
 
 function ISVehicleTuning2:onKeyRelease(key)
     local ui = self
-    if not ui.panel or not ui.panel.activeView then return; end
+    if not ui.panel or not ui.panel.activeView then return end
     -- if key == getCore():getKey("Crafting UI") then
         -- ISVehicleTuning2.toggleCraftingUI();
-        -- return;
+        -- return
     -- end
     if key == Keyboard.KEY_ESCAPE then
         ISVehicleTuning2.toggleCraftingUI();
-        return;
+        return
     end
-    local self = ui.panel.activeView.view.recipes;
+    local self = ui.panel.activeView.view.recipes
     if key == ISVehicleTuning2.upArrow then
-        self.selected = self.selected - 1;
+        self.selected = self.selected - 1
         if self.selected <= 0 then
-            self.selected = self.count;
+            self.selected = self.count
         end
     elseif key == ISVehicleTuning2.downArrow then
-        self.selected = self.selected + 1;
+        self.selected = self.selected + 1
         if self.selected > self.count then
-            self.selected = 1;
+            self.selected = 1
         end
     end
     local viewIndex = ui.panel:getActiveViewIndex()
@@ -1208,7 +1209,7 @@ function ISVehicleTuning2:update()
         -- local currentAction = ISTimedActionQueue.getTimedActionQueue(self.character);
         -- if not currentAction or not currentAction.queue or not currentAction.queue[1] then
             -- self:refresh();
-            -- self.craftInProgress = false;
+            -- self.craftInProgress = false
         -- end
     -- end
     if self.vehicle and self.character:DistToProper(self.vehicle) > 6 then
@@ -1256,11 +1257,11 @@ function ISVehicleTuning2:getAllRequiredItems(RecipeItem)
                         count = count + 1
                     end
                     if count > itemInList.count then
-                        break;
+                        break
                     end
                 end
                 if count > itemInList.count then
-                    break;
+                    break
                 end
             end
         end
@@ -1275,16 +1276,16 @@ function ISVehicleTuning2:getAllRequiredItems(RecipeItem)
                     result[#result+1] = array:get(i)
                     count = count + 1
                     if itemInList.count == count then
-                        break;
+                        break
                     end
                 end
                 if itemInList.count == count then
-                    break;
+                    break
                 end
             end
         end
     end
-    return result;
+    return result
 end
 
 function ISVehicleTuning2:equipRequiredItems(playerObj, tools, itemsUsed)
@@ -1294,7 +1295,7 @@ function ISVehicleTuning2:equipRequiredItems(playerObj, tools, itemsUsed)
         for _,itemObj in ipairs(itemsUsed) do
             if itemObj:getFullType() == toolItem.fullType then
                 item = itemObj
-                break;
+                break
             end
         end
         if item then
@@ -1322,7 +1323,7 @@ function ISVehicleTuning2:transferItems()
     local RecipeItem = recipeListBox.items[recipeListBox.selected].item
     
     local items = self:getAllRequiredItems(RecipeItem)
-    if #items == 0 then return result end;
+    if #items == 0 then return result end
     for _,item in ipairs(items) do
         if item:getContainer() ~= self.character:getInventory() then
             ISTimedActionQueue.add(ISInventoryTransferAction:new(self.character, item, item:getContainer(), self.character:getInventory(), nil));
@@ -1335,14 +1336,14 @@ function ISVehicleTuning2:onInstallPart(button)
     -- print("ISVehicleTuning2:onInstallPart")
     self.craftInProgress = false
     local recipeListBox = self:getRecipeListBox()
-    local RecipeItem = recipeListBox.items[recipeListBox.selected].item;
+    local RecipeItem = recipeListBox.items[recipeListBox.selected].item
     if not self:IsRecipeValid(RecipeItem) then return end
         if self.character:getVehicle() then
         ISVehicleMenu.onExit(self.character)
     end
     
     local itemsUsed = nil
-    if not getPlayer() then return; end
+    if not getPlayer() then return end
     if RecipeItem.use or RecipeItem.tools then
         itemsUsed = self:transferItems();
         if #itemsUsed == 0 then
