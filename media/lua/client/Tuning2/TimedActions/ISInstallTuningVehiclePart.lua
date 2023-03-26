@@ -5,6 +5,7 @@ ISInstallTuningVehiclePart = ISBaseTimedAction:derive("ISInstallTuningVehiclePar
 function ISInstallTuningVehiclePart:isValid()
 -- print("ISInstallTuningVehiclePart:isValid")
     if ISVehicleMechanics.cheat then return true; end
+    self.character:getModData().tryInstallTuning2Model = self.modelName
     return self.vehicle:canInstallPart(self.character, self.part)
 end
 
@@ -140,23 +141,7 @@ function ISInstallTuningVehiclePart:new(character, part, time, modelName)
         if ltable.sound and GameSounds.isKnownSound(ltable.sound) then
             o.sound = ltable.sound
         else
-            if ltable.tools then
-                if ltable.tools.primary == "Base.Crowbar" or ltable.tools.both == "Base.Crowbar" then
-                    o.sound = "ATA2InstallGeneral"
-                elseif ltable.tools.bodylocation == "Base.WeldingMask" then
-                    o.sound = "ATA2BlowTorch2"
-                elseif ltable.tools.primary == "Base.Wrench" or ltable.tools.both == "Base.Wrench" then
-                    o.sound = "RepairWithWrench"
-                elseif ltable.tools.primary == "Base.Hammer" then
-                    o.sound = "ATA2Hammer"
-                elseif ltable.tools.primary == "Base.Sledgehammer" then
-                    o.sound = "ATA2Sledgehammer"
-                else
-                    o.sound = "GeneratorRepair"
-                end
-            else
-                o.sound = "ATA2InstallGeneral"
-            end
+            o.sound = "ATA2InstallGeneral"
         end
         if ltable.use then
             o.use = ltable.use

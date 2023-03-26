@@ -1,43 +1,52 @@
 ContextMenu_IT = {
-    ContextMenu_TCConvertAppliance = "Make %1",
+/************ Tuning 2.0 ************/
+    ContextMenu_OpenTuningMenu = "Modifiche",
+
+
+    ContextMenu_LaunchVehicle = "Scarica dal rimorchio",
+    ContextMenu_CantLaunchVehicle = "Non e' possibile scaricare.<br>C'e' qualcosa in mezzo",
+    ContextMenu_LoadVehicleOntoTrailer = "Carica sul rimorchio",
+    ContextMenu_CantLoadVehicleOntoTrailer = "Il veicolo<br>deve trovarsi dietro<br>il rimorchio",
+
+    ContextMenu_TCConvertAppliance = "Crea %1",
 
     ContextMenu_AirCondOn = "Controllo aria<br>condizionata",
     ContextMenu_AirCondOff = "Controllo aria<br>condizionata",
-    ContextMenu_Sleep_Mattress = "Dormi nella cuccetta.",
-    ContextMenu_PainNoSleep_Mattress = "Sei troppo dolorante per dormire nella cuccetta. "
-    ContextMenu_PanicNoSleep_Mattress = "Sei troppo spaventato per dormire nella cuccetta."
-    ContextMenu_NoSleepTooEarly_Mattress = "Non e' possibile ricominciare di nuovo a dormire nella cuccetta.<br>Riprova piu' tardi.",
-
-    ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Aggiungi benzina al serbatoio",
+    ContextMenu_Sleep_Mattress = "Dormi sul materasso.",
+    ContextMenu_PainNoSleep_Mattress = "Senti troppo dolore per dormire sul materasso. "
+    ContextMenu_PanicNoSleep_Mattress = "Troppo panico per dormire sul materasso."
+    ContextMenu_NoSleepTooEarly_Mattress = "Non e' possibile riaddormentarsi sul materasso.<br>Riprova piu' tardi.",
+    ContextMenu_Add_Gasoline_To_Gasoline_Storage_Tank = "Versa benzina nel serbatoio",
     ContextMenu_Remove_Gasoline_From_Gasoline_Storage_Tank = "Estrai benzina dal serbatoio",
     ContextMenu_Fill_Gasoline_Storage_Tank_From_Pump = "Riempi il serbatoio con il carburante della pompa",
     ContextMenu_Fill_Gasoline_Storage_Tank_From_Fuel_Truck = "Riempi il serbatoio con il carburante dell'autocisterna",
-    ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Rifornisciti dall'autocisterna",
+    ContextMenu_Remove_Gasoline_From_Fuel_Truck = "Rifornisci dall'autocisterna",
     ContextMenu_For_get_Gasoline_Need_Gas_Can = "Serve una tanica per la benzina",
+
     ContextMenu_CloseTent = "Chiudi la tenda",
     ContextMenu_OpenTent = "Apri la tenda",
 
     ContextMenu_Vehicle_For_Smashwindow_Uninstall_Protection = "Per rompere la finestra,<br>rimuovi la protezione.",
 
-    /************ Aquatsar Yacht Club ************/
+/************ Aquatsar Yacht Club ************/
     ContextMenu_BoatAddGas = "Aggiungi benzina",
     ContextMenu_BoatCabinelightsOff = "Spegni la luce",
     ContextMenu_BoatCabinelightsOn = "Accendi la luce",
 
-    ContextMenu_BoatHeadlightsOff = "Spegni i riflettori",
-    ContextMenu_BoatHeadlightsOn = "Accendi i riflettori",
+    ContextMenu_BoatHeadlightsOff = "Spegni i faretti",
+    ContextMenu_BoatHeadlightsOn = "Accendi i faretti",
     ContextMenu_BoatHotwireSkill = "Ti servono le chiavi o<br>Elettrica a 1 e<br>Meccanica a 2<br>per manomettere.",
 
     ContextMenu_RemoveSail = "Rimuovi le vele",
-    ContextMenu_SetLeftSail = "Regola la vela di strallo<br>a sinistra",
-    ContextMenu_SetRightSail = "Regola la vela di strallo<br>sul lato destro",
+    ContextMenu_SetLeftSail = "Regola la trinchetta<br>a sinistra",
+    ContextMenu_SetRightSail = "Regola la trinchetta<br>a destra",
     ContextMenu_SwimToLand = "Nuota verso terra",
 
-    ContextMenu_LaunchBoat = "Varo della barca",
-    ContextMenu_CantLaunchBoat = "Ãˆ necessario guidare<br>il rimorchio fino all'acqua",
+    ContextMenu_LaunchBoat = "Vara la barca",
+    ContextMenu_CantLaunchBoat = "E' necessario guidare<br>il rimorchio fino all'acqua",
     ContextMenu_LoadBoatOntoTrailer = "Carica l'imbarcazione sul rimorchio",
-    ContextMenu_CantLoadBoatOntoTrailer = "La barca e il rimorchio<br>devono essere vicini",
-    ContextMenu_CantLoadBoatOntoTrailerMan = "Non dovrebbe esserci nessuna persona<br>sulla barca",
+    ContextMenu_CantLoadBoatOntoTrailer = "L'imbarcazione e il rimorchio<br>devono essere vicini",
+    ContextMenu_CantLoadBoatOntoTrailerMan = "Non deve esserci nessuna persona<br>sulla barca",
 
     ContextMenu_VehicleStartEngineManual = "Avvia il motore manualmente",
     ContextMenu_VehicleManualStarterDamage = "Avviamento a strappo non installato<br>o danneggiato",
@@ -46,31 +55,37 @@ ContextMenu_IT = {
     ContextMenu_bind_boat = "Lega l'imbarcazione",
     ContextMenu_unbind_boat = "Slega l'imbarcazione",
 
-    ContextMenu_Wooden_Pantone = "Pontile in legno",
+    ContextMenu_Wooden_Pantone = "Pontone di legno",
 
     ContextMenu_Open_Cabin = "Sblocca la cabina",
     ContextMenu_Open_Cabin_Force = "Sblocca la cabina<br>(con %1)",
-    ContextMenu_Open_Cabin_Force_Need_Crowbar = "Sblocca la cabina<br> (Ã¨ necessario un attrezzo o una chiave)"
+    ContextMenu_Open_Cabin_Force_Need_Crowbar = "Sblocca la cabina<br> (e' necessario un attrezzo o una chiave)"
     ContextMenu_Close_Cabin = "Chiudi la cabina",
     ContextMenu_cabinForceUnlock_tooTired = "Sono troppo stanco<br>per aprire la cabina",
     ContextMenu_cabinForceUnlock_tooBored = "Non voglio<br>farlo adesso",
     ContextMenu_cabinForceUnlock_tooUnhappy = "Non sono dell'umore giusto<br>per farlo",
 
-    /************ Autotsar Tuning Atelier - Bus ************/
-    ContextMenu_Vehicle_EGNH = "Scrivi Â«EGNHÂ»",
+/************ Autotsar Tuning Atelier - Bus ************/
+    ContextMenu_Vehicle_EGNH = "Scrivi 'EGNH'",
 
-    /************ Autotsar Trailers ************/
+/************ Autotsar Trailers ************/
     ContextMenu_Close_trunk = "Chiudi il bagagliaio",
     ContextMenu_Open_trunk = "Apri il bagagliaio",
     ContextMenu_TrailerSpotlightOn = "Accendi i fari",
     ContextMenu_TrailerSpotlightOff = "Spegni i fari",
     ContextMenu_Turn_On_Generator = "Avvia il generatore",
 
-    /************ True Actions ************/
+/************ True Actions ************/
     ContextMenu_Sit = "Siediti",
     ContextMenu_Lie = "Rilassati",
     ContextMenu_OnSleep = "Sdraiati",
-
-    /************ ZuperCart ************/
+    
+/************ True Music ************/
+    ContextMenu_Stop_music = "Ferma la musica",
+    ContextMenu_Play_music = "Riproduci la musica",
+    ContextMenu_Sound_carrier_not_install = "Il supporto audio non e' installato",
+    ContextMenu_Song = "Brano",
+    
+/************ ZuperCart ************/
     ContextMenu_GrabTrolley = "Prendi il carrello",
 }

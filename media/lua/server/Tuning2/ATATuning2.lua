@@ -16,53 +16,6 @@ if not ATATuning2.UninstallTest then ATATuning2.UninstallTest = {} end
 if not ATATuning2.Update then ATATuning2.Update = {} end
 if not ATATuning2.Use then ATATuning2.Use = {} end
 
-
-function ATATuning2Utils.createPartInventoryItem(part)
-    if part:getTable("ataSpawnChance") then
-        if not part:getItemType() or part:getItemType():isEmpty() then return nil end
-        local item;
-        if not part:getInventoryItem() then
-            if #part:getTable("ataItemSpawnChance") == part:getItemType():size() then
-                local v = part:getVehicle();
-                local itemType = nil
-                local previousChance = 0
-                local newChanceTable = {}
-                for id, chance in pairs(part:getTable("ataItemSpawnChance")) do
-                    if tonumber(chance) > 0 then
-                        newChanceTable[id] = previousChance + chance
-                        previousChance = newChanceTable[id]
-                    end
-                end
-                if previousChance > 0 then
-                    local luck = ZombRand(previousChance)
-                    for id, checkLuck in pairs(newChanceTable) do
-                        if luck <= checkLuck then
-                            itemType = part:getItemType():get(id - 1);
-                            break
-                        end
-                    end
-                    
-                    item = InventoryItemFactory.CreateItem(itemType);
-                    local conditionMultiply = 100/item:getConditionMax();
-                    if part:getContainerCapacity() and part:getContainerCapacity() > 0 then
-                        item:setMaxCapacity(part:getContainerCapacity());
-                    end
-                    item:setConditionMax(item:getConditionMax()*conditionMultiply); 
-                    item:setCondition(item:getCondition()*conditionMultiply); -- no need transmit
-                    part:setRandomCondition(item);
-                    part:setInventoryItem(item)
-                end
-            else
-                print("ATA ERROR: For part " .. part:getId() .. "the spawn table 'ataItemSpawnChance' is set incorrectly. The number of elements in the table (now " .. #part:getTable("ataItemSpawnChance") .. ") must equal the number of possible items (now " .. part:getItemType():size() .. ").")
-                part:throwError()
-            end
-        end
-        return part:getInventoryItem()
-    else
-        return VehicleUtils.createPartInventoryItem(part)
-    end
-end
-
 function ATATuning2.ContainerAccess.BlockSeat(vehicle, part, playerObj)
     return false
 end
@@ -104,57 +57,6 @@ function ATATuning2.Create.Chance45(vehicle, part)
     else
         ATATuning2.Create.Chance0(vehicle, part)
     end
-end
-
---***********************************************************
---**                                                       **
---**                         Wheels                           **
---**                                                       **
---***********************************************************
-
-function ATATuning2.Create.Tire(vehicle, part)
-    Vehicles.Create.Tire(vehicle, part)
-    ATATuning2.ModelByItemName(vehicle, part, part:getInventoryItem())
-end
-
-function ATATuning2.Init.Tire(vehicle, part)
-    Vehicles.Init.Tire(vehicle, part)
-    ATATuning2.ModelByItemName(vehicle, part, part:getInventoryItem())
-end
-
-function ATATuning2.InstallComplete.Tire(vehicle, part)
-    Vehicles.InstallComplete.Tire(vehicle, part)
-    ATATuning2.ModelByItemName(vehicle, part, part:getInventoryItem())
-end
-
-function ATATuning2.UninstallComplete.Tire(vehicle, part, item)
-    Vehicles.UninstallComplete.Tire(vehicle, part, item)
-    ATATuning2.ModelByItemName(vehicle, part)
-end
-
---************************************************************
---**                                                           **
---**                       Engine Door                             **
---**                                                           **
---************************************************************
-
-function ATATuning2.Init.Door(vehicle, part)
-    Vehicles.Init.Door(vehicle, part)
-    ATATuning2.ModelByItemName(vehicle, part, part:getInventoryItem())
-end
-
-function ATATuning2.InstallComplete.Door(vehicle, part)
-    Vehicles.InstallComplete.Door(vehicle, part)
-    ATATuning2.ModelByItemName(vehicle, part, part:getInventoryItem())
-end
-
-function ATATuning2.UninstallComplete.Door(vehicle, part, item)
-    Vehicles.UninstallComplete.Door(vehicle, part, item)
-    ATATuning2.ModelByItemName(vehicle, part)
-    if not part:getModData().atatuning or not part:getModData().atatuning.health then return end
-    item:setCondition(part:getModData().atatuning.health) -- no need transmit
-    part:getModData().atatuning.health = nil
-    vehicle:transmitPartModData(part)
 end
 
 --***********************************************************
@@ -341,25 +243,87 @@ function ATATuning2.Use.Door(vehicle, part, character)
 end
 
 function ATATuning2.ContainerAccess.MotoBags(vehicle, part, chr)
-	if chr:getVehicle() == vehicle then return true end
-	if not vehicle:isInArea(part:getArea(), chr) then return false end
-	return true
+    if chr:getVehicle() == vehicle then return true end
+    if not vehicle:isInArea(part:getArea(), chr) then return false end
+    return true
 end
 
 --***********************************************************
 --**                                                       **
---**          Tuning            **
+--**                       Tuning                          **
 --**                                                       **
 --***********************************************************
 
 
-function ATATuning2.ModelByModData(vehicle, part, item)
-    -- print("ATATuning2.ModelByModData")
+function ATATuning2Utils.createPartInventoryItem(part)
+    if part:getTable("ATA2ItemSpawnChance") then
+        if not part:getItemType() or part:getItemType():isEmpty() then return nil end
+        local item;
+        if not part:getInventoryItem() then
+            if #part:getTable("ATA2ItemSpawnChance") == part:getItemType():size() then
+                local v = part:getVehicle();
+                local itemType = nil
+                local previousChance = 0
+                local newChanceTable = {}
+                for id, chance in pairs(part:getTable("ATA2ItemSpawnChance")) do
+                    if tonumber(chance) > 0 then
+                        newChanceTable[id] = previousChance + chance
+                        previousChance = newChanceTable[id]
+                    end
+                end
+                if previousChance > 0 then
+                    local luck = ZombRand(previousChance)
+                    for id, checkLuck in pairs(newChanceTable) do
+                        if luck <= checkLuck then
+                            itemType = part:getItemType():get(id - 1);
+                            break
+                        end
+                    end
+                    
+                    item = InventoryItemFactory.CreateItem(itemType);
+                    local conditionMultiply = 100/item:getConditionMax();
+                    if part:getContainerCapacity() and part:getContainerCapacity() > 0 then
+                        item:setMaxCapacity(part:getContainerCapacity());
+                    end
+                    item:setConditionMax(item:getConditionMax()*conditionMultiply); 
+                    item:setCondition(item:getCondition()*conditionMultiply); -- no need transmit
+                    part:setRandomCondition(item);
+                    part:setInventoryItem(item)
+                end
+            else
+                print("ATA ERROR: For part " .. part:getId() .. "the spawn table 'ATA2ItemSpawnChance' is set incorrectly. The number of elements in the table (now " .. #part:getTable("ATA2ItemSpawnChance") .. ") must equal the number of possible items (now " .. part:getItemType():size() .. ").")
+                part:throwError()
+            end
+        end
+        return part:getInventoryItem()
+    else
+        return VehicleUtils.createPartInventoryItem(part)
+    end
+end
+
+function ATATuning2Utils.ModelByItemName(vehicle, part, item)
+-- print("ATATuning2Utils.ModelByItemName")
+    if not part:getItemType() or part:getItemType():isEmpty() then return end
+    if part:getTable("ATA2ItemToModel") then
+        part:setAllModelsVisible(false)
+        if item then
+            local t = part:getTable("ATA2ItemToModel")
+            if t[item:getType()] then
+                part:setModelVisible(t[item:getType()], true)
+            else
+                part:setModelVisible(t["Another"], true)
+            end
+        end
+    end
+end
+
+function ATATuning2Utils.ModelByModData(vehicle, part, item)
+    -- print("ATATuning2Utils.ModelByModData")
     part:setAllModelsVisible(false)
     local vehicleName = vehicle:getScript():getName()
     local partName = part:getId()
     if not part:getItemType() or part:getItemType():isEmpty() then
-        print("ATATuning2.ModelByModData ERROR: не предусмотренное использование функции")
+        print("ATATuning2Utils.ModelByModData ERROR: не предусмотренное использование функции")
         part:setModelVisible("Default", true)
         part:setModelVisible("StaticPart", true)
     else
@@ -414,12 +378,17 @@ function ATATuning2.ModelByModData(vehicle, part, item)
                                 if modelInfo.interactiveTrunk.items then
                                     for _, itemInfoTable in pairs(modelInfo.interactiveTrunk.items) do
                                         local itemcount = 0
+                                        local maxItemCount = #itemInfoTable.modelNameByCount
                                         for _,itemNameNew in ipairs(itemInfoTable.itemTypes) do
-                                            itemcount = itemcount + part:getItemContainer():getCountType(itemNameNew)
+                                            if itemcount < maxItemCount then
+                                                itemcount = itemcount + part:getItemContainer():getCountType(itemNameNew)
+                                            else
+                                                break
+                                            end
                                         end
                                         if itemcount > 0 then
                                             for num=1,itemcount do
-                                                if num <= #itemInfoTable.modelNameByCount then
+                                                if num <= maxItemCount then
                                                     part:setModelVisible(itemInfoTable.modelNameByCount[num], true)
                                                 else
                                                     break;
@@ -464,11 +433,11 @@ function ATATuning2.Create.Tuning(vehicle, part)
         end
     end
     vehicle:transmitPartModData(part)
-    ATATuning2.ModelByModData(vehicle, part, item)
+    ATATuning2Utils.ModelByModData(vehicle, part, item)
 end
 
 function ATATuning2.Init.Tuning(vehicle, part)
-    ATATuning2.ModelByModData(vehicle, part, part:getInventoryItem())
+    ATATuning2Utils.ModelByModData(vehicle, part, part:getInventoryItem())
     if part:isContainer() then
         part:setContainerContentAmount(part:getItemContainer():getCapacityWeight());
     end
@@ -476,8 +445,18 @@ end
 
 function ATATuning2.InstallTest.Tuning(vehicle, part, chr)
     -- print("ATATuning2.InstallTest.tuning")
-    if ISVehicleMechanics.cheat then return true; end
-    if part:getInventoryItem() then return false end
+    local vehicleName = vehicle:getScript():getName()
+    local partName = part:getId()
+    local modelName = chr:getModData().tryInstallTuning2Model
+
+    if part:getInventoryItem() then 
+        if not (ATA2TuningTable[vehicleName] -- проверка для requireModel
+                and ATA2TuningTable[vehicleName].parts[partName] 
+                and ATA2TuningTable[vehicleName].parts[partName][modelName] 
+                and ATA2TuningTable[vehicleName].parts[partName][modelName].install.requireModel) then
+            return false 
+        end
+    end
     if not part:getItemType() or part:getItemType():isEmpty() then return false end
     return true
 end
@@ -487,7 +466,7 @@ function ATATuning2.InstallComplete.Tuning(vehicle, part)
 -- print("ATATuning2.InstallComplete.Tuning")
     local item = part:getInventoryItem();
     if not item then return; end
-    ATATuning2.ModelByModData(vehicle, part, item)
+    ATATuning2Utils.ModelByModData(vehicle, part, item)
     local vehicleName = vehicle:getScript():getName()
     local partName = part:getId()
     if part:getModData().tuning2 and part:getModData().tuning2.model then
@@ -519,16 +498,27 @@ function ATATuning2.InstallComplete.Tuning(vehicle, part)
                 for _, protectionPartName in ipairs(modelInfo.protection) do
                     if protectionPartName ~= "Engine" then -- защита кода от "защиты двигателя"
                         local savePart = vehicle:getPartById(protectionPartName)
-                        if savePart and savePart:getInventoryItem() then
+                        if savePart then
                             if not savePart:getModData().tuning2 then
                                 savePart:getModData().tuning2 = {}
                             end
                             
-                            savePart:getModData().tuning2.health = savePart:getCondition()
-                            vehicle:transmitPartModData(savePart)
+                            -- добавление запрета на снятие предмета, до снятия защиты
+                            if not savePart:getModData().tuning2.protectionRequireUninstalled then
+                                local t = {}
+                                t[partName] = true
+                                savePart:getModData().tuning2.protectionRequireUninstalled = t
+                            else
+                                local t = savePart:getModData().tuning2.protectionRequireUninstalled
+                                t[partName] = true
+                            end
                             
-                            savePart:setCondition(100) -- transmit
-                            vehicle:transmitPartCondition(savePart)
+                            vehicle:transmitPartModData(savePart)
+                            if savePart:getInventoryItem() then
+                                savePart:getModData().tuning2.health = savePart:getCondition()
+                                savePart:setCondition(100) -- transmit
+                                vehicle:transmitPartCondition(savePart)
+                            end
                         end
                     end
                 end
@@ -560,7 +550,7 @@ end
 -- в ней мы больше не можем обращаться к ATA2TuningTable, т.к. Имя_модели == nil
 function ATATuning2.UninstallComplete.Tuning(vehicle, part, item)
 -- print("ATATuning2.UninstallComplete.Tuning")
-    ATATuning2.ModelByModData(vehicle, part)
+    ATATuning2Utils.ModelByModData(vehicle, part)
     local vehicleName = vehicle:getScript():getName()
     local partName = part:getId()
     if part:getModData().tuning2 then
@@ -584,6 +574,11 @@ function ATATuning2.UninstallComplete.Tuning(vehicle, part, item)
                             vehicle:transmitPartCondition(savePart)
                             
                             savePart:getModData().tuning2.health = nil -- transmit
+                            -- снятие запрета на деинсталляцию предмета
+                            if savePart:getModData().tuning2.protectionRequireUninstalled then
+                                local t = savePart:getModData().tuning2.protectionRequireUninstalled
+                                t[partName] = nil
+                            end
                             vehicle:transmitPartModData(savePart)
                         end
                     end
@@ -599,7 +594,7 @@ function ATATuning2.UninstallComplete.Tuning(vehicle, part, item)
 end
 
 function ATATuning2.ContainerAccess.Tuning(vehicle, part, chr)
-    ATATuning2.ModelByModData(vehicle, part, part:getInventoryItem(), "ContainerAccess")
+    ATATuning2Utils.ModelByModData(vehicle, part, part:getInventoryItem(), "ContainerAccess")
     if chr:getVehicle() then return false end
     if not vehicle:isInArea(part:getArea(), chr) then return false end
     return true
@@ -622,6 +617,7 @@ function ATATuning2.Update.Protection(vehicle, part, elapsedMinutes)
             
             square:AddWorldInventoryItem(item, 0.5, 0.5, 0)
             ATATuning2.UninstallComplete.Tuning(vehicle, part, item)
+        -- отработка защиты
         elseif part:getModData().tuning2.protection then
             for _, protectionPartName in ipairs(part:getModData().tuning2.protection) do
                 if protectionPartName ~= "Engine" then -- защита кода от "защиты двигателя"
@@ -635,6 +631,7 @@ function ATATuning2.Update.Protection(vehicle, part, elapsedMinutes)
                             savePart:getModData().tuning2.health = savePart:getCondition()
                             vehicle:transmitPartModData(savePart)
                         end
+                        
                         if (savePart:getCondition() < 80) then
                             part:setCondition(part:getCondition()-1) -- transmit
                             vehicle:transmitPartCondition(part)
@@ -667,8 +664,12 @@ function ATATuning2.UninstallComplete.Window(vehicle, part, item)
     vehicle:transmitPartModData(part)
 end
 
-
 --***********************************************************
+--**                                                       **
+--**                         Wheels                           **
+--**                                                       **
+--***********************************************************
+
 -- Функции для шин у которых установлен параметр "setAllModelsVisible = false," 
 -- В общем случае, в скрипт нужно добавить:
     -- part Tire*
@@ -693,24 +694,75 @@ end
     -- }
 --***********************************************************
 
+
+function ATATuning2.Create.TireNotAllModelsVisible(vehicle, part)
+    Vehicles.Create.Tire(vehicle, part)
+    ATATuning2Utils.ModelByItemName(vehicle, part, part:getInventoryItem())
+end
+
 function ATATuning2.Init.TireNotAllModelsVisible(vehicle, part)
-	local wheelIndex = part:getWheelIndex()
-	vehicle:setTireRemoved(wheelIndex, part:getInventoryItem() == nil)
+    local wheelIndex = part:getWheelIndex()
+    vehicle:setTireRemoved(wheelIndex, part:getInventoryItem() == nil)
     part:setModelVisible("InflatedTirePlusWheel", part:getInventoryItem() ~= nil)
+    ATATuning2Utils.ModelByItemName(vehicle, part, part:getInventoryItem())
 end
 
 function ATATuning2.InstallComplete.TireNotAllModelsVisible(vehicle, part)
-	local wheelIndex = part:getWheelIndex()
-	vehicle:setTireRemoved(wheelIndex, false)
+    local wheelIndex = part:getWheelIndex()
+    vehicle:setTireRemoved(wheelIndex, false)
     part:setModelVisible("InflatedTirePlusWheel", true)
+    ATATuning2Utils.ModelByItemName(vehicle, part, part:getInventoryItem())
 end
 
 function ATATuning2.UninstallComplete.TireNotAllModelsVisible(vehicle, part, item)
-	local wheelIndex = part:getWheelIndex()
-	vehicle:setTireRemoved(wheelIndex, true)
+    local wheelIndex = part:getWheelIndex()
+    vehicle:setTireRemoved(wheelIndex, true)
     part:setModelVisible("InflatedTirePlusWheel", false)
+    ATATuning2Utils.ModelByItemName(vehicle, part)
 end
 
+--************************************************************
+
+function ATATuning2.Create.DefaultModel(vehicle, part)
+    local item = ATATuning2Utils.createPartInventoryItem(part)
+    ATATuning2Utils.ModelByItemName(vehicle, part, item)
+    vehicle:transmitPartCondition(part)
+    vehicle:transmitPartItem(part)
+    vehicle:doDamageOverlay()
+end
+
+function ATATuning2.Init.DefaultModel(vehicle, part)
+    ATATuning2Utils.ModelByItemName(vehicle, part, part:getInventoryItem())
+    vehicle:doDamageOverlay()
+end
+
+function ATATuning2.Create.Chance0(vehicle, part)
+    part:setInventoryItem(nil)
+    vehicle:transmitPartItem(part)
+    ATATuning2Utils.ModelByItemName(vehicle, part)
+    vehicle:doDamageOverlay()
+end
+
+--************************************************************
+--**                                                           **
+--**                       Engine Door                             **
+--**                                                           **
+--************************************************************
+
+function ATATuning2.Init.Door(vehicle, part)
+    Vehicles.Init.Door(vehicle, part)
+    ATATuning2Utils.ModelByItemName(vehicle, part, part:getInventoryItem())
+end
+
+function ATATuning2.InstallComplete.Door(vehicle, part)
+    Vehicles.InstallComplete.Door(vehicle, part)
+    ATATuning2Utils.ModelByItemName(vehicle, part, part:getInventoryItem())
+end
+
+function ATATuning2.UninstallComplete.Door(vehicle, part, item)
+    Vehicles.UninstallComplete.Door(vehicle, part, item)
+    ATATuning2Utils.ModelByItemName(vehicle, part)
+end
 
 --***********************************************************
 --**                                                       **
@@ -772,16 +824,20 @@ function ATATuning2.UninstallTest.RoofTent(vehicle, part, chr)
     end
 end
 
-function ATATuning2.Use.RoofTent(vehicle, part, open)
-    if open then
+function ATATuning2.Use.RoofTent(vehicle, part, character)
+    if part:getModData().tuning2.status == "close" then
         part:setModelVisible("Close", false)
         part:setModelVisible("Open", true)
         part:getModData().tuning2.status = "open"
         vehicle:transmitPartModData(part)
         VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleLeft"))
         vehicle:getPartById("SeatMiddleLeft"):setContainerContentAmount(0)
+        vehicle:getPartById("DoorMiddleLeft"):repair()
         VehicleUtils.createPartInventoryItem(vehicle:getPartById("SeatMiddleRight"))
         vehicle:getPartById("SeatMiddleRight"):setContainerContentAmount(0)
+        vehicle:getPartById("DoorMiddleRight"):repair()
+        vehicle:transmitPartItem(vehicle:getPartById("SeatMiddleLeft"))
+        vehicle:transmitPartItem(vehicle:getPartById("SeatMiddleRight"))
     else
         part:setModelVisible("Close", true)
         part:setModelVisible("Open", false)
@@ -792,15 +848,90 @@ function ATATuning2.Use.RoofTent(vehicle, part, open)
         part:getModData().tuning2.status = "close"
         vehicle:transmitPartModData(part)
     end
+    ATATuning2.Init.RoofTent(vehicle, part)
 end
 
 function ATATuning2.UninstallTest.RoofClose(vehicle, part, chr)
     -- if not part:getInventoryItem() then return false end
     -- if not part:getItemType() or part:getItemType():isEmpty() then return false end
     -- local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
-    if round(part:getContainerContentAmount(), 3) > 0 then return false end
+    if round(part:getItemContainer():getContentsWeight(), 3) > 0 then return false end -- вместо part:getContainerContentAmount()
     local seatNumber = part:getContainerSeatNumber()
     local seatOccupied = (seatNumber ~= -1) and vehicle:isSeatOccupied(seatNumber)
     if seatOccupied then return false end
+    return true
+end
+
+--***********************************************************
+--**                                                       **
+--**      Multi Require Install and Uninstall table           **
+--**                                                       **
+--***********************************************************
+
+function ATATuning2.InstallTest.multiRequire(vehicle, part, chr)
+    if ISVehicleMechanics.cheat then return true; end
+    local keyvalues = part:getTable("install")
+    if not keyvalues then return false end
+    if part:getInventoryItem() then return false end
+    if not part:getItemType() or part:getItemType():isEmpty() then return false end
+    local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
+    if keyvalues.requireInstalled then
+        local split = keyvalues.requireInstalled:split(";");
+        for i,v in ipairs(split) do
+            if not vehicle:getPartById(v) or not vehicle:getPartById(v):getInventoryItem() then return false; end
+        end
+    end
+    if keyvalues.requireUninstalled then
+        local split = keyvalues.requireUninstalled:split(";");
+        for i,v in ipairs(split) do
+            if vehicle:getPartById(v) and vehicle:getPartById(v):getInventoryItem() then return false; end
+        end
+    end
+    if not VehicleUtils.testProfession(chr, keyvalues.professions) then return false end
+    -- allow all perk, but calculate success/failure risk
+--    if not VehicleUtils.testPerks(chr, keyvalues.skills) then return false end
+    if not VehicleUtils.testRecipes(chr, keyvalues.recipes) then return false end
+    if not VehicleUtils.testTraits(chr, keyvalues.traits) then return false end
+    if not VehicleUtils.testItems(chr, keyvalues.items, typeToItem) then return false end
+    -- if doing mechanics on this part require key but player doesn't have it, we'll check that door or windows aren't unlocked also
+    if VehicleUtils.RequiredKeyNotFound(part, chr) then
+        return false;
+    end
+    return true
+end
+
+function ATATuning2.UninstallTest.multiRequire(vehicle, part, chr)
+    if ISVehicleMechanics.cheat then return true; end
+    local keyvalues = part:getTable("uninstall")
+    if not keyvalues then return false end
+    if not part:getInventoryItem() then return false end
+    if not part:getItemType() or part:getItemType():isEmpty() then return false end
+    local typeToItem = VehicleUtils.getItems(chr:getPlayerNum())
+    if keyvalues.requireInstalled then
+        local split = keyvalues.requireInstalled:split(";");
+        for i,v in ipairs(split) do
+            if not vehicle:getPartById(v) or not vehicle:getPartById(v):getInventoryItem() then return false; end
+        end
+    end
+    if keyvalues.requireUninstalled then
+        local split = keyvalues.requireUninstalled:split(";");
+        for i,v in ipairs(split) do
+            if vehicle:getPartById(v) and vehicle:getPartById(v):getInventoryItem() then return false; end
+        end
+    end
+    if not VehicleUtils.testProfession(chr, keyvalues.professions) then return false end
+    -- allow all perk, but calculate success/failure risk
+--    if not VehicleUtils.testPerks(chr, keyvalues.skills) then return false end
+    if not VehicleUtils.testRecipes(chr, keyvalues.recipes) then return false end
+    if not VehicleUtils.testTraits(chr, keyvalues.traits) then return false end
+    if not VehicleUtils.testItems(chr, keyvalues.items, typeToItem) then return false end
+    if keyvalues.requireEmpty and round(part:getContainerContentAmount(), 3) > 0 then return false end
+    local seatNumber = part:getContainerSeatNumber()
+    local seatOccupied = (seatNumber ~= -1) and vehicle:isSeatOccupied(seatNumber)
+    if keyvalues.requireEmpty and seatOccupied then return false end
+    -- if doing mechanics on this part require key but player doesn't have it, we'll check that door or windows aren't unlocked also
+    if VehicleUtils.RequiredKeyNotFound(part, chr) then
+        return false
+    end
     return true
 end

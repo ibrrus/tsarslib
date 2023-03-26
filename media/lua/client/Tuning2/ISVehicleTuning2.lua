@@ -308,7 +308,12 @@ function ISVehicleTuning2:IsRecipeValid(RecipeItem)
     end
     
     if RecipeItem.type == "install" then
-        if vehiclePart:getInventoryItem() then 
+        if RecipeItem.requireModel then
+            if vehiclePart:getModData().tuning2 and  vehiclePart:getModData().tuning2.model ~= RecipeItem.requireModel then
+                -- RecipeItem.error = getText("IGUI_TuningUI_NotInstall")
+                return false
+            end
+        elseif vehiclePart:getInventoryItem() then 
             RecipeItem.error = getText("IGUI_TuningUI_AlreadyInstall")
             return false 
         else
@@ -352,15 +357,20 @@ FakeRecipeItem.itemName = getText("IGUI_NoAvailableParts")
 FakeRecipeItem.available = false
 
 -- Создание RecipeItem
-function ISVehicleTuning2:createRecipeItemFor(partName, partTuningInfo, modelName, actionType, specialCategory) -- actionType = install or uninstall
+function ISVehicleTuning2:createRecipeItemFor(infoTable, partName, partTuningInfo, modelName, actionType, specialCategory) -- actionType = install or uninstall
     local RecipeItem = {}; -- пункт меню слева
     RecipeItem.type = actionType
     RecipeItem.partName = partName
     RecipeItem.modelName = modelName
     RecipeItem.hideIfNotValid = partTuningInfo.hideIfNotValid
     
-    if partTuningInfo.secondModel and partTuningInfo.secondModel ~= "" then
-        RecipeItem.secondModel = partTuningInfo.secondModel
+    if partTuningInfo[actionType].requireModel and partTuningInfo[actionType].requireModel ~= "" then
+        RecipeItem.requireModel = partTuningInfo[actionType].requireModel
+        if infoTable[RecipeItem.requireModel].name and infoTable[RecipeItem.requireModel].name ~= "" then
+            RecipeItem.requireModelName = getText(infoTable[RecipeItem.requireModel].name)
+        else
+            RecipeItem.requireModelName = getText("IGUI_VehiclePart" .. partName)
+        end
     end
     
     if partTuningInfo[actionType].area and partTuningInfo[actionType].area ~= "" then
@@ -497,7 +507,7 @@ function ISVehicleTuning2:populateRecipesList()
                         break
                     end
                 end
-                RecipeItem = self:createRecipeItemFor(partName, partTuningInfo, modelName, "uninstall", getText("IGUI_TuningCategory_Installed"))
+                RecipeItem = self:createRecipeItemFor(infoTable, partName, partTuningInfo, modelName, "uninstall", getText("IGUI_TuningCategory_Installed"))
                 RecipeItem.condition = part:getCondition()
                 installPartList[partName] = modelName
                 
@@ -515,7 +525,7 @@ function ISVehicleTuning2:populateRecipesList()
             if part then
                 for modelName, partTuningInfo in pairs(infoTable) do
                     if not installPartList[partName] or installPartList[partName] ~= modelName then
-                        RecipeItem = self:createRecipeItemFor(partName, partTuningInfo, modelName, "install")
+                        RecipeItem = self:createRecipeItemFor(infoTable, partName, partTuningInfo, modelName, "install")
                         if not RecipeItem.hideIfNotValid or (RecipeItem.hideIfNotValid and RecipeItem.available) then
                             if not self.recipesList[RecipeItem.category] then
                                 self.recipesList[RecipeItem.category] = {};
@@ -525,7 +535,7 @@ function ISVehicleTuning2:populateRecipesList()
                             table.insert(self.allRecipesList, RecipeItem);
                         end
                     else
-                        RecipeItem = self:createRecipeItemFor(partName, partTuningInfo, modelName, "uninstall")
+                        RecipeItem = self:createRecipeItemFor(infoTable, partName, partTuningInfo, modelName, "uninstall")
                         RecipeItem.condition = part:getCondition()
                         if not RecipeItem.hideIfNotValid or (RecipeItem.hideIfNotValid and RecipeItem.available) then
                             if not self.recipesList[RecipeItem.category] then
@@ -1022,6 +1032,20 @@ function ISVehicleTuning2:render()
                     self:drawText(" - " .. getText("IGUI_VehiclePart" .. partName), x + 15, y, 1,0,0,1, UIFont.Small);
                     y = y + ISVehicleTuning2.smallFontHeight;
                 end
+            end
+        end
+        if RecipeItem.requireModel then
+            local vehiclePart = self.vehicle:getPartById(RecipeItem.partName)
+            if vehiclePart
+                    and vehiclePart:getModData().tuning2
+                    and vehiclePart:getModData().tuning2.model ~= RecipeItem.requireModel then 
+                if not requireUnInstalled then
+                    self:drawText(getText("IGUI_TuningUI_RequiredInstalled"), x, y, 1,1,1,1, UIFont.Medium);
+                    y = y + ISVehicleTuning2.mediumFontHeight;
+                    requireUnInstalled = true
+                end
+                self:drawText(" - " .. getText(RecipeItem.requireModelName), x + 15, y, 1,0,0,1, UIFont.Small);
+                y = y + ISVehicleTuning2.smallFontHeight;
             end
         end
         if RecipeItem.requireUninstalled then

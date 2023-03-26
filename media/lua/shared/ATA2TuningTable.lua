@@ -38,6 +38,24 @@ local function incorrectType (fieldName, field, correctType)
     return false
 end
 
+local function getSoundByTools(toolsTable)
+    if toolsTable.primary == "Base.Crowbar" or toolsTable.both == "Base.Crowbar" then
+        return "ATA2InstallGeneral"
+    elseif toolsTable.bodylocation == "Base.WeldingMask" then
+        return "ATA2BlowTorch2"
+    elseif toolsTable.primary == "Base.Wrench" or toolsTable.both == "Base.Wrench" then
+        return "RepairWithWrench"
+    elseif toolsTable.primary == "Base.Hammer" or toolsTable.both == "Base.Hammer" then
+        return "ATA2Hammer"
+    elseif toolsTable.primary == "Base.Sledgehammer" or toolsTable.both == "Base.Sledgehammer" then
+        return "ATA2Sledgehammer"
+    elseif toolsTable.primary == "Base.Paintbrush" or toolsTable.secondary == "Base.Paintbrush" then
+        return "Painting"
+    else
+        return "GeneratorRepair"
+    end
+end
+
 function ATA2Tuning_AddNewCars(carsTable)
     for vehicleName, carTable in pairs(carsTable) do
         local haveError = false
@@ -101,6 +119,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                 if modelTable.secondModel then
                     haveError = haveError and incorrectType("secondModel", modelTable.secondModel, "string")
                 end
+
                 -- проверка, что параметр задан строкой
                 if modelTable.category then
                     haveError = haveError and incorrectType("category", modelTable.category, "string")
@@ -219,9 +238,6 @@ function ATA2Tuning_AddNewCars(carsTable)
                                 end
                             end
                         end
-                        if installTable.sound then
-                            haveError = haveError and incorrectType("install.sound", installTable.sound, "string")
-                        end
                         if installTable.animation then
                             haveError = haveError and incorrectType("install.animation", installTable.animation, "string")
                         end
@@ -238,16 +254,24 @@ function ATA2Tuning_AddNewCars(carsTable)
                                 end
                             end
                         end
+                        if installTable.sound then
+                            haveError = haveError and incorrectType("install.sound", installTable.sound, "string")
+                        end
                         if installTable.tools then
                             local err2 = incorrectType("install.tools", installTable.tools, "table")
                             haveError = haveError and err2
                             if not err2 then
+                                -- проверка, что предметы существуют
                                 for _,itemName in pairs(installTable.tools) do
                                     itemName = itemName:gsub("__", ".")
                                     local item = InventoryItemFactory.CreateItem(itemName)
                                     if not item then
                                         logprint("---------- ATA2Tuning WARNING|install.tools: item not found " .. tostring(itemName))
                                     end
+                                end
+                                -- установка звуков в соответствии с заданными предметами
+                                if not installTable.sound then
+                                    installTable.sound = getSoundByTools(installTable.tools)
                                 end
                             end
                         end
@@ -260,6 +284,17 @@ function ATA2Tuning_AddNewCars(carsTable)
                         if installTable.requireInstalled then
                             haveError = haveError and incorrectType("install.requireInstalled", installTable.requireInstalled, "table")
                         end
+                        
+                        -- проверка, что модель существует в таблице
+                        if installTable.requireModel then
+                            local err = incorrectType("icon", installTable.requireModel, "string")
+                            haveError = haveError and err
+                            if not err and not partTable[installTable.requireModel] then
+                                logprint("---------- ATA2Tuning ERROR|requireModel not found: ".. tostring(installTable.requireModel))
+                                haveError = true
+                            end
+                        end
+                        
                         if installTable.requireUninstalled then
                             haveError = haveError and incorrectType("install.requireUninstalled", installTable.requireUninstalled, "table")
                         end
@@ -322,12 +357,17 @@ function ATA2Tuning_AddNewCars(carsTable)
                             local err2 = incorrectType("uninstall.tools", uninstallTable.tools, "table")
                             haveError = haveError and err2
                             if not err2 then
+                                -- проверка, что предметы существуют
                                 for _,itemName in pairs(uninstallTable.tools) do
                                     itemName = itemName:gsub("__", ".")
                                     local item = InventoryItemFactory.CreateItem(itemName)
                                     if not item then
                                         logprint("---------- ATA2Tuning WARNING|uninstall.tools: item not found " .. tostring(itemName))
                                     end
+                                end
+                                -- установка звуков в соответствии с заданными предметами
+                                if not uninstallTable.sound then
+                                    uninstallTable.sound = getSoundByTools(uninstallTable.tools)
                                 end
                             end
                         end

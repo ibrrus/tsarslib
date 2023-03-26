@@ -1,3 +1,23 @@
+v.2.02
+2023-03-25
+
+Добавлен итальянский перевод (спасибо Lollo11).
+Добавлена настройка для анимации покраски автомобиля.
+Добавлены новые правила и шаблоны, улучшена логика и проверки для Tuning 2.0.
+Изменена логика блокировки снятия детали, если на ней установлена защита.
+Изменена логина определения TSARZones, для ускорения запуска сервера.
+Исправлена ошибка из-за которой не получалось открыть палатку в мультиплеере.
+Удалены все лишние рецепты и предметы для мускул-каров.
+
+Added Italian translation (thanks to Lollo11).
+Added a setting for the car painting animation.
+Added new rules and templates, improved logic and checks for Tuning 2.0.
+Changed the logic of blocking the removal of the part, if it is installed protection.
+Changed TSARZones definition logic, to speed up server startup.
+Fixed a bug that made it impossible to open the tent in multiplayer.
+Removed all unnecessary recipes and items for muscle cars.
+
+-------------------
 v.2.01
 2023-03-18
 

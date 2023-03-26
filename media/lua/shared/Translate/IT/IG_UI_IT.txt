@@ -1,5 +1,61 @@
 IG_UI_IT = {
-	/* template_ata_6wheels.txt */
+/************ Tuning 2.0 ************/
+    IGUI_InfoPanel_Tuning = "<CENTRE> <SIZE:medium> Pannello di modifica del veicolo <LINE> <LINE> <LEFT> <SIZE:small> O pannello della messa a punto. Qui e' riportato un elenco di ricette disponibili per la modifica del veicolo.<LINE> <LINE> Normalmente, tutte le ricette disponibili sono sempre visualizzate in questo pannello, ma ci sono anche ricette che non appaiono se non si soddisfano alcune condizioni. Le condizioni possono essere: si possiede un'abilita'; e' disponibile un determinato oggetto; e' stato raggiunto il livello di personaggio richiesto. <LINE> <LINE> Le risorse presenti nell'inventario vengono utilizzate per creare oggetti. Inoltre, il personaggio prende le risorse dai contenitori vicini, compreso il pavimento. <LINE> <LINE> A questo punto, le parti installate tramite il menu di messa a punto non possono essere riparate senza essere rimosse e la maggior parte di esse si smontera' in parti una volta rimosse.",
+
+    IGUI_TuningCategory_General = "Generale",
+    IGUI_TuningCategory_Installed = "Installato",
+    IGUI_TuningCategory_ProtectionWindow = "Protezione finestra",
+    IGUI_TuningCategory_Bullbars = "Paraurti tubolare",
+    IGUI_TuningCategory_Bags = "Borse",
+    IGUI_TuningCategory_Another = "Altro",
+    IGUI_TuningCategory_Trunks = "Bagagliai",
+    IGUI_TuningCategory_Protection = "Protezione",
+    IGUI_TuningCategory_Storage = "Deposito",
+    IGUI_TuningCategory_Bumpers = "Paraurti",
+    IGUI_TuningCategory_Visual = "Decorazioni",
+
+    IGUI_ATA2_Bullbar = "Paraurti tubolare",
+    IGUI_ATA2_Bullbar_Police = "Paraurti tubolare della Polizia",
+    IGUI_ATA2_Bullbar_Handmade = "Paraurti tubolare fatto a mano",
+    IGUI_ATA2_Bullbar_Lethal = "Paraurti tubolare letale",
+    IGUI_ATA2_Bullbar_Enhanced = "Paraurti tubolare migliorato",
+    IGUI_ATA2_Bullbar_Spiked_Plough = "Aratro chiodato",
+
+    IGUI_ATA2_Bumper = "Paraurti",
+    IGUI_ATA2_Bumper_Classic = "Paraurti classico",
+    IGUI_ATA2_Bumper_Winch = "Paraurti con verricello",
+    IGUI_ATA2_Bumper_Lethal = "Paraurti letale",
+
+    IGUI_ATA2_Spoiler = "Alettone",
+    IGUI_ATA2_Spoiler_Low = "Alettone basso",
+    IGUI_ATA2_Spoiler_Middle = "Alettone centrale",
+    IGUI_ATA2_Spoiler_High = "Alettone alto",
+
+    IGUI_TuningUI_Title = "Modifiche del veicolo",
+    IGUI_TuningUI_NeedBeEmpty = "Deve essere vuoto",
+    IGUI_TuningUI_Install = "Installa",
+    IGUI_TuningUI_Uninstall = "Disinstalla",
+    IGUI_TuningUI_AlreadyInstall = "Un oggetto simile e' gia' stato installato",
+    IGUI_TuningUI_NotInstall = "Non installato. Credo che qualcuno abbia fregato",
+    
+    IGUI_TuningUI_RequiredItems = "Oggetti utilizzati:",
+    IGUI_TuningUI_RequiredTools = "Attrezzi necessari:",
+    IGUI_TuningUI_Result = "Risultato:",
+    IGUI_TuningUI_RequiredInstalled = "Deve essere installato:",
+    IGUI_TuningUI_RequiredUninstalled = "Deve essere rimosso:",
+    IGUI_TuningUI_ProtectionFor = "Protezione:",
+    IGUI_TuningUI_Condition = "Condizioni:",
+    IGUI_TuningUI_NotLearn = "Non conosco la ricetta",
+
+    IGUI_PlayerText_ATA_Engine = "Non riesco a raggiungere il motore.<br>Prima devo rimuovere il paraurti tubolare",
+
+    IGUI_CraftCategory_Tuning = "Messa a punto",
+    IGUI_VehiclePartCattuning = "Messa a punto",
+    IGUI_VehiclePartCatprotection = "Protezione",
+    IGUI_ExitVehicleTent = "Esci dalla tenda",
+
+
+/* template_ata_6wheels.txt */
     IGUI_VehiclePartTireMiddleRight = "Pneumatico posteriore destro",
     IGUI_VehiclePartTireMiddleLeft = "Pneumatico posteriore sinistro",
     IGUI_VehiclePartSuspensionMiddleLeft = "Sospensione posteriore sinistra",
@@ -8,89 +64,182 @@ IG_UI_IT = {
     IGUI_VehiclePartBrakeMiddleRight = "Freno posteriore destro",
 
     /* template_ata_bags.txt */
-    IGUI_VehiclePartATABagOnProtectionWindowFrontLeft = "Borsa sulla protezione (sinistra)",
-    IGUI_VehiclePartATABagOnProtectionWindowFrontRight = "Borsa sulla protezione (destra)",
-    IGUI_VehiclePartATABagMotoLeft = "Borsa da moto (sinistra)",
-    IGUI_VehiclePartATABagMotoRight = "Borsa da moto (destra)",
-    IGUI_VehiclePartATABagMotoHolsterLeft = "Fondina per moto (sinistra)",
-    IGUI_VehiclePartATABagMotoHolsterRight = "Fondina per moto (destra)",
+    IGUI_VehiclePartATABagOnProtectionWindowFrontLeft = "Borsa su protezione sinistra",
+    IGUI_VehiclePartATABagOnProtectionWindowFrontRight = "Borsa su protezione destra",
+    IGUI_VehiclePartATABagMotoLeft = "Borsa da moto sinistra",
+    IGUI_VehiclePartATABagMotoRight = "Borsa da moto destra",
+    IGUI_VehiclePartATABagMotoHolsterLeft = "Fondina da moto sinistra",
+    IGUI_VehiclePartATABagMotoHolsterRight = "Fondina da moto destra",
 
-    /* template_ata_bampers.txt */
+    IGUI_VehiclePartATA2BagOnProtectionWindowFrontLeft = "Borsa su protezione sinistra",
+    IGUI_VehiclePartATA2BagOnProtectionWindowFrontRight = "Borsa su protezione destra",
+    IGUI_VehiclePartATA2BagMotoLeft = "Borsa da moto sinistra",
+    IGUI_VehiclePartATA2BagMotoRight = "Borsa da moto destra",
+    IGUI_VehiclePartATA2BagMotoHolsterLeft = "Fondina da moto sinistra",
+    IGUI_VehiclePartATA2BagMotoHolsterRight = "Fondina da moto destra",
+
+
+/* template_ata_bampers.txt */
     IGUI_VehiclePartATABumper = "Paraurti",
 
-    /* template_ata_bullbars.txt */
-    IGUI_VehiclePartATABullbar = "Barra di protezione",
+    IGUI_VehiclePartATA2Bumper = "Paraurti",
 
-    /* template_ata_headlights.txt */
-    IGUI_VehiclePartATAHeadlightsPopUP = "Fari a scomparsa",
 
-    /* template_ata_interactive_trunk.txt */
-    IGUI_VehiclePartATARoofBase = "Barre per tettuccio",
+/* template_ata_bullbars.txt */
+    IGUI_VehiclePartATA2Bullbar = "Paraurti tubolare",
+
+    IGUI_VehiclePartATABullbar = "Paraurti tubolare",
+
+
+/* template_ata_headlights.txt */
+    IGUI_VehiclePartATA2HeadlightsPopUP = "Fari a comparsa",
+    IGUI_VehiclePartATAHeadlightsPopUP = "Fari a comparsa",
+
+
+/* template_ata_interactive_trunk.txt */
+    IGUI_VehiclePartATA2RoofBase = "Barre da tettuccio",
+    IGUI_VehiclePartATA2InteractiveTrunkRoofRack = "Portapacchi",
+    IGUI_VehiclePartATA2InteractiveTrunkWheelRack = "Ripiano della ruota di scorta",
+    IGUI_VehiclePartATA2InteractiveTrunkWindowRearRack = "Griglia del parabrezza posteriore",
+    IGUI_VehiclePartATA2InteractiveTrunkFront = "Bagagliaio anteriore",
+    IGUI_VehiclePartATA2InteractiveTrunkRear = "Bagagliaio posteriore",
+
+    IGUI_VehiclePartATARoofBase = "Barre da tettuccio",
     IGUI_VehiclePartATAInteractiveTrunkRoofRack = "Portapacchi",
-    IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Supporto per ruota di scorta",
-    IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Griglia per parabrezza posteriore",
+    IGUI_VehiclePartATAInteractiveTrunkWheelRack = "Ripiano della ruota di scorta",
+    IGUI_VehiclePartATAInteractiveTrunkWindowRearRack = "Griglia del parabrezza posteriore",
     IGUI_VehiclePartATAInteractiveTrunkFront = "Bagagliaio anteriore",
     IGUI_VehiclePartATAInteractiveTrunkRear = "Bagagliaio posteriore",
+    IGUI_VehiclePartATA2RoofRackToolbox = "Cassetta degli attrezzi da tettuccio",
 
-    /* template_ata_lightbar.txt */
+
+/* template_ata_lightbar.txt */
+    IGUI_VehiclePartATA2LightBar = "Barra luminosa",
     IGUI_VehiclePartATALightBar = "Barra luminosa",
 
-    /* template_ata_moto_fake_wheels.txt */
-    IGUI_VehiclePartATAMotoTireFrontWheel = "Ruota anteriore",
-    IGUI_VehiclePartATAMotoTireRearWheel = "Ruota posteriore",
 
-    /* template_ata_protection.txt */
-    IGUI_VehiclePartATAProtectionWheels = "Protezione per le ruote",
-    IGUI_VehiclePartATAProtectionWheelsFront = "Protezione per le ruote anteriori",
-    IGUI_VehiclePartATAProtectionWheelsRear = "Protezione per le ruote posteriori",
-    IGUI_VehiclePartATAProtectionFrontWheels = "Protezione per le ruote anteriori",
-    IGUI_VehiclePartATAProtectionRearWheels = "Protezione per le ruote posteriori",
+/* template_ata_moto_fake_wheels.txt */
+    IGUI_VehiclePartATAMotoTireFrontWheel = "Pneumatico anteriore",
+    IGUI_VehiclePartATAMotoTireRearWheel = "Pneumatico posteriore",
 
-    IGUI_VehiclePartATAProtectionWindowFront = "Protezione per il parabrezza",
-    IGUI_VehiclePartATAProtectionWindowRear = "Protezione per il parabrezza posteriore",
-    IGUI_VehiclePartATAProtectionWindowFrontLeft = "Protezione per il finestrino anteriore sinistro",
-    IGUI_VehiclePartATAProtectionWindowFrontRight = "Protezione per il finestrino anteriore destro",
-    IGUI_VehiclePartATAProtectionWindowMiddleLeft = "Protezione per la finestra centrale sinistra",
-    IGUI_VehiclePartATAProtectionWindowMiddleRight = "Protezione per la finestra centrale destra",
-    IGUI_VehiclePartATAProtectionWindowRearLeft = "Protezione per il finestrino posteriore sinistro",
-    IGUI_VehiclePartATAProtectionWindowRearRight = "Protezione per il finestrino posteriore destro",
+
+/* template_ata_protection.txt */
+    IGUI_VehiclePartATA2ProtectionWheels = "Protezione delle ruote",
+    IGUI_VehiclePartATA2ProtectionWheelsFront = "Protezione delle ruote anteriori",
+    IGUI_VehiclePartATA2ProtectionWheelsRear = "Protezione delle ruote posteriori",
+    IGUI_VehiclePartATA2ProtectionFrontWheels = "Protezione delle ruote anteriori",
+    IGUI_VehiclePartATA2ProtectionRearWheels = "Protezione delle ruote posteriori",
+    IGUI_VehiclePartATA2ProtectionFrontLeftWheel = "Protezione della ruota anteriore sinistra",
+    IGUI_VehiclePartATA2ProtectionFrontRightWheel = "Protezione della ruota anteriore destra",
+    IGUI_VehiclePartATA2ProtectionRearLeftWheel = "Protezione della ruota posteriore sinistra",
+    IGUI_VehiclePartATA2ProtectionRearRightWheel = "Protezione della ruota posteriore destra",
+
+    IGUI_VehiclePartATA2ProtectionDoorFrontLeft = "Protezione della porta anteriore sinistra",
+    IGUI_VehiclePartATA2ProtectionDoorFrontRight = "Protezione della porta anteriore destra",
+    IGUI_VehiclePartATA2ProtectionDoorMiddleLeft = "Protezione della porta centrale sinistra",
+    IGUI_VehiclePartATA2ProtectionDoorMiddleRight = "Protezione della porta centrale destra",
+    IGUI_VehiclePartATA2ProtectionDoorRearLeft = "Protezione della porta posteriore sinistra",
+    IGUI_VehiclePartATA2ProtectionDoorRearRight = "Protezione della porta posteriore destra",
+    IGUI_VehiclePartATA2ProtectionDoorsRear = "Protezione della porta posteriore",
+
+    IGUI_VehiclePartATA2ProtectionWindshield = "Protezione del parabrezza",
+    IGUI_VehiclePartATA2ProtectionWindshieldRear = "Protezione del parabrezza posteriore",
+    IGUI_VehiclePartATA2ProtectionWindowsLeft = "Protezione della finestra sinistra",
+    IGUI_VehiclePartATA2ProtectionWindowsRight = "Protezione della finestra destra",
+    IGUI_VehiclePartATA2ProtectionWindowRear = "Protezione della finestra sul retro",
+    IGUI_VehiclePartATA2ProtectionWindowFrontLeft = "Protezione della finestra anteriore sinistra",
+    IGUI_VehiclePartATA2ProtectionWindowFrontRight = "Protezione della finestra anteriore destra",
+    IGUI_VehiclePartATA2ProtectionWindowMiddleLeft = "Protezione della finestra centrale sinistra",
+    IGUI_VehiclePartATA2ProtectionWindowMiddleRight = "Protezione della finestra centrale destra",
+    IGUI_VehiclePartATA2ProtectionWindowRearLeft = "Protezione della finestra posteriore sinistra",
+    IGUI_VehiclePartATA2ProtectionWindowRearRight = "Protezione della finestra posteriore destra",
+
+    IGUI_VehiclePartATA2ProtectionSideLeft = "Protezione sinistra",
+    IGUI_VehiclePartATA2ProtectionSideRight = "Protezione destra",
+    IGUI_VehiclePartATA2ProtectionSideFront = "Protezione frontale",
+    IGUI_VehiclePartATA2ProtectionSideRoof = "Protezione del tettuccio",
+
+    IGUI_VehiclePartATA2ProtectionSleeper = "Protezione della cuccetta",
+    IGUI_VehiclePartATA2ProtectionGasTank = "Protezione del serbatoio",
+    IGUI_VehiclePartATA2ProtectionHood = "Protezione del cofano",
+    IGUI_VehiclePartATA2ProtectionTrunk = "Protezione del bagagliaio",
+
+
+    IGUI_VehiclePartATAProtectionWheels = "Protezione delle ruote",
+    IGUI_VehiclePartATAProtectionWheelsFront = "Protezione delle ruote anteriori",
+    IGUI_VehiclePartATAProtectionWheelsRear = "Protezione delle ruote posteriori",
+    IGUI_VehiclePartATAProtectionFrontWheels = "Protezione delle ruote anteriori",
+    IGUI_VehiclePartATAProtectionRearWheels = "Protezione delle ruote posteriori",
+
+    IGUI_VehiclePartATAProtectionWindowFront = "Protezione del parabrezza",
+    IGUI_VehiclePartATAProtectionWindowRear = "Protezione del parabrezza posteriore",
+    IGUI_VehiclePartATAProtectionWindowFrontLeft = "Protezione della finestra anteriore sinistra",
+    IGUI_VehiclePartATAProtectionWindowFrontRight = "Protezione della finestra anteriore destra",
+    IGUI_VehiclePartATAProtectionWindowMiddleLeft = "Protezione della finestra centrale sinistra",
+    IGUI_VehiclePartATAProtectionWindowMiddleRight = "Protezione della finestra centrale destra",
+    IGUI_VehiclePartATAProtectionWindowRearLeft = "Protezione della finestra posteriore sinistra",
+    IGUI_VehiclePartATAProtectionWindowRearRight = "Protezione della finestra posteriore destra",
 
     IGUI_VehiclePartATAProtectionSideLeft = "Protezione sinistra",
     IGUI_VehiclePartATAProtectionSideRight = "Protezione destra",
     IGUI_VehiclePartATAProtectionSideFront = "Protezione frontale",
-    IGUI_VehiclePartATAProtectionSideRoof = "Protezione per tettuccio",
+    IGUI_VehiclePartATAProtectionSideRoof = "Protezione del tettuccio",
 
-    IGUI_VehiclePartATAProtectionSleeper = "Protezione per cuccetta",
-    IGUI_VehiclePartATAProtectionGasTank = "Protezione per il serbatoio del carburante",
-    IGUI_VehiclePartATAProtectionHood = "Protezione per il cofano",
-    IGUI_VehiclePartATAProtectionTrunk = "Protezione per il bagagliaio",
+    IGUI_VehiclePartATAProtectionSleeper = "Protezione della cuccetta",
+    IGUI_VehiclePartATAProtectionGasTank = "Protezione del serbatoio",
+    IGUI_VehiclePartATAProtectionHood = "Protezione del cofano",
+    IGUI_VehiclePartATAProtectionTrunk = "Protezione del bagagliaio",
 
-    /* template_ata_roof_lights.txt */
-    IGUI_VehiclePartATARoofLightFront = "Fari anteriori del tettuccio",
-    IGUI_VehiclePartATARoofLightLeft = "Fari di sinistra del tettuccio",
-    IGUI_VehiclePartATARoofLightRight = "Fari di destra del tettuccio",
-    IGUI_VehiclePartATARoofLightRear = "Fari posteriori del tettuccio",
 
-    IGUI_VehiclePartATARoofLampFront = "Lampadina per fari anteriori del tettuccio",
-    IGUI_VehiclePartATARoofLampLeft = "Lampadina per fari di sinistra del tettuccio",
-    IGUI_VehiclePartATARoofLampRight = "Lampadina per fari di destra del tettuccio",
-    IGUI_VehiclePartATARoofLampRear = "Lampadina per fari posteriori del tettuccio",
+/* template_ata_roof_lights.txt */
+    IGUI_VehiclePartATARoofLightFront = "Luci del tettuccio anteriori",
+    IGUI_VehiclePartATARoofLightLeft = "Luci del tettuccio di sinistra",
+    IGUI_VehiclePartATARoofLightRight = "Luci del tettuccio di destra",
+    IGUI_VehiclePartATARoofLightRear = "Luci del tettuccio posteriori",
 
-    /* template_ata_roof_tent.txt */
-    IGUI_VehiclePartATARoofTent = "Tenda per tettuccio",
+    IGUI_VehiclePartATARoofLampFront = "Lampadina delle luci anteriori del tettuccio",
+    IGUI_VehiclePartATARoofLampLeft = "Lampadina delle luci del tettuccio di sinistra",
+    IGUI_VehiclePartATARoofLampRight = "Lampadina delle luci del tettuccio di destra",
+    IGUI_VehiclePartATARoofLampRear = "Lampadina delle luci posteriori del tettuccio",
 
-    /* template_ata_spare_wheel.txt */
+    IGUI_VehiclePartATA2RoofLightFront = "Luci del tettuccio anteriori",
+    IGUI_VehiclePartATA2RoofLightLeft = "Luci del tettuccio di sinistra",
+    IGUI_VehiclePartATA2RoofLightRight = "Luci del tettuccio di destra",
+    IGUI_VehiclePartATA2RoofLightRear = "Luci del tettuccio posteriori",
+
+    IGUI_VehiclePartATA2RoofLampFront = "Lampadina delle luci anteriori del tettuccio",
+    IGUI_VehiclePartATA2RoofLampLeft = "Lampadina delle luci del tettuccio di sinistra",
+    IGUI_VehiclePartATA2RoofLampRight = "Lampadina delle luci del tettuccio di destra",
+    IGUI_VehiclePartATA2RoofLampRear = "Lampadina delle luci posteriori del tettuccio",
+
+
+/* template_ata_roof_tent.txt */
+    IGUI_VehiclePartATARoofTent = "Tenda da tettuccio",
+    IGUI_PlayerText_ATA_TentDontOpen = "La tenda deve essere vuota",
+    IGUI_VehiclePartATA2RoofTent = "Tenda da tettuccio",
+
+
+/* template_ata_spare_wheel.txt */
     IGUI_VehiclePartATASpareWheel = "Ruota di scorta",
 
-    /* template_ata_visual.txt */
+
+/* template_ata_visual.txt */
+    IGUI_VehiclePartATA2VisualLadder = "Scala",
+    IGUI_VehiclePartATA2VisualSpoilerFront = "Alettone anteriore",
+    IGUI_VehiclePartATA2VisualSpoilerRear = "Alettone",
+    IGUI_VehiclePartATA2VisualSkirtsSide = "Minigonne laterali",
+    IGUI_VehiclePartATA2VisualFendersWide = "Parafanghi larghi",
+    IGUI_VehiclePartATA2VisualSnorkel = "Boccaglio",
+
     IGUI_VehiclePartATAVisualLadder = "Scala",
-    IGUI_VehiclePartATAVisualSpoilerFront = "Spoiler frontale",
-    IGUI_VehiclePartATAVisualSpoilerRear = "Spoiler",
+    IGUI_VehiclePartATAVisualSpoilerFront = "Alettone anteriore",
+    IGUI_VehiclePartATAVisualSpoilerRear = "Alettone",
     IGUI_VehiclePartATAVisualSkirtsSide = "Minigonne laterali",
     IGUI_VehiclePartATAVisualFendersWide = "Parafanghi larghi",
-    IGUI_VehiclePartATAVisualSnorkel = "Presa d'aria",
+    IGUI_VehiclePartATAVisualSnorkel = "Boccaglio",
 
-    /* template_freeplace.txt */
+
+/* template_freeplace.txt */
     IGUI_VehiclePartFreeplace1FrontLeft = "Spazio libero (Anteriore sinistro)",
     IGUI_VehiclePartFreeplace2FrontLeft = "Spazio libero (Anteriore sinistro)",
     IGUI_VehiclePartFreeplace3FrontLeft = "Spazio libero (Anteriore sinistro)",
@@ -118,32 +267,15 @@ IG_UI_IT = {
     IGUI_VehiclePartFreestorageRearRight = "Spazio libero (Posteriore destro)",
     IGUI_VehiclePartfloor = "Spazio libero",
 
-    /* ATA */
-    IGUI_CloseHeadlightsPopUP = "Fari abbassati",
-    IGUI_OpenHeadlightsPopUP = "Fari alzati",
-    IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Non posso rompere una finestra finchÃ© Ã¨ protetta.",
+
+/* ATA */
+    IGUI_CloseHeadlightsPopUP = "Abbassa i fari",
+    IGUI_OpenHeadlightsPopUP = "Alza i fari",
+    IGUI_PlayerText_TRUEA_cant_vehicle_smash_window = "Non posso rompere una finestra finchÃ© c'e' una protezione.",
     IGUI_ItemCat_Tuning = "Messa a punto",
 
-    /************ Autotsar Tuning Atelier - Bus ************/
-    IGUI_VehiclePartATARoofRack = "Portapacchi",
-    IGUI_VehiclePartATARoofRackToolbox = "Cassetta degli attrezzi per il tettuccio",
-    IGUI_VehiclePartDoorProtection = "Protezione per la porta",
-    IGUI_VehiclePartDoorRearProtection = "Protezione per la porta posteriore",
-    IGUI_VehiclePartWheelsProtection = "Protezione per la ruota",
-    IGUI_VehiclePartWindowsFrontProtection = "Protezione per il parabrezza",
-    IGUI_VehiclePartWindowsLeftLiteProtection = "Protezione per il finestrino sinistro",
-    IGUI_VehiclePartWindowsLeftFullProtection = "Protezione per i finestrini di sinistra",
-    IGUI_VehiclePartWindowsRightProtection = "Protezione per i finestrini di destra",
 
-    IGUI_CraftCategory_Tuning = "Messa a punto",
-    IGUI_VehiclePartCattuning = "Messa a punto",
-    IGUI_VehiclePartCatprotection = "Protezione",
-    IGUI_ExitVehicleTent = "Esci dalla tenda",
-
-    IGUI_PlayerText_ATA_TentDontOpen = "La tenda deve essere vuota",
-    IGUI_PlayerText_ATA_Engine = "Non riesco a raggiungere il motore.<br>Prima devo rimuovere la barra di protezione",
-
-    /************ Aquatsar Yacht Club ************/
+/************ Aquatsar Yacht Club ************/
     IGUI_VehicleNameBoatSailingYacht = "Barca a vela",
     IGUI_VehicleNameBoatSailingYacht_Ground = "Barca a vela",
     IGUI_VehicleNameBoatMotor = "Motoscafo",
@@ -151,38 +283,38 @@ IG_UI_IT = {
     IGUI_VehicleNameTrailerWithBoatSailingYacht = "Autotsar BT-13M",
     IGUI_VehicleNameTrailerWithBoatMotor = "Autotsar BT-13M",
     IGUI_VehicleNameTrailerForBoat = "Autotsar BT-13M",
-
-    IGUI_VehiclePartPropeller = "Elica dell'imbarcazione",
+    
+    IGUI_VehiclePartPropeller = "Elica da imbarcazioni",
     IGUI_VehiclePartCatHouseholdSystem = "Sistema domestico",
     IGUI_VehiclePartCatMechanicalSystem = "Sistema meccanico",
     IGUI_VehiclePartCatElecticalSystem = "Sistema elettrico",
-    IGUI_VehiclePartCatBoatBody = "Corpo dell'imbarcazione",
-    IGUI_VehiclePartLightFloodlightLeft = "Riflettori di sinistra",
-    IGUI_VehiclePartLightFloodlightRight = "Riflettori di destra",
-    IGUI_VehiclePartLightCabin = "Luce della cabina di guida",
+    IGUI_VehiclePartCatBoatBody = "Corpo della barca",
+    IGUI_VehiclePartLightFloodlightLeft = "Faretti a sinistra",
+    IGUI_VehiclePartLightFloodlightRight = "Faretti a destra",
+    IGUI_VehiclePartLightCabin = "Luce del pozzetto",
     IGUI_VehiclePartManualStarter = "Avviamento a strappo",
     IGUI_VehiclePartSails = "Vele",
     IGUI_VehiclePartBoatName = "Nome dell'imbarcazione",
 
     IGUI_RenameBoat = "Rinomina l'imbarcazione",
-
+    
     IGUI_ExitBoat = "Scendi dall'imbarcazione",
     IGUI_EnterBoat = "Sali a bordo dell'imbarcazione",
-    IGUI_SailLeft = "Naviga a sinistra",
-    IGUI_SailRight = "Naviga a destra",
-
+    IGUI_SailLeft = "Vela a sinistra",
+    IGUI_SailRight = "Vela a destra",
+    
     IGUI_PlayerText_CanNotSwim = "Non so nuotare",
     IGUI_PlayerText_CabinlightDoNotWork = "Sembra che la luce non funzioni",
-    IGUI_PlayerText_FloodlightsDoNotWork = "I riflettori non funzionano",
-    IGUI_PlayerText_PontoonNeeded = "Qui Ã¨ necessario un pontile",
-    IGUI_PlayerText_CanNotSleepInMovingBoat = "Devo rallentare l'imbarcazione",
-    IGUI_PlayerText_NoPower = "Non c'Ã¨ energia.",
-    IGUI_PlayerText_CabinIsLocked = "La porta della cabina Ã¨ chiusa",
-    IGUI_PlayerText_BoatSeatBlock = "Non riesco ad entrare",
-
-    IGUI_SwitchPlace = "Vai a..",
-    IGUI_BoatSeat_Self = "Sei giÃ  qui",
-    IGUI_BoatSeat_Person = "C'Ã¨ giÃ  una persona qui",
+    IGUI_PlayerText_FloodlightsDoNotWork = "I faretti non funzionano",
+    IGUI_PlayerText_PontoonNeeded = "Qui e' necessario un pontone",
+    IGUI_PlayerText_CanNotSleepInMovingBoat = "Devo rallentare l'imbarcazione", 
+    IGUI_PlayerText_NoPower = "Non c'e' energia.",
+    IGUI_PlayerText_CabinIsLocked = "La porta della cabina e' chiusa",
+    IGUI_PlayerText_BoatSeatBlock = "Non si riesce ad entrare",
+    
+    IGUI_SwitchPlace = "Vai verso..",
+    IGUI_BoatSeat_Self = "Sei gia' qui",
+    IGUI_BoatSeat_Person = "C'e' una persona qui",
     IGUI_BoatSeat_Items = "Ci sono degli oggetti nel corridoio",
     IGUI_BoatSeat_MoveItems = "Gli oggetti del corridoio saranno<br>spostati in un'altra posizione.",
     IGUI_BoatSeat_ExitToSwitch = "Devo scendere dalla barca",
@@ -193,44 +325,44 @@ IG_UI_IT = {
     IGUI_BoatSeatRearLeft = "Vai qui",
     IGUI_BoatSeatMiddleRight = "Vai qui",
     IGUI_BoatSeatMiddleLeft = "Vai qui",
-
-    IGUI_chance = "PossibilitÃ ",
+    
+    IGUI_chance = "Possibilita'",
     IGUI_EAST = "Est",
     IGUI_SOUTH = "Sud",
     IGUI_WEST = "Ovest",
     IGUI_NORTH = "Nord",
     IGUI_SwimUI_Title = "Galleggia via",
-    IGUI_playerCanSwim = "Puoi nuotare.",
-    IGUI_playerCantSwim = "Non puoi nuotare.",
+    IGUI_playerCanSwim = "Si puÃ² nuotare.",
+    IGUI_playerCantSwim = "Non si puÃ² nuotare.",
 
     IGUI_DropToWater = "Getta in acqua",
     IGUI_SwimToPoint = "Nuota",
-    IGUI_SwimTo = "Nuota a %1",
+    IGUI_SwimTo = "Nuota verso %1",
     IGUI_SwimToLand = "Nuota verso la riva",
     IGUI_Exit_Boat = "Nuoto libero",
     IGUI_JumpInWater = "Salta in acqua",
 
     IGUI_SwimWord_Endurance1 = "Sono stanco, ho bisogno di riposare",
-    IGUI_SwimWord_Endurance2 = "Sarebbe meglio fare una pausa",
+    IGUI_SwimWord_Endurance2 = "E' bello prendersi una pausa",
     IGUI_SwimWord_Endurance3 = "Meglio nuotare verso la riva",
-    IGUI_SwimWord_Endurance4 = "RisparmierÃ² le forze nuotando piÃ¹ lentamente",
+    IGUI_SwimWord_Endurance4 = "Risparmiero' le forze nuotando piu' lentamente",
     IGUI_SwimWord_Endurance5 = "...",
 
     IGUI_SwimWord_Damage1 = "Sto iniziando ad affogare. Ho bisogno di riposare.",
     IGUI_SwimWord_Damage2 = "Crampo alla gamba, devo andare a riva!",
     IGUI_SwimWord_Damage3 = "Crampo alla mano, ho urgente bisogno di andare a riva!",
-    IGUI_SwimWord_Damage4 = "Basta, amico! Lasciami riposare.",
+    IGUI_SwimWord_Damage4 = "Fermati, amico! Dammi tregua.",
     IGUI_SwimWord_Damage5 = "Aiuto!!!",
 
     IGUI_SwimWord_LostItems1 = "Ah, ho perso le mie cose",
-    IGUI_SwimWord_LostItems2 = "Dovevo liberarmi del carico in eccesso",
-    IGUI_SwimWord_LostItems3 = "Alcune cose sono finite sul fondo",
-
+    IGUI_SwimWord_LostItems2 = "Ho dovuto liberarmi del carico in eccesso",
+    IGUI_SwimWord_LostItems3 = "Alcune cose sono finite sul fondale",
+    
     IGUI_sayWindInfo = "Rileva la direzione del vento",
-    IGUI_needBeOutside_tosayWindInfo = "Non Ã¨ possibile rilevare il vento dall'interno",
-    IGUI_Wind = "Il vento Ã¨",
-    IGUI_Wind_in = "in",
-    IGUI_Wind_direction = "direzione.",
+    IGUI_needBeOutside_tosayWindInfo = "Non Ã¨ possibile rilevare il vento al chiuso",
+    IGUI_Wind = "Il vento e'",
+    IGUI_Wind_in = "nella",
+    IGUI_Wind_direction = "direzione",
     IGUI_Wind_NoWind = "Assolutamente calmo.",
     IGUI_Wind_VeryLight = "molto leggero",
     IGUI_Wind_Light = "leggero",
@@ -249,21 +381,42 @@ IG_UI_IT = {
     IGUI_Wind_NE = "nord-est",
 
     IGUI_RepairSail = "Ricuci la vela",
-    IGUI_CantRepairSails = "Tessuto, ago, filo e livello di sartoria 4 richiesto per la riparazione della vela.",
-    
-    /* Common Library */
+    IGUI_CantRepairSails = "Tessuto, ago, filo e livello di sartoria 4 richiesti per la riparazione della vela.",
 
+/************ Agrotsar Farming Company ************/
+    IGUI_VehicleNameAgrotractor = "Oleg Deere 48342",
+    IGUI_VehicleNameTrailerAgroplough = "Aratro Agrotsar-69",
+    IGUI_VehicleNameTrailerAgroseeder = "Seminatrice Agrotsar-2000",
+	
+    IGUI_VehiclePartAgroSeederTankLeft = "Serbatoi di semina a sinistra",
+    IGUI_VehiclePartAgroSeederTankRight = "Serbatoi di semina a destra",
+    IGUI_VehiclePartAgroSeederPlateLeft= "Dischi di semina a sinistra",
+    IGUI_VehiclePartAgroSeederPlateRight = "Dischi di semina a destra",
+    IGUI_VehiclePartAgroPlowshareLeft= "Vomeri a sinistra",
+    IGUI_VehiclePartAgroPlowshareRight = "Vomeri a destra",
+
+    IGUI_Agro_Plow_TurnOn = "Abbassa l'aratro",
+    IGUI_Agro_Plow_TurnOff = "Solleva l'aratro",
+    IGUI_Agro_Seeder_TurnOn = "Accendi seminatrice",
+    IGUI_Agro_Seeder_TurnOff = "Spegni seminatrice",
+    IGUI_Agro_Trailer_RequireEngine = "Avvia il motore per prima cosa",
+    IGUI_Agro_Trailer_Broken = "Mancano le parti necessarie",
+
+/* Common Library */
     IGUI_VehiclePartshelves = "Scaffali",
     IGUI_VehiclePartstove = "Cucina",
+    IGUI_VehiclePartOven = "Forno",
     IGUI_VehiclePartfridge = "Frigo",
+    IGUI_VehiclePartFridge = "Frigo",
     IGUI_VehiclePartcounter = "Bancone",
+    IGUI_VehiclePartCounter = "Bancone",
     IGUI_VehiclePartportablemicrowave = "Microonde",
     IGUI_VehiclePartmicrowave = "Microonde",
     IGUI_VehiclePartfreezer = "Congelatore",
     IGUI_VehiclePartwardrobe = "Armadio",
     IGUI_VehiclePartmedicine = "Armadietto",
     IGUI_VehiclePartsidetable = "Cassetto",
-    IGUI_VehiclePartseatboxwooden = "Scatola per sedili",
+    IGUI_VehiclePartseatboxwooden = "Vano del sedile",
     IGUI_UseStove = "Usa cucina",
     IGUI_UseMicrowave = "Usa microonde",
     IGUI_Turn_Fridge_On = "Accendi il frigo",
@@ -276,73 +429,119 @@ IG_UI_IT = {
     IGUI_VehiclePartFridgeMiddleRight = "Frigo",
     IGUI_VehiclePartFridgeRearLeft = "Frigo",
     IGUI_VehiclePartFridgeRearRight = "Frigo",
-    IGUI_VehiclePartOvenFrontLeft = "Forno",
-    IGUI_VehiclePartOvenFrontRight = "Forno",
-    IGUI_VehiclePartOvenMiddleLeft = "Forno",
-    IGUI_VehiclePartOvenMiddleRight = "Forno",
-    IGUI_VehiclePartOvenRearLeft = "Forno",
-    IGUI_VehiclePartOvenRearRight = "Forno",
+    IGUI_VehiclePartOvenFrontLeft = "Cucina",
+    IGUI_VehiclePartOvenFrontRight = "Cucina",
+    IGUI_VehiclePartOvenMiddleLeft = "Cucina",
+    IGUI_VehiclePartOvenMiddleRight = "Cucina",
+    IGUI_VehiclePartOvenRearLeft = "Cucina",
+    IGUI_VehiclePartOvenRearRight = "Cucina",
     IGUI_VehiclePartMicrowaveFrontLeft = "Microonde",
     IGUI_VehiclePartMicrowaveFrontRight = "Microonde",
     IGUI_VehiclePartMicrowaveMiddleLeft = "Microonde",
     IGUI_VehiclePartMicrowaveMiddleRight = "Microonde",
     IGUI_VehiclePartMicrowaveRearLeft = "Microonde",
     IGUI_VehiclePartMicrowaveRearRight = "Microonde",
-    IGUI_VehiclePartMattressFrontLeft = "Cuccetta",
-    IGUI_VehiclePartMattressFrontLeft = "Cuccetta",
-    IGUI_VehiclePartMattressMiddleLeft = "Cuccetta",
-    IGUI_VehiclePartMattressMiddleRight = "Cuccetta",
-    IGUI_VehiclePartMattressRearLeft = "Cuccetta",
-    IGUI_VehiclePartMattressRearRight = "Cuccetta",
+    IGUI_VehiclePartMattressFrontLeft = "Materasso",
+    IGUI_VehiclePartMattressFrontLeft = "Materasso",
+    IGUI_VehiclePartMattressMiddleLeft = "Materasso",
+    IGUI_VehiclePartMattressMiddleRight = "Materasso",
+    IGUI_VehiclePartMattressRearLeft = "Materasso",
+    IGUI_VehiclePartMattressRearRight = "Materasso",
     IGUI_VehiclePartBatteryHeater = "Riscaldamento",
-    IGUI_VehiclePart500FuelTank = "Serbaotio del carburante",
-    IGUI_VehiclePart1000FuelTank = "Serbaotio del carburante",
-    IGUI_VehiclePartCounter = "Bancone",
-    IGUI_VehiclePartFridge = "Frigorifero",
-    IGUI_VehiclePartOven = "Forno",
-    IGUI_VehiclePartfridge = "Frigorifero",
-    IGUI_VehiclePartstove = "Cucina",
     IGUI_VehiclePartRoofrack = "Portapacchi",
     IGUI_VehiclePartTV = "Televisione",
-    IGUI_VehiclePartMattress = "Cuccetta",
+    IGUI_VehiclePartMattress = "Materasso",
     IGUI_VehiclePartGunRack = "Rastrelliera per armi",
-    IGUI_PlayerText_CanNotSleepInMovingCar_Mattress = "Ferma il veicolo<br>per dormire nella cuccetta.",
-    IGUI_Sleep_NotTiredEnough_Mattress = "Non sei ancora abbastanza stanco<br>per dormire nella cuccetta.",
-    IGUI_Turn_Oven_On = "Accendi il forno",
+    IGUI_VehiclePart500FuelTank = "Serbatoio del carburante",
+    IGUI_VehiclePart1000FuelTank = "Serbatoio del carburante",
+    IGUI_PlayerText_CanNotSleepInMovingCar_Mattress = "Fermare prima il veicolo<br>per dormire nel materasso.",
+    IGUI_Sleep_NotTiredEnough_Mattress = "Non sei ancora abbastanza stanco<br>per dormire nel materasso.",
+    IGUI_Turn_Oven_On = "Accendi il forno", 
     IGUI_Turn_Oven_Off = "Spegni il forno",
     IGUI_VehiclePartCatBatteryCharger = "Caricabatterie",
-    IGUI_VehiclePartBatteryChargerA = "Posto per batteria",
-    IGUI_VehiclePartBatteryChargerB = "Posto per batteria",
-    IGUI_VehiclePartBatteryChargerC = "Posto per batteria",
+    IGUI_VehiclePartBatteryChargerA = "Posto batteria",
+    IGUI_VehiclePartBatteryChargerB = "Posto batteria",
+    IGUI_VehiclePartBatteryChargerC = "Posto batteria",
 
-    /************ Autotsar Tuning Atelier - Bus ************/
 
+/************ Autotsar Motorclub ************/
+    IGUI_VehicleNameAMC_bmw_classic = "BWM R80/7 Classica",
+    IGUI_VehicleNameAMC_bmw_custom = "BWM R80/7 Personalizzata",
+    IGUI_VehicleNameAMC_harley = "Xarley-Davitsan Sportstep del '86",
+    IGUI_VehicleNameAMC_quad = "Suvzuki Quadruiner",
+    IGUI_VehicleNameAMC_Waverunner = "Yamama Waveruiner 650TL",
+    IGUI_VehicleNameAMC_Waverunner_Ground = "Yamama Waveruiner 650TL",
+    IGUI_VehicleNameTrailerAMC = "Rimorchio porta moto Autotsar-2M",
+    IGUI_VehicleNameTrailerAMCWaverunner = "Rimorchio cisterna Autotsar-3M",
+    IGUI_VehicleNameTrailerAMCWaverunnerWithBody = "Yamama Waveruiner 650TL",
+
+
+/************ Autotsar Trailers ************/
+    IGUI_VehiclePartCatGenerator = "Generatore",
+    IGUI_VehiclePartEarthingOn = "Messa a terra",
+    IGUI_VehiclePartEarthingOff = "cavo di alimentazione scollegato",
+
+
+/************ True Actions ************/
+    IGUI_PlayerText_TRUEA_cant_lie = "E' pericoloso sdraiarsi ora.",
+    IGUI_PlayerText_TRUEA_cant_sit = "E' pericoloso sedersi ora.",
+    IGUI_PlayerText_TRUEA_need_come_closer = "Occorre avvicinarsi di piu'.",
+    IGUI_PlayerText_TRUEA_bed_away_wall = "E' necessario liberare il passaggio verso il letto.",
+    IGUI_PlayerText_TRUEA_OccupiedPhrases_Sit_1 = "Sei in pausa caffe'?",
+    IGUI_PlayerText_TRUEA_OccupiedPhrases_Lie_1 = "PerchÃ© stai riposando in questo modo?",
+    IGUI_PlayerText_TRUEA_OccupiedPhrases_2 = "Ti sei riposato? Ora tocca a me.",
+    IGUI_PlayerText_TRUEA_OccupiedPhrases_3 = "Dammi il posto, per favore.",
+    IGUI_PlayerText_TRUEA_dont_push_1 = "Perche' stai spingendo?",
+    IGUI_PlayerText_TRUEA_dont_push_2 = "Non spingere!",
+    IGUI_PlayerText_TRUEA_dont_push_3 = "Lasciami riposare!",
+
+
+/************ True Music ************/
+    IGUI_media_dragCassette = "Inserisci cassetta",
+    IGUI_media_dragVinyl = "Inserisci vinile",
+    IGUI_TC_connect_speaker = "Collega l'altoparlante",
+    IGUI_PlayerText_TC_need_speaker = "L'altoparlante deve trovarsi accanto al giradischi.",
+    IGUI_MusicOptionsCar = "Lettore di cassette",
+    IGUI_TC_connect_headphones = "Servono le cuffie",
+
+
+/************ Autotsar Tuning Atelier - Bus ************/
+    IGUI_VehiclePartATARoofRack = "Portapacchi",
+    IGUI_VehiclePartATARoofRackToolbox = "Cassetta degli attrezzi da tettuccio",
+    IGUI_VehiclePartDoorProtection = "Protezione della porta",
+    IGUI_VehiclePartDoorRearProtection = "Protezione della porta posteriore",
+    IGUI_VehiclePartWheelsProtection = "Protezione della ruota",
+    IGUI_VehiclePartWindowsFrontProtection = "Protezione del parabrezza",
+    IGUI_VehiclePartWindowsLeftLiteProtection = "Protezione della finestra sinistra",
+    IGUI_VehiclePartWindowsLeftFullProtection = "Protezione delle finestre di sinistra",
+    IGUI_VehiclePartWindowsRightProtection = "Protezione delle finestre di destra",
+
+/************ Autotsar Vehicle Names ************/
+    IGUI_VehicleNameTrailerFirst = "Autotsar GNV 250",
+    IGUI_VehicleNameTrailerSecond = "Autotsar GNV 500",
+    IGUI_VehicleNameTrailerHome = "Autotsar iLYA-1990",
+    IGUI_VehicleNameTrailerHomeHartman = "Autotsar iLYA-1990 Â«HartmanÂ»",
+    IGUI_VehicleNameTrailerHomeExplorer = "Autotsar iLYA-1990 Â«EsploratoreÂ»",
+    IGUI_VehicleNameTrailerKbac = "Autotsar KBAC",
+    IGUI_VehicleNameTrailerGenerator = "Autotsar GENA-220",
+    IGUI_VehicleNameATAPetyarbuilt = "Petyarbuilt 379",
+    IGUI_VehicleNameATAPetyarbuiltSleeper = "Petyarbuilt 379",
+    IGUI_VehicleNameATAPetyarbuiltSleeperLong = "Petyarbuilt 379",
+    IGUI_VehicleNameTrailerTSMega = "Semirimorchio Autotsar",
     IGUI_VehicleNameATAArmyBus = "Bear Bus - Edizione dell'esercito",
-    IGUI_VehicleNameATASchoolBus = "Bear Bus - Edizione scuola",
+    IGUI_VehicleNameATASchoolBus = "Bear Bus - Edizione scolastica",
     IGUI_VehicleNameATAPrisonBus = "Bear Bus - Edizione carceraria",
-
-    /************ Autotsar Tuning Atelier - Jeep ************/
-
+    IGUI_VehicleNameATABMWe36 = "Bumer 36E",
+    IGUI_VehicleNameATABMWe36M3 = "Bumer 36E M3",
     IGUI_VehicleNameATAJeepClassic = "Jaap Wrungel Classica",
     IGUI_VehicleNameATAJeepRubicon = "Jaap Wrungel Rubicon",
     IGUI_VehicleNameATAJeepArcher = "Jaap Wrungel Archer",
-
-
-    /************ Autotsar Trailers ************/
-    IGUI_VehiclePartCatGenerator = "Generatore",
-    IGUI_VehiclePartEarthingOn = "Cavo elettrico connesso",
-    IGUI_VehiclePartEarthingOff ="Cavo elettrico disconnesso",
-
-    /************ True Actions ************/
-    IGUI_PlayerText_TRUEA_cant_lie = "Ãˆ pericoloso rilassarsi adesso.",
-    IGUI_PlayerText_TRUEA_cant_sit = "Ãˆ pericoloso sedersi adesso.",
-    IGUI_PlayerText_TRUEA_need_come_closer = "Ãˆ necessario avvicinarsi di piÃ¹.",
-    IGUI_PlayerText_TRUEA_bed_away_wall = "Ãˆ necessario liberare il passaggio verso il letto.",
-    IGUI_PlayerText_TRUEA_OccupiedPhrases_Sit_1 = "Sei in pausa caffÃ¨?",
-    IGUI_PlayerText_TRUEA_OccupiedPhrases_Lie_1 = "Come fai a rilassarti in queste condizioni?",
-    IGUI_PlayerText_TRUEA_OccupiedPhrases_2 = "Hai riposato? Ora tocca a me.",
-    IGUI_PlayerText_TRUEA_OccupiedPhrases_3 = "Lasciami il posto, per favore.",
-    IGUI_PlayerText_TRUEA_dont_push_1 = "PerchÃ© stai spingendo?",
-    IGUI_PlayerText_TRUEA_dont_push_2 = "Non spingere!",
-    IGUI_PlayerText_TRUEA_dont_push_3 = "Lasciami riposare!",
+    IGUI_VehicleNameATADodge = "Dadge Steals RT Doppio turbo",
+    IGUI_VehicleNameATADodgePpg = "Dadge Steals RT Doppio turbo PPG",
+    IGUI_VehicleNameATAMustangClassic = "Fjord Mustard Classica",
+    IGUI_VehicleNameATAMustangPolice = "Fjord Mustard della Polizia",
+    IGUI_VehicleNameATASamaraClassic= "Chevalier Samara Classica",
+    IGUI_VehicleNameATASamaraPolice= "Chevalier Samara della Polizia",
+    IGUI_VehicleNameATA_Luton= "Furgone MolksAgen Luton",
+    IGUI_VehicleNameATA_VanDeRumba= "Furgone DeRumba",
 }

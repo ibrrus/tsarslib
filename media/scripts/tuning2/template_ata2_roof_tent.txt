@@ -73,6 +73,7 @@ module Base
             {
                 create = ATATuning2.Create.Tuning,
                 init = ATATuning2.Init.RoofTent,
+                use = ATATuning2.Use.RoofTent,
             }
         }
         

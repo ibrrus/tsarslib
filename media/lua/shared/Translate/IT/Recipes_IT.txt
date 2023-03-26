@@ -1,5 +1,163 @@
 Recipe_IT = {
-	Recipe_Make_a_compact_fridge = "Crea un frigorifero compatto",
-	Recipe_Make_a_compact_stove = "Crea una stufa compatta",
-	Recipe_Make_a_compact_microwave = "Crea un microonde compatto",
+    Recipe_ATADodgeRecipes = "Messa a punto della Dadge",
+    Recipe_ATABusRecipes = "Messa a punto del Bus",
+    Recipe_ATAJeepRecipes = "Messa a punto della Jaap",
+    Recipe_ATABMWe36Recipes = "Messa a punto della BWM 36E",
+
+    Recipe_Cut_ATABullbar1Item = "Smonta paraurti tubolare",
+    Recipe_Cut_ATABullbar2Item = "Smonta paraurti tubolare",
+    Recipe_Cut_ATAFendersWideItem = "Smonta parafanghi",
+    Recipe_Cut_ATASkirtsSideItem = "Smonta minigonne",
+    Recipe_Cut_ATASpoilerFrontItem = "Smonta alettone",
+    Recipe_Cut_ATASpoilerRear1Item = "Smonta alettone",
+    Recipe_Cut_ATASpoilerRear2Item = "Smonta alettone",
+
+
+/* transport_item.txt */
+    Recipe_Make_TransportCounter = "Costruisci un bancone portatile",
+    Recipe_Make_TransportCupboard = "Costruisci un armadio portatile",
+    Recipe_Make_TransportShelve = "Costruisci uno scaffale portatile",
+    Recipe_Make_a_compact_fridge = "Crea un frigo compatto",
+    Recipe_Make_a_compact_stove = "Crea una cucina compatta",
+    Recipe_Make_a_compact_microwave = "Crea un microonde compatto",
+    
+/* ATA */
+    Recipe_Make_ATAProtectionWheelsItem = "Crea protezione delle ruote",
+    Recipe_Cut_ATAProtectionWheelsItem = "Stacca protezione delle ruote",
+    Recipe_Basic_Tuning = "Messa a punto di base",
+    
+    
+/************ Autotsar Motorclub ************/
+    Recipe_Make_ATAMotoBMWCustomMuffler = "Crea silenziatore personalizzato per BWM R80/7",
+    
+    
+/************ Aquatsar Yacht Club ************/
+    Recipe_Extract_Tire_Tube = "Estrai la camera d'aria del pneumatico",
+    Recipe_Flatten_Tire_Tube = "Sgonfia la camera d'aria",
+    Recipe_Inflate_Tire_Tube = "Gonfia la camera d'aria",
+    Recipe_Powerboats_Mechanics = "Meccanica delle barche a motore",
+    Recipe_Sailboats_Mechanics = "Meccanica delle barche a vela",
+    Recipe_Performance_Boat_Mechanics = "Meccanica delle imbarcazioni ad alte prestazioni",
+    Recipe_Swimming = "Migliore tecnica di nuoto",
+
+/************ Agrotsar Farming Company ************/
+    Recipe_Make_ASeederTankSmall = "Crea serbatoio di semina piccolo",
+    Recipe_Make_ASeederTankMedium = "Crea serbatoio di semina medio",
+    Recipe_Make_ASeederTankLarge = "Crea serbatoio di semina grande",
+    Recipe_Make_ASeederPlate = "Crea disco da semina",
+    Recipe_Make_APlowshare = "Crea vomere",
+
+
+/************ Autotsar Tuning Atelier - Bus ************/
+    Recipe_Make_ATABusKengur1Item = "Crea un paraurti tubolare per Bear Bus",
+    Recipe_Make_ATABusKengur2Item = "Crea un paraurti tubolare migliorato per Bear Bus",
+    Recipe_Make_ATABusKengur3Item = "Crea un aratro chiodato per Bear Bus",
+    Recipe_Make_ATABusRoofRack = "Crea portapacchi per Bear Bus",
+    Recipe_Make_ATABusProtectionDoorItem = "Crea protezione della porta per Bear Bus",
+    Recipe_Make_ATABusProtectionDoorRearItem = "Crea protezione della porta posteriore per Bear Bus",
+    Recipe_Make_ATABusProtectionWheelsItem = "Crea protezione delle ruote per Bear Bus",
+    Recipe_Make_ATABusProtectionWindowsFrontItem = "Crea protezione del parabrezza per Bear Bus",
+    Recipe_Make_ATABusProtectionWindowsRightItem = "Crea protezione delle finestre di destra per Bear Bus",
+    Recipe_Make_ATABusProtectionWindowsLeftItem = "Crea protezione delle finestre di sinistra per Bear Bus",
+    Recipe_Make_ATABusRoofBoxItem = "Crea cassetta degli attrezzi per Bear Bus",
+    
+
+/************ Autotsar Tuning Atelier - Jaap Wrungel ************/
+    Recipe_Cut_ATAJeepBumper1Item = "Smonta paraurti per Jaap Wrungel",
+    Recipe_Cut_ATAJeepBumper2Item = "Smonta paraurti per Jaap Wrungel",
+    Recipe_Cut_ATAJeepBumper3Item = "Smonta paraurti per Jaap Wrungel",
+    Recipe_Cut_ATAJeepBumper4Item = "Smonta paraurti per Jaap Wrungel",
+    Recipe_Make_ATAJeepBumper4Item = "Crea paraurti letale per Jaap Wrungel",
+    Recipe_Make_ATAJeepInteractiveTrunkRoofRackItem = "Crea portapacchi per Jaap Wrungel",
+    Recipe_Cut_ATAJeepInteractiveTrunkRoofRackItem = "Smonta portapacchi per Jaap Wrungel",
+    Recipe_Make_ATAJeepInteractiveTrunkWheelRackItem = "Crea ripiano su ruota di scorta per Jaap Wrungel",
+    Recipe_Cut_ATAJeepInteractiveTrunkWheelRackItem = "Smonta ripiano su ruota di scorta per Jaap Wrungel",
+    Recipe_Make_ATAJeepProtectionWindowItem = "Crea protezione della finestra per Jaap Wrungel",
+    Recipe_Cut_ATAJeepProtectionWindowItem = "Smonta protezione della finestra per Jaap Wrungel",
+    Recipe_Make_ATAJeepProtectionWindowFrontItem = "Crea protezione del parabrezza per Jaap Wrungel",
+    Recipe_Cut_ATAJeepProtectionWindowFrontItem = "Smonta protezione del parabrezza per Jaap Wrungel",
+    Recipe_Make_ATAJeepProtectionWindowRearItem = "Crea protezione del parabrezza posteriore per Jaap Wrungel",
+    Recipe_Cut_ATAJeepProtectionWindowRearItem = "Smonta protezione del parabrezza posteriore per Jaap Wrungel",
+    Recipe_Make_ATAJeepRoofBaseItem = "Crea esoscheletro per Jaap Wrungel",
+    Recipe_Cut_ATAJeepRoofBaseItem = "Smonta esoscheletro per Jaap Wrungel",
+
+    
+/************ Autotsar Tuning Atelier - Fjord Mustard ************/
+/************ Autotsar Tuning Atelier - Chevalier Samara ************/
+    Recipe_Cut_ATAMustangHoodItem = "Smonta cofano per Mustard",
+    Recipe_Cut_ATASamaraHoodItem = "Smonta cofano per Samara",
+    
+    
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+    Recipe_Make_ATADodgeRoofRackItem = "Crea portapacchi per Dadge Steals RT",
+    Recipe_Cut_ATADodgeRoofRackItem = "Smonta portapacchi per Dadge Steals RT",
+    Recipe_Make_ATADodgeWindowRackItem = "Crea griglia del parabrezza posteriore per Dadge Steals RT",
+    Recipe_Cut_ATADodgeWindowRackItem = "Smonta griglia del parabrezza posteriore per Dadge Steals RT",
+    Recipe_Cut_ATADodgeBullbar1Item = "Smonta paraurti tubolare per Dadge Steals RT",
+    Recipe_Cut_ATADodgeBullbar2Item = "Smonta paraurti tubolare per Dadge Steals RT",
+    Recipe_Cut_ATADodgeBullbar3Item = "Smonta paraurti tubolare per Dadge Steals RT",
+    Recipe_Make_ATADodgeBullbar2Item = "Crea paraurti tubolare per Dadge Steals RT",
+    Recipe_Make_ATADodgeBullbar3Item = "Crea paraurti tubolare per Dadge Steals RT",
+    Recipe_Make_ATADodgeProtectionWindowSideItem = "Crea protezione della finestra laterale per Dadge Steals RT",
+    Recipe_Cut_ATADodgeProtectionWindowSideItem = "Smonta protezione della finestra laterale per Dadge Steals RT",
+    Recipe_Make_ATADodgeProtectionWindowFrontItem = "Crea protezione del parabrezza per Dadge Steals RT",
+    Recipe_Cut_ATADodgeProtectionWindowFrontItem = "Smonta protezione del parabrezza per Dadge Steals RT",
+
+
+/************ Autotsar Tuning Atelier - Petyarbuilt 379 ************/
+    Recipe_Make_ATAPetyarbuiltProtectionSleeperItem = "Crea protezione della cuccetta per Petyarbuilt 379",
+    Recipe_Cut_ATAPetyarbuiltProtectionSleeperItem = "Smonta protezione della cuccetta per Petyarbuilt 379",
+    Recipe_Make_ATAPetyarbuiltProtectionRearWheelsItem = "Crea protezione del pneumatico posteriore per Petyarbuilt 379",
+    Recipe_Cut_ATAPetyarbuiltProtectionRearWheelsItem = "Smonta protezione del pneumatico posteriore per Petyarbuilt 379",
+    Recipe_Make_ATAPetyarbuiltProtectionGasTankItem = "Crea protezione del serbatoio per Petyarbuilt 379",
+    Recipe_Cut_ATAPetyarbuiltProtectionGasTankItem = "Smonta protezione del serbatoio per Petyarbuilt 379",
+    Recipe_Make_ATAPetyarbuiltProtectionSideItem = "Crea protezione laterale per Petyarbuilt 379",
+    Recipe_Cut_ATAPetyarbuiltProtectionSideItem = "Smonta protezione laterale per Petyarbuilt 379",
+    Recipe_Make_ATAPetyarbuiltProtectionSideFrontItem = "Crea protezione frontale per Petyarbuilt 379",
+    Recipe_Cut_ATAPetyarbuiltProtectionSideFrontItem = "Smonta protezione frontale per Petyarbuilt 379",
+    Recipe_Make_ATAPetyarbuiltProtectionSideTopItem = "Crea protezione del tettuccio per Petyarbuilt 379",
+    Recipe_Cut_ATAPetyarbuiltProtectionSideTopItem = "Smonta protezione del tettuccio per Petyarbuilt 379",
+    
+    
+/************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
+    Recipe_Make_ATALutonProtectionSideFrontItem = "Crea protezione frontale per Furgone MolksAgen Luton",
+    Recipe_Cut_ATALutonProtectionSideFrontItem = "Smonta protezione frontale per Furgone MolksAgen Luton",
+    Recipe_Make_ATALutonProtectionHoodItem = "Crea protezione del cofano per Furgone MolksAgen Luton",
+    Recipe_Cut_ATALutonProtectionHoodItem = "Smonta protezione del cofano per Furgone MolksAgen Luton",
+    Recipe_Make_ATALutonProtectionWindowFrontSideItem= "Crea protezione della finestra laterale per Furgone MolksAgen Luton",
+    Recipe_Cut_ATALutonProtectionWindowFrontSideItem = "Smonta protezione della finestra laterale per Furgone MolksAgen Luton",
+    Recipe_Make_ATALutonProtectionWindowFrontItem = "Crea protezione del parabrezza per Furgone MolksAgen Luton",
+    Recipe_Cut_ATALutonProtectionWindowFrontItem = "Smonta protezione del parabrezza per Furgone MolksAgen Luton",
+    Recipe_Make_ATALutonInteractiveTrunkRoofRackItem = "Crea portapacchi per Furgone MolksAgen Luton",
+    Recipe_Cut_ATALutonInteractiveTrunkRoofRackItem = "Smonta portapacchi per Furgone MolksAgen Luton",
+    Recipe_Make_ATALutonLadderItem = "Crea scala per Furgone MolksAgen Luton",
+    Recipe_Cut_ATALutonLadderItem = "Smonta scala per Furgone MolksAgen Luton",
+    
+    
+/************ Autotsar Tuning Atelier - DeRumba Van ************/
+    Recipe_Cut_ATAVanDeRumbaBullbar1Item = "Smonta paraurti tubolare per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaBullbar2Item = "Smonta paraurti tubolare per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaBullbar2Item = "Crea paraurti tubolare per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaBullbar3Item = "Smonta l'aratro dal paraurti tubolare per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaBullbar3Item = "Salda un aratro al paraurti tubolare per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaProtectionHoodItem = "Crea protezione del cofano per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaProtectionHoodItem = "Smonta protezione del cofano per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaProtectionWindowFrontItem = "Crea protezione del parabrezza per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaProtectionWindowFrontItem = "Smonta protezione del parabrezza per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaProtectionWindowFrontSideItem= "Crea protezione della finestra laterale per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaProtectionWindowFrontSideItem = "Smonta protezione della finestra laterale per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaProtectionWindowRearItem = "Crea protezione del parabrezza posteriore per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaProtectionWindowRearItem = "Smonta protezione del parabrezza posteriore per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaInteractiveTrunkRoofRackItem = "Crea portapacchi per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaInteractiveTrunkRoofRackItem = "Smonta portapacchi per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaLadderItem = "Crea scala per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaLadderItem = "Smonta scala per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbaRoofBaseItem = "Crea barre da tettuccio per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbaRoofBaseItem = "Smonta barre da tettuccio per Furgone DeRumba",
+    Recipe_Make_ATAVanDeRumbRoofBoxItem = "Crea cassetta degli attrezzi per Furgone DeRumba",
+    Recipe_Cut_ATAVanDeRumbRoofBoxItem = "Smonta cassetta degli attrezzi per Furgone DeRumba",
+
+/************ True Music ************/
+    Recipe_Dismantle_TCWalkman = "Smantella lettore musicale",
+    Recipe_Dismantle_TruePlayers = "Smantella lettore musicale",
 }

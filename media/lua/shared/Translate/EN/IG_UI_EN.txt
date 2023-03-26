@@ -17,6 +17,7 @@ IGUI_EN = {
     IGUI_ATA2_Bullbar = "Bullbar",
     IGUI_ATA2_Bullbar_Police = "Police Bullbar",
     IGUI_ATA2_Bullbar_Handmade = "Handmade Bullbar",
+    IGUI_ATA2_Bullbar_Plow = "Bullbar With Plow",
     IGUI_ATA2_Bullbar_Lethal = "Lethal Bullbar",
     IGUI_ATA2_Bullbar_Enhanced = "Improved  Bullbar",
     IGUI_ATA2_Bullbar_Spiked_Plough = "Spiked Plough",
@@ -30,6 +31,8 @@ IGUI_EN = {
     IGUI_ATA2_Spoiler_Low = "Low Spoiler",
     IGUI_ATA2_Spoiler_Middle = "Middle Spoiler",
     IGUI_ATA2_Spoiler_High = "High Spoiler",
+
+    IGUI_ATA2_Caption_People_Inside = "Hood Protection 'People Inside'",
 
     IGUI_TuningUI_Title = "Vehicle modifications",
     IGUI_TuningUI_NeedBeEmpty = "Must be empty",
@@ -158,7 +161,7 @@ IGUI_EN = {
     IGUI_VehiclePartATA2ProtectionSideLeft = "Left Protection",
     IGUI_VehiclePartATA2ProtectionSideRight = "Right Protection",
     IGUI_VehiclePartATA2ProtectionSideFront = "Front Protection",
-    IGUI_VehiclePartATA2ProtectionSideRoof = "Top Protection",
+    IGUI_VehiclePartATA2ProtectionSideTop = "Top Protection",
 
     IGUI_VehiclePartATA2ProtectionSleeper = "Sleeper Protection",
     IGUI_VehiclePartATA2ProtectionGasTank = "Gastank Protection",
@@ -483,6 +486,7 @@ IGUI_EN = {
     IGUI_media_dragCassette = "Insert cassette",
     IGUI_media_dragVinyl = "Insert vinyl",
     IGUI_TC_connect_speaker = "Connect speaker",
+    IGUI_TC_connect_headphones = "Need headphones",
     IGUI_PlayerText_TC_need_speaker = "The speaker should be next to the turntable.",
     IGUI_MusicOptionsCar = "Cassette player",
 
@@ -516,4 +520,12 @@ IGUI_EN = {
     IGUI_VehicleNameATAJeepArcher = "Jaap Wrungel Archer",
     IGUI_VehicleNameATADodge = "Dadge Steals RT Twin Turbo",
     IGUI_VehicleNameATADodgePpg = "Dadge Steals RT Twin Turbo PPG",
+    IGUI_VehicleNameATAPetyarbuilt = "Petyarbuilt 379",
+    IGUI_VehicleNameATAPetyarbuiltSleeper = "Petyarbuilt 379",
+    IGUI_VehicleNameATAPetyarbuiltSleeperLong = "Petyarbuilt 379",
+    IGUI_VehicleNameTrailerTSMega = "Autotsar - Mega Trailer",
+    IGUI_VehicleNameATAMustangClassic = "Fjord Mustard",
+    IGUI_VehicleNameATAMustangPolice = "Fjord Mustard",
+    IGUI_VehicleNameATASamaraClassic= "Chevalier Samara",
+    IGUI_VehicleNameATASamaraPolice= "Chevalier Samara",
 }

@@ -71,8 +71,8 @@ Recipe_CN = {
     
 /************ Autotsar Tuning Atelier - Fjord Mustard ************/
     
-    Recipe_Cut_ATAMustangBullbar1Item = "切割保险杠(野马)",
-    Recipe_Cut_ATAMustangBullbar2Item = "切割保险杠(野马)",
+    Recipe_Cut_ATABullbar1Item = "切割保险杠(野马)",
+    Recipe_Cut_ATABullbar2Item = "切割保险杠(野马)",
     Recipe_Cut_ATAMustangBullbar3Item = "切割保险杠(野马)",
     Recipe_Make_ATAMustangBullbar3Item = "制作保险杠(野马)",
 
@@ -81,11 +81,11 @@ Recipe_CN = {
     Recipe_Cut_ATAMustangHood4Item3 = "切割引擎盖(野马)",
     Recipe_Cut_ATAMustangHoodItem = "切割引擎盖(野马)",
     
-    Recipe_Cut_ATAMustangFendersWideItem = "切割引擎盖(野马)",
-    Recipe_Cut_ATAMustangSkirtsSideItem = "切割引擎盖(野马)",
-    Recipe_Cut_ATAMustangSpoilerFrontItem = "切割扰流板 (野马)",
-    Recipe_Cut_ATAMustangSpoilerRear1Item = "切割扰流板 (野马)",
-    Recipe_Cut_ATAMustangSpoilerRear2Item = "切割扰流板 (野马)",
+    Recipe_Cut_ATAFendersWideItem = "切割引擎盖(野马)",
+    Recipe_Cut_ATASkirtsSideItem = "切割引擎盖(野马)",
+    Recipe_Cut_ATASpoilerFrontItem = "切割扰流板 (野马)",
+    Recipe_Cut_ATASpoilerRear1Item = "切割扰流板 (野马)",
+    Recipe_Cut_ATASpoilerRear2Item = "切割扰流板 (野马)",
     
     Recipe_Make_ATAMustangProtectionWindowLeftItem = "制作左车窗保护(野马)",
     Recipe_Make_ATAMustangProtectionWindowRightItem = "制作右车窗保护(野马)",

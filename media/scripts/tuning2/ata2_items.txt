@@ -4,7 +4,8 @@ module ATA2
     {
         Base
     }
-    
+
+
     item ATA2ItemContainer
     {
         DisplayCategory = TuningService,
@@ -16,14 +17,21 @@ module ATA2
         ConditionMax = 100,
         MechanicsItem = TRUE,
     }
-    
+
+
+/* Bullbars
+████──█─█─█───█───████──████─████─███
+█──██─█─█─█───█───█──██─█──█─█──█─█──
+████──█─█─█───█───████──████─████─███
+█──██─█─█─█───█───█──██─█──█─█─█────█
+████──███─███─███─████──█──█─█─█──███
+*/
     model ATABullbar1World
     {
         mesh = WorldItems/ATA_BullbarPolice_1,
         texture = Vehicles/ATA_Dodge_items,
         scale = 0.014,
     }
-    
     item ATABullbarPoliceItem1 /* Vehicle */
     {
         DisplayCategory = Tuning,
@@ -37,14 +45,270 @@ module ATA2
         Tooltip = Tooltip_item_tuning,
         WorldStaticModel = ATA2.ATABullbar1World,
     }
-    
-    fixing Fix ATABullbarPoliceItem1
+    recipe Cut ATABullbarPoliceItem1
     {
-        Require : ATABullbarPoliceItem1,
+        ATABullbarPoliceItem1=1,
+        BlowTorch=2,
+        keep WeldingMask,
+        Result:MetalPipe=4,
+        Time:350.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn:false,
+    }
+
+
+    model ATABullbar1World
+    {
+        mesh = WorldItems/ATA_Muscle_items|ATAMustangBullbar1World,
+        texture = Vehicles/ATA_Muscle_items,
+        scale = 0.014,
+    }
+    item ATABullbar1Item /* Vehicle */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    10.0,
+        Type    =    Normal,
+        DisplayName    = ATABullbar1Item,
+        Icon    =    ATABullbar1Item,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 25,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATABullbar1World,
+    }
+    recipe Cut ATABullbar1Item
+    {
+        ATABullbar1Item=1,
+        BlowTorch=2,
+        keep WeldingMask,
+        Result:MetalPipe=4,
+        Time:350.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn:false,
+    }
+
+
+    model ATABullbar2World
+    {
+        mesh = WorldItems/ATA_Muscle_items|ATAMustangBullbar2World,
+        texture = Vehicles/ATA_Muscle_items,
+        scale = 0.014,
+    }
+    item ATABullbar2Item /* Vehicle */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    10.0,
+        Type    =    Normal,
+        DisplayName    = ATABullbar2Item,
+        Icon    =    ATABullbar2Item,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 25,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATABullbar2World,
+    }
+    recipe Cut ATABullbar2Item
+    {
+       ATABullbar2Item=1,
+       BlowTorch=4,
+       keep WeldingMask,
+       Result:MetalPipe=6,
+       Time:350.0,
+       Category:Welding,
+       SkillRequired:MetalWelding=2,
+       OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
+
+
+    fixing Fix ATABullbar
+    {
+        Require : ATABullbarPoliceItem1;ATABullbar1Item;ATABullbar2Item,
         GlobalItem : BlowTorch=2,
         ConditionModifier : 1.2,
 
         Fixer : MetalBar=2; MetalWelding=3;Mechanics=2,
         Fixer : MetalPipe=2; MetalWelding=3;Mechanics=2,
+    }
+
+
+/*
+████─█──█─████─███─█──█─███─████
+█──█─██─█─█──█──█──█──█─█───█──█
+████─█─██─█──█──█──████─███─████
+█──█─█──█─█──█──█──█──█─█───█─█─
+█──█─█──█─████──█──█──█─███─█─█─
+*/
+    model ATAFendersWideWorld
+    {
+        mesh = WorldItems/ATA_Muscle_items|ATAMustangFendersWideWorld,
+        texture = Vehicles/ATA_Muscle_items,
+        scale = 0.014,
+    }
+    item ATAFendersWideItem /* Spawn */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    2.0,
+        Type    =    Normal,
+        DisplayName    = ATAFendersWide,
+        Icon    =    ATAFendersWide,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATAFendersWideWorld,
+    }
+    recipe Cut ATAFendersWideItem
+    {
+        ATAFendersWideItem=1,
+        BlowTorch=3,
+        keep WeldingMask,
+        Result:UnusableMetal=4,
+        Time:350.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn:false,
+    }
+
+
+    model ATASkirtsSideWorld
+    {
+        mesh = WorldItems/ATA_Muscle_items|ATAMustangSkirtsSideWorld,
+        texture = Vehicles/ATA_Muscle_items,
+        scale = 0.014,
+    }
+    item ATASkirtsSideItem /* Spawn */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    2.0,
+        Type    =    Normal,
+        DisplayName    = ATASkirtsSide,
+        Icon    =    ATASkirtsSide,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATASkirtsSideWorld,
+    }
+    recipe Cut ATASkirtsSideItem
+    {
+        ATASkirtsSideItem=1,
+        BlowTorch=3,
+        keep WeldingMask,
+        Result:UnusableMetal=4,
+        Time:350.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn:false,
+    }
+
+
+    model ATASpoilerFrontWorld
+    {
+        mesh = WorldItems/ATA_Muscle_items|ATAMustangSpoilerFrontWorld,
+        texture = Vehicles/ATA_Muscle_items,
+        scale = 0.014,
+    }
+    item ATASpoilerFrontItem /* Spawn + Vehicle */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    2.0,
+        Type    =    Normal,
+        DisplayName    = ATASpoilerFront,
+        Icon    =    ATASpoilerFront,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATASpoilerFrontWorld,
+    }
+    recipe Cut ATASpoilerFrontItem
+    {
+        ATASpoilerFrontItem=1,
+        BlowTorch=3,
+        keep WeldingMask,
+        Result:UnusableMetal=4,
+        Time:350.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn:false,
+    }
+
+
+    model ATASpoilerRear1World
+    {
+        mesh = WorldItems/ATA_Muscle_items|ATAMustangSpoilerRear1World,
+        texture = Vehicles/ATA_Muscle_items,
+        scale = 0.014,
+    }
+    item ATASpoilerRear1Item /* Spawn + Vehicle */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    2.0,
+        Type    =    Normal,
+        DisplayName    = ATASpoilerRear1,
+        Icon    =    ATASpoilerRear1,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATASpoilerRear1World,
+    }
+    recipe Cut ATASpoilerRear1Item
+    {
+        ATASpoilerRear1Item=1,
+        BlowTorch=3,
+        keep WeldingMask,
+        Result:SmallSheetMetal=4,
+        Time:350.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn:false,
+    }
+
+
+    model ATASpoilerRear2World
+    {
+        mesh = WorldItems/ATA_Muscle_items|ATAMustangSpoilerRear2World,
+        texture = Vehicles/ATA_Muscle_items,
+        scale = 0.014,
+    }
+    item ATASpoilerRear2Item /* Spawn + Vehicle */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    2.0,
+        Type    =    Normal,
+        DisplayName    = ATASpoilerRear2,
+        Icon    =    ATASpoilerRear2,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATASpoilerRear2World,
+    }
+    recipe Cut ATASpoilerRear2Item
+    {
+        ATASpoilerRear2Item=1,
+        BlowTorch=3,
+        keep WeldingMask,
+        Result:SmallSheetMetal=5,
+        Time:350.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn:false,
     }
 }

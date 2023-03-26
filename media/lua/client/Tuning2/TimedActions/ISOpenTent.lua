@@ -4,10 +4,10 @@
 
 require "TimedActions/ISBaseTimedAction"
 
-ATAISOpenTent = ISBaseTimedAction:derive("ATAISOpenTent")
+ISOpenTent = ISBaseTimedAction:derive("ISOpenTent")
 
-function ATAISOpenTent:isValid()
--- print("ATAISOpenTent:isValid()")
+function ISOpenTent:isValid()
+-- print("ISOpenTent:isValid()")
 	if self.part:getInventoryItem() and (self.open or (ATATuning.UninstallTest.RoofClose(self.vehicle, self.vehicle:getPartById("SeatMiddleLeft"), self.character) and ATATuning.UninstallTest.RoofClose(self.vehicle, self.vehicle:getPartById("SeatMiddleRight"), self.character))) then
 		return true
 	else
@@ -16,36 +16,37 @@ function ATAISOpenTent:isValid()
 
 end
 
-function ATAISOpenTent:waitToStart()
--- print("ATAISOpenTent:waitToStart()")
+function ISOpenTent:waitToStart()
+-- print("ISOpenTent:waitToStart()")
 	self.character:faceThisObject(self.vehicle)
 	return self.character:shouldBeTurning()
 end
 
-function ATAISOpenTent:update()
--- print("ATAISOpenTent:update()")
+function ISOpenTent:update()
+-- print("ISOpenTent:update()")
 	self.character:faceThisObject(self.vehicle)
     self.character:setMetabolicTarget(Metabolics.MediumWork);
 end
 
-function ATAISOpenTent:start()
--- print("ATAISOpenTent:start()")
+function ISOpenTent:start()
+-- print("ISOpenTent:start()")
 	self:setActionAnim("VehicleWorkOnMid")
 --	self:setOverrideHandModels(nil, nil)
 end
 
-function ATAISOpenTent:stop()
+function ISOpenTent:stop()
     ISBaseTimedAction.stop(self)
 end
 
-function ATAISOpenTent:perform()
--- print("ATAISOpenTent:perform()")
-	ATATuning.Use.RoofTent(self.vehicle, self.part, self.open)
+function ISOpenTent:perform()
+-- print("ISOpenTent:perform()")
+	-- ATATuning2.Use.RoofTent(self.vehicle, self.part, self.open)
+    sendClientCommand(self.character, 'atatuning2', 'usePart', {vehicle = self.vehicle:getId(), partName = self.part:getId(),})
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end
 
-function ATAISOpenTent:new(character, vehicle, part, open, time)
+function ISOpenTent:new(character, vehicle, part, open, time)
 	local o = {}
 	setmetatable(o, self)
 	self.__index = self

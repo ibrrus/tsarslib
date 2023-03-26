@@ -114,6 +114,9 @@ module Base
         }
         part ATA2ProtectionWindowMiddleLeft
         {
+            door
+            {
+            }
             area = SeatMiddleLeft,
         }
         part ATA2ProtectionWindowMiddleRight

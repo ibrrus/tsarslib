@@ -38,14 +38,14 @@ function Commands.installTuning(playerObj, args)
             vehicle:transmitPartModData(part)
             vehicle:transmitPartItem(part)
             local tbl = part:getTable("install")
-			if tbl and tbl.complete then
-				VehicleUtils.callLua(tbl.complete, vehicle, part, nil)
-			end
+            if tbl and tbl.complete then
+                VehicleUtils.callLua(tbl.complete, vehicle, part, nil)
+            end
         end
     end
 end
 
--- sendClientCommand(playerObj, 'atatuning2', 'uninstallTuning', {vehicle = vehicle:getId(), part = self.part:getId(),})
+-- sendClientCommand(playerObj, 'atatuning2', 'uninstallTuning', {vehicle = vehicle:getId(), partName = self.part:getId(),})
 function Commands.uninstallTuning(playerObj, args)
     if args.vehicle then
         local vehicle = getVehicleById(args.vehicle)
@@ -83,6 +83,20 @@ function Commands.uninstallTuning(playerObj, args)
                         end
                     end
                 end
+            end
+        end
+    end
+end
+
+-- sendClientCommand(playerObj, 'atatuning2', 'usePart', {vehicle = vehicle:getId(), partName = self.part:getId(),})
+function Commands.usePart(playerObj, args)
+    if args.vehicle then
+        local vehicle = getVehicleById(args.vehicle)
+        if vehicle then
+            local vehicleName = vehicle:getScript():getName()
+            local part = vehicle:getPartById(args.partName)
+            if part then
+                VehicleUtils.callLua(part:getLuaFunction("use"), vehicle, part, playerObj)
             end
         end
     end

@@ -1,0 +1,224 @@
+ItemName_IT = {
+
+    ItemName_ATA2.ATABullbarPoliceItem1 = "Paraurti tubolare della Polizia",
+    ItemName_ATA2.ATABullbar1Item = "Paraurti tubolare standard",
+    ItemName_ATA2.ATABullbar2Item = "Paraurti tubolare della Polizia",
+    ItemName_ATA2.ATAFendersWideItem = "Parafanghi larghi",
+    ItemName_ATA2.ATASkirtsSideItem = "Minigonne laterali",
+    ItemName_ATA2.ATASpoilerFrontItem = "Alettone anteriore",
+    ItemName_ATA2.ATASpoilerRear1Item = "Alettone standard",
+    ItemName_ATA2.ATASpoilerRear2Item = "Alettone alto",
+
+
+/* transport_item.txt */
+    ItemName_Base.TransportCounter = "Bancone portatile",
+    ItemName_Base.TransportCupboard = "Armadio portatile",
+    ItemName_Base.TransportDrawer = "Cassetto portatile",
+    ItemName_Base.TransportFreezer = "Congelatore portatile",
+    ItemName_Base.TransportFridge = "Frigo portatile",
+    ItemName_Base.TransportMedicine = "Armadietto portatile",
+    ItemName_Base.TransportMicrowave = "Microonde portatile",
+    ItemName_Base.TransportOven = "Forno portatile",
+    ItemName_Base.TransportShelve = "Scaffale portatile",
+    ItemName_Base.TransportSeatBoxWooden = "Sedile di legno",
+    
+/* template_TruckTank.txt */
+    ItemName_Base.500Tank1 = "Cisterna 500",
+    ItemName_Base.500Tank2 = "Cisterna 500",
+    ItemName_Base.500Tank3 = "Cisterna 500",
+    ItemName_Base.1000Tank1 = "Cisterna 1000",
+    ItemName_Base.1000Tank2 = "Cisterna 1000",
+    ItemName_Base.1000Tank3 = "Cisterna 1000",
+    
+/* template_ata_roof_lights.txt */
+    ItemName_Base.ATARoofLightItem = "Luci del tettuccio",
+    
+/* template_ata_protection.txt */
+    ItemName_Base.ATAProtectionWheelsChain = "Catena",
+    
+    
+/************ Autotsar Motorclub ************/
+
+    ItemName_Autotsar.ATAMotoBagBMW1 = "Borsa da moto per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBagBMW2 = "Borsa da moto migliorata per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBMWCustomMuffler = "Silenziatore personalizzato per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBMWClassicMuffler = "Silenziatore di serie per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBMWOldTire = "Pneumatico vecchio per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBMWNormalTire = "Pneumatico per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBMWModernTire = "Pneumatico moderno per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBMWGasTank = "Serbatoio per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBMWSeat = "Sedile di serie per BWM R80/7",
+    ItemName_Autotsar.ATAMotoBMWSeatCustom = "Sedile personalizzato per BWM R80/7",
+    
+    ItemName_Autotsar.ATAMotoHarleyBag = "Borsa da moto per Xarley-Davitsan Sportstep",
+    ItemName_Autotsar.ATAMotoHarleyMuffler = "Silenziatore per Xarley-Davitsan Sportstep",
+    ItemName_Autotsar.ATAMotoHarleyOldTire = "Pneumatico vecchio per Xarley-Davitsan Sportstep",
+    ItemName_Autotsar.ATAMotoHarleyNormalTire = "Pneumatico per Xarley-Davitsan Sportstep",
+    ItemName_Autotsar.ATAMotoHarleyModernTire = "Pneumatico moderno per Xarley-Davitsan Sportstep",
+    ItemName_Autotsar.ATAMotoHarleyGasTank = "Serbatoio per Xarley-Davitsan Sportstep",
+    ItemName_Autotsar.ATAMotoHarleyHolster = "Fondina da moto per Xarley-Davitsan Sportstep",
+    ItemName_Autotsar.ATAMotoHarleySeat = "Sedile per Xarley-Davitsan Sportstep",
+    
+    ItemName_Autotsar.ATAMotoQuadSeat = "Sedile per Suvzuki Quadruiner",
+
+
+/************ Aquatsar Yacht Club ************/
+
+    ItemName_Aquatsar.BoatPropeller = "Elica dell'imbarcazione",
+    ItemName_Aquatsar.ManualStarter = "Avviamento manuale",
+    ItemName_Aquatsar.Sails = "Vele",
+    ItemName_Aquatsar.BoatMag = "Rivista 'Ripara le tue barche'",
+    ItemName_Aquatsar.SwimMag = "Rivista 'Tempi di nuoto'",
+    ItemName_Aquatsar.Lifebuoy = "Salvagente",
+    ItemName_Aquatsar.DivingMask = "Maschera subacquea",
+    ItemName_Aquatsar.TaintedLiterature = "Letteratura macchiata",
+    ItemName_Aquatsar.Compass = "Bussola",
+    ItemName_Aquatsar.DeflatedTireTube = "Camera d'aria sgonfia",
+    ItemName_Aquatsar.TireTube = "Camera d'aria",
+    ItemName_Base.SailingYachtName_Default_Item = "Senza nome",
+    ItemName_Base.SailingYachtName_La_Brigandine = "La Brigandine",
+    ItemName_Base.SailingYachtName_Sakharov_Item = "Akademik Sakharov",
+    ItemName_Base.BoatMotorName_Default_Item = "Senza nome",
+    ItemName_Base.BoatMotorName_Orianna_Item = "M/Y Orianna",
+    ItemName_Base.BoatMotorName_NP_Item = "Nautilus P.",
+
+/************ Agrotsar Farming Company ************/
+    ItemName_Agrotsar.AgrotsarMag = "Rivista 'Agrotsar. Ðœacchinari nell'agricoltura. Vol.1'",
+    ItemName_Agrotsar.ASeederTankSmall = "Serbatoio di semina piccolo",
+    ItemName_Agrotsar.ASeederTankMedium = "Serbatoio di semina medio",
+    ItemName_Agrotsar.ASeederTankLarge = "Serbatoio di semina grande",
+    ItemName_Agrotsar.ASeederPlate = "Disco da semina",
+    ItemName_Agrotsar.APlowshare = "Vomere",
+    
+    
+/************ Autotsar Tuning Atelier - Bus ************/
+    
+    ItemName_Autotsar.AtTuningMagBus = "Rivista 'Autotsar Tuning Atelier - Bear Bus'",
+    ItemName_Autotsar.Bullbar2Blueprint = "Progetto di un paraurti tubolare migliorato",
+    ItemName_Autotsar.Bullbar3Blueprint = "Progetto di un aratro chiodato",
+
+    ItemName_Autotsar.ATA_Bus_Kengur_1_Item = "Paraurti tubolare per Bear Bus",
+    ItemName_Autotsar.ATA_Bus_Kengur_2_Item = "Paraurti tubolare migliorato per Bear Bus",
+    ItemName_Autotsar.ATA_Bus_Kengur_3_Item = "Aratro chiodato per Bear Bus",
+    
+    ItemName_Autotsar.ATA_Bus_Protection_door_Item = "Protezione della porta per Bear Bus",
+    ItemName_Autotsar.ATA_Bus_Protection_door_rear_Item = "Protezione della porta posteriore per Bear Bus",
+    ItemName_Autotsar.ATA_Bus_Protection_wheels_Item = "Protezione delle ruote per Bear Bus",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_front_Item = "Protezione del parabrezza per Bear Bus",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_right_Item = "Protezione delle finestre di destra per Bear Bus",
+    ItemName_Autotsar.ATA_Bus_Protection_windows_left_Item = "Protezione delle finestre di sinistra per Bear Bus",
+    
+    ItemName_Autotsar.ATA_Bus_Roof_Rack = "Portapacchi per Bear Bus",
+    ItemName_Autotsar.ATA_Bus_Roof_Box_Item = "Cassetta degli attrezzi per Bear Bus",
+    
+
+/************ Autotsar Tuning Atelier - Jaap Wrungel ************/
+    
+    ItemName_Autotsar.AtTuningMagJeep = "Rivista 'Autotsar Tuning Atelier - Jaap Wrungel'",
+    
+    ItemName_Autotsar.ATAJeepBumper1Item = "Paraurti classico per Jaap Wrungel",
+    ItemName_Autotsar.ATAJeepBumper2Item = "Paraurti con verricello per Jaap Wrungel",
+    ItemName_Autotsar.ATAJeepBumper3Item = "Paraurti tubolare per Jaap Wrungel",
+    ItemName_Autotsar.ATAJeepBumper4Item = "Paraurti letale per Jaap Wrungel",
+    
+    ItemName_Autotsar.ATAJeepProtectionWindowItem = "Protezione delle finestre laterali per Jaap Wrungel",
+    ItemName_Autotsar.ATAJeepProtectionWindowFrontItem = "Protezione del parabrezza per Jaap Wrungel",
+    ItemName_Autotsar.ATAJeepProtectionWindowRearItem = "Protezione del parabrezza posteriore per Jaap Wrungel",
+    
+    ItemName_Autotsar.ATAJeepRoofBaseItem = "Esoscheletro per Jaap Wrungel",
+    ItemName_Autotsar.ATAJeepInteractiveTrunkRoofRackItem = "Portapacchi per Jaap Wrungel",
+    ItemName_Autotsar.ATAJeepInteractiveTrunkWheelRackItem = "Ripiano su ruota di scorta per Jaap Wrungel",
+
+    ItemName_Autotsar.ATAJeepSnorkelItem = "Boccaglio per Jaap Wrungel",
+    ItemName_Autotsar.ATAJeepRoofTentItem = "Tenda da tettuccio per Jaap Wrungel",
+    
+    
+/************ Autotsar Tuning Atelier - Fjord Mustard ************/
+/************ Autotsar Tuning Atelier - Chevalier Samara ************/
+    
+    ItemName_Autotsar.ATATuningFordMustang = "Rivista 'Autotsar Tuning Atelier - Mustard & Samara'",
+    ItemName_Autotsar.ATAMustangProtectionWindowLeftItem = "Protezione della finestra sinistra per Mustard/Samara",
+    ItemName_Autotsar.ATAMustangProtectionWindowRightItem = "Protezione della finestra destra per Mustard/Samara",
+    ItemName_Autotsar.ATAMustangProtectionWindowFrontItem = "Protezione del parabrezza per Mustard/Samara",
+    ItemName_Autotsar.ATAMustangProtectionWindowRearItem = "Protezione del parabrezza posteriore per Mustard/Samara",
+    ItemName_Autotsar.ATAMustangRoofRackItem = "Portapacchi per Mustard/Samara",
+    
+    ItemName_Autotsar.ATAMustangHood2Item3 = "Cowl Hood per Mustard",
+    ItemName_Autotsar.ATAMustangHood3Item3 = "Ram Air Hood per Mustard",
+    ItemName_Autotsar.ATAMustangHood4Item3 = "Mongoose Hood per Mustard",
+    
+    ItemName_Autotsar.ATASamaraHood2Item3 = "Ram Air Hood per Samara",
+    ItemName_Autotsar.ATASamaraHood3Item3 = "Mongoose Hood per Samara",
+    
+    
+/************ Autotsar Tuning Atelier - Dadge Steals RT ************/
+    
+    ItemName_Autotsar.ATADodgeTuningMag = "Rivista 'Autotsar Tuning Atelier - Dadge Steals RT'",
+    ItemName_Autotsar.ATADodgeBullbar1Item = "Paraurti tubolare della Polizia per Dadge Steals RT",
+    ItemName_Autotsar.ATADodgeBullbar2Item = "Paraurti tubolare fatto a mano per Dadge Steals RT",
+    ItemName_Autotsar.ATADodgeBullbar3Item = "Paraurti tubolare letale per Dadge Steals RT",
+    ItemName_Autotsar.ATADodgeProtectionWindowSideItem = "Protezione della finestra laterale per Dadge Steals RT",
+    ItemName_Autotsar.ATADodgeProtectionWindowFrontItem = "Protezione del parabrezza per Dadge Steals RT",
+    ItemName_Autotsar.ATADodgeRoofRackItem = "Portapacchi per Dadge Steals RT",
+    ItemName_Autotsar.ATADodgeWindowRackItem = "Griglia del parabrezza posteriore per Dadge Steals RT",
+    
+    
+/************ Autotsar Tuning Atelier - Petyarbuilt 379 ************/
+    
+    ItemName_Autotsar.ATAPetyarbuiltTuningMag = "Rivista 'Autotsar Tuning Atelier - Petyarbuilt 379'",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSleeperItem = "Protezione della cuccetta per Petyarbuilt 379",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionRearWheelsItem = "Protezione del pneumatico posteriore per Petyarbuilt 379",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionGasTankItem = "Protezione del serbatoio per Petyarbuilt 379",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideItem = "Protezione laterale per Petyarbuilt 379",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideFrontItem = "Protezione frontale per Petyarbuilt 379",
+    ItemName_Autotsar.ATAPetyarbuiltProtectionSideTopItem = "Protezione del tettuccio per Petyarbuilt 379",
+
+
+/************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
+    
+    ItemName_Autotsar.ATALutonTuningMag = "Rivista 'Autotsar Tuning Atelier - Furgone MolksAgen Luton'",
+    ItemName_Autotsar.ATALutonProtectionSideFrontItem = "Protezione frontale per Furgone MolksAgen Luton",
+    ItemName_Autotsar.ATALutonProtectionHoodItem = "Protezione del cofano per Furgone MolksAgen Luton",
+    ItemName_Autotsar.ATALutonProtectionWindowFrontSideItem = "Protezione della finestra laterale per Furgone MolksAgen Luton",
+    ItemName_Autotsar.ATALutonProtectionWindowFrontItem = "Protezione del parabrezza per Furgone MolksAgen Luton",
+    ItemName_Autotsar.ATALutonInteractiveTrunkRoofRackItem = "Portapacchi per Furgone MolksAgen Luton",
+    ItemName_Autotsar.ATALutonLadderItem = "Scala per Furgone MolksAgen Luton",
+
+
+/************ Autotsar Tuning Atelier - DeRumba Van ************/
+    
+    ItemName_Autotsar.ATAVanDeRumbaTuningMag = "Rivista 'Autotsar Tuning Atelier - Furgone DeRumba'",
+    ItemName_Autotsar.ATAVanDeRumbaBullbar1Item = "Paraurti tubolare per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaBullbar2Item = "Paraurti tubolare fatto a mano per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaBullbar3Item = "Paraurti tubolare con aratro per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaProtectionHoodItem = "Protezione del cofano per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowFrontItem = "Protezione del parabrezza per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowFrontSideItem = "Protezione della finestra laterale per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowRearItem = "Protezione del parabrezza posteriore per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaInteractiveTrunkRoofRackItem = "Portapacchi per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaLadderItem = "Scala per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbaRoofBaseItem = "Barre da tettuccio per Furgone DeRumba",
+    ItemName_Autotsar.ATAVanDeRumbRoofBoxItem = "Cassetta degli attrezzi per Furgone DeRumba",
+
+
+/************ True Music ************/
+
+    ItemName_Tsarcraft.TCBoombox = "Stereo portatile 'Kazakhstan-102-stereo'",
+    ItemName_Tsarcraft.TCVinylplayer = "Lettore di vinili 'Elektronika S1-01'",
+    ItemName_Tsarcraft.TCWalkman = "Lettore portatile 'Sany Wutman'",
+    
+    
+/************ ZuperCart ************/
+
+    ItemName_TMC.TrolleyContainer = "Carrello",
+    ItemName_TMC.TrolleyContainer2 = "Carrello",
+    ItemName_TMC.CartContainer = "Carrello da supermercato",
+    ItemName_TMC.CartContainer2 = "Carrello da supermercato",
+    
+/************ Autotsar Tuning Atelier - Bumer 36E ************/
+    
+    ItemName_Autotsar.ATABMWe36TuningMag = "Rivista 'Autotsar Tuning Atelier - Bumer 36E'",
+    ItemName_Autotsar.ATABMWe36SpoilerRear1Item = "Alettone basso per Bumer 36E",
+    ItemName_Autotsar.ATABMWe36SpoilerRear2Item = "Alettone centrale per Bumer 36E",
+    ItemName_Autotsar.ATABMWe36SpoilerRear3Item = "Alettone alto per Bumer 36E",
+}
