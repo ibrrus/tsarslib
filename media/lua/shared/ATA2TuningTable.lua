@@ -30,10 +30,12 @@ if getDebug() then
 end
 
 local function logprint(str)
-    print(str)
-    if writeFile then
-        print("WRITE")
-        writeFile:write(str .. "\n");
+    if str then
+        print(str)
+        if writeFile then
+            print("WRITE")
+            writeFile:write(str .. "\n");
+        end
     end
 end
 

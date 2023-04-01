@@ -1,3 +1,15 @@
+v.2.04
+2023-04-01
+
+Обновлены переводы.
+Добавлены новые общие иконки.
+Добавлено исправление для исключения закрытия меню механика у длинных авто.
+
+Updated translations.
+Added new common icons.
+Added fix to avoid closing the mechanic menu on long cars.
+
+-------------------
 v.2.03
 2023-03-26
 

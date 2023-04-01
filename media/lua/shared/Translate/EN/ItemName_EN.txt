@@ -114,37 +114,14 @@ ItemName_EN = {
 
 /************ Autotsar Tuning Atelier - Petyarbuilt 379 ************/
     ItemName_Autotsar.ATAPetyarbuiltTuningMag = "Magazine «Autotsar Tuning Atelier - Petyarbuilt 379»",
-    ItemName_Autotsar.ATAPetyarbuiltProtectionSleeperItem = "Petyarbuilt 379 - Sleeper Protection",
-    ItemName_Autotsar.ATAPetyarbuiltProtectionRearWheelsItem = "Petyarbuilt 379 - Rear Tire Protection",
-    ItemName_Autotsar.ATAPetyarbuiltProtectionGasTankItem = "Petyarbuilt 379 - Gas Tank Protection",
-    ItemName_Autotsar.ATAPetyarbuiltProtectionSideItem = "Petyarbuilt 379 - Side Protection",
-    ItemName_Autotsar.ATAPetyarbuiltProtectionSideFrontItem = "Petyarbuilt 379 - Front Protection",
-    ItemName_Autotsar.ATAPetyarbuiltProtectionSideTopItem = "Petyarbuilt 379 - Top Protection",
 
 
 /************ Autotsar Tuning Atelier - MolksAgen Luton Van ************/
     ItemName_Autotsar.ATALutonTuningMag = "Magazine «Autotsar Tuning Atelier - MolksAgen Luton Van»",
-    ItemName_Autotsar.ATALutonProtectionSideFrontItem = "MolksAgen Luton Van - Front Protection",
-    ItemName_Autotsar.ATALutonProtectionHoodItem = "MolksAgen Luton Van - Hood Protection",
-    ItemName_Autotsar.ATALutonProtectionWindowFrontSideItem = "MolksAgen Luton Van - Side Window Protection",
-    ItemName_Autotsar.ATALutonProtectionWindowFrontItem = "MolksAgen Luton Van - Windshield Protection",
-    ItemName_Autotsar.ATALutonInteractiveTrunkRoofRackItem = "MolksAgen Luton Van - Roof Rack",
-    ItemName_Autotsar.ATALutonLadderItem = "MolksAgen Luton Van - Ladder",
 
 
 /************ Autotsar Tuning Atelier - DeRumba Van ************/
     ItemName_Autotsar.ATAVanDeRumbaTuningMag = "Magazine «Autotsar Tuning Atelier - DeRumba Van»",
-    ItemName_Autotsar.ATAVanDeRumbaBullbar1Item = "DeRumba Van - Bullbar",
-    ItemName_Autotsar.ATAVanDeRumbaBullbar2Item = "DeRumba Van - Homemade  Bullbar",
-    ItemName_Autotsar.ATAVanDeRumbaBullbar3Item = "DeRumba Van - Bullbar With Plow",
-    ItemName_Autotsar.ATAVanDeRumbaProtectionHoodItem = "DeRumba Van - Hood Protection",
-    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowFrontItem = "DeRumba Van - Windshield Protection",
-    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowFrontSideItem = "DeRumba Van - Side Window Protection",
-    ItemName_Autotsar.ATAVanDeRumbaProtectionWindowRearItem = "DeRumba Van - Rear Window Protection",
-    ItemName_Autotsar.ATAVanDeRumbaInteractiveTrunkRoofRackItem = "DeRumba Van - Roof Rack",
-    ItemName_Autotsar.ATAVanDeRumbaLadderItem = "DeRumba Van - Ladder",
-    ItemName_Autotsar.ATAVanDeRumbaRoofBaseItem = "DeRumba Van - Roof rails",
-    ItemName_Autotsar.ATAVanDeRumbRoofBoxItem = "DeRumba Van - Toolbox",
 
 
 /************ True Music ************/
