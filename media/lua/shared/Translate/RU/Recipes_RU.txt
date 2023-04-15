@@ -8,6 +8,8 @@ Recipe_RU = {
     Recipe_ATASamaraRecipes = "Тюнинг Chevalier Samara",
     Recipe_ATALutonRecipes = "Тюнинг MolksAgen Luton Van",
     Recipe_ATAPetyarbuiltRecipes = "Тюнинг Petyarbuilt 379",
+    Recipe_ATADeLorianRecipes = "Тюнинг DMG DoLorean",
+    Recipe_ATADeLorianBTTFRecipes = "Рецепт машины времени",
 
     Recipe_Cut_ATABullbar1Item = "Разрезать Кенгурятник",
     Recipe_Cut_ATABullbar2Item = "Разрезать Кенгурятник",

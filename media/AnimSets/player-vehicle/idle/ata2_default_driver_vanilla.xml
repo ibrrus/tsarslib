@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<animNode>
+    <m_Name>ata2_default_driver_vanilla</m_Name>
+    <m_SpeedScale>0.80</m_SpeedScale>
+    <m_AnimName>Bob_IdleDriving</m_AnimName>
+    <m_BlendTime>0.0</m_BlendTime>
+    <m_Conditions>
+        <m_Name>TCLAnimType</m_Name>
+        <m_Type>STRING</m_Type>
+        <m_StringValue>vanilla</m_StringValue>
+    </m_Conditions>
+    <m_Conditions>
+        <m_Name>TCLIsDriver</m_Name>
+        <m_Type>BOOL</m_Type>
+        <m_StringValue>true</m_StringValue>
+    </m_Conditions>
+</animNode>

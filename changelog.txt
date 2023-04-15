@@ -1,3 +1,15 @@
+v.2.05
+2023-04-15
+
+Добавлен код для управления анимациями персонажа, взаимодействующего с автомобилем.
+Добавлены новые иконки для меню тюнинга.
+Добавлены переводы для нового мода.
+
+Added code to control the animations of the character interacting with the car.
+Added new icons for the tuning menu.
+Added translations for the new mod.
+
+-------------------
 v.2.04
 2023-04-01
 

@@ -436,6 +436,10 @@ function ATATuning2.Create.Tuning(vehicle, part)
     ATATuning2Utils.ModelByModData(vehicle, part, item)
 end
 
+function ATATuning2.Init.setAllModelsVisible(vehicle, part)
+    part:setAllModelsVisible(true)
+end
+
 function ATATuning2.Init.Tuning(vehicle, part)
     ATATuning2Utils.ModelByModData(vehicle, part, part:getInventoryItem())
     if part:isContainer() then

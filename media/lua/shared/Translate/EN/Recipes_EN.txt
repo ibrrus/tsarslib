@@ -8,6 +8,8 @@ Recipe_EN = {
     Recipe_ATASamaraRecipes = "Chevalier Samara Tuning",
     Recipe_ATALutonRecipes = "MolksAgen Luton Van Tuning",
     Recipe_ATAPetyarbuiltRecipes = "Petyarbuilt 379 Tuning",
+    Recipe_ATADeLorianRecipes = "DMG DoLorean Tuning",
+    Recipe_ATADeLorianBTTFRecipes = "Recipe for a time machine",
 
     Recipe_Cut_ATABullbar1Item = "Cut Bullbar",
     Recipe_Cut_ATABullbar2Item = "Cut Bullbar",
