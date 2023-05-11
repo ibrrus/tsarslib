@@ -33,7 +33,7 @@ local function logprint(str)
     if str then
         print(str)
         if writeFile then
-            print("WRITE")
+            -- print("WRITE")
             writeFile:write(str .. "\n");
         end
     end
@@ -70,20 +70,30 @@ function ATA2Tuning_AddNewCars(carsTable)
         local haveError = false
         -- проверка что машина с таким имеем существует
         local scriptManager = getScriptManager()
-        local vehileScript = nil
+        local vehicleScript = nil
         if scriptManager:getVehicle(vehicleName) then
             logprint("ATA2Tuning|" ..vehicleName .. " is vehicle.")
-            vehileScript = scriptManager:getVehicle(vehicleName)
+            vehicleScript = scriptManager:getVehicle(vehicleName)
         elseif scriptManager:getVehicleTemplate(vehicleName) then
             logprint("ATA2Tuning|" ..vehicleName .. " is vehicle template.")
-            -- vehileScript = scriptManager:getVehicleTemplate(vehicleName):getScript()
+            -- vehicleScript = scriptManager:getVehicleTemplate(vehicleName):getScript()
         else
             logprint("---------- ATA2Tuning ERROR|" ..vehicleName .. " script not found.")
             haveError = true
         end
+        if vehicleScript and carTable.addPartsFromVehicleScript and carTable.addPartsFromVehicleScript ~= "" then
+            local err = incorrectType("addPartsFromVehicleScript", carTable.addPartsFromVehicleScript, "table")
+            haveError = haveError and err
+            if not err then
+                for _, scriptName in ipairs(carTable.addPartsFromVehicleScript) do
+                    vehicleScript:Load(vehicleName, "{template! = " .. scriptName .. ",}")
+                    logprint("ATA2Tuning|" ..vehicleName .. " added addPartsFromVehicleScript:" .. scriptName)
+                end
+            end
+        end
         for partName, partTable in pairs(carTable.parts) do
-            if vehileScript then
-                if vehileScript:getPartById(partName) then
+            if vehicleScript then
+                if vehicleScript:getPartById(partName) then
                     logprint("ATA2Tuning|" ..vehicleName .. "|part " .. partName .. " is found.")
                 else
                     logprint("---------- ATA2Tuning WARNING|Part not found: ".. partName)
@@ -111,7 +121,7 @@ function ATA2Tuning_AddNewCars(carsTable)
                     haveError = haveError and incorrectType("hideIfNotValid", modelTable.hideIfNotValid, "boolean")
                 end
                 -- проверка, что иконка задана строкой
-                if modelTable.icon then
+                if modelTable.icon and not isServer() then
                     local err = incorrectType("icon", modelTable.icon, "string")
                     haveError = haveError and err
                     -- проверка, что иконка существует
@@ -188,8 +198,8 @@ function ATA2Tuning_AddNewCars(carsTable)
                     local err = incorrectType("disableOpenWindowForSeat", modelTable.disableOpenWindowForSeat, "string")
                     haveError = haveError and err
                     -- проверяем, что такая запчасть существует в скрипте
-                    if not err and vehileScript then
-                        if not vehileScript:getPartById(modelTable.disableOpenWindowForSeat) then
+                    if not err and vehicleScript then
+                        if not vehicleScript:getPartById(modelTable.disableOpenWindowForSeat) then
                             logprint("---------- ATA2Tuning WARNING|disableOpenWindowForSeat: part not found: " .. modelTable.disableOpenWindowForSeat)
                         end
                     end
@@ -199,10 +209,10 @@ function ATA2Tuning_AddNewCars(carsTable)
                 if modelTable.protection then
                     local err = incorrectType("protection", modelTable.protection, "table")
                     haveError = haveError and err
-                    if not err and vehileScript then
+                    if not err and vehicleScript then
                         -- проверяем, что список защищаемых элементов есть в скрипте
                         for _, partNameProtection in ipairs(modelTable.protection) do
-                            if not vehileScript:getPartById(partNameProtection) then
+                            if not vehicleScript:getPartById(partNameProtection) then
                                 logprint("---------- ATA2Tuning WARNING|protection: part not found: " .. partNameProtection)
                             end
                         end
@@ -240,8 +250,8 @@ function ATA2Tuning_AddNewCars(carsTable)
                         if installTable.area then
                             local err2 = incorrectType("install.area", installTable.area, "string")
                             haveError = haveError and err2
-                            if not err2 and vehileScript then
-                                if not vehileScript:getAreaById(installTable.area) then
+                            if not err2 and vehicleScript then
+                                if not vehicleScript:getAreaById(installTable.area) then
                                     logprint("---------- ATA2Tuning ERROR|install AREA not found in vehicle script.")
                                     haveError = true
                                 end
@@ -340,8 +350,8 @@ function ATA2Tuning_AddNewCars(carsTable)
                         if uninstallTable.area then
                             local err2 = incorrectType("uninstall.area", uninstallTable.area, "string")
                             haveError = haveError and err2
-                            if not err2 and vehileScript then
-                                if not vehileScript:getAreaById(uninstallTable.area) then
+                            if not err2 and vehicleScript then
+                                if not vehicleScript:getAreaById(uninstallTable.area) then
                                     logprint("---------- ATA2Tuning ERROR|uninstall AREA not found in vehicle script.")
                                     haveError = true
                                 end

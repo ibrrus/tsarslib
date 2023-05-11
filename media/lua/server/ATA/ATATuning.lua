@@ -697,10 +697,17 @@ end
 
 
 function ATATuning.ContainerAccess.ATAInteractiveTrunk(vehicle, part, chr)
+    -- print("ATATuning.ContainerAccess.ATAInteractiveTrunk")
     ATATuning.ATAInteractiveTrunk(part)
     if chr:getVehicle() then return false end
     if not vehicle:isInArea(part:getArea(), chr) then return false end
     return true
+end
+
+function ATATuning.Create.DefaultATAInteractiveTrunk(vehicle, part)
+	local invItem = VehicleUtils.createPartInventoryItem(part);
+    vehicle:transmitPartItem(part)
+    ATATuning.ATAInteractiveTrunk(part)
 end
 
 function ATATuning.Create.ATAInteractiveTrunk(vehicle, part)

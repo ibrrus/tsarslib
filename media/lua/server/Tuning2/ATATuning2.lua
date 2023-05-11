@@ -441,6 +441,7 @@ function ATATuning2.Init.setAllModelsVisible(vehicle, part)
 end
 
 function ATATuning2.Init.Tuning(vehicle, part)
+    print("ATATuning2.Init.Tuning")
     ATATuning2Utils.ModelByModData(vehicle, part, part:getInventoryItem())
     if part:isContainer() then
         part:setContainerContentAmount(part:getItemContainer():getCapacityWeight());
@@ -448,7 +449,7 @@ function ATATuning2.Init.Tuning(vehicle, part)
 end
 
 function ATATuning2.InstallTest.Tuning(vehicle, part, chr)
-    -- print("ATATuning2.InstallTest.tuning")
+    print("ATATuning2.InstallTest.Tuning")
     local vehicleName = vehicle:getScript():getName()
     local partName = part:getId()
     local modelName = chr:getModData().tryInstallTuning2Model
@@ -467,7 +468,7 @@ end
 
 -- функция обязательна для всех запчастей из Tuning2
 function ATATuning2.InstallComplete.Tuning(vehicle, part)
--- print("ATATuning2.InstallComplete.Tuning")
+    print("ATATuning2.InstallComplete.Tuning")
     local item = part:getInventoryItem();
     if not item then return; end
     ATATuning2Utils.ModelByModData(vehicle, part, item)

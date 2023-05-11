@@ -48,6 +48,10 @@ module Base
         {
             area = TireFrontRight,
         }
+        part ATA2VisualWires
+        {
+            area = Engine,
+        }
         part ATA2Visual*
         {
             category = nodisplay,
