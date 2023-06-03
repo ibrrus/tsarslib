@@ -5,6 +5,15 @@ module Base
         part ATA2Bumper
         {
             area = Engine,
+        }
+        
+        part ATA2BumperRear
+        {
+            area = TruckBed,
+        }
+        
+        part ATA2Bumper*
+        {
             category = nodisplay,
             specificItem = false,
             itemType = Base.LightBulb,

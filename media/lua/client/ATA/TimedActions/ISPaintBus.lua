@@ -30,7 +30,10 @@ end
 
 function ISPaintBus:perform()
 	self.vehicle:setSkinIndex(self.skinIndex)
-    sendClientCommand(self.character, 'commonlib', 'updatePaintVehicle', {vehicle = self.vehicle:getId(),})
+    self.vehicle:updateSkin()
+    local args = { vehicle = self.vehicle:getId(), index = self.skinIndex }
+	sendClientCommand(self.character, 'vehicle', 'setSkinIndex', args)
+    -- sendClientCommand(self.character, 'commonlib', 'updatePaintVehicle', {vehicle = self.vehicle:getId(), index = self.skinIndex})
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end

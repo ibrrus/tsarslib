@@ -3,11 +3,13 @@ ItemName_RU = {
     ItemName_ATA2.ATABullbarPoliceItem1 = "Кенгурятник полицейский",
     ItemName_ATA2.ATABullbar1Item = "Кенгурятник стандартный",
     ItemName_ATA2.ATABullbar2Item = "Кенгурятник полицейский",
+    ItemName_ATA2.ATABullbar3Item = "Кенгурятник с фарами",
     ItemName_ATA2.ATAFendersWideItem = "Широкие арки",
     ItemName_ATA2.ATASkirtsSideItem = "Юбки боковых порогов",
     ItemName_ATA2.ATASpoilerFrontItem = "Губа переднего бампера",
     ItemName_ATA2.ATASpoilerRear1Item = "Спойлер стандартный",
     ItemName_ATA2.ATASpoilerRear2Item = "Спойлер высокий",
+    ItemName_ATA2.ATAFrontRoofLightItem = "Фонари для крыши",
 
 
 /* transport_item.txt */
@@ -144,4 +146,17 @@ ItemName_RU = {
     ItemName_Autotsar.ATABMWe36SpoilerRear1Item = "Bumer 36E - спойлер низкий",
     ItemName_Autotsar.ATABMWe36SpoilerRear2Item = "Bumer 36E - спойлер средний",
     ItemName_Autotsar.ATABMWe36SpoilerRear3Item = "Bumer 36E - спойлер высокий",
+    
+/************ Autotsar Tuning Atelier - Dadsun 240Z ************/
+    ItemName_Autotsar.ATATuningDatsun240z = "Журнал «Autotsar Tuning Atelier - Dadsun 240Z»",
+    ItemName_Autotsar.ATADatsun240zBumperItem = "Dadsun 240Z - передний бампер",
+    ItemName_Autotsar.ATADatsun240zBumperRearItem = "Dadsun 240Z - задний бампер",
+    ItemName_Autotsar.ATADatsun240zHood2Item3 = "Dadsun 240Z - капот с вентиляцией",
+    
+/************ Autotsar Tuning Atelier - Mustang 66 ************/
+    ItemName_Autotsar.ATAMustang66BumperItem = "Fjord Mustard '66 - передний бампер",
+    ItemName_Autotsar.ATAMustang66BumperRearItem = "Fjord Mustard '66 - задний бампер",
+    ItemName_Autotsar.ATAMustang66Hood2Item3 = "Fjord Mustard '66 - капот с вентиляцией",
+    ItemName_Autotsar.ATAMustang66Hood3Item3 = "Fjord Mustard '66 - капот дутый",
+    ItemName_Autotsar.ATAMustang66TrunkDoor3 = "Fjord Mustard '66 - крышка багажника мод.",
 }

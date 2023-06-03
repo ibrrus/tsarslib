@@ -695,13 +695,25 @@ function ATATuning.ATAInteractiveTrunk(part)
     end
 end
 
-
+-- @Deprecated 2023_05_27. Use - ATATuning.ContainerAccess.ATAInteractiveTruckBedOpen
 function ATATuning.ContainerAccess.ATAInteractiveTrunk(vehicle, part, chr)
     -- print("ATATuning.ContainerAccess.ATAInteractiveTrunk")
     ATATuning.ATAInteractiveTrunk(part)
     if chr:getVehicle() then return false end
     if not vehicle:isInArea(part:getArea(), chr) then return false end
     return true
+end
+
+function ATATuning.ContainerAccess.ATAInteractiveTruckBedOpen(vehicle, part, chr)
+    -- print("ATATuning.ContainerAccess.ATAInteractiveTrunk")
+    ATATuning.ATAInteractiveTrunk(part)
+    return Vehicles.ContainerAccess.TruckBedOpen(vehicle, part, chr)
+end
+
+function ATATuning.ContainerAccess.ATAInteractiveTruckBed(vehicle, part, chr)
+    -- print("ATATuning.ContainerAccess.ATAInteractiveTrunk")
+    ATATuning.ATAInteractiveTrunk(part)
+    return Vehicles.ContainerAccess.TruckBed(vehicle, part, chr)
 end
 
 function ATATuning.Create.DefaultATAInteractiveTrunk(vehicle, part)

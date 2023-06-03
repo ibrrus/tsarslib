@@ -60,7 +60,7 @@ module Base
 
         part ATA2RoofLight*
         {
-            category = lights,
+            category = nodisplay,
             specificItem = false,
             itemType = Base.ATARoofLightItem,
             mechanicRequireKey = false,

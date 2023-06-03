@@ -21,6 +21,13 @@ function ATATuning2.ContainerAccess.BlockSeat(vehicle, part, playerObj)
 end
 
 
+function ATATuning2.Create.NoSpawnEvenTextures(vehicle, part)
+    if (vehicle:getSkinIndex()%2) == 1 then
+        vehicle:setSkinIndex(vehicle:getSkinIndex()-1)
+        vehicle:updateSkin()
+    end
+end
+
 function ATATuning2.Create.Chance0(vehicle, part)
     part:setInventoryItem(nil) -- + vehicle:transmitPartItem(part)
     vehicle:transmitPartItem(part)
@@ -323,7 +330,7 @@ function ATATuning2Utils.ModelByModData(vehicle, part, item)
     local vehicleName = vehicle:getScript():getName()
     local partName = part:getId()
     if not part:getItemType() or part:getItemType():isEmpty() then
-        print("ATATuning2Utils.ModelByModData ERROR: не предусмотренное использование функции")
+        -- print("ATATuning2Utils.ModelByModData ERROR: не предусмотренное использование функции")
         part:setModelVisible("Default", true)
         part:setModelVisible("StaticPart", true)
     else
@@ -340,6 +347,13 @@ function ATATuning2Utils.ModelByModData(vehicle, part, item)
                         -- активируем вторую модель (пример использования - анимированная защита для окон)
                         if modelInfo.secondModel then
                             part:setModelVisible(modelInfo.secondModel, true)
+                        end
+                        
+                        -- активируем другие модели
+                        if modelInfo.modelList then
+                            for _, newModelName in ipairs(modelInfo.modelList) do
+                                part:setModelVisible(newModelName, true)
+                            end
                         end
                         
                         -- активируем модели на всех защищаемых предметах (пример использования - цепи на колеса)
@@ -410,6 +424,9 @@ function ATATuning2Utils.ModelByModData(vehicle, part, item)
                 end
                 part:getModData().tuning2.setModelForAnotherPart = nil
                 vehicle:transmitPartModData(part)
+            elseif item then
+                part:setInventoryItem(nil)
+                vehicle:transmitPartItem(part)
             end
         end
     end
@@ -441,7 +458,7 @@ function ATATuning2.Init.setAllModelsVisible(vehicle, part)
 end
 
 function ATATuning2.Init.Tuning(vehicle, part)
-    print("ATATuning2.Init.Tuning")
+    -- print("ATATuning2.Init.Tuning")
     ATATuning2Utils.ModelByModData(vehicle, part, part:getInventoryItem())
     if part:isContainer() then
         part:setContainerContentAmount(part:getItemContainer():getCapacityWeight());
@@ -449,7 +466,7 @@ function ATATuning2.Init.Tuning(vehicle, part)
 end
 
 function ATATuning2.InstallTest.Tuning(vehicle, part, chr)
-    print("ATATuning2.InstallTest.Tuning")
+    -- print("ATATuning2.InstallTest.Tuning")
     local vehicleName = vehicle:getScript():getName()
     local partName = part:getId()
     local modelName = chr:getModData().tryInstallTuning2Model
@@ -468,7 +485,7 @@ end
 
 -- функция обязательна для всех запчастей из Tuning2
 function ATATuning2.InstallComplete.Tuning(vehicle, part)
-    print("ATATuning2.InstallComplete.Tuning")
+    -- print("ATATuning2.InstallComplete.Tuning")
     local item = part:getInventoryItem();
     if not item then return; end
     ATATuning2Utils.ModelByModData(vehicle, part, item)

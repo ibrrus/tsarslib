@@ -1,3 +1,19 @@
+v.2.06
+2023-06-03
+
+Исправлена ошибка связанная с нанесением граффити на автомобили.
+Добавлен функционал для управления скинами автомобиля при спавне.
+Отключена проверка иконок для сервера.
+Невидимый тюнинг больше не появляется при ремонте автомобиля через читы.
+Добавлены переводы для новых модов.
+
+Fixed a bug with graffiti on cars.
+Added functionality to control vehicle skins when spawning.
+Disabled checking icons for server.
+Invisible tuning no longer appears when repairing a car through cheats.
+Added translations for new mods.
+
+-------------------
 v.2.05
 2023-04-15
 

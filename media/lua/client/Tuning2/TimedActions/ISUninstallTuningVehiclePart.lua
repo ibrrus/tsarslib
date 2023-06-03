@@ -100,7 +100,6 @@ function ISUninstallTuningVehiclePart:new(character, part, time, modelName)
 	o.vehicle = part:getVehicle()
 	o.part = part
 	o.modelName = modelName
-	o.secondModel = secondModel
 	o.resultTable = resultTable
     o.maxTime = (time - (character:getPerkLevel(Perks.Mechanics) * (time/15))) * 100;
 	if character:isTimedActionInstant() then

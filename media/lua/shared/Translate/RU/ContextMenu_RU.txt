@@ -69,6 +69,7 @@ ContextMenu_RU = {
     
 /************ Autotsar Tuning Atelier - Bus ************/
     ContextMenu_Vehicle_EGNH = "Написать «EGNH»",
+    ContextMenu_Vehicle_STRAYS = "Написать «STRAYS»",
 
 /************ Autotsar Trailers ************/
     ContextMenu_Close_trunk = "Закрыть багажник",

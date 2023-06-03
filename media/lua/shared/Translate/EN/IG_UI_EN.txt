@@ -24,6 +24,8 @@ IGUI_EN = {
 
     IGUI_ATA2_Bumper = "Bumper",
     IGUI_ATA2_Bumper_Classic = "Classic Bumper",
+    IGUI_ATA2_Bumper_Rear_Classic = "Classic Rear Bumper",
+    IGUI_ATA2_Bumper_Rear_Handmade = "Handmade Rear Bumper",
     IGUI_ATA2_Bumper_Winch = "Winch Bumper",
     IGUI_ATA2_Bumper_Lethal = "Lethal Bumper",
 
@@ -529,4 +531,7 @@ IGUI_EN = {
     IGUI_VehicleNameATASamaraClassic = "Chevalier Samara",
     IGUI_VehicleNameATASamaraPolice = "Chevalier Samara",
     IGUI_VehicleNameATADeLorean = "DMG DoLorean",
+    IGUI_VehicleNameATADatsun240z = "Dadsun 240z",
+    IGUI_VehicleNameATAMustang66 = "Fjord Mustard '66",
+    IGUI_VehicleNameATAMustang66Custom = "Fjord Mustard '66",
 }

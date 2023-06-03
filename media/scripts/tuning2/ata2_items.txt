@@ -127,6 +127,38 @@ module ATA2
        NeedToBeLearn:false,
     }
 
+    model ATABullbar3World
+    {
+        mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_light,
+        texture = WorldItems/ATA_Datsun_details,
+        scale = 0.5,
+    }
+    item ATABullbar3Item /* Vehicle */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    10.0,
+        Type    =    Normal,
+        DisplayName    = ATABullbar3Item,
+        Icon    =    ATABullbar3Item,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 25,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATABullbar3World,
+    }
+    recipe Cut ATABullbar3Item
+    {
+       ATABullbar3Item=1,
+       BlowTorch=4,
+       keep WeldingMask,
+       Result:MetalPipe=6,
+       Time:350.0,
+       Category:Welding,
+       SkillRequired:MetalWelding=2,
+       OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
 
     fixing Fix ATABullbar
     {
@@ -211,6 +243,37 @@ module ATA2
         NeedToBeLearn:false,
     }
 
+    model ATAFrontRoofLightWorld
+    {
+        mesh = WorldItems/ATA_Datsun_Mustang_Items|Roof_light,
+        texture = WorldItems/ATA_Datsun_details,
+        scale = 0.5,
+    }
+    item ATAFrontRoofLightItem /* Spawn */
+    {
+        DisplayCategory = Tuning,
+        Weight    =    2.0,
+        Type    =    Normal,
+        DisplayName    = ATAFrontRoofLightItem,
+        Icon    =    ATAFrontRoofLightItem,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATAFrontRoofLightWorld,
+    }
+    recipe Cut ATAFrontRoofLightItem
+    {
+        ATAFrontRoofLightItem=1,
+        BlowTorch=3,
+        keep WeldingMask,
+        Result:UnusableMetal=4,
+        Time:350.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn:false,
+    }
 
     model ATASpoilerFrontWorld
     {

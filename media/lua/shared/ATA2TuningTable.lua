@@ -138,7 +138,14 @@ function ATA2Tuning_AddNewCars(carsTable)
                 if modelTable.secondModel then
                     haveError = haveError and incorrectType("secondModel", modelTable.secondModel, "string")
                 end
-
+                -- проверка, что параметр задан таблицей
+                if modelTable.modelList then
+                    local err = incorrectType("modelList", modelTable.modelList, "table")
+                    haveError = haveError and err
+                    if err then
+                        print("modelList must be table")
+                    end
+                end
                 -- проверка, что параметр задан строкой
                 if modelTable.category then
                     haveError = haveError and incorrectType("category", modelTable.category, "string")
